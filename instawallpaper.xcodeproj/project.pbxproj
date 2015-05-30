@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AC1B19EB8E006F2F65 /* AppDelegate.swift */; };
+		595101AF1B19EB8E006F2F65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AE1B19EB8E006F2F65 /* ViewController.swift */; };
+		595101B21B19EB8E006F2F65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 595101B01B19EB8E006F2F65 /* Main.storyboard */; };
+		595101B41B19EB8E006F2F65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 595101B31B19EB8E006F2F65 /* Images.xcassets */; };
+		595101B71B19EB8E006F2F65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595101B51B19EB8E006F2F65 /* LaunchScreen.xib */; };
+		595101C31B19EB8E006F2F65 /* instawallpaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		595101BD1B19EB8E006F2F65 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5951019F1B19EB8D006F2F65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 595101A61B19EB8E006F2F65;
+			remoteInfo = instawallpaper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		595101A71B19EB8E006F2F65 /* instawallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instawallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		595101AB1B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		595101AC1B19EB8E006F2F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		595101AE1B19EB8E006F2F65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		595101B11B19EB8E006F2F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		595101B31B19EB8E006F2F65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		595101B61B19EB8E006F2F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		595101BC1B19EB8E006F2F65 /* instawallpaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instawallpaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		595101C11B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instawallpaperTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		595101A41B19EB8E006F2F65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		595101B91B19EB8E006F2F65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5951019E1B19EB8D006F2F65 = {
+			isa = PBXGroup;
+			children = (
+				595101A91B19EB8E006F2F65 /* instawallpaper */,
+				595101BF1B19EB8E006F2F65 /* instawallpaperTests */,
+				595101A81B19EB8E006F2F65 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		595101A81B19EB8E006F2F65 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				595101A71B19EB8E006F2F65 /* instawallpaper.app */,
+				595101BC1B19EB8E006F2F65 /* instawallpaperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		595101A91B19EB8E006F2F65 /* instawallpaper */ = {
+			isa = PBXGroup;
+			children = (
+				595101AC1B19EB8E006F2F65 /* AppDelegate.swift */,
+				595101AE1B19EB8E006F2F65 /* ViewController.swift */,
+				595101B01B19EB8E006F2F65 /* Main.storyboard */,
+				595101B31B19EB8E006F2F65 /* Images.xcassets */,
+				595101B51B19EB8E006F2F65 /* LaunchScreen.xib */,
+				595101AA1B19EB8E006F2F65 /* Supporting Files */,
+			);
+			path = instawallpaper;
+			sourceTree = "<group>";
+		};
+		595101AA1B19EB8E006F2F65 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				595101AB1B19EB8E006F2F65 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		595101BF1B19EB8E006F2F65 /* instawallpaperTests */ = {
+			isa = PBXGroup;
+			children = (
+				595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */,
+				595101C01B19EB8E006F2F65 /* Supporting Files */,
+			);
+			path = instawallpaperTests;
+			sourceTree = "<group>";
+		};
+		595101C01B19EB8E006F2F65 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				595101C11B19EB8E006F2F65 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		595101A61B19EB8E006F2F65 /* instawallpaper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 595101C61B19EB8E006F2F65 /* Build configuration list for PBXNativeTarget "instawallpaper" */;
+			buildPhases = (
+				595101A31B19EB8E006F2F65 /* Sources */,
+				595101A41B19EB8E006F2F65 /* Frameworks */,
+				595101A51B19EB8E006F2F65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = instawallpaper;
+			productName = instawallpaper;
+			productReference = 595101A71B19EB8E006F2F65 /* instawallpaper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		595101BB1B19EB8E006F2F65 /* instawallpaperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 595101C91B19EB8E006F2F65 /* Build configuration list for PBXNativeTarget "instawallpaperTests" */;
+			buildPhases = (
+				595101B81B19EB8E006F2F65 /* Sources */,
+				595101B91B19EB8E006F2F65 /* Frameworks */,
+				595101BA1B19EB8E006F2F65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				595101BE1B19EB8E006F2F65 /* PBXTargetDependency */,
+			);
+			name = instawallpaperTests;
+			productName = instawallpaperTests;
+			productReference = 595101BC1B19EB8E006F2F65 /* instawallpaperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5951019F1B19EB8D006F2F65 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Kenichiro Sato";
+				TargetAttributes = {
+					595101A61B19EB8E006F2F65 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					595101BB1B19EB8E006F2F65 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 595101A61B19EB8E006F2F65;
+					};
+				};
+			};
+			buildConfigurationList = 595101A21B19EB8D006F2F65 /* Build configuration list for PBXProject "instawallpaper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5951019E1B19EB8D006F2F65;
+			productRefGroup = 595101A81B19EB8E006F2F65 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				595101A61B19EB8E006F2F65 /* instawallpaper */,
+				595101BB1B19EB8E006F2F65 /* instawallpaperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		595101A51B19EB8E006F2F65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				595101B21B19EB8E006F2F65 /* Main.storyboard in Resources */,
+				595101B71B19EB8E006F2F65 /* LaunchScreen.xib in Resources */,
+				595101B41B19EB8E006F2F65 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		595101BA1B19EB8E006F2F65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		595101A31B19EB8E006F2F65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				595101AF1B19EB8E006F2F65 /* ViewController.swift in Sources */,
+				595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		595101B81B19EB8E006F2F65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				595101C31B19EB8E006F2F65 /* instawallpaperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		595101BE1B19EB8E006F2F65 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 595101A61B19EB8E006F2F65 /* instawallpaper */;
+			targetProxy = 595101BD1B19EB8E006F2F65 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		595101B01B19EB8E006F2F65 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				595101B11B19EB8E006F2F65 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		595101B51B19EB8E006F2F65 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				595101B61B19EB8E006F2F65 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		595101C41B19EB8E006F2F65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		595101C51B19EB8E006F2F65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		595101C71B19EB8E006F2F65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = instawallpaper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		595101C81B19EB8E006F2F65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = instawallpaper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		595101CA1B19EB8E006F2F65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = instawallpaperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/instawallpaper.app/instawallpaper";
+			};
+			name = Debug;
+		};
+		595101CB1B19EB8E006F2F65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = instawallpaperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/instawallpaper.app/instawallpaper";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		595101A21B19EB8D006F2F65 /* Build configuration list for PBXProject "instawallpaper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				595101C41B19EB8E006F2F65 /* Debug */,
+				595101C51B19EB8E006F2F65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		595101C61B19EB8E006F2F65 /* Build configuration list for PBXNativeTarget "instawallpaper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				595101C71B19EB8E006F2F65 /* Debug */,
+				595101C81B19EB8E006F2F65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		595101C91B19EB8E006F2F65 /* Build configuration list for PBXNativeTarget "instawallpaperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				595101CA1B19EB8E006F2F65 /* Debug */,
+				595101CB1B19EB8E006F2F65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5951019F1B19EB8D006F2F65 /* Project object */;
+}
