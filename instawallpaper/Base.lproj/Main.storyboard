@@ -31,6 +31,9 @@
                                 <state key="normal" title="GO">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onGoButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z4l-Gg-fk1"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z73-ZB-21O">
                                 <rect key="frame" x="137" y="190" width="320" height="320"/>
