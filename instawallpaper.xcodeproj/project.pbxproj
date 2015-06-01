@@ -13,6 +13,7 @@
 		595101B41B19EB8E006F2F65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 595101B31B19EB8E006F2F65 /* Images.xcassets */; };
 		595101B71B19EB8E006F2F65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595101B51B19EB8E006F2F65 /* LaunchScreen.xib */; };
 		595101C31B19EB8E006F2F65 /* instawallpaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */; };
+		595101CD1B1A87D7006F2F65 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101CC1B1A87D7006F2F65 /* ImageUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		595101BC1B19EB8E006F2F65 /* instawallpaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instawallpaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		595101C11B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instawallpaperTests.swift; sourceTree = "<group>"; };
+		595101CC1B1A87D7006F2F65 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				595101AC1B19EB8E006F2F65 /* AppDelegate.swift */,
 				595101AE1B19EB8E006F2F65 /* ViewController.swift */,
+				595101CC1B1A87D7006F2F65 /* ImageUtil.swift */,
 				595101B01B19EB8E006F2F65 /* Main.storyboard */,
 				595101B31B19EB8E006F2F65 /* Images.xcassets */,
 				595101B51B19EB8E006F2F65 /* LaunchScreen.xib */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				595101CD1B1A87D7006F2F65 /* ImageUtil.swift in Sources */,
 				595101AF1B19EB8E006F2F65 /* ViewController.swift in Sources */,
 				595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */,
 			);

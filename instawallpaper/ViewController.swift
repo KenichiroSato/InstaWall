@@ -36,6 +36,10 @@ class ViewController: UIViewController {
     @IBAction func onGoButtonClicked(sender: AnyObject) {
         if let url = NSURL(string: urlTextFIeld.text) {
             setImage(url)
+            if let image = imageView.image {
+                let backColor = ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.BOTTOM)
+                self.view.backgroundColor = backColor
+            }
         }
     }
     
