@@ -10,12 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    static private let DEFAULT_IMAGE_URL = "https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/e15/11378548_441947802652148_854370825_n.jpg"
+    static private let DEFAULT_IMAGE_URL = "http://ecx.images-amazon.com/images/I/71HH7D7Z66L._SX425_.jpg"
+    
+    static private let GRADATION_HEIGHT: CGFloat = 20.0
     
     @IBOutlet weak var urlTextFIeld: UITextField!
     @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var bottomBackground: UIView!
+    @IBOutlet weak var topBackground: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         urlTextFIeld.text = ViewController.DEFAULT_IMAGE_URL
@@ -37,10 +41,50 @@ class ViewController: UIViewController {
         if let url = NSURL(string: urlTextFIeld.text) {
             setImage(url)
             if let image = imageView.image {
-                let backColor = ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.BOTTOM)
-                self.view.backgroundColor = backColor
+                updateBackground(image)
             }
         }
+    }
+    
+    private func updateBackground(image: UIImage) {
+        updateTopBackground(image)
+        updateBottomBackground(image)
+    }
+    
+    private func updateTopBackground(image: UIImage) {
+        let backColor = ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.TOP)
+        topBackground.backgroundColor = backColor
+        
+        let startColor  = backColor
+        let endColor = backColor.colorWithAlphaComponent(0.0)
+        //let endColor = UIColor(white: 1.0, alpha: 0.0)
+        let gradientColors: [CGColor] = [startColor.CGColor, endColor.CGColor]
+        
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        var frame: CGRect = imageView.bounds
+        frame.size.height = ViewController.GRADATION_HEIGHT
+        gradientLayer.frame = frame
+        
+        imageView.layer.addSublayer(gradientLayer)
+    }
+    
+    private func updateBottomBackground(image: UIImage) {
+        let backColor = ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.BOTTOM)
+        bottomBackground.backgroundColor = backColor
+
+        let startColor  = backColor.colorWithAlphaComponent(0.0)
+        let endColor = backColor
+        let gradientColors: [CGColor] = [startColor.CGColor, endColor.CGColor]
+        
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        var frame: CGRect = imageView.bounds
+        frame.size.height = ViewController.GRADATION_HEIGHT
+        frame.origin.y = imageView.bounds.size.height - ViewController.GRADATION_HEIGHT
+        gradientLayer.frame = frame
+        
+        imageView.layer.addSublayer(gradientLayer)
     }
     
     override func didReceiveMemoryWarning() {

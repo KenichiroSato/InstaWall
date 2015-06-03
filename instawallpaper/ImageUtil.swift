@@ -12,7 +12,7 @@ import UIKit
 
 public class ImageUtil {
     
-    static private let COLOR_LIKENESS_THRESHOLD: CGFloat = 10
+    static private let COLOR_LIKENESS_THRESHOLD: CGFloat = 20
     
     static private let DEFAULT_COLOR = UIColor.whiteColor()
     

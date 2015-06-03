@@ -18,16 +18,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WLL-h0-QTz">
-                                <rect key="frame" x="43" y="56" width="515" height="30"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lab-Pn-ME6">
+                                <rect key="frame" x="137" y="28" width="320" height="366"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WhG-s7-7vF">
+                                <rect key="frame" x="131" y="378" width="326" height="190"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WLL-h0-QTz">
+                                <rect key="frame" x="43" y="56" width="446" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" id="wao-5m-y5Q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ob-2T-ggC">
-                                <rect key="frame" x="282" y="127" width="30" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z73-ZB-21O">
+                                <rect key="frame" x="137" y="190" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="z73-ZB-21O" secondAttribute="height" multiplier="1:1" id="3xQ-9N-Vxd"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ob-2T-ggC">
+                                <rect key="frame" x="521" y="56" width="30" height="30"/>
                                 <state key="normal" title="GO">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -35,27 +49,33 @@
                                     <action selector="onGoButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z4l-Gg-fk1"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z73-ZB-21O">
-                                <rect key="frame" x="137" y="190" width="320" height="320"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="z73-ZB-21O" secondAttribute="height" multiplier="1:1" id="3xQ-9N-Vxd"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WhG-s7-7vF" secondAttribute="trailing" id="4eX-Qi-Wf8"/>
                             <constraint firstItem="WLL-h0-QTz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="BZr-4c-cRz"/>
-                            <constraint firstItem="5Ob-2T-ggC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="100" id="DYI-Km-jrR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WLL-h0-QTz" secondAttribute="trailing" constant="10" id="V52-qS-xMZ"/>
+                            <constraint firstItem="WhG-s7-7vF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CBz-yW-tPf"/>
+                            <constraint firstItem="5Ob-2T-ggC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" priority="1" constant="100" id="DYI-Km-jrR"/>
+                            <constraint firstItem="WhG-s7-7vF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Hdd-fE-mW1"/>
+                            <constraint firstItem="5Ob-2T-ggC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="Kas-6Y-ase"/>
+                            <constraint firstItem="WLL-h0-QTz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="OAX-Ub-LsX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WLL-h0-QTz" secondAttribute="trailing" constant="60" id="V52-qS-xMZ"/>
                             <constraint firstItem="z73-ZB-21O" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wgd-xz-nfR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="z73-ZB-21O" secondAttribute="trailing" id="aZ5-fa-axy"/>
                             <constraint firstAttribute="centerX" secondItem="z73-ZB-21O" secondAttribute="centerX" id="eyV-lp-tEa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5Ob-2T-ggC" secondAttribute="trailing" constant="100" id="roU-jw-n9X"/>
+                            <constraint firstItem="Lab-Pn-ME6" firstAttribute="top" secondItem="WLL-h0-QTz" secondAttribute="top" priority="1" id="hEH-ZX-cd1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WhG-s7-7vF" secondAttribute="bottom" id="jFy-iT-NGa"/>
+                            <constraint firstItem="Lab-Pn-ME6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jnO-aj-ZiZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Ob-2T-ggC" secondAttribute="trailing" id="roU-jw-n9X"/>
+                            <constraint firstAttribute="centerY" secondItem="z73-ZB-21O" secondAttribute="centerY" id="v8g-Zt-z72"/>
+                            <constraint firstAttribute="trailing" secondItem="Lab-Pn-ME6" secondAttribute="trailing" id="zLZ-5q-vMA"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomBackground" destination="WhG-s7-7vF" id="Hr3-EK-85h"/>
                         <outlet property="goButton" destination="5Ob-2T-ggC" id="ub5-d2-ttC"/>
                         <outlet property="imageView" destination="z73-ZB-21O" id="HEP-MZ-21u"/>
+                        <outlet property="topBackground" destination="Lab-Pn-ME6" id="kIG-66-sDS"/>
                         <outlet property="urlTextFIeld" destination="WLL-h0-QTz" id="fYW-Rr-vLX"/>
                     </connections>
                 </viewController>
