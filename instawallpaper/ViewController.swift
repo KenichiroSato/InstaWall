@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    static private let DEFAULT_IMAGE_URL = "http://ecx.images-amazon.com/images/I/71HH7D7Z66L._SX425_.jpg"
+    static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3iIhzJRm5s/"
     
     static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
     
