@@ -52,6 +52,7 @@ class ViewController: UIViewController {
             img = UIImage(data:imageData) {
                 imageView.image = img
                 updateBackground(img)
+                storeImage()
         }
     }
     
@@ -81,6 +82,22 @@ class ViewController: UIViewController {
         let startColor  = backColor.colorWithAlphaComponent(0.0)
         let endColor = backColor
         bottomGradientLayer.colors = [startColor.CGColor, endColor.CGColor]
+    }
+    
+    private func storeImage() {
+        UIGraphicsBeginImageContext(view.frame.size);
+        self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        if (PictureManager.isAuthorized()) {
+            PictureManager.saveImage(image, completion: { result in
+                println("saved!!")
+            })
+        } else {
+            PictureManager.requestAnthorization()
+        }
     }
     
     override func didReceiveMemoryWarning() {
