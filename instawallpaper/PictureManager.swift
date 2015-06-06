@@ -26,7 +26,8 @@ public class PictureManager {
     }
     
     class func isAuthorized() -> Bool {
-        return PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.Authorized || PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.NotDetermined
+        return PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.Authorized ||
+            PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.NotDetermined
     }
     
     class func saveImage(image: UIImage, completion: ((result: PhotoAlbumUtilResult) -> ())?) {
@@ -66,7 +67,7 @@ public class PictureManager {
             let assetPlaceholder = result.placeholderForCreatedAsset
             let albumChangeRequset = PHAssetCollectionChangeRequest(forAssetCollection: album)
             albumChangeRequset.addAssets([assetPlaceholder])
-            }, completionHandler: { (isSuccess: Bool, error: NSError!) in
+            }, completionHandler: { (isSuccess, error) in
                 if isSuccess {
                     completion?(result: .SUCCESS)
                 } else{

@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     static private let DEFAULT_IMAGE_URL = "http://ecx.images-amazon.com/images/I/71HH7D7Z66L._SX425_.jpg"
     
+    static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
+    
     static private let GRADATION_HEIGHT: CGFloat = 20.0
     
     @IBOutlet weak var urlTextFIeld: UITextField!
@@ -42,7 +44,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onGoButtonClicked(sender: AnyObject) {
-        if let url = NSURL(string: urlTextFIeld.text) {
+        urlTextFIeld.resignFirstResponder() // close keyborad
+        if let url = NSURL(string: urlTextFIeld.text + ViewController.INSTAGRAM_URL_SUFFIX) {
             setImage(url)
         }
     }
@@ -85,7 +88,7 @@ class ViewController: UIViewController {
     }
     
     private func storeImage() {
-        UIGraphicsBeginImageContext(view.frame.size);
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
         self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
         
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
