@@ -32,16 +32,21 @@ class ViewController: UIViewController {
     }
     
     private func setupGradientLayers() {
+        
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        
         var topFrame: CGRect = imageView.bounds
         topFrame.size.height = ViewController.GRADATION_HEIGHT
+        topFrame.size.width = screenWidth
         topGradientLayer.frame = topFrame
         imageView.layer.addSublayer(topGradientLayer)
 
         var bottomFrame: CGRect = imageView.bounds
         bottomFrame.size.height = ViewController.GRADATION_HEIGHT
-        bottomFrame.origin.y = imageView.bounds.size.height - ViewController.GRADATION_HEIGHT
+        bottomFrame.origin.y = screenWidth  - ViewController.GRADATION_HEIGHT
+        bottomFrame.size.width = screenWidth
         bottomGradientLayer.frame = bottomFrame
-        imageView.layer.addSublayer(bottomGradientLayer)
+        imageView.layer.addSublayer(bottomGradientLayer)        
     }
     
     @IBAction func onGoButtonClicked(sender: AnyObject) {
