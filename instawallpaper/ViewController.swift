@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var urlTextFIeld: UITextField!
     @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var parentPictureView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bottomBackground: UIView!
     @IBOutlet weak var topBackground: UIView!
@@ -89,7 +90,8 @@ class ViewController: UIViewController {
     
     private func storeImage() {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
-        self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        //self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        parentPictureView.layer.renderInContext(UIGraphicsGetCurrentContext())
         
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
