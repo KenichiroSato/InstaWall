@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    static private let DEFAULT_IMAGE_URL = "http://ecx.images-amazon.com/images/I/71HH7D7Z66L._SX425_.jpg"
+    static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3iIhzJRm5s/"
+    
+    static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
     
     static private let GRADATION_HEIGHT: CGFloat = 20.0
     
@@ -42,7 +44,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onGoButtonClicked(sender: AnyObject) {
-        if let url = NSURL(string: urlTextFIeld.text) {
+        urlTextFIeld.resignFirstResponder() // close keyborad
+        if let url = NSURL(string: urlTextFIeld.text + ViewController.INSTAGRAM_URL_SUFFIX) {
             setImage(url)
         }
     }
@@ -52,6 +55,7 @@ class ViewController: UIViewController {
             img = UIImage(data:imageData) {
                 imageView.image = img
                 updateBackground(img)
+                storeImage()
         }
     }
     
@@ -81,6 +85,22 @@ class ViewController: UIViewController {
         let startColor  = backColor.colorWithAlphaComponent(0.0)
         let endColor = backColor
         bottomGradientLayer.colors = [startColor.CGColor, endColor.CGColor]
+    }
+    
+    private func storeImage() {
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
+        self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        if (PictureManager.isAuthorized()) {
+            PictureManager.saveImage(image, completion: { result in
+                println("saved!!")
+            })
+        } else {
+            PictureManager.requestAnthorization()
+        }
     }
     
     override func didReceiveMemoryWarning() {
