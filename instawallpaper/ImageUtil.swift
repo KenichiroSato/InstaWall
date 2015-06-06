@@ -2,7 +2,7 @@
 //  ImageUtil.swift
 //  instawallpaper
 //
-//  Created by 佐藤健一朗 on 2015/05/31.
+//  Created by Kenichiro Sato on 2015/05/31.
 //  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.
 //
 
