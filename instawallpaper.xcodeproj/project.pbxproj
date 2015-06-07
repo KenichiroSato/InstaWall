@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614AB61B2413D700B3CE59 /* TimeTracker.swift */; };
-		3D614AB91B2413D700B3CE59 /* DebugUtil.swift~ in Resources */ = {isa = PBXBuildFile; fileRef = 3D614AB71B2413D700B3CE59 /* DebugUtil.swift~ */; };
 		595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AC1B19EB8E006F2F65 /* AppDelegate.swift */; };
 		595101AF1B19EB8E006F2F65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AE1B19EB8E006F2F65 /* ViewController.swift */; };
 		595101B21B19EB8E006F2F65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 595101B01B19EB8E006F2F65 /* Main.storyboard */; };
@@ -31,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		3D614AB61B2413D700B3CE59 /* TimeTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
-		3D614AB71B2413D700B3CE59 /* DebugUtil.swift~ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "DebugUtil.swift~"; sourceTree = "<group>"; };
 		595101A71B19EB8E006F2F65 /* instawallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instawallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		595101AB1B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101AC1B19EB8E006F2F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				599E46AA1B227DDB005CE654 /* PictureManager.swift */,
 				595101CC1B1A87D7006F2F65 /* ImageUtil.swift */,
 				3D614AB61B2413D700B3CE59 /* TimeTracker.swift */,
-				3D614AB71B2413D700B3CE59 /* DebugUtil.swift~ */,
 				595101B01B19EB8E006F2F65 /* Main.storyboard */,
 				595101B31B19EB8E006F2F65 /* Images.xcassets */,
 				595101B51B19EB8E006F2F65 /* LaunchScreen.xib */,
@@ -206,7 +203,6 @@
 			files = (
 				595101B21B19EB8E006F2F65 /* Main.storyboard in Resources */,
 				595101B71B19EB8E006F2F65 /* LaunchScreen.xib in Resources */,
-				3D614AB91B2413D700B3CE59 /* DebugUtil.swift~ in Resources */,
 				595101B41B19EB8E006F2F65 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
