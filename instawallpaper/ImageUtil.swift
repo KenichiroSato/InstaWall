@@ -12,7 +12,7 @@ import UIKit
 
 public class ImageUtil {
     
-    static private let COLOR_LIKENESS_THRESHOLD: CGFloat = 20
+    static private let COLOR_LIKENESS_THRESHOLD: CGFloat = 0.01
     
     static private let DEFAULT_COLOR = UIColor.whiteColor()
     
@@ -42,6 +42,7 @@ public class ImageUtil {
     
     private static func  getXAxisColorCandidates(y: CGFloat, image: UIImage) -> [CountableColor] {
         var colorList: [CountableColor] = []
+        println("imagewidth=" + image.size.width.description)
         let firstColor: CountableColor = CountableColor(color: pixelColor(image, pos: CGPoint(x: 0, y: y)))
         colorList.append(firstColor)
         searchFrequentColorLoop: for var x:CGFloat = 1; x < image.size.width; x++ {
@@ -49,11 +50,12 @@ public class ImageUtil {
             for color in colorList {
                 if (getColorDiff(color, c2: candidate) < ImageUtil.COLOR_LIKENESS_THRESHOLD) {
                     color.updateColor(candidate)
-                    break searchFrequentColorLoop
+                    continue searchFrequentColorLoop
                 }
             }
             colorList.append(candidate)
         }
+        println("colorlistcount=" + colorList.count.description)
         return colorList
     }
     
