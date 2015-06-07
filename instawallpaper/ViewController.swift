@@ -10,7 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3iIhzJRm5s/"
+    static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3k7-yGxmzD/"
+    //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3iIhzJRm5s/"
+    //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3jLlOoTf5t/"
+    //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3iqc5aRi-0/"
+    //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3hJGONxOcG/"
+    //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/pRTKnyGLtp/"
     
     static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
     
@@ -18,6 +23,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var urlTextFIeld: UITextField!
     @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var parentPictureView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bottomBackground: UIView!
     @IBOutlet weak var topBackground: UIView!
@@ -31,16 +37,21 @@ class ViewController: UIViewController {
     }
     
     private func setupGradientLayers() {
+        
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        
         var topFrame: CGRect = imageView.bounds
         topFrame.size.height = ViewController.GRADATION_HEIGHT
+        topFrame.size.width = screenWidth
         topGradientLayer.frame = topFrame
         imageView.layer.addSublayer(topGradientLayer)
 
         var bottomFrame: CGRect = imageView.bounds
         bottomFrame.size.height = ViewController.GRADATION_HEIGHT
-        bottomFrame.origin.y = imageView.bounds.size.height - ViewController.GRADATION_HEIGHT
+        bottomFrame.origin.y = screenWidth  - ViewController.GRADATION_HEIGHT
+        bottomFrame.size.width = screenWidth
         bottomGradientLayer.frame = bottomFrame
-        imageView.layer.addSublayer(bottomGradientLayer)
+        imageView.layer.addSublayer(bottomGradientLayer)        
     }
     
     @IBAction func onGoButtonClicked(sender: AnyObject) {
@@ -51,12 +62,15 @@ class ViewController: UIViewController {
     }
     
     private func setImage(url:NSURL) {
+        let timeTracker = TimeTracker(tag: "setImage")
+        timeTracker.start()
         if let imageData = imageDataFromURL(url),
             img = UIImage(data:imageData) {
                 imageView.image = img
                 updateBackground(img)
                 storeImage()
         }
+        timeTracker.finish()
     }
     
     private func imageDataFromURL(url:NSURL) -> NSData? {
@@ -89,7 +103,8 @@ class ViewController: UIViewController {
     
     private func storeImage() {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
-        self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        //self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        parentPictureView.layer.renderInContext(UIGraphicsGetCurrentContext())
         
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();

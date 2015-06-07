@@ -12,7 +12,9 @@ import UIKit
 
 public class ImageUtil {
     
-    static private let COLOR_LIKENESS_THRESHOLD: CGFloat = 20
+    static private let COLOR_LIKENESS_THRESHOLD: CGFloat = 0.05
+    
+    static private let PIXEL_THIN_OUT_RATE: CGFloat = 3.0
     
     static private let DEFAULT_COLOR = UIColor.whiteColor()
     
@@ -41,30 +43,35 @@ public class ImageUtil {
     }
     
     private static func  getXAxisColorCandidates(y: CGFloat, image: UIImage) -> [CountableColor] {
+        
+        let dataProvider = CGImageGetDataProvider(image.CGImage)
+        let pixelData = CGDataProviderCopyData(dataProvider)
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+
         var colorList: [CountableColor] = []
-        let firstColor: CountableColor = CountableColor(color: pixelColor(image, pos: CGPoint(x: 0, y: y)))
+        println("imagewidth=" + image.size.width.description)
+        let firstColor: CountableColor = CountableColor(color: pixelColor(image, data: data, pos: CGPoint(x: 0, y: y)))
         colorList.append(firstColor)
-        searchFrequentColorLoop: for var x:CGFloat = 1; x < image.size.width; x++ {
-            let candidate: CountableColor = CountableColor(color: pixelColor(image, pos: CGPoint(x: x, y: y)))
+        searchFrequentColorLoop: for var x:CGFloat = 1; x < image.size.width; x += ImageUtil.PIXEL_THIN_OUT_RATE {
+            let candidate: CountableColor = CountableColor(color: pixelColor(image, data: data, pos: CGPoint(x: x, y: y)))
             for color in colorList {
                 if (getColorDiff(color, c2: candidate) < ImageUtil.COLOR_LIKENESS_THRESHOLD) {
                     color.updateColor(candidate)
-                    break searchFrequentColorLoop
+                    continue searchFrequentColorLoop
                 }
             }
             colorList.append(candidate)
         }
+        println("colorlistcount=" + colorList.count.description)
         return colorList
     }
     
-    private static func pixelColor(image: UIImage, pos: CGPoint) -> UIColor {
-        var pixelData = CGDataProviderCopyData(CGImageGetDataProvider(image.CGImage))
-        var data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-        var pixelInfo: Int = ((Int(image.size.width) * Int(pos.y)) + Int(pos.x)) * 4
-        var r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
-        var g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
-        var b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
-        var a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
+    private static func pixelColor(image: UIImage, data: UnsafePointer<UInt8>, pos: CGPoint) -> UIColor {
+        let pixelInfo: Int = ((Int(image.size.width) * Int(pos.y)) + Int(pos.x)) * 4
+        let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
+        let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
+        let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
+        let a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
         return UIColor(red: r, green: g, blue: b, alpha: a)
     }
     
