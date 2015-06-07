@@ -12,9 +12,10 @@ class ViewController: UIViewController {
 
     static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3k7-yGxmzD/"
     //https://instagram.com/p/3iIhzJRm5s/
-    //https://instagram.com/p/3k7-yGxmzD/
     //https://instagram.com/p/3jLlOoTf5t/
     //https://instagram.com/p/3iqc5aRi-0/
+    //https://instagram.com/p/3hJGONxOcG/
+    //https://instagram.com/p/pRTKnyGLtp/
     
     static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
     
