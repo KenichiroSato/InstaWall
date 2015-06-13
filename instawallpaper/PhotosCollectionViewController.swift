@@ -13,6 +13,7 @@ let reuseIdentifier = "PictureCell"
 class PhotosCollectionViewController: UICollectionViewController {
 
     private var pictureArray: [InstagramMedia] = []
+    private var paginationInfo: InstagramPaginationInfo? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()
         sharedEngine.getPopularMediaWithSuccess(
             { (media, paginationInfo) in
+                self.paginationInfo = paginationInfo
                 if let pictures = media as? [InstagramMedia] {
                     self.pictureArray.removeAll(keepCapacity: false)
                     self.pictureArray += pictures
@@ -36,6 +38,20 @@ class PhotosCollectionViewController: UICollectionViewController {
             failure: {error, statusCode in
                 println("failure")
         })
+    }
+    
+    private func roadFromText(text: String) {
+        let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()
+        sharedEngine.getMediaWithTagName(text, count: 50, maxId: self.paginationInfo?.nextMaxId, withSuccess: { (media, paginationInfo) in
+            self.paginationInfo = paginationInfo
+            if let pictures = media as? [InstagramMedia] {
+                self.pictureArray += pictures
+                self.refreshCollectionViewData()
+            }
+        }, failure: {error, statusCode in
+                println("failure")
+        })
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,6 +93,16 @@ class PhotosCollectionViewController: UICollectionViewController {
             cell.imageView.setImageWithURL(nil)
         }
         return cell
+    }
+    
+    // MARK - UITextFieldDelegate methods
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if let text = textField.text {
+            pictureArray.removeAll(keepCapacity: false)
+            roadFromText(text)
+        }
+        textField.resignFirstResponder()
+        return true
     }
 
     // MARK: UICollectionViewDelegate
