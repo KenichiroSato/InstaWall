@@ -12,6 +12,7 @@
 		220FD28CD8434CE324A45619 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18011CEFA23ECE96F779DE6 /* libPods.a */; };
 		3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614AB61B2413D700B3CE59 /* TimeTracker.swift */; };
 		5910BA2A1B2BE88E00ABFCF8 /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910BA291B2BE88E00ABFCF8 /* PhotosCollectionViewController.swift */; };
+		5910BA2D1B2C06AF00ABFCF8 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */; };
 		595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AC1B19EB8E006F2F65 /* AppDelegate.swift */; };
 		595101AF1B19EB8E006F2F65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AE1B19EB8E006F2F65 /* ViewController.swift */; };
 		595101B21B19EB8E006F2F65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 595101B01B19EB8E006F2F65 /* Main.storyboard */; };
@@ -37,6 +38,8 @@
 		3D614AB61B2413D700B3CE59 /* TimeTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
 		4FAEDB8F337C86D7B8F53BDE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5910BA291B2BE88E00ABFCF8 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		5910BA2B1B2BF94B00ABFCF8 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		595101A71B19EB8E006F2F65 /* instawallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instawallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		595101AB1B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101AC1B19EB8E006F2F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 		5951019E1B19EB8D006F2F65 = {
 			isa = PBXGroup;
 			children = (
+				5910BA2B1B2BF94B00ABFCF8 /* Bridging-Header.h */,
 				595101A91B19EB8E006F2F65 /* instawallpaper */,
 				595101BF1B19EB8E006F2F65 /* instawallpaperTests */,
 				595101A81B19EB8E006F2F65 /* Products */,
@@ -102,6 +106,7 @@
 				3D614AB61B2413D700B3CE59 /* TimeTracker.swift */,
 				595101B01B19EB8E006F2F65 /* Main.storyboard */,
 				5910BA291B2BE88E00ABFCF8 /* PhotosCollectionViewController.swift */,
+				5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */,
 				595101B31B19EB8E006F2F65 /* Images.xcassets */,
 				595101B51B19EB8E006F2F65 /* LaunchScreen.xib */,
 				595101AA1B19EB8E006F2F65 /* Supporting Files */,
@@ -292,6 +297,7 @@
 				599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */,
 				5910BA2A1B2BE88E00ABFCF8 /* PhotosCollectionViewController.swift in Sources */,
 				595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */,
+				5910BA2D1B2C06AF00ABFCF8 /* PictureCell.swift in Sources */,
 				3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +433,7 @@
 				INFOPLIST_FILE = instawallpaper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -438,6 +445,7 @@
 				INFOPLIST_FILE = instawallpaper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Release;
 		};

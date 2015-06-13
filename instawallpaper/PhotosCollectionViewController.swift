@@ -12,18 +12,32 @@ let reuseIdentifier = "PictureCell"
 
 class PhotosCollectionViewController: UICollectionViewController {
 
+    private var pictureArray: [InstagramMedia] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        roadPopularPictures()
     }
 
+    private func roadPopularPictures() {
+        let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()
+        sharedEngine.getPopularMediaWithSuccess(
+            { (media, paginationInfo) in
+                if let pictures = media as? [InstagramMedia] {
+                    self.pictureArray.removeAll(keepCapacity: false)
+                    self.pictureArray += pictures
+                    self.refreshCollectionViewData()
+                }
+            },
+            failure: {error, statusCode in
+                println("failure")
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,22 +55,27 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
+    private func refreshCollectionViewData() {
+        self.collectionView?.reloadData()
+    }
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        //#warning Incomplete method implementation -- Return the number of sections
-        return 0
+        return 1
     }
 
-
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //#warning Incomplete method implementation -- Return the number of items in the section
-        return 0
+        return pictureArray.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PictureCell
     
-        // Configure the cell
-    
+        if (pictureArray.count >= indexPath.row + 1) {
+            let media: InstagramMedia = pictureArray[indexPath.row]
+            cell.imageView.setImageWithURL(media.thumbnailURL)
+        } else {
+            cell.imageView.setImageWithURL(nil)
+        }
         return cell
     }
 
