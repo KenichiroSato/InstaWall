@@ -23,6 +23,11 @@ class PhotosCollectionVC: UICollectionViewController {
 
         roadPopularPictures()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = false        
+    }
 
     private func roadPopularPictures() {
         let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()

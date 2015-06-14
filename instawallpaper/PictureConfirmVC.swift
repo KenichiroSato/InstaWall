@@ -33,6 +33,7 @@ class PictureConfirmVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = true
         setupGradientLayers()
         urlTextFIeld.resignFirstResponder()
         setImage()
@@ -126,5 +127,10 @@ class PictureConfirmVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func onBackPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+//        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }
 

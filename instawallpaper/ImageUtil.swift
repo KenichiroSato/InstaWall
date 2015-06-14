@@ -105,5 +105,4 @@ public class ImageUtil {
         return diff;
     }
     
-    
 }
