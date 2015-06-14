@@ -35,9 +35,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupGradientLayers()
         urlTextFIeld.resignFirstResponder()
-        if let url = openUrl {
-            setImage(url)
-        }
+        setImage()
     }
     
     private func setupGradientLayers() {
@@ -61,20 +59,23 @@ class ViewController: UIViewController {
     @IBAction func onGoButtonClicked(sender: AnyObject) {
         urlTextFIeld.resignFirstResponder() // close keyborad
         if let url = NSURL(string: urlTextFIeld.text + ViewController.INSTAGRAM_URL_SUFFIX) {
-            setImage(url)
+            openUrl = url
+            setImage()
         }
     }
     
-    private func setImage(url:NSURL) {
-        let timeTracker = TimeTracker(tag: "setImage")
-        timeTracker.start()
-        if let imageData = imageDataFromURL(url),
-            img = UIImage(data:imageData) {
-                imageView.image = img
-                updateBackground(img)
-                storeImage()
+    private func setImage() {
+        if let url = openUrl {
+            let timeTracker = TimeTracker(tag: "setImage")
+            timeTracker.start()
+            if let imageData = imageDataFromURL(url),
+                img = UIImage(data:imageData) {
+                    imageView.image = img
+                    updateBackground(img)
+                    storeImage()
+            }
+            timeTracker.finish()
         }
-        timeTracker.finish()
     }
     
     private func imageDataFromURL(url:NSURL) -> NSData? {
