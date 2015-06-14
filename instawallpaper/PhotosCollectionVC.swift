@@ -10,7 +10,7 @@ import UIKit
 
 let reuseIdentifier = "PictureCell"
 
-class PhotosCollectionViewController: UICollectionViewController {
+class PhotosCollectionVC: UICollectionViewController {
 
     private var pictureArray: [InstagramMedia] = []
     private var paginationInfo: InstagramPaginationInfo? = nil
@@ -63,10 +63,10 @@ class PhotosCollectionViewController: UICollectionViewController {
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "segue.fullscreen") {
-            let nextVC = segue.destinationViewController as! ViewController
+            let nextVC = segue.destinationViewController as! PictureConfirmVC
             if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems()[0] as? NSIndexPath {
                 let media: InstagramMedia = pictureArray[selectedIndexPath.item];
-                nextVC.openUrl = media.standardResolutionImageURL
+                nextVC.pictureUrl = media.standardResolutionImageURL
             }
         }
     }

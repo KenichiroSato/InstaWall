@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PictureConfirmVC: UIViewController {
 
     static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3k7-yGxmzD/"
     //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3iIhzJRm5s/"
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var topBackground: UIView!
     private var bottomGradientLayer: CAGradientLayer = CAGradientLayer()
     private var topGradientLayer: CAGradientLayer = CAGradientLayer()
-    var openUrl = NSURL(string: ViewController.DEFAULT_IMAGE_URL + ViewController.INSTAGRAM_URL_SUFFIX)
+    var pictureUrl: NSURL = NSURL(string: DEFAULT_IMAGE_URL + INSTAGRAM_URL_SUFFIX)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +43,14 @@ class ViewController: UIViewController {
         let screenWidth = UIScreen.mainScreen().bounds.size.width
         
         var topFrame: CGRect = imageView.bounds
-        topFrame.size.height = ViewController.GRADATION_HEIGHT
+        topFrame.size.height = PictureConfirmVC.GRADATION_HEIGHT
         topFrame.size.width = screenWidth
         topGradientLayer.frame = topFrame
         imageView.layer.addSublayer(topGradientLayer)
 
         var bottomFrame: CGRect = imageView.bounds
-        bottomFrame.size.height = ViewController.GRADATION_HEIGHT
-        bottomFrame.origin.y = screenWidth  - ViewController.GRADATION_HEIGHT
+        bottomFrame.size.height = PictureConfirmVC.GRADATION_HEIGHT
+        bottomFrame.origin.y = screenWidth  - PictureConfirmVC.GRADATION_HEIGHT
         bottomFrame.size.width = screenWidth
         bottomGradientLayer.frame = bottomFrame
         imageView.layer.addSublayer(bottomGradientLayer)        
@@ -58,24 +58,22 @@ class ViewController: UIViewController {
     
     @IBAction func onGoButtonClicked(sender: AnyObject) {
         urlTextFIeld.resignFirstResponder() // close keyborad
-        if let url = NSURL(string: urlTextFIeld.text + ViewController.INSTAGRAM_URL_SUFFIX) {
-            openUrl = url
+        if let url = NSURL(string: urlTextFIeld.text + PictureConfirmVC.INSTAGRAM_URL_SUFFIX) {
+            pictureUrl = url
             setImage()
         }
     }
     
     private func setImage() {
-        if let url = openUrl {
-            let timeTracker = TimeTracker(tag: "setImage")
-            timeTracker.start()
-            if let imageData = imageDataFromURL(url),
-                img = UIImage(data:imageData) {
-                    imageView.image = img
-                    updateBackground(img)
-                    storeImage()
-            }
-            timeTracker.finish()
+        let timeTracker = TimeTracker(tag: "setImage")
+        timeTracker.start()
+        if let imageData = imageDataFromURL(pictureUrl),
+            img = UIImage(data:imageData) {
+                imageView.image = img
+                updateBackground(img)
+                storeImage()
         }
+        timeTracker.finish()
     }
     
     private func imageDataFromURL(url:NSURL) -> NSData? {
