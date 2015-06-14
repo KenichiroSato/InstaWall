@@ -27,13 +27,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bottomBackground: UIView!
     @IBOutlet weak var topBackground: UIView!
-    var bottomGradientLayer: CAGradientLayer = CAGradientLayer()
-    var topGradientLayer: CAGradientLayer = CAGradientLayer()
+    private var bottomGradientLayer: CAGradientLayer = CAGradientLayer()
+    private var topGradientLayer: CAGradientLayer = CAGradientLayer()
+    var openUrl = NSURL(string: ViewController.DEFAULT_IMAGE_URL + ViewController.INSTAGRAM_URL_SUFFIX)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        urlTextFIeld.text = ViewController.DEFAULT_IMAGE_URL
         setupGradientLayers()
+        urlTextFIeld.resignFirstResponder()
+        if let url = openUrl {
+            setImage(url)
+        }
     }
     
     private func setupGradientLayers() {

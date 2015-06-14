@@ -43,6 +43,7 @@
                                 <size key="customSize" width="200" height="200"/>
                                 <connections>
                                     <outlet property="imageView" destination="8lx-Iz-PDF" id="aaK-Wu-MMV"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="segue.fullscreen" id="Joa-zm-Qm0"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

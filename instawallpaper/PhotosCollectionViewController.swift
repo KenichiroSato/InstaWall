@@ -59,18 +59,19 @@ class PhotosCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "segue.fullscreen") {
+            let nextVC = segue.destinationViewController as! ViewController
+            if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems()[0] as? NSIndexPath {
+                let media: InstagramMedia = pictureArray[selectedIndexPath.item];
+                nextVC.openUrl = media.standardResolutionImageURL
+            }
+        }
     }
-    */
 
     // MARK: UICollectionViewDataSource
-
     private func refreshCollectionViewData() {
         self.collectionView?.reloadData()
     }
