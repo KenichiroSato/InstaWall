@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>InstagramAppRedirectURL</key>
+	<string>https://www.facebook.com/profile.php?id=100005889522470</string>
+	<key>InstagramAppClientId</key>
+	<string>77648f48cb6047a380f1c507487f49b3</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

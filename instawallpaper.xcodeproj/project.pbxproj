@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		0CD2A6A31B29AFB200FD111E /* ImageUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */; };
 		0CD2A6A51B29B46C00FD111E /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101CC1B1A87D7006F2F65 /* ImageUtil.swift */; };
+		220FD28CD8434CE324A45619 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18011CEFA23ECE96F779DE6 /* libPods.a */; };
 		3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614AB61B2413D700B3CE59 /* TimeTracker.swift */; };
+		5910BA2A1B2BE88E00ABFCF8 /* PhotosCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910BA291B2BE88E00ABFCF8 /* PhotosCollectionVC.swift */; };
+		5910BA2D1B2C06AF00ABFCF8 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */; };
 		595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AC1B19EB8E006F2F65 /* AppDelegate.swift */; };
-		595101AF1B19EB8E006F2F65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AE1B19EB8E006F2F65 /* ViewController.swift */; };
+		595101AF1B19EB8E006F2F65 /* PictureConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AE1B19EB8E006F2F65 /* PictureConfirmVC.swift */; };
 		595101B21B19EB8E006F2F65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 595101B01B19EB8E006F2F65 /* Main.storyboard */; };
 		595101B41B19EB8E006F2F65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 595101B31B19EB8E006F2F65 /* Images.xcassets */; };
 		595101B71B19EB8E006F2F65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595101B51B19EB8E006F2F65 /* LaunchScreen.xib */; };
@@ -33,10 +36,14 @@
 /* Begin PBXFileReference section */
 		0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtilTest.swift; sourceTree = "<group>"; };
 		3D614AB61B2413D700B3CE59 /* TimeTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
+		4FAEDB8F337C86D7B8F53BDE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5910BA291B2BE88E00ABFCF8 /* PhotosCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionVC.swift; sourceTree = "<group>"; };
+		5910BA2B1B2BF94B00ABFCF8 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		595101A71B19EB8E006F2F65 /* instawallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instawallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		595101AB1B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101AC1B19EB8E006F2F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		595101AE1B19EB8E006F2F65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		595101AE1B19EB8E006F2F65 /* PictureConfirmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureConfirmVC.swift; sourceTree = "<group>"; };
 		595101B11B19EB8E006F2F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		595101B31B19EB8E006F2F65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		595101B61B19EB8E006F2F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -45,6 +52,8 @@
 		595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instawallpaperTests.swift; sourceTree = "<group>"; };
 		595101CC1B1A87D7006F2F65 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		599E46AA1B227DDB005CE654 /* PictureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureManager.swift; sourceTree = "<group>"; };
+		AB44B66ABB926DF8F8D92988 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E18011CEFA23ECE96F779DE6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				220FD28CD8434CE324A45619 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,9 +78,12 @@
 		5951019E1B19EB8D006F2F65 = {
 			isa = PBXGroup;
 			children = (
+				5910BA2B1B2BF94B00ABFCF8 /* Bridging-Header.h */,
 				595101A91B19EB8E006F2F65 /* instawallpaper */,
 				595101BF1B19EB8E006F2F65 /* instawallpaperTests */,
 				595101A81B19EB8E006F2F65 /* Products */,
+				E3290B68C226A43311D121B2 /* Pods */,
+				CB18B5850265EC3D4DAE6E18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,11 +100,13 @@
 			isa = PBXGroup;
 			children = (
 				595101AC1B19EB8E006F2F65 /* AppDelegate.swift */,
-				595101AE1B19EB8E006F2F65 /* ViewController.swift */,
+				595101AE1B19EB8E006F2F65 /* PictureConfirmVC.swift */,
 				599E46AA1B227DDB005CE654 /* PictureManager.swift */,
 				595101CC1B1A87D7006F2F65 /* ImageUtil.swift */,
 				3D614AB61B2413D700B3CE59 /* TimeTracker.swift */,
 				595101B01B19EB8E006F2F65 /* Main.storyboard */,
+				5910BA291B2BE88E00ABFCF8 /* PhotosCollectionVC.swift */,
+				5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */,
 				595101B31B19EB8E006F2F65 /* Images.xcassets */,
 				595101B51B19EB8E006F2F65 /* LaunchScreen.xib */,
 				595101AA1B19EB8E006F2F65 /* Supporting Files */,
@@ -125,6 +140,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CB18B5850265EC3D4DAE6E18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E18011CEFA23ECE96F779DE6 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3290B68C226A43311D121B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB44B66ABB926DF8F8D92988 /* Pods.debug.xcconfig */,
+				4FAEDB8F337C86D7B8F53BDE /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 595101C61B19EB8E006F2F65 /* Build configuration list for PBXNativeTarget "instawallpaper" */;
 			buildPhases = (
+				0D6954A229AB1811A8CD9E64 /* Check Pods Manifest.lock */,
 				595101A31B19EB8E006F2F65 /* Sources */,
 				595101A41B19EB8E006F2F65 /* Frameworks */,
 				595101A51B19EB8E006F2F65 /* Resources */,
+				593F2D3A6E9BAAEE1DEF0948 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -220,15 +254,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D6954A229AB1811A8CD9E64 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		593F2D3A6E9BAAEE1DEF0948 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		595101A31B19EB8E006F2F65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				595101CD1B1A87D7006F2F65 /* ImageUtil.swift in Sources */,
-				595101AF1B19EB8E006F2F65 /* ViewController.swift in Sources */,
+				595101AF1B19EB8E006F2F65 /* PictureConfirmVC.swift in Sources */,
 				599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */,
+				5910BA2A1B2BE88E00ABFCF8 /* PhotosCollectionVC.swift in Sources */,
 				595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */,
+				5910BA2D1B2C06AF00ABFCF8 /* PictureCell.swift in Sources */,
 				3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,21 +427,25 @@
 		};
 		595101C71B19EB8E006F2F65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB44B66ABB926DF8F8D92988 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = instawallpaper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		595101C81B19EB8E006F2F65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FAEDB8F337C86D7B8F53BDE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = instawallpaper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 			};
 			name = Release;
 		};
