@@ -15,6 +15,8 @@ class PhotosCollectionVC: UICollectionViewController {
     private var pictureArray: [InstagramMedia] = []
     private var paginationInfo: InstagramPaginationInfo? = nil
     
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +32,7 @@ class PhotosCollectionVC: UICollectionViewController {
     }
 
     private func roadPopularPictures() {
+        prepareLoadingData()
         let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()
         sharedEngine.getPopularMediaWithSuccess(
             { (media, paginationInfo) in
@@ -37,7 +40,7 @@ class PhotosCollectionVC: UICollectionViewController {
                 if let pictures = media as? [InstagramMedia] {
                     self.pictureArray.removeAll(keepCapacity: false)
                     self.pictureArray += pictures
-                    self.refreshCollectionViewData()
+                    self.finishLoadingData()
                 }
             },
             failure: {error, statusCode in
@@ -46,12 +49,13 @@ class PhotosCollectionVC: UICollectionViewController {
     }
     
     private func roadFromText(text: String) {
+        prepareLoadingData()
         let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()
         sharedEngine.getMediaWithTagName(text, count: 50, maxId: self.paginationInfo?.nextMaxId, withSuccess: { (media, paginationInfo) in
             self.paginationInfo = paginationInfo
             if let pictures = media as? [InstagramMedia] {
                 self.pictureArray += pictures
-                self.refreshCollectionViewData()
+                self.finishLoadingData()
             }
         }, failure: {error, statusCode in
                 println("failure")
@@ -76,11 +80,18 @@ class PhotosCollectionVC: UICollectionViewController {
         }
     }
 
-    // MARK: UICollectionViewDataSource
-    private func refreshCollectionViewData() {
+    private func prepareLoadingData() {
+        pictureArray.removeAll(keepCapacity: false)
+        self.collectionView?.reloadData()
+        indicatorView.hidden = false
+    }
+    
+    private func finishLoadingData() {
+        indicatorView.hidden = true
         self.collectionView?.reloadData()
     }
     
+    // MARK: UICollectionViewDataSource
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -104,7 +115,6 @@ class PhotosCollectionVC: UICollectionViewController {
     // MARK - UITextFieldDelegate methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let text = textField.text {
-            pictureArray.removeAll(keepCapacity: false)
             roadFromText(text)
         }
         textField.resignFirstResponder()
