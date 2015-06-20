@@ -24,7 +24,7 @@ public class ImageUtil {
     
     static func mostFrequentColor(image:UIImage, position:Position) -> UIColor {
         if let colorList: [CountableColor] = getColorCandidates(image, position: position),
-               mostFrequent = (colorList.sorted{$0.count > $1.count}).first {
+               mostFrequent = (colorList.sort {$0.count > $1.count}).first {
                 return UIColor(red: mostFrequent.red, green: mostFrequent.green,
                     blue: mostFrequent.blue, alpha: 255.0)
         }
@@ -37,8 +37,6 @@ public class ImageUtil {
             return getXAxisColorCandidates(0.0, image: image);
         case .BOTTOM:
             return getXAxisColorCandidates(image.size.height - 1, image: image)
-        default:
-            return nil
         }
     }
     
@@ -49,7 +47,7 @@ public class ImageUtil {
         let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
 
         var colorList: [CountableColor] = []
-        println("imagewidth=" + image.size.width.description)
+        print("imagewidth=" + image.size.width.description)
         let firstColor: CountableColor = CountableColor(color: pixelColor(image, data: data, pos: CGPoint(x: 0, y: y)))
         colorList.append(firstColor)
         searchFrequentColorLoop: for var x:CGFloat = 1; x < image.size.width; x += ImageUtil.PIXEL_THIN_OUT_RATE {
@@ -62,7 +60,7 @@ public class ImageUtil {
             }
             colorList.append(candidate)
         }
-        println("colorlistcount=" + colorList.count.description)
+        print("colorlistcount=" + colorList.count.description)
         return colorList
     }
     
@@ -82,10 +80,10 @@ public class ImageUtil {
         var count : UInt
         
         init(color : UIColor) {
-            let ciColor = CIColor(color: color)!
-            red = ciColor.red()
-            green = ciColor.green()
-            blue = ciColor.blue()
+            let ciColor = CIColor(color: color)
+            red = ciColor.red
+            green = ciColor.green
+            blue = ciColor.blue
             count = 1
         }
         

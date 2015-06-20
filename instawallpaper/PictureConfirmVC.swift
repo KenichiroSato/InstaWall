@@ -59,7 +59,8 @@ class PictureConfirmVC: UIViewController {
     
     @IBAction func onGoButtonClicked(sender: AnyObject) {
         urlTextFIeld.resignFirstResponder() // close keyborad
-        if let url = NSURL(string: urlTextFIeld.text + PictureConfirmVC.INSTAGRAM_URL_SUFFIX) {
+        if let text = urlTextFIeld.text,
+                url = NSURL(string:text + PictureConfirmVC.INSTAGRAM_URL_SUFFIX) {
             pictureUrl = url
             setImage()
         }
@@ -78,8 +79,12 @@ class PictureConfirmVC: UIViewController {
     }
     
     private func imageDataFromURL(url:NSURL) -> NSData? {
-        return NSData(contentsOfURL: url,
-            options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
+        do {
+            return try NSData(contentsOfURL: url,
+                options: NSDataReadingOptions.DataReadingMappedIfSafe)
+        } catch _ {
+            return nil
+        }
     }
     
     private func updateBackground(image: UIImage) {
@@ -115,7 +120,7 @@ class PictureConfirmVC: UIViewController {
         
         if (PictureManager.isAuthorized()) {
             PictureManager.saveImage(image, completion: { result in
-                println("saved!!")
+                print("saved!!")
             })
         } else {
             PictureManager.requestAnthorization()

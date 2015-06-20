@@ -20,7 +20,7 @@ public class PictureManager {
     class func requestAnthorization() {
         PHPhotoLibrary.requestAuthorization{ status in
             if status == .Authorized {
-                println("authorized")
+                print("authorized")
             }
         }
     }
@@ -62,22 +62,24 @@ public class PictureManager {
     }
     
     private class func doSave(album: PHAssetCollection, image: UIImage, completion: ((result: PhotoAlbumUtilResult) -> ())?) {
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+        let performChange: () -> Void = {
             let result = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
-            let assetPlaceholder = result.placeholderForCreatedAsset
-            let albumChangeRequset = PHAssetCollectionChangeRequest(forAssetCollection: album)
-            albumChangeRequset.addAssets([assetPlaceholder])
-            }, completionHandler: { (isSuccess, error) in
-                if isSuccess {
-                    completion?(result: .SUCCESS)
-                } else{
-                    println(error.localizedDescription)
-                    completion?(result: .ERROR)
-                }
-        })
+            if let assetPlaceholder = result.placeholderForCreatedAsset,
+                changeRequset = PHAssetCollectionChangeRequest(forAssetCollection: album) {
+                    changeRequset.addAssets([assetPlaceholder])
+            }
+        }
+        let completionHandler: (Bool, NSError?) -> Void = { (isSuccess, error) in
+            if isSuccess {
+                completion?(result: .SUCCESS)
+            } else{
+                completion?(result: .ERROR)
+            }
+        }
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges(performChange, completionHandler:completionHandler)
     }
     
-    private class func createAlbum(completion: ((Bool, NSError!) -> Void)!) {
+    private class func createAlbum(completion: ((Bool, NSError?) -> Void)!) {
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(PictureManager.ALBUM_NAME)
             }, completionHandler: completion)

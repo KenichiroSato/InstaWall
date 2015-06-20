@@ -44,7 +44,7 @@ class PhotosCollectionVC: UICollectionViewController {
                 }
             },
             failure: {error, statusCode in
-                println("failure")
+                print("failure")
         })
     }
     
@@ -58,7 +58,7 @@ class PhotosCollectionVC: UICollectionViewController {
                 self.finishLoadingData()
             }
         }, failure: {error, statusCode in
-                println("failure")
+                print("failure")
         })
         
     }
@@ -73,7 +73,8 @@ class PhotosCollectionVC: UICollectionViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "segue.fullscreen") {
             let nextVC = segue.destinationViewController as! PictureConfirmVC
-            if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems()[0] as? NSIndexPath {
+            if let selectedItems  = self.collectionView?.indexPathsForSelectedItems(){
+                let selectedIndexPath = selectedItems[0]
                 let media: InstagramMedia = pictureArray[selectedIndexPath.item];
                 nextVC.pictureUrl = media.standardResolutionImageURL
             }
