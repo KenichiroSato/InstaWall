@@ -40,6 +40,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
       buildConfiguration = "Debug">
       <Testables>
          <TestableReference
@@ -49,6 +50,16 @@
                BlueprintIdentifier = "595101BB1B19EB8E006F2F65"
                BuildableName = "instawallpaperTests.xctest"
                BlueprintName = "instawallpaperTests"
+               ReferencedContainer = "container:instawallpaper.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "59D398BB1B352F850079550E"
+               BuildableName = "instawallpaper UI Tests.xctest"
+               BlueprintName = "instawallpaper UI Tests"
                ReferencedContainer = "container:instawallpaper.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -62,6 +73,8 @@
             ReferencedContainer = "container:instawallpaper.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -71,6 +84,7 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">

@@ -47,7 +47,7 @@ public class ImageUtil {
         let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
 
         var colorList: [CountableColor] = []
-        print("imagewidth=" + image.size.width.description)
+        print("imagewidth=" + image.size.width.description, appendNewline: false)
         let firstColor: CountableColor = CountableColor(color: pixelColor(image, data: data, pos: CGPoint(x: 0, y: y)))
         colorList.append(firstColor)
         searchFrequentColorLoop: for var x:CGFloat = 1; x < image.size.width; x += ImageUtil.PIXEL_THIN_OUT_RATE {
@@ -60,7 +60,7 @@ public class ImageUtil {
             }
             colorList.append(candidate)
         }
-        print("colorlistcount=" + colorList.count.description)
+        print("colorlistcount=" + colorList.count.description, appendNewline: false)
         return colorList
     }
     
