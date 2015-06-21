@@ -59,9 +59,16 @@ class PictureConfirmVC: UIViewController {
     
     @IBAction func onGoButtonClicked(sender: AnyObject) {
         urlTextFIeld.resignFirstResponder() // close keyborad
-        if let url = NSURL(string: urlTextFIeld.text + PictureConfirmVC.INSTAGRAM_URL_SUFFIX) {
+        let text = urlTextFIeld.text
+        if (text.isEmpty) {
+            UIAlertController.show(Text.ERR_EPTRY_URL, message: nil, forVC: self)
+            return
+        }
+        if let url = NSURL(string: text + PictureConfirmVC.INSTAGRAM_URL_SUFFIX) {
             pictureUrl = url
             setImage()
+        } else {
+            UIAlertController.show(Text.ERR_INVALID_URL, message: nil, forVC: self)
         }
     }
     
@@ -73,6 +80,8 @@ class PictureConfirmVC: UIViewController {
                 imageView.image = img
                 updateBackground(img)
                 storeImage()
+        } else {
+            UIAlertController.show(Text.ERR_INVALID_URL, message: nil, forVC: self)
         }
         timeTracker.finish()
     }
