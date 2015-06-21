@@ -36,4 +36,19 @@ class instawallpaper_UI_Tests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testErrorDialog() {
+        let app = XCUIApplication()
+        app.collectionViews.childrenMatchingType(.Cell).elementAtIndex(0).descendantsMatchingType(.Unknown).childrenMatchingType(.Image).elementAtIndex(0).tap()
+        let goButton = app.buttons["GO"]
+        goButton.tap()
+        app.alerts[Text.ERR_EPTRY_URL].collectionViews.buttons[Text.OK].tap()
+        
+        let textField = app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(2).childrenMatchingType(.TextField).elementAtIndex(0)
+        textField.tap()
+        textField.typeText("test")
+        
+        goButton.tap()
+        app.alerts[Text.ERR_INVALID_URL].collectionViews.buttons[Text.OK].tap()
+    }
+    
 }
