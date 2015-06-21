@@ -20,6 +20,8 @@
 		595101B71B19EB8E006F2F65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595101B51B19EB8E006F2F65 /* LaunchScreen.xib */; };
 		595101C31B19EB8E006F2F65 /* instawallpaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */; };
 		595101CD1B1A87D7006F2F65 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101CC1B1A87D7006F2F65 /* ImageUtil.swift */; };
+		597AD77F1B36432300E087B4 /* UIAlertController+show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AD77E1B36432300E087B4 /* UIAlertController+show.swift */; };
+		597AD7811B3647AF00E087B4 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AD7801B3647AF00E087B4 /* Text.swift */; };
 		599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E46AA1B227DDB005CE654 /* PictureManager.swift */; };
 		59D398BF1B352F850079550E /* instawallpaper_UI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D398BE1B352F850079550E /* instawallpaper_UI_Tests.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,8 @@
 		595101C11B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instawallpaperTests.swift; sourceTree = "<group>"; };
 		595101CC1B1A87D7006F2F65 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
+		597AD77E1B36432300E087B4 /* UIAlertController+show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+show.swift"; sourceTree = "<group>"; };
+		597AD7801B3647AF00E087B4 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		599E46AA1B227DDB005CE654 /* PictureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureManager.swift; sourceTree = "<group>"; };
 		59D398BC1B352F850079550E /* instawallpaper UI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "instawallpaper UI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D398BE1B352F850079550E /* instawallpaper_UI_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instawallpaper_UI_Tests.swift; sourceTree = "<group>"; };
@@ -121,11 +125,13 @@
 			children = (
 				595101AC1B19EB8E006F2F65 /* AppDelegate.swift */,
 				595101AE1B19EB8E006F2F65 /* PictureConfirmVC.swift */,
+				597AD7801B3647AF00E087B4 /* Text.swift */,
 				599E46AA1B227DDB005CE654 /* PictureManager.swift */,
 				595101CC1B1A87D7006F2F65 /* ImageUtil.swift */,
 				3D614AB61B2413D700B3CE59 /* TimeTracker.swift */,
 				595101B01B19EB8E006F2F65 /* Main.storyboard */,
 				5910BA291B2BE88E00ABFCF8 /* PhotosCollectionVC.swift */,
+				597AD77E1B36432300E087B4 /* UIAlertController+show.swift */,
 				5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */,
 				595101B31B19EB8E006F2F65 /* Images.xcassets */,
 				595101B51B19EB8E006F2F65 /* LaunchScreen.xib */,
@@ -356,7 +362,9 @@
 				595101AF1B19EB8E006F2F65 /* PictureConfirmVC.swift in Sources */,
 				599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */,
 				5910BA2A1B2BE88E00ABFCF8 /* PhotosCollectionVC.swift in Sources */,
+				597AD7811B3647AF00E087B4 /* Text.swift in Sources */,
 				595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */,
+				597AD77F1B36432300E087B4 /* UIAlertController+show.swift in Sources */,
 				5910BA2D1B2C06AF00ABFCF8 /* PictureCell.swift in Sources */,
 				3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */,
 			);
