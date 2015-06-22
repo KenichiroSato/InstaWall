@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol LogInDelegate {
+    func onLoggedIn(token: String)
+}
+
 class LoginVC: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
+    var logInDelegate: LogInDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +37,11 @@ class LoginVC: UIViewController, UIWebViewDelegate {
                 let components:Array = urlString.componentsSeparatedByString(delimiter)
                 if let token = components.last {
                     print("token=" + token)
-                    InstagramEngine.sharedEngine().accessToken = token
-                    self.dismissViewControllerAnimated(true, completion: {})
+                    self.navigationController?.popViewControllerAnimated(true)
+                    if let delegate = logInDelegate {
+                        delegate.onLoggedIn(token)
+                        logInDelegate = nil
+                    }
                 }
                 return false
             }

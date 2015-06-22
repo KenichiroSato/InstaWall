@@ -75,7 +75,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GQ8-yT-oa2" kind="show" id="ggs-RG-NQV"/>
+                                    <segue destination="GQ8-yT-oa2" kind="show" identifier="segue.login" id="ggs-RG-NQV"/>
                                 </connections>
                             </button>
                         </barButtonItem>
