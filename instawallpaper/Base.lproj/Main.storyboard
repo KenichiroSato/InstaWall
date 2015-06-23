@@ -117,19 +117,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Niv-mG-SbO">
-                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-0v-3qe">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.92804903739008726" blue="0.36830579771986305" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="Niv-mG-SbO" secondAttribute="bottom" id="0LI-KB-ZmV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Niv-mG-SbO" secondAttribute="trailing" id="KbJ-dM-hN9"/>
+                            <constraint firstAttribute="trailing" secondItem="Niv-mG-SbO" secondAttribute="trailing" id="KbJ-dM-hN9"/>
                             <constraint firstItem="Niv-mG-SbO" firstAttribute="top" secondItem="o6Z-N7-Gja" secondAttribute="topMargin" id="Lgt-jJ-BbF"/>
-                            <constraint firstItem="Niv-mG-SbO" firstAttribute="leading" secondItem="o6Z-N7-Gja" secondAttribute="leadingMargin" id="Vjx-S5-gii"/>
+                            <constraint firstItem="Niv-mG-SbO" firstAttribute="leading" secondItem="o6Z-N7-Gja" secondAttribute="leading" id="Vjx-S5-gii"/>
+                            <constraint firstAttribute="centerY" secondItem="6ep-0v-3qe" secondAttribute="centerY" id="YDw-TO-JE8"/>
+                            <constraint firstAttribute="centerX" secondItem="6ep-0v-3qe" secondAttribute="centerX" id="txw-iE-7RC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="6ep-0v-3qe" id="2vu-4B-sxA"/>
                         <outlet property="webView" destination="Niv-mG-SbO" id="EC3-vO-XEU"/>
                     </connections>
                 </viewController>
