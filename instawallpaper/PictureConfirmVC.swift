@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PictureConfirmVC: UIViewController {
+class PictureConfirmVC: UIViewController, UIGestureRecognizerDelegate {
 
     static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3k7-yGxmzD/"
     //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3iIhzJRm5s/"
@@ -129,6 +129,10 @@ class PictureConfirmVC: UIViewController {
         } else {
             PictureManager.requestAnthorization()
         }
+    }
+    
+    @IBAction func onTapped(sender: UITapGestureRecognizer) {
+        println("saved!!")
     }
     
     override func didReceiveMemoryWarning() {
