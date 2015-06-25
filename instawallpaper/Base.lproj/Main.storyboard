@@ -159,9 +159,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="WhG-s7-7vF" secondAttribute="height" multiplier="1:1" id="ibl-fY-IZl"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="9hB-3s-iWp" appends="YES" id="Ieq-IS-5XW"/>
-                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lab-Pn-ME6">
                                         <rect key="frame" x="18" y="21" width="524" height="302"/>
@@ -170,9 +167,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Lab-Pn-ME6" secondAttribute="height" multiplier="1:1" id="alB-oj-UEh"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="9hB-3s-iWp" appends="YES" id="qZ2-cn-4td"/>
-                                        </connections>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z73-ZB-21O">
                                         <rect key="frame" x="118" y="120" width="320" height="320"/>
@@ -180,9 +174,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="z73-ZB-21O" secondAttribute="height" multiplier="1:1" id="3xQ-9N-Vxd"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="9hB-3s-iWp" appends="YES" id="qwb-yj-ZHL"/>
-                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.58963650061508599" green="1" blue="0.57365816330993535" alpha="1" colorSpace="calibratedRGB"/>
@@ -291,6 +282,9 @@
                                 <exclude reference="Y9A-iu-no0"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9hB-3s-iWp" appends="YES" id="nKH-IZ-i7X"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="bottomBackground" destination="WhG-s7-7vF" id="Hr3-EK-85h"/>
@@ -305,7 +299,6 @@
                 <tapGestureRecognizer id="9hB-3s-iWp">
                     <connections>
                         <action selector="onTapped:" destination="BYZ-38-t0r" id="TNl-u5-GpV"/>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="CAO-hg-bUQ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PictureConfirmVC: UIViewController, UIGestureRecognizerDelegate {
+class PictureConfirmVC: UIViewController {
 
     static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3k7-yGxmzD/"
     //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3iIhzJRm5s/"
