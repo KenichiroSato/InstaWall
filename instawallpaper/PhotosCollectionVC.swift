@@ -10,7 +10,7 @@ import UIKit
 
 let reuseIdentifier = "PictureCell"
 
-class PhotosCollectionVC: UICollectionViewController {
+class PhotosCollectionVC: UICollectionViewController, LogInDelegate {
 
     private var pictureArray: [InstagramMedia] = []
     private var paginationInfo: InstagramPaginationInfo? = nil
@@ -63,11 +63,31 @@ class PhotosCollectionVC: UICollectionViewController {
         
     }
     
+    private func roadSelfFeed() {
+        prepareLoadingData()
+        InstagramEngine.sharedEngine().getSelfFeedWithCount(50,
+            maxId: self.paginationInfo?.nextMaxId, success:
+            { (media, paginationInfo) in
+                self.paginationInfo = paginationInfo
+                if let pictures = media as? [InstagramMedia] {
+                    self.pictureArray += pictures
+                    self.finishLoadingData()
+                }
+            }, failure: {error, statusCode in
+                println("failure")
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: LogInDelegate
+    func onLoggedIn(token: String) {
+        InstagramEngine.sharedEngine().accessToken = token
+        roadSelfFeed()
+    }
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -77,6 +97,10 @@ class PhotosCollectionVC: UICollectionViewController {
                 let media: InstagramMedia = pictureArray[selectedIndexPath.item];
                 nextVC.pictureUrl = media.standardResolutionImageURL
             }
+        }
+        if (segue.identifier == "segue.login") {
+            let nextVC = segue.destinationViewController as! LoginVC
+            nextVC.logInDelegate = self
         }
     }
 

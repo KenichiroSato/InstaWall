@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ln7-NZ-e4U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ln7-NZ-e4U">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -67,6 +67,18 @@
                                 <outlet property="delegate" destination="INZ-LP-xpe" id="IGN-xf-AMl"/>
                             </connections>
                         </textField>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="F9P-KS-oXk">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eTp-OP-OkU">
+                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="GQ8-yT-oa2" kind="show" identifier="segue.login" id="ggs-RG-NQV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="indicatorView" destination="vOB-F6-Vga" id="ae9-QR-IFs"/>
@@ -91,6 +103,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Gc-ggg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="526" y="-464"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="pA4-qB-q2a">
+            <objects>
+                <viewController id="GQ8-yT-oa2" customClass="LoginVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="csW-Ku-mc2"/>
+                        <viewControllerLayoutGuide type="bottom" id="rKC-dR-Tg8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o6Z-N7-Gja">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Niv-mG-SbO">
+                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.92804903739008726" blue="0.36830579771986305" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="Niv-mG-SbO" secondAttribute="bottom" id="0LI-KB-ZmV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Niv-mG-SbO" secondAttribute="trailing" id="KbJ-dM-hN9"/>
+                            <constraint firstItem="Niv-mG-SbO" firstAttribute="top" secondItem="o6Z-N7-Gja" secondAttribute="topMargin" id="Lgt-jJ-BbF"/>
+                            <constraint firstItem="Niv-mG-SbO" firstAttribute="leading" secondItem="o6Z-N7-Gja" secondAttribute="leadingMargin" id="Vjx-S5-gii"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Niv-mG-SbO" id="EC3-vO-XEU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zZZ-hz-ZQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1976" y="-1175"/>
         </scene>
         <!--Picture ConfirmVC-->
         <scene sceneID="tne-QT-ifu">
