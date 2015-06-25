@@ -19,6 +19,8 @@ class PictureConfirmVC: UIViewController {
     
     static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
     
+    static private let PHOTOS_APP_URL_SCHEME = "photos-redirect:"
+    
     static private let GRADATION_HEIGHT: CGFloat = 20.0
     
     @IBOutlet weak var urlTextFIeld: UITextField!
@@ -79,7 +81,6 @@ class PictureConfirmVC: UIViewController {
             img = UIImage(data:imageData) {
                 imageView.image = img
                 updateBackground(img)
-                storeImage()
         } else {
             UIAlertController.show(Text.ERR_INVALID_URL, message: nil, forVC: self)
         }
@@ -123,16 +124,34 @@ class PictureConfirmVC: UIViewController {
         UIGraphicsEndImageContext();
         
         if (PictureManager.isAuthorized()) {
-            PictureManager.saveImage(image, completion: { result in
-                println("saved!!")
-            })
+            PictureManager.saveImage(image, completion: { result in print("saved!!")})
         } else {
             PictureManager.requestAnthorization()
         }
     }
     
     @IBAction func onTapped(sender: UITapGestureRecognizer) {
-        println("saved!!")
+        showSaveMenu()
+    }
+    
+    private func showSaveMenu() {
+        let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cancelAction = UIAlertAction(title: Text.CANCEL, style: UIAlertActionStyle.Cancel, handler: { action in print("canceled")})
+        let saveAction = UIAlertAction(title: Text.MSG_SAVE, style: UIAlertActionStyle.Default, handler: {action in self.storeImage()})
+        let saveAndOpenAction = UIAlertAction(title: Text.MSG_SAVE_AND_OPEN_PHOTOS, style: UIAlertActionStyle.Default, handler: {action in
+            self.storeImage()
+            self.openPhotosApp()
+        })
+        actionController.addAction(cancelAction)
+        actionController.addAction(saveAction)
+        actionController.addAction(saveAndOpenAction)
+        self.presentViewController(actionController, animated: true, completion: nil)
+    }
+    
+    private func openPhotosApp() {
+        if let url = NSURL(string: PictureConfirmVC.PHOTOS_APP_URL_SCHEME) {
+            UIApplication.sharedApplication().openURL(url)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -142,7 +161,6 @@ class PictureConfirmVC: UIViewController {
 
     @IBAction func onBackPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
-//        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
