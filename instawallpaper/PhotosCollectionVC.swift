@@ -10,8 +10,10 @@ import UIKit
 
 let reuseIdentifier = "PictureCell"
 
-class PhotosCollectionVC: UICollectionViewController, LogInDelegate {
+class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectionViewDelegateFlowLayout {
 
+    static private let CELL_NUMS_IN_ROW: CGFloat = 3
+    
     private var pictureArray: [InstagramMedia] = []
     private var paginationInfo: InstagramPaginationInfo? = nil
     
@@ -145,6 +147,18 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate {
         return true
     }
 
+    // MARK - UICollectionViewDelegateFlowLayout
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        if let width = self.collectionView?.bounds.size.width {
+            let size = width / PhotosCollectionVC.CELL_NUMS_IN_ROW
+            return CGSizeMake(size, size)
+        } else {
+            return CGSizeMake(320, 320)
+        }
+    }
+
+    
+    
     // MARK: UICollectionViewDelegate
 
     /*

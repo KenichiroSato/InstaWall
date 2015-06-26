@@ -15,10 +15,12 @@ protocol LogInDelegate {
 class LoginVC: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var logInDelegate: LogInDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.hidden = false
         webView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
         webView.scrollView.bounces = false
         webView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -50,6 +52,7 @@ class LoginVC: UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
+        activityIndicator.hidden = true
         println("webViewDidFinishLoad")
     }
     
@@ -58,6 +61,7 @@ class LoginVC: UIViewController, UIWebViewDelegate {
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+        activityIndicator.hidden = true
         println(error)
     }
 
