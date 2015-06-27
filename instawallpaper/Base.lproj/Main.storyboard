@@ -152,7 +152,6 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WhG-s7-7vF">
                                         <rect key="frame" x="15" y="236" width="527" height="316"/>
-                                        <color key="backgroundColor" red="0.94287404961181376" green="0.79678138976480839" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="WhG-s7-7vF" secondAttribute="height" multiplier="1:1" id="ibl-fY-IZl"/>
@@ -160,7 +159,6 @@
                                     </view>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lab-Pn-ME6">
                                         <rect key="frame" x="18" y="21" width="524" height="302"/>
-                                        <color key="backgroundColor" red="0.65600034543485863" green="0.96368429275303147" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Lab-Pn-ME6" secondAttribute="height" multiplier="1:1" id="alB-oj-UEh"/>
@@ -174,7 +172,6 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.58963650061508599" green="1" blue="0.57365816330993535" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Lab-Pn-ME6" firstAttribute="leading" secondItem="mQ9-Dk-IQl" secondAttribute="leading" id="4GB-br-xzP"/>
                                     <constraint firstAttribute="centerY" secondItem="z73-ZB-21O" secondAttribute="centerY" id="K4z-45-HnO"/>
@@ -252,16 +249,21 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="NUg-6T-I9d">
+                                <rect key="frame" x="291" y="291" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.94194567368511561" blue="0.50003217721428161" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="mQ9-Dk-IQl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="1yD-aI-L76"/>
                             <constraint firstItem="akh-mX-JBR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="4pP-iG-eNt"/>
                             <constraint firstAttribute="trailing" secondItem="mQ9-Dk-IQl" secondAttribute="trailing" id="FNl-MO-fmn"/>
+                            <constraint firstAttribute="centerY" secondItem="NUg-6T-I9d" secondAttribute="centerY" id="FR8-Vp-nHu"/>
                             <constraint firstAttribute="trailing" secondItem="akh-mX-JBR" secondAttribute="trailing" id="MYD-1N-B02"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mQ9-Dk-IQl" secondAttribute="bottom" id="MzW-eC-YiM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mQ9-Dk-IQl" secondAttribute="trailing" id="Slk-hE-EiC"/>
+                            <constraint firstAttribute="centerX" secondItem="NUg-6T-I9d" secondAttribute="centerX" id="V8h-gJ-vTh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mQ9-Dk-IQl" secondAttribute="bottom" id="Y9A-iu-no0"/>
                             <constraint firstItem="mQ9-Dk-IQl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="YKY-fu-ESd"/>
                             <constraint firstItem="mQ9-Dk-IQl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="134" id="d0f-Ew-Nee"/>
@@ -288,6 +290,7 @@
                         <outlet property="bottomBackground" destination="WhG-s7-7vF" id="Hr3-EK-85h"/>
                         <outlet property="goButton" destination="5Ob-2T-ggC" id="ub5-d2-ttC"/>
                         <outlet property="imageView" destination="z73-ZB-21O" id="HEP-MZ-21u"/>
+                        <outlet property="indicatorView" destination="NUg-6T-I9d" id="IPH-Rn-3tR"/>
                         <outlet property="parentPictureView" destination="mQ9-Dk-IQl" id="Ylb-kH-Ei4"/>
                         <outlet property="topBackground" destination="Lab-Pn-ME6" id="kIG-66-sDS"/>
                         <outlet property="urlTextFIeld" destination="WLL-h0-QTz" id="fYW-Rr-vLX"/>

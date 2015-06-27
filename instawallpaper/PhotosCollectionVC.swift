@@ -21,10 +21,6 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         roadPopularPictures()
     }
     
@@ -35,49 +31,54 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
 
     private func roadPopularPictures() {
         prepareLoadingData()
-        let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()
-        sharedEngine.getPopularMediaWithSuccess(
-            { (media, paginationInfo) in
-                self.paginationInfo = paginationInfo
-                if let pictures = media as? [InstagramMedia] {
-                    self.pictureArray.removeAll(keepCapacity: false)
-                    self.pictureArray += pictures
-                    self.finishLoadingData()
-                }
-            },
-            failure: {error, statusCode in
-                println("failure")
+        InstagramManager.sharedInstance.roadPopularPictures({
+            pictures in
+            self.pictureArray += pictures
+            self.finishLoadingData()
+            }, failure: {error, statusCode in
+                self.showErrorMessage()
         })
     }
-    
+
     private func roadFromText(text: String) {
         prepareLoadingData()
-        let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()
-        sharedEngine.getMediaWithTagName(text, count: 50, maxId: self.paginationInfo?.nextMaxId, withSuccess: { (media, paginationInfo) in
-            self.paginationInfo = paginationInfo
-            if let pictures = media as? [InstagramMedia] {
-                self.pictureArray += pictures
-                self.finishLoadingData()
-            }
-        }, failure: {error, statusCode in
-                println("failure")
+        InstagramManager.sharedInstance.roadTopSearchItems(text, success: {
+            pictures in
+            self.pictureArray += pictures
+            self.finishLoadingData()
+            }, failure: {error, statusCode in
+                self.showErrorMessage()
         })
-        
     }
     
-    private func roadSelfFeed() {
+    private func roadTopSelfFeed() {
         prepareLoadingData()
-        InstagramEngine.sharedEngine().getSelfFeedWithCount(50,
-            maxId: self.paginationInfo?.nextMaxId, success:
-            { (media, paginationInfo) in
-                self.paginationInfo = paginationInfo
-                if let pictures = media as? [InstagramMedia] {
-                    self.pictureArray += pictures
-                    self.finishLoadingData()
-                }
+        InstagramManager.sharedInstance.roadTopSeflFeed({
+            pictures in
+                self.pictureArray += pictures
+                self.finishLoadingData()
             }, failure: {error, statusCode in
-                println("failure")
+                self.showErrorMessage()
         })
+    }
+    
+    private func roadNext() {
+        InstagramManager.sharedInstance.roadNext({
+            pictures in
+                self.pictureArray += pictures
+                self.finishLoadingData()
+            }, failure: { error, statusCode in
+                self.showErrorMessage()
+        })
+    }
+    
+    private func showErrorMessage() {
+        indicatorView.hidden = true
+        UIAlertController.show(Text.ERR_FAIL_LOAD, message: nil, forVC: self)
+    }
+    
+    private func isLoading() -> Bool {
+        return !indicatorView.hidden
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,7 +89,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     // MARK: LogInDelegate
     func onLoggedIn(token: String) {
         InstagramEngine.sharedEngine().accessToken = token
-        roadSelfFeed()
+        roadTopSelfFeed()
     }
     
     // MARK: - Navigation
@@ -126,8 +127,10 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         return pictureArray.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PictureCell
+    override func collectionView(collectionView: UICollectionView,
+        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+            as! PictureCell
     
         if (pictureArray.count >= indexPath.row + 1) {
             let media: InstagramMedia = pictureArray[indexPath.row]
@@ -148,7 +151,8 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     }
 
     // MARK - UICollectionViewDelegateFlowLayout
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         if let width = self.collectionView?.bounds.size.width {
             let size = width / PhotosCollectionVC.CELL_NUMS_IN_ROW
             return CGSizeMake(size, size)
@@ -157,10 +161,26 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         }
     }
 
-    
-    
     // MARK: UICollectionViewDelegate
-
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        if (scrollView.isHitBottom()) {
+            objc_sync_enter(indicatorView)
+            if (!isLoading()) {
+                indicatorView.hidden = false
+                roadNext()
+            }
+            objc_sync_exit(indicatorView)
+            //reach bottom
+        }
+        
+        if (scrollView.isHitTop()){
+            print("did hit top")
+            //reach top
+        }
+        
+    }
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {

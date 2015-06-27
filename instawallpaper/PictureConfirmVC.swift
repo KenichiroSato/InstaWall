@@ -29,6 +29,7 @@ class PictureConfirmVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bottomBackground: UIView!
     @IBOutlet weak var topBackground: UIView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     private var bottomGradientLayer: CAGradientLayer = CAGradientLayer()
     private var topGradientLayer: CAGradientLayer = CAGradientLayer()
     var pictureUrl: NSURL = NSURL(string: DEFAULT_IMAGE_URL + INSTAGRAM_URL_SUFFIX)!
@@ -36,9 +37,14 @@ class PictureConfirmVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         setupGradientLayers()
         urlTextFIeld.resignFirstResponder()
         setImage()
+        indicatorView.hidden = true
     }
     
     private func setupGradientLayers() {
