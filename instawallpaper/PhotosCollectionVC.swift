@@ -24,7 +24,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        self.collectionView?.pagingEnabled = true
         roadPopularPictures()
     }
     
@@ -157,10 +157,21 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         }
     }
 
-    
-    
     // MARK: UICollectionViewDelegate
-
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        if (scrollView.isHitBottom()) {
+            print("did hit bottom")
+            //reach bottom
+        }
+        
+        if (scrollView.isHitTop()){
+            print("did hit top")
+            //reach top
+        }
+        
+    }
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
