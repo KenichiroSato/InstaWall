@@ -21,10 +21,6 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        self.collectionView?.pagingEnabled = true
         roadPopularPictures()
     }
     
@@ -35,38 +31,29 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
 
     private func roadPopularPictures() {
         prepareLoadingData()
-        let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()
-        sharedEngine.getPopularMediaWithSuccess(
-            { (media, paginationInfo) in
-                self.paginationInfo = paginationInfo
-                if let pictures = media as? [InstagramMedia] {
-                    self.pictureArray.removeAll(keepCapacity: false)
-                    self.pictureArray += pictures
-                    self.finishLoadingData()
-                }
-            },
-            failure: {error, statusCode in
+        InstagramManager.sharedInstance.roadPopularPictures({
+            pictures in
+            self.pictureArray += pictures
+            self.finishLoadingData()
+            }, failure: {error, statusCode in
                 self.showErrorMessage()
         })
     }
 
     private func roadFromText(text: String) {
         prepareLoadingData()
-        let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()
-        sharedEngine.getMediaWithTagName(text, count: 50, maxId: self.paginationInfo?.nextMaxId, withSuccess: { (media, paginationInfo) in
-            self.paginationInfo = paginationInfo
-            if let pictures = media as? [InstagramMedia] {
-                self.pictureArray += pictures
-                self.finishLoadingData()
-            }
-        }, failure: {error, statusCode in
-            self.showErrorMessage()
+        InstagramManager.sharedInstance.roadTopSearchItems(text, success: {
+            pictures in
+            self.pictureArray += pictures
+            self.finishLoadingData()
+            }, failure: {error, statusCode in
+                self.showErrorMessage()
         })
     }
     
-    private func roadLatestSelfFeed() {
+    private func roadTopSelfFeed() {
         prepareLoadingData()
-        InstagramManager.sharedInstance.roadLatestSeflFeed({
+        InstagramManager.sharedInstance.roadTopSeflFeed({
             pictures in
                 self.pictureArray += pictures
                 self.finishLoadingData()
@@ -75,8 +62,8 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         })
     }
     
-    private func roedNextSelfFeed() {
-        InstagramManager.sharedInstance.roedNextSelfFeed({
+    private func roadNext() {
+        InstagramManager.sharedInstance.roadNext({
             pictures in
                 self.pictureArray += pictures
                 self.finishLoadingData()
@@ -102,7 +89,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     // MARK: LogInDelegate
     func onLoggedIn(token: String) {
         InstagramEngine.sharedEngine().accessToken = token
-        roadLatestSelfFeed()
+        roadTopSelfFeed()
     }
     
     // MARK: - Navigation
@@ -140,8 +127,10 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         return pictureArray.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PictureCell
+    override func collectionView(collectionView: UICollectionView,
+        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+            as! PictureCell
     
         if (pictureArray.count >= indexPath.row + 1) {
             let media: InstagramMedia = pictureArray[indexPath.row]
@@ -162,7 +151,8 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     }
 
     // MARK - UICollectionViewDelegateFlowLayout
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         if let width = self.collectionView?.bounds.size.width {
             let size = width / PhotosCollectionVC.CELL_NUMS_IN_ROW
             return CGSizeMake(size, size)
@@ -178,7 +168,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
             objc_sync_enter(indicatorView)
             if (!isLoading()) {
                 indicatorView.hidden = false
-                roedNextSelfFeed()
+                roadNext()
             }
             objc_sync_exit(indicatorView)
             //reach bottom
