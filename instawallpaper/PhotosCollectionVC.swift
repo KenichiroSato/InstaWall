@@ -49,7 +49,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
                 println("failure")
         })
     }
-    
+
     private func roadFromText(text: String) {
         prepareLoadingData()
         let sharedEngine: InstagramEngine = InstagramEngine.sharedEngine()
@@ -62,22 +62,33 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         }, failure: {error, statusCode in
                 println("failure")
         })
-        
     }
     
     private func roadSelfFeed() {
         prepareLoadingData()
-        InstagramEngine.sharedEngine().getSelfFeedWithCount(50,
-            maxId: self.paginationInfo?.nextMaxId, success:
-            { (media, paginationInfo) in
-                self.paginationInfo = paginationInfo
-                if let pictures = media as? [InstagramMedia] {
-                    self.pictureArray += pictures
-                    self.finishLoadingData()
-                }
+        InstagramManager.sharedInstance.roadSelfFeed({
+            pictures in
+                self.pictureArray += pictures
+                self.finishLoadingData()
             }, failure: {error, statusCode in
                 println("failure")
         })
+    }
+    
+    private func roedNextSelfFeed() {
+        InstagramManager.sharedInstance.roedNextSelfFeed({
+            pictures in
+                self.pictureArray += pictures
+                self.finishLoadingData()
+            }, failure: { error, statusCode in
+                println("failure")
+                
+        })
+    }
+    
+    
+    private func isLoading() -> Bool {
+        return !indicatorView.hidden
     }
     
     override func didReceiveMemoryWarning() {
@@ -161,7 +172,12 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         
         if (scrollView.isHitBottom()) {
-            print("did hit bottom")
+            objc_sync_enter(indicatorView)
+            if (!isLoading()) {
+                indicatorView.hidden = false
+                roedNextSelfFeed()
+            }
+            objc_sync_exit(indicatorView)
             //reach bottom
         }
         
