@@ -46,7 +46,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
                 }
             },
             failure: {error, statusCode in
-                println("failure")
+                self.showErrorMessage()
         })
     }
 
@@ -60,18 +60,18 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
                 self.finishLoadingData()
             }
         }, failure: {error, statusCode in
-                println("failure")
+            self.showErrorMessage()
         })
     }
     
-    private func roadSelfFeed() {
+    private func roadLatestSelfFeed() {
         prepareLoadingData()
-        InstagramManager.sharedInstance.roadSelfFeed({
+        InstagramManager.sharedInstance.roadLatestSeflFeed({
             pictures in
                 self.pictureArray += pictures
                 self.finishLoadingData()
             }, failure: {error, statusCode in
-                println("failure")
+                self.showErrorMessage()
         })
     }
     
@@ -81,11 +81,14 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
                 self.pictureArray += pictures
                 self.finishLoadingData()
             }, failure: { error, statusCode in
-                println("failure")
-                
+                self.showErrorMessage()
         })
     }
     
+    private func showErrorMessage() {
+        indicatorView.hidden = true
+        UIAlertController.show(Text.ERR_FAIL_LOAD, message: nil, forVC: self)
+    }
     
     private func isLoading() -> Bool {
         return !indicatorView.hidden
@@ -99,7 +102,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     // MARK: LogInDelegate
     func onLoggedIn(token: String) {
         InstagramEngine.sharedEngine().accessToken = token
-        roadSelfFeed()
+        roadLatestSelfFeed()
     }
     
     // MARK: - Navigation

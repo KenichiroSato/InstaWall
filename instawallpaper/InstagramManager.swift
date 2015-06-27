@@ -14,15 +14,13 @@ public class InstagramManager {
     
     private var paginationInfo: InstagramPaginationInfo? = nil
     
-    func roadSelfFeed(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
-        InstagramEngine.sharedEngine().getSelfFeedWithCount(50,
-            maxId: self.paginationInfo?.nextMaxId, success:
-            { (media, paginationInfo) in
-                self.paginationInfo = paginationInfo
-                if let pictures = media as? [InstagramMedia] {
-                    success(pictures)
-                }
-            }, failure: failure)
+    private func resetPaginationInfo() {
+        paginationInfo = nil
+    }
+    
+    func roadLatestSeflFeed(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
+        resetPaginationInfo()
+        roadSelfFeed(success, failure: failure)
     }
     
     func roedNextSelfFeed(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
@@ -31,6 +29,10 @@ public class InstagramManager {
             return
         }
         println("roedNextSelfFeed:")
+        roadSelfFeed(success, failure: failure)
+    }
+
+    private func roadSelfFeed(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
         InstagramEngine.sharedEngine().getSelfFeedWithCount(50,
             maxId: self.paginationInfo?.nextMaxId, success:
             { (media, paginationInfo) in

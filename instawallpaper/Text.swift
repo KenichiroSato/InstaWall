@@ -17,4 +17,5 @@ public class Text {
     static public let MSG_SAVE_AND_OPEN_PHOTOS = "Save and open Photos"
     static public let ERR_EPTRY_URL = "TextBox is empty"
     static public let ERR_INVALID_URL = "Please input appropriate URL"
+    static public let ERR_FAIL_LOAD = "Failed to load images."
 }
