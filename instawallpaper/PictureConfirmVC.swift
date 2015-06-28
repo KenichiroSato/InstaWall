@@ -19,6 +19,8 @@ class PictureConfirmVC: UIViewController {
     
     static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
     
+    static private let PHOTOS_APP_URL_SCHEME = "photos-redirect:"
+    
     static private let GRADATION_HEIGHT: CGFloat = 20.0
     
     @IBOutlet weak var urlTextFIeld: UITextField!
@@ -27,6 +29,7 @@ class PictureConfirmVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bottomBackground: UIView!
     @IBOutlet weak var topBackground: UIView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     private var bottomGradientLayer: CAGradientLayer = CAGradientLayer()
     private var topGradientLayer: CAGradientLayer = CAGradientLayer()
     var pictureUrl: NSURL = NSURL(string: DEFAULT_IMAGE_URL + INSTAGRAM_URL_SUFFIX)!
@@ -34,9 +37,14 @@ class PictureConfirmVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         setupGradientLayers()
         urlTextFIeld.resignFirstResponder()
         setImage()
+        indicatorView.hidden = true
     }
     
     private func setupGradientLayers() {
@@ -83,7 +91,6 @@ class PictureConfirmVC: UIViewController {
             img = UIImage(data:imageData) {
                 imageView.image = img
                 updateBackground(img)
-                storeImage()
         } else {
             UIAlertController.show(Text.ERR_INVALID_URL, message: nil, forVC: self)
         }
@@ -131,11 +138,33 @@ class PictureConfirmVC: UIViewController {
         UIGraphicsEndImageContext();
         
         if (PictureManager.isAuthorized()) {
-            PictureManager.saveImage(image, completion: { result in
-                print("saved!!")
-            })
+            PictureManager.saveImage(image, completion: { result in print("saved!!")})
         } else {
             PictureManager.requestAnthorization()
+        }
+    }
+    
+    @IBAction func onTapped(sender: UITapGestureRecognizer) {
+        showSaveMenu()
+    }
+    
+    private func showSaveMenu() {
+        let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cancelAction = UIAlertAction(title: Text.CANCEL, style: UIAlertActionStyle.Cancel, handler: { action in print("canceled")})
+        let saveAction = UIAlertAction(title: Text.MSG_SAVE, style: UIAlertActionStyle.Default, handler: {action in self.storeImage()})
+        let saveAndOpenAction = UIAlertAction(title: Text.MSG_SAVE_AND_OPEN_PHOTOS, style: UIAlertActionStyle.Default, handler: {action in
+            self.storeImage()
+            self.openPhotosApp()
+        })
+        actionController.addAction(cancelAction)
+        actionController.addAction(saveAction)
+        actionController.addAction(saveAndOpenAction)
+        self.presentViewController(actionController, animated: true, completion: nil)
+    }
+    
+    private func openPhotosApp() {
+        if let url = NSURL(string: PictureConfirmVC.PHOTOS_APP_URL_SCHEME) {
+            UIApplication.sharedApplication().openURL(url)
         }
     }
     
@@ -146,7 +175,6 @@ class PictureConfirmVC: UIViewController {
 
     @IBAction func onBackPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
-//        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
