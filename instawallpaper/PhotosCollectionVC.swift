@@ -16,6 +16,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     
     private var pictureArray: [InstagramMedia] = []
     private var paginationInfo: InstagramPaginationInfo? = nil
+    private var shouldPullToRefresh = false
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
@@ -67,6 +68,17 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
             pictures in
                 self.pictureArray += pictures
                 self.finishLoadingData()
+            }, failure: { error, statusCode in
+                self.showErrorMessage()
+        })
+    }
+    
+    private func refresh() {
+        prepareLoadingData()
+        InstagramManager.sharedInstance.refresh({
+            pictures in
+            self.pictureArray += pictures
+            self.finishLoadingData()
             }, failure: { error, statusCode in
                 self.showErrorMessage()
         })
@@ -163,21 +175,26 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     // MARK: UICollectionViewDelegate
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        if (scrollView.isHitBottom()) {
-            objc_sync_enter(indicatorView)
+        objc_sync_enter(self)
+        if (scrollView.isCloseToBottom()) {
             if (!isLoading()) {
                 indicatorView.hidden = false
                 roadNext()
             }
-            objc_sync_exit(indicatorView)
             //reach bottom
         }
         
-        if (scrollView.isHitTop()){
-            print("did hit top")
-            //reach top
+        if (scrollView.isHitTop() && shouldPullToRefresh) {
+            shouldPullToRefresh = false
+            refresh()
         }
         
+        if (scrollView.shouldPullToRefresh()){
+            print("pull to refresh")
+            shouldPullToRefresh = true
+            //reach top
+        }
+        objc_sync_exit(self)
     }
     
     /*
