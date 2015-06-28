@@ -132,11 +132,10 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
             as! PictureCell
     
+        cell.imageView.image = nil
         if (pictureArray.count >= indexPath.row + 1) {
             let media: InstagramMedia = pictureArray[indexPath.row]
             cell.imageView.setImageWithURL(media.thumbnailURL)
-        } else {
-            cell.imageView.setImageWithURL(nil)
         }
         return cell
     }
