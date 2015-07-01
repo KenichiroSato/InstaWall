@@ -39,11 +39,4 @@ extension UIScrollView {
         }
     }
     
-    func shouldPullToRefresh() -> Bool {
-        if (self.contentOffset.y < UIScrollView.PULL_TO_REFRESH_TRIGGER){
-            return true
-        } else {
-            return false
-        }
-    }
 }

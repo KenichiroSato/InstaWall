@@ -16,7 +16,6 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     
     private var pictureArray: [InstagramMedia] = []
     private var paginationInfo: InstagramPaginationInfo? = nil
-    private var shouldPullToRefresh = false
     private var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
@@ -189,18 +188,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
                 roadNext()
             }
             //reach bottom
-        }
-        
-        if (scrollView.isHitTop() && shouldPullToRefresh) {
-            shouldPullToRefresh = false
-            //refresh()
-        }
-        
-        if (scrollView.shouldPullToRefresh()){
-            print("pull to refresh")
-            shouldPullToRefresh = true
-            //reach top
-        }
+        }        
         objc_sync_exit(self)
     }
     
