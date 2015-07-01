@@ -17,11 +17,17 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     private var pictureArray: [InstagramMedia] = []
     private var paginationInfo: InstagramPaginationInfo? = nil
     private var shouldPullToRefresh = false
+    private var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControl.addTarget(self, action: Selector("refresh"),
+            forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView?.addSubview(refreshControl)
+
         roadPopularPictures()
     }
     
@@ -73,10 +79,11 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         })
     }
     
-    private func refresh() {
-        prepareLoadingData()
+    func refresh() {
         InstagramManager.sharedInstance.refresh({
             pictures in
+            self.refreshControl.endRefreshing()
+            self.pictureArray.removeAll(keepCapacity: false)
             self.pictureArray += pictures
             self.finishLoadingData()
             }, failure: { error, statusCode in
@@ -186,7 +193,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         
         if (scrollView.isHitTop() && shouldPullToRefresh) {
             shouldPullToRefresh = false
-            refresh()
+            //refresh()
         }
         
         if (scrollView.shouldPullToRefresh()){
