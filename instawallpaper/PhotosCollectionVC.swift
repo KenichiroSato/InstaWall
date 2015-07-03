@@ -16,11 +16,17 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     
     private var pictureArray: [InstagramMedia] = []
     private var paginationInfo: InstagramPaginationInfo? = nil
+    private var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshControl.addTarget(self, action: Selector("refresh"),
+            forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView?.addSubview(refreshControl)
+
         roadPopularPictures()
     }
     
@@ -67,6 +73,18 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
             pictures in
                 self.pictureArray += pictures
                 self.finishLoadingData()
+            }, failure: { error, statusCode in
+                self.showErrorMessage()
+        })
+    }
+    
+    func refresh() {
+        InstagramManager.sharedInstance.refresh({
+            pictures in
+            self.refreshControl.endRefreshing()
+            self.pictureArray.removeAll(keepCapacity: false)
+            self.pictureArray += pictures
+            self.finishLoadingData()
             }, failure: { error, statusCode in
                 self.showErrorMessage()
         })
@@ -132,11 +150,10 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
             as! PictureCell
     
+        cell.imageView.image = nil
         if (pictureArray.count >= indexPath.row + 1) {
             let media: InstagramMedia = pictureArray[indexPath.row]
             cell.imageView.setImageWithURL(media.thumbnailURL)
-        } else {
-            cell.imageView.setImageWithURL(nil)
         }
         return cell
     }
@@ -164,21 +181,15 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
     // MARK: UICollectionViewDelegate
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        if (scrollView.isHitBottom()) {
-            objc_sync_enter(indicatorView)
+        objc_sync_enter(self)
+        if (scrollView.isCloseToBottom()) {
             if (!isLoading()) {
                 indicatorView.hidden = false
                 roadNext()
             }
-            objc_sync_exit(indicatorView)
             //reach bottom
-        }
-        
-        if (scrollView.isHitTop()){
-            print("did hit top")
-            //reach top
-        }
-        
+        }        
+        objc_sync_exit(self)
     }
     
     /*

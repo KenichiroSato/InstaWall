@@ -66,6 +66,19 @@ public class InstagramManager {
             }
         }
     }
+    
+    func refresh(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
+        if let content = self.currentContent {
+            switch(content) {
+            case .FEED:
+                roadTopSeflFeed(success, failure: failure)
+            case .SEARCH:
+                if let text = searchText {
+                    roadTopSearchItems(text, success: success, failure: failure)
+                }
+            }
+        }
+    }
 
     private func roadSelfFeed(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
         InstagramEngine.sharedEngine().getSelfFeedWithCount(InstagramManager.COUNT_PER_REQUEST,
