@@ -23,8 +23,6 @@ class PictureConfirmVC: UIViewController {
     
     static private let GRADATION_HEIGHT: CGFloat = 20.0
     
-    @IBOutlet weak var urlTextFIeld: UITextField!
-    @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var parentPictureView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bottomBackground: UIView!
@@ -42,7 +40,6 @@ class PictureConfirmVC: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         setupGradientLayers()
-        urlTextFIeld.resignFirstResponder()
         setImage()
         indicatorView.hidden = true
     }
@@ -64,22 +61,7 @@ class PictureConfirmVC: UIViewController {
         bottomGradientLayer.frame = bottomFrame
         imageView.layer.addSublayer(bottomGradientLayer)        
     }
-    
-    @IBAction func onGoButtonClicked(sender: AnyObject) {
-        urlTextFIeld.resignFirstResponder() // close keyborad
-        let text = urlTextFIeld.text
-        if (text.isEmpty) {
-            UIAlertController.show(Text.ERR_EPTRY_URL, message: nil, forVC: self)
-            return
-        }
-        if let url = NSURL(string: text + PictureConfirmVC.INSTAGRAM_URL_SUFFIX) {
-            pictureUrl = url
-            setImage()
-        } else {
-            UIAlertController.show(Text.ERR_INVALID_URL, message: nil, forVC: self)
-        }
-    }
-    
+        
     private func setImage() {
         let timeTracker = TimeTracker(tag: "setImage")
         timeTracker.start()
