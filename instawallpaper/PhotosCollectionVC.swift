@@ -27,7 +27,11 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
             forControlEvents: UIControlEvents.ValueChanged)
         self.collectionView?.addSubview(refreshControl)
 
-        roadPopularPictures()
+        if (AccountManager.sharedInstance.isLoggedIn()) {
+            roadTopSelfFeed()
+        } else {
+            roadPopularPictures()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -106,7 +110,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
 
     // MARK: LogInDelegate
     func onLoggedIn(token: String) {
-        InstagramEngine.sharedEngine().accessToken = token
+        AccountManager.sharedInstance.saveToken(token)
         roadTopSelfFeed()
     }
     
