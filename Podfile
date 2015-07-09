@@ -1,4 +1,5 @@
 pod 'InstagramKit', '3.6.3'
+pod 'HMSegmentedControl'
 
 post_install do | installer |
   require 'fileutils'
