@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Segment View Controller-->
         <scene sceneID="d0R-ym-QQz">
             <objects>
-                <viewController id="jRu-61-krm" sceneMemberID="viewController">
+                <viewController id="jRu-61-krm" customClass="SegmentViewController" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M0d-1q-IfR"/>
                         <viewControllerLayoutGuide type="bottom" id="Id7-pC-snC"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="46"/>
                                 <color key="backgroundColor" red="1" green="0.92373187131161216" blue="0.39500496873847835" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uJU-7f-15x">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uJU-7f-15x">
                                 <rect key="frame" x="0.0" y="46" width="608" height="554"/>
                                 <color key="backgroundColor" red="0.61392589939323428" green="1" blue="0.95485004132352735" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
@@ -32,8 +32,13 @@
                             <constraint firstItem="Rpb-Du-zd5" firstAttribute="top" secondItem="YQY-uR-d9X" secondAttribute="topMargin" id="05h-5J-Tnr"/>
                             <constraint firstItem="Rpb-Du-zd5" firstAttribute="leading" secondItem="YQY-uR-d9X" secondAttribute="leading" id="R9x-dQ-LtM"/>
                             <constraint firstItem="Rpb-Du-zd5" firstAttribute="trailing" secondItem="YQY-uR-d9X" secondAttribute="trailing" id="Uh8-bT-0nt"/>
+                            <constraint firstItem="uJU-7f-15x" firstAttribute="width" secondItem="YQY-uR-d9X" secondAttribute="width" id="eF8-Qg-A92"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="uJU-7f-15x" id="MO7-7d-s1K"/>
+                        <outlet property="headerView" destination="Rpb-Du-zd5" id="fuo-Kf-PJM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b8-dg-Qnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
