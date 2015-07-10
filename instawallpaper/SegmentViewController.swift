@@ -26,8 +26,12 @@ class SegmentViewController: UIViewController, UIScrollViewDelegate {
         let scrollWidth: CGFloat = self.view.frame.size.width;
         let scrollHeight: CGFloat = (self.view.frame.size.height - self.headerView.frame.size.height);
         
-        segmentedControl.backgroundColor = UIColor.yellowColor()
+        segmentedControl.backgroundColor = UIColor(red: 0.1, green: 0.3, blue: 0.6, alpha: 1)
         segmentedControl.frame = CGRectMake(0, 0, scrollWidth, self.headerView.frame.size.height)
+        segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
+        segmentedControl.selectionIndicatorColor = UIColor(red: 0.5, green: 0.8, blue: 1, alpha: 1)
+        segmentedControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()];
+        segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleBox;
         segmentedControl.indexChangeBlock = {
             [unowned self] (index: Int) in
             let move = scrollWidth * CGFloat(index);
@@ -37,7 +41,6 @@ class SegmentViewController: UIViewController, UIScrollViewDelegate {
         
         contentView.delegate = self
         contentView.contentSize = CGSizeMake(scrollWidth * CGFloat(SegmentViewController.TAB_NUM), scrollHeight)
-        
         
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
             //self.navigationController?.pushViewController(vc, animated: true)
