@@ -34,6 +34,7 @@
                             <constraint firstItem="uJU-7f-15x" firstAttribute="width" secondItem="YQY-uR-d9X" secondAttribute="width" id="eF8-Qg-A92"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="vpp-Nk-ach"/>
                     <connections>
                         <outlet property="contentView" destination="uJU-7f-15x" id="MO7-7d-s1K"/>
                         <outlet property="headerView" destination="Rpb-Du-zd5" id="fuo-Kf-PJM"/>
@@ -46,7 +47,7 @@
         <!--Photos CollectionVC-->
         <scene sceneID="NLc-3I-iV5">
             <objects>
-                <collectionViewController id="INZ-LP-xpe" customClass="PhotosCollectionVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="PhotosCollectionVC" id="INZ-LP-xpe" customClass="PhotosCollectionVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="eMr-RA-lvL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,6 +119,36 @@
             </objects>
             <point key="canvasLocation" x="1260" y="-470"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="dzw-np-ojH">
+            <objects>
+                <viewController storyboardIdentifier="testVC" id="E4S-6u-Cbr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yp4-SA-e9t"/>
+                        <viewControllerLayoutGuide type="bottom" id="W60-W5-A4K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lX0-zs-rs2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="testtest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUk-Hc-h70">
+                                <rect key="frame" x="288" y="296" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="CUk-Hc-h70" secondAttribute="centerX" id="Fkk-Qa-cK4"/>
+                            <constraint firstAttribute="centerY" secondItem="CUk-Hc-h70" secondAttribute="centerY" id="p1y-aC-iVQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nxh-NF-wEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="576" y="13"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="24Y-FV-Jzk">
             <objects>
@@ -126,13 +157,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="INZ-LP-xpe" kind="relationship" relationship="rootViewController" id="AVL-bm-Yiw"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Gc-ggg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="-464"/>
+            <point key="canvasLocation" x="368" y="-1188"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="pA4-qB-q2a">
