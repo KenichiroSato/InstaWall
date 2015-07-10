@@ -14,7 +14,9 @@ class SegmentViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var contentView: UIScrollView!
     
-    static private let titles = ["home", "search", "more"]
+    static private let titles = ["home", "search"]
+    
+    static private let TAB_NUM = SegmentViewController.titles.count
     
     private let segmentedControl = HMSegmentedControl(sectionTitles: titles)
     
@@ -26,13 +28,16 @@ class SegmentViewController: UIViewController, UIScrollViewDelegate {
         
         segmentedControl.backgroundColor = UIColor.yellowColor()
         segmentedControl.frame = CGRectMake(0, 0, scrollWidth, self.headerView.frame.size.height)
+        segmentedControl.indexChangeBlock = {
+            [unowned self] (index: Int) in
+            let move = scrollWidth * CGFloat(index);
+            self.contentView.scrollRectToVisible(CGRectMake(move , 0, scrollWidth, scrollHeight), animated: true)
+        }
         headerView.addSubview(segmentedControl)
         
-        contentView.pagingEnabled = true
         contentView.delegate = self
-        contentView.showsHorizontalScrollIndicator = false
-        contentView.contentSize = CGSizeMake(scrollWidth * 3, scrollHeight)
-        println(self.contentView.frame.size.width)
+        contentView.contentSize = CGSizeMake(scrollWidth * CGFloat(SegmentViewController.TAB_NUM), scrollHeight)
+
         let page1view: UILabel = UILabel(frame: CGRectMake(0, 0, scrollWidth, scrollHeight))
         page1view.backgroundColor = UIColor.redColor()
         contentView.addSubview(page1view)
@@ -41,16 +46,6 @@ class SegmentViewController: UIViewController, UIScrollViewDelegate {
         page2view.backgroundColor = UIColor.greenColor()
         contentView.addSubview(page2view)
 
-        let page3view: UILabel = UILabel(frame: CGRectMake(scrollWidth*2, 0, scrollWidth, scrollHeight))
-        page3view.backgroundColor = UIColor.blackColor()
-        contentView.addSubview(page3view)
-        // Do any additional setup after loading the view.
-        
-        segmentedControl.indexChangeBlock = {
-            [unowned self] (index: Int) in
-                let move = scrollWidth * CGFloat(index);
-                self.contentView.scrollRectToVisible(CGRectMake(move , 0, scrollWidth, scrollHeight), animated: true)
-        }
     }
     
     override func didReceiveMemoryWarning() {
