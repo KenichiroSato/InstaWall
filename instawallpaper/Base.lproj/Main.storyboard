@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jRu-61-krm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ln7-NZ-e4U">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -152,11 +152,14 @@
         <!--Navigation Controller-->
         <scene sceneID="24Y-FV-Jzk">
             <objects>
-                <navigationController id="ln7-NZ-e4U" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v3d-5D-G38">
+                <navigationController navigationBarHidden="YES" id="ln7-NZ-e4U" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="v3d-5D-G38">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="jRu-61-krm" kind="relationship" relationship="rootViewController" id="gXU-zX-P8n"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Gc-ggg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

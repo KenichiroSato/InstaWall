@@ -32,11 +32,6 @@ class PictureConfirmVC: UIViewController {
     private var topGradientLayer: CAGradientLayer = CAGradientLayer()
     var pictureUrl: NSURL = NSURL(string: DEFAULT_IMAGE_URL + INSTAGRAM_URL_SUFFIX)!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = true
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         setupGradientLayers()
