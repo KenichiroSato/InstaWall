@@ -34,11 +34,6 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = false        
-    }
-
     private func roadPopularPictures() {
         prepareLoadingData()
         InstagramManager.sharedInstance.roadPopularPictures({

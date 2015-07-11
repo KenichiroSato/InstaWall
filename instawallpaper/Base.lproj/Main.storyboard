@@ -6,10 +6,50 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--SegmentedVC-->
+        <scene sceneID="d0R-ym-QQz">
+            <objects>
+                <viewController id="jRu-61-krm" customClass="SegmentedVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M0d-1q-IfR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Id7-pC-snC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YQY-uR-d9X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpb-Du-zd5">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="46"/>
+                                <color key="backgroundColor" red="1" green="0.92373187131161216" blue="0.39500496873847835" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJU-7f-15x">
+                                <rect key="frame" x="0.0" y="0.0" width="608" height="511"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Rpb-Du-zd5" firstAttribute="top" secondItem="YQY-uR-d9X" secondAttribute="topMargin" id="05h-5J-Tnr"/>
+                            <constraint firstItem="uJU-7f-15x" firstAttribute="top" secondItem="Rpb-Du-zd5" secondAttribute="bottom" constant="4" id="JPR-NS-hfT"/>
+                            <constraint firstItem="Rpb-Du-zd5" firstAttribute="leading" secondItem="YQY-uR-d9X" secondAttribute="leading" id="R9x-dQ-LtM"/>
+                            <constraint firstItem="Rpb-Du-zd5" firstAttribute="trailing" secondItem="YQY-uR-d9X" secondAttribute="trailing" id="Uh8-bT-0nt"/>
+                            <constraint firstItem="Id7-pC-snC" firstAttribute="top" secondItem="uJU-7f-15x" secondAttribute="bottom" id="V7U-Ka-zEU"/>
+                            <constraint firstItem="uJU-7f-15x" firstAttribute="width" secondItem="YQY-uR-d9X" secondAttribute="width" id="eF8-Qg-A92"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vpp-Nk-ach"/>
+                    <connections>
+                        <outlet property="contentView" destination="uJU-7f-15x" id="MO7-7d-s1K"/>
+                        <outlet property="headerView" destination="Rpb-Du-zd5" id="fuo-Kf-PJM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2b8-dg-Qnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1110" y="-1273"/>
+        </scene>
         <!--Photos CollectionVC-->
         <scene sceneID="NLc-3I-iV5">
             <objects>
-                <collectionViewController id="INZ-LP-xpe" customClass="PhotosCollectionVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="PhotosCollectionVC" id="INZ-LP-xpe" customClass="PhotosCollectionVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="eMr-RA-lvL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,12 +72,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8lx-Iz-PDF">
-                                            <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8lx-Iz-PDF">
+                                            <rect key="frame" x="1" y="0.0" width="104" height="105"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="8lx-Iz-PDF" secondAttribute="bottomMargin" constant="1" id="1Wd-Jw-cYR"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="8lx-Iz-PDF" secondAttribute="trailingMargin" constant="1" id="AsV-Ty-dnr"/>
+                                    <constraint firstItem="8lx-Iz-PDF" firstAttribute="leading" secondItem="aCe-dU-UyK" secondAttribute="leading" constant="1" id="PY8-9a-1Pg"/>
+                                    <constraint firstItem="8lx-Iz-PDF" firstAttribute="top" secondItem="aCe-dU-UyK" secondAttribute="top" id="b6o-u9-ajH"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="8lx-Iz-PDF" id="aaK-Wu-MMV"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="segue.fullscreen" id="Joa-zm-Qm0"/>
@@ -81,21 +127,51 @@
             </objects>
             <point key="canvasLocation" x="1260" y="-470"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="dzw-np-ojH">
+            <objects>
+                <viewController storyboardIdentifier="testVC" id="E4S-6u-Cbr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yp4-SA-e9t"/>
+                        <viewControllerLayoutGuide type="bottom" id="W60-W5-A4K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lX0-zs-rs2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="testtest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUk-Hc-h70">
+                                <rect key="frame" x="288" y="296" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="CUk-Hc-h70" secondAttribute="centerX" id="Fkk-Qa-cK4"/>
+                            <constraint firstAttribute="centerY" secondItem="CUk-Hc-h70" secondAttribute="centerY" id="p1y-aC-iVQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nxh-NF-wEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="576" y="13"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="24Y-FV-Jzk">
             <objects>
-                <navigationController id="ln7-NZ-e4U" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v3d-5D-G38">
+                <navigationController navigationBarHidden="YES" id="ln7-NZ-e4U" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="v3d-5D-G38">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="INZ-LP-xpe" kind="relationship" relationship="rootViewController" id="AVL-bm-Yiw"/>
+                        <segue destination="jRu-61-krm" kind="relationship" relationship="rootViewController" id="gXU-zX-P8n"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Gc-ggg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="-464"/>
+            <point key="canvasLocation" x="368" y="-1188"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="pA4-qB-q2a">

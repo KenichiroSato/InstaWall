@@ -20,14 +20,17 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - HMSegmentedControl (1.5.2)
   - InstagramKit (3.6.3):
     - AFNetworking (~> 2.0)
 
 DEPENDENCIES:
+  - HMSegmentedControl
   - InstagramKit (= 3.6.3)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
   InstagramKit: d378c535e012cc49926a97fc64a07213e0f050e3
 
 COCOAPODS: 0.37.2

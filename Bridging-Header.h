@@ -11,6 +11,7 @@
 
 #import "InstagramKit.h"
 #import "AFNetworking.h"
+#import "HMSegmentedControl.h"
 #import "UIImageView+AFNetworking.h"
 //#import "InstagramMedia.h"
 //#import "InstagramUser.h"

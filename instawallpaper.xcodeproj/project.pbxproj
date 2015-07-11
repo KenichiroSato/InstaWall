@@ -10,6 +10,7 @@
 		0C71AA2A1B4BFEDB00710E96 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0C71AA291B4BFEDB00710E96 /* Settings.bundle */; };
 		0CD2A6A31B29AFB200FD111E /* ImageUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */; };
 		0CD2A6A51B29B46C00FD111E /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101CC1B1A87D7006F2F65 /* ImageUtil.swift */; };
+		0CE915091B4EAE1D009551EE /* SegmentedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE915081B4EAE1D009551EE /* SegmentedVC.swift */; };
 		220FD28CD8434CE324A45619 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E18011CEFA23ECE96F779DE6 /* libPods.a */; };
 		3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614AB61B2413D700B3CE59 /* TimeTracker.swift */; };
 		5907B2661B3E2C12009A1F01 /* UIScrollView+hit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907B2651B3E2C12009A1F01 /* UIScrollView+hit.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		0C71AA291B4BFEDB00710E96 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtilTest.swift; sourceTree = "<group>"; };
+		0CE915081B4EAE1D009551EE /* SegmentedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedVC.swift; sourceTree = "<group>"; };
 		3D614AB61B2413D700B3CE59 /* TimeTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
 		4FAEDB8F337C86D7B8F53BDE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5907B2651B3E2C12009A1F01 /* UIScrollView+hit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+hit.swift"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				5907B2641B3E29D3009A1F01 /* extension */,
 				595101AC1B19EB8E006F2F65 /* AppDelegate.swift */,
 				595101AE1B19EB8E006F2F65 /* PictureConfirmVC.swift */,
+				0CE915081B4EAE1D009551EE /* SegmentedVC.swift */,
 				0C71AA291B4BFEDB00710E96 /* Settings.bundle */,
 				597AD7801B3647AF00E087B4 /* Text.swift */,
 				599E46AA1B227DDB005CE654 /* PictureManager.swift */,
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE915091B4EAE1D009551EE /* SegmentedVC.swift in Sources */,
 				595101CD1B1A87D7006F2F65 /* ImageUtil.swift in Sources */,
 				5907B2661B3E2C12009A1F01 /* UIScrollView+hit.swift in Sources */,
 				595101AF1B19EB8E006F2F65 /* PictureConfirmVC.swift in Sources */,
