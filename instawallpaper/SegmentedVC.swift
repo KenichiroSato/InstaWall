@@ -20,15 +20,30 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     
     private let segmentedControl = HMSegmentedControl(sectionTitles: titles)
     
+    var token: dispatch_once_t = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("headersize=" + NSStringFromCGRect(self.headerView.frame))
+        println("contentview=" + NSStringFromCGRect(self.contentView.frame))
         setupViews()
-
+        setupSubViews()
     }
     
+    /*
+    override func viewDidAppear(animated: Bool) {
+        println("viewDidAppear")
+        //println("headersize=" + NSStringFromCGRect(self.headerView.frame))
+        //println("contentview=" + NSStringFromCGRect(self.contentView.frame))
+        dispatch_once(&token) {
+            //self.setupViews()
+            self.setupSubViews()
+        }
+
+    }*/
+
+   
     private func setupViews() {
-        println("size=" + NSStringFromCGRect(self.headerView.frame))
-        println("contentview=" + NSStringFromCGRect(self.contentView.frame))
         let scrollWidth: CGFloat = self.view.frame.size.width;
         let scrollHeight: CGFloat = (self.view.frame.size.height - self.headerView.frame.size.height);
         
@@ -48,11 +63,21 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
         contentView.delegate = self
         contentView.contentSize = CGSizeMake(scrollWidth * CGFloat(SegmentedVC.TAB_NUM), scrollHeight)
         
+    }
+    
+    private func setupSubViews() {
+        println("setupSubViews")
+
+        let scrollWidth: CGFloat = self.contentView.frame.size.width;
+        let scrollHeight: CGFloat = self.contentView.frame.size.height;
+
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
             self.addChildViewController(vc)
             vc.didMoveToParentViewController(self)
             vc.collectionView?.dataSource = vc
             vc.collectionView?.delegate = vc
+            //vc.view.frame.size = contentView.frame.size
+            //println("vc=" + NSStringFromCGRect(vc.view.frame))
             if let view = vc.view {
                 contentView.addSubview(view)
             }

@@ -38,6 +38,9 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         //When instanciated from storyboard, width changes between viewWiiAppear and viewDidAppear
         //So, width must be reset here.
         if let size = self.parentViewController?.view.frame.size {
+            println("parentview=" + NSStringFromCGSize(size))
+            println("self size=" + NSStringFromCGRect(self.view.frame))
+
             self.view.frame.size.width = size.width
         }
     }
