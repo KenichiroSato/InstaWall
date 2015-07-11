@@ -70,12 +70,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8lx-Iz-PDF">
-                                            <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8lx-Iz-PDF">
+                                            <rect key="frame" x="1" y="0.0" width="104" height="105"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="8lx-Iz-PDF" secondAttribute="bottomMargin" constant="1" id="1Wd-Jw-cYR"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="8lx-Iz-PDF" secondAttribute="trailingMargin" constant="1" id="AsV-Ty-dnr"/>
+                                    <constraint firstItem="8lx-Iz-PDF" firstAttribute="leading" secondItem="aCe-dU-UyK" secondAttribute="leading" constant="1" id="PY8-9a-1Pg"/>
+                                    <constraint firstItem="8lx-Iz-PDF" firstAttribute="top" secondItem="aCe-dU-UyK" secondAttribute="top" id="b6o-u9-ajH"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="8lx-Iz-PDF" id="aaK-Wu-MMV"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="segue.fullscreen" id="Joa-zm-Qm0"/>
