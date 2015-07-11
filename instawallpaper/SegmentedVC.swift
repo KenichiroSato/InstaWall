@@ -26,27 +26,24 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         println("headersize=" + NSStringFromCGRect(self.headerView.frame))
         println("contentview=" + NSStringFromCGRect(self.contentView.frame))
-        setupViews()
-        setupSubViews()
     }
     
-    /*
+    
     override func viewDidAppear(animated: Bool) {
         println("viewDidAppear")
-        //println("headersize=" + NSStringFromCGRect(self.headerView.frame))
-        //println("contentview=" + NSStringFromCGRect(self.contentView.frame))
+        println("headersize=" + NSStringFromCGRect(self.headerView.frame))
+        println("contentview=" + NSStringFromCGRect(self.contentView.frame))
         dispatch_once(&token) {
-            //self.setupViews()
+            self.setupViews()
             self.setupSubViews()
         }
 
-    }*/
-
+    }
    
     private func setupViews() {
-        let scrollWidth: CGFloat = self.view.frame.size.width;
-        let scrollHeight: CGFloat = (self.view.frame.size.height - self.headerView.frame.size.height);
-        
+        let scrollWidth: CGFloat = self.contentView.frame.size.width;
+        let scrollHeight: CGFloat = self.contentView.frame.size.height;
+
         segmentedControl.backgroundColor = UIColor(red: 0.1, green: 0.3, blue: 0.6, alpha: 1)
         segmentedControl.frame = CGRectMake(0, 0, scrollWidth, self.headerView.frame.size.height)
         segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
@@ -76,27 +73,12 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
             vc.didMoveToParentViewController(self)
             vc.collectionView?.dataSource = vc
             vc.collectionView?.delegate = vc
-            //vc.view.frame.size = contentView.frame.size
-            //println("vc=" + NSStringFromCGRect(vc.view.frame))
+            vc.view.frame.size = contentView.frame.size
             if let view = vc.view {
                 contentView.addSubview(view)
             }
         }
         
-        /*
-        [self.storyboard instantiateViewControllerWithIdentifier:@"PhotosCollectionVC"];
-        tableViewController.tableView.delegate = tableViewController;
-        [tableViewController.view setFrame:CGRectMake(0,152,320,436)];
-        [self addChildViewController:tableViewController];
-        [tableViewController didMoveToParentViewController:self];
-        [self.view addSubview:tableViewController.view];
-        */
-        
-        /*
-        let page1view: UILabel = UILabel(frame: CGRectMake(0, 0, scrollWidth, scrollHeight))
-        page1view.backgroundColor = UIColor.redColor()
-        contentView.addSubview(page1view)
-        */
         let page2view: UILabel = UILabel(frame: CGRectMake(scrollWidth, 0, scrollWidth, scrollHeight))
         page2view.backgroundColor = UIColor.greenColor()
         contentView.addSubview(page2view)
