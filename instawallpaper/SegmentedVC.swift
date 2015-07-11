@@ -41,32 +41,26 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     }
    
     private func setupViews() {
-        let scrollWidth: CGFloat = self.contentView.frame.size.width;
-        let scrollHeight: CGFloat = self.contentView.frame.size.height;
-
         segmentedControl.backgroundColor = UIColor(red: 0.1, green: 0.3, blue: 0.6, alpha: 1)
-        segmentedControl.frame = CGRectMake(0, 0, scrollWidth, self.headerView.frame.size.height)
+        segmentedControl.frame = CGRectMake(0, 0, contentWidth(), self.headerView.frame.size.height)
         segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
         segmentedControl.selectionIndicatorColor = UIColor(red: 0.5, green: 0.8, blue: 1, alpha: 1)
         segmentedControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()];
         segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleBox;
         segmentedControl.indexChangeBlock = {
             [unowned self] (index: Int) in
-            let move = scrollWidth * CGFloat(index);
-            self.contentView.scrollRectToVisible(CGRectMake(move , 0, scrollWidth, scrollHeight), animated: true)
+            let move = self.contentWidth() * CGFloat(index);
+            self.contentView.scrollRectToVisible(CGRectMake(move , 0, self.contentWidth(), self.contentHeight()), animated: true)
         }
         headerView.addSubview(segmentedControl)
         
         contentView.delegate = self
-        contentView.contentSize = CGSizeMake(scrollWidth * CGFloat(SegmentedVC.TAB_NUM), scrollHeight)
+        contentView.contentSize = CGSizeMake(contentWidth() * CGFloat(SegmentedVC.TAB_NUM), contentHeight())
         
     }
     
     private func setupSubViews() {
         println("setupSubViews")
-
-        let scrollWidth: CGFloat = self.contentView.frame.size.width;
-        let scrollHeight: CGFloat = self.contentView.frame.size.height;
 
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
             self.addChildViewController(vc)
@@ -79,10 +73,17 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
             }
         }
         
-        let page2view: UILabel = UILabel(frame: CGRectMake(scrollWidth, 0, scrollWidth, scrollHeight))
+        let page2view: UILabel = UILabel(frame: CGRectMake(contentWidth(), 0, contentWidth(), contentHeight()))
         page2view.backgroundColor = UIColor.greenColor()
         contentView.addSubview(page2view)
-
+    }
+    
+    private func contentWidth() -> CGFloat {
+        return contentView.frame.size.width
+    }
+    
+    private func contentHeight() -> CGFloat {
+        return contentView.frame.size.height
     }
     
     override func didReceiveMemoryWarning() {
