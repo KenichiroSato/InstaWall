@@ -153,7 +153,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="GQ8-yT-oa2" kind="show" id="Mnl-Z3-bJi"/>
+                                            <segue destination="GQ8-yT-oa2" kind="show" identifier="segue.login" id="Mnl-Z3-bJi"/>
                                         </connections>
                                     </button>
                                 </subviews>

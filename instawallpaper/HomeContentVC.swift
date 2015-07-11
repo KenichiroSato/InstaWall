@@ -8,39 +8,54 @@
 
 import UIKit
 
-class HomeContentVC: UIViewController {
+class HomeContentVC: UIViewController, LogInDelegate {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     
+    var photosVC: PhotosCollectionVC!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
-        // Do any additional setup after loading the view.
     }
     
     private func setupView() {
         bottomView.backgroundColor = Color.BASE_BLUE
-        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
-            self.addChildViewController(vc)
-            vc.didMoveToParentViewController(self)
-            vc.collectionView?.dataSource = vc
-            vc.collectionView?.delegate = vc
-            vc.view.frame.size = contentView.frame.size
-            if let view = vc.view {
+        if let vc  = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
+            photosVC = vc
+            self.addChildViewController(photosVC)
+            photosVC.didMoveToParentViewController(self)
+            photosVC.collectionView?.dataSource = photosVC
+            photosVC.collectionView?.delegate = photosVC
+            photosVC.view.frame.size = contentView.frame.size
+            if let view = photosVC.view {
                 contentView.addSubview(view)
             }
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "segue.login") {
+            let nextVC = segue.destinationViewController as! LoginVC
+            nextVC.logInDelegate = self
+        }
+    }
 
+    // MARK: LogInDelegate
+    func onLoggedIn(token: String) {
+        AccountManager.sharedInstance.saveToken(token)
+        photosVC.roadTopSelfFeed()
+    }
+    
     /*
     // MARK: - Navigation
 
