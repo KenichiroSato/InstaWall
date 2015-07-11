@@ -22,7 +22,13 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
 
+    }
+    
+    private func setupViews() {
+        println("size=" + NSStringFromCGRect(self.headerView.frame))
+        println("contentview=" + NSStringFromCGRect(self.contentView.frame))
         let scrollWidth: CGFloat = self.view.frame.size.width;
         let scrollHeight: CGFloat = (self.view.frame.size.height - self.headerView.frame.size.height);
         
@@ -51,22 +57,21 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
                 contentView.addSubview(view)
             }
         }
-
         
         /*
-[self.storyboard instantiateViewControllerWithIdentifier:@"PhotosCollectionVC"];
+        [self.storyboard instantiateViewControllerWithIdentifier:@"PhotosCollectionVC"];
         tableViewController.tableView.delegate = tableViewController;
         [tableViewController.view setFrame:CGRectMake(0,152,320,436)];
         [self addChildViewController:tableViewController];
         [tableViewController didMoveToParentViewController:self];
         [self.view addSubview:tableViewController.view];
-*/
+        */
         
         /*
         let page1view: UILabel = UILabel(frame: CGRectMake(0, 0, scrollWidth, scrollHeight))
         page1view.backgroundColor = UIColor.redColor()
         contentView.addSubview(page1view)
-*/
+        */
         let page2view: UILabel = UILabel(frame: CGRectMake(scrollWidth, 0, scrollWidth, scrollHeight))
         page2view.backgroundColor = UIColor.greenColor()
         contentView.addSubview(page2view)

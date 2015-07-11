@@ -31,6 +31,8 @@
                             <constraint firstItem="Rpb-Du-zd5" firstAttribute="top" secondItem="YQY-uR-d9X" secondAttribute="topMargin" id="05h-5J-Tnr"/>
                             <constraint firstItem="Rpb-Du-zd5" firstAttribute="leading" secondItem="YQY-uR-d9X" secondAttribute="leading" id="R9x-dQ-LtM"/>
                             <constraint firstItem="Rpb-Du-zd5" firstAttribute="trailing" secondItem="YQY-uR-d9X" secondAttribute="trailing" id="Uh8-bT-0nt"/>
+                            <constraint firstItem="Id7-pC-snC" firstAttribute="top" secondItem="uJU-7f-15x" secondAttribute="bottom" id="V7U-Ka-zEU"/>
+                            <constraint firstItem="uJU-7f-15x" firstAttribute="top" secondItem="Rpb-Du-zd5" secondAttribute="bottom" id="boh-gi-YhM"/>
                             <constraint firstItem="uJU-7f-15x" firstAttribute="width" secondItem="YQY-uR-d9X" secondAttribute="width" id="eF8-Qg-A92"/>
                         </constraints>
                     </view>
