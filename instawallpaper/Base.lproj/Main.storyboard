@@ -136,11 +136,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDE-t9-xrs" userLabel="View" customClass="Home">
-                                <rect key="frame" x="0.0" y="0.0" width="605" height="478"/>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-oT-KxQ">
-                                <rect key="frame" x="0.0" y="486" width="600" height="100"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-oT-KxQ" userLabel="topView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkR-vC-8EA">
                                         <rect key="frame" x="287" y="35" width="38" height="30"/>
@@ -160,15 +157,20 @@
                                     <constraint firstAttribute="height" constant="50" id="XK0-pW-P05"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDE-t9-xrs" userLabel="View" customClass="Home">
+                                <rect key="frame" x="0.0" y="102" width="605" height="478"/>
+                                <color key="backgroundColor" red="1" green="0.96132533980000001" blue="0.43159017640000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="1KJ-oT-KxQ" firstAttribute="top" secondItem="GDE-t9-xrs" secondAttribute="bottom" id="Fgi-m8-224"/>
-                            <constraint firstItem="W60-W5-A4K" firstAttribute="top" secondItem="1KJ-oT-KxQ" secondAttribute="bottom" id="S4v-Kh-lYp"/>
-                            <constraint firstItem="GDE-t9-xrs" firstAttribute="top" secondItem="lX0-zs-rs2" secondAttribute="topMargin" id="Th8-6X-LdL"/>
-                            <constraint firstAttribute="trailing" secondItem="1KJ-oT-KxQ" secondAttribute="trailing" id="Wxj-0w-nTc"/>
-                            <constraint firstItem="1KJ-oT-KxQ" firstAttribute="leading" secondItem="lX0-zs-rs2" secondAttribute="leading" id="dw9-De-KcJ"/>
-                            <constraint firstAttribute="trailing" secondItem="GDE-t9-xrs" secondAttribute="trailing" id="pUo-Je-QwM"/>
-                            <constraint firstItem="GDE-t9-xrs" firstAttribute="leading" secondItem="lX0-zs-rs2" secondAttribute="leading" id="yUl-Ig-Buq"/>
+                            <constraint firstItem="1KJ-oT-KxQ" firstAttribute="leading" secondItem="lX0-zs-rs2" secondAttribute="leading" id="GQc-PH-bgQ"/>
+                            <constraint firstItem="GDE-t9-xrs" firstAttribute="leading" secondItem="lX0-zs-rs2" secondAttribute="leading" id="Ha9-8t-vQQ"/>
+                            <constraint firstItem="1KJ-oT-KxQ" firstAttribute="top" secondItem="lX0-zs-rs2" secondAttribute="topMargin" id="RWE-DS-e1f"/>
+                            <constraint firstItem="W60-W5-A4K" firstAttribute="top" secondItem="GDE-t9-xrs" secondAttribute="bottom" id="Uik-bL-KRl"/>
+                            <constraint firstItem="GDE-t9-xrs" firstAttribute="top" secondItem="1KJ-oT-KxQ" secondAttribute="bottom" id="XNH-0n-S6L"/>
+                            <constraint firstItem="GDE-t9-xrs" firstAttribute="top" secondItem="1KJ-oT-KxQ" secondAttribute="bottom" id="hDN-av-qzi"/>
+                            <constraint firstAttribute="trailing" secondItem="GDE-t9-xrs" secondAttribute="trailing" id="iXl-G6-NVF"/>
+                            <constraint firstAttribute="trailing" secondItem="1KJ-oT-KxQ" secondAttribute="trailing" id="isq-ci-3bU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -386,7 +388,7 @@
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="KZo-FM-AD5" firstAttribute="top" secondItem="7mH-l8-azq" secondAttribute="topMargin" id="049-f2-RCK"/>
+                            <constraint firstItem="KZo-FM-AD5" firstAttribute="top" secondItem="7mH-l8-azq" secondAttribute="top" id="049-f2-RCK"/>
                             <constraint firstItem="KZo-FM-AD5" firstAttribute="leading" secondItem="7mH-l8-azq" secondAttribute="leading" id="18T-Oh-f2j"/>
                             <constraint firstAttribute="trailing" secondItem="KZo-FM-AD5" secondAttribute="trailing" id="IaI-lG-jC7"/>
                             <constraint firstItem="KZo-FM-AD5" firstAttribute="bottom" secondItem="Dx7-3e-TyA" secondAttribute="top" id="LOM-4G-pIw"/>
