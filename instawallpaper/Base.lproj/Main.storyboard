@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJU-7f-15x">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJU-7f-15x">
                                 <rect key="frame" x="-4" y="5" width="608" height="511"/>
                             </scrollView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpb-Du-zd5">
@@ -33,7 +33,9 @@
                         <constraints>
                             <constraint firstItem="Rpb-Du-zd5" firstAttribute="top" secondItem="uJU-7f-15x" secondAttribute="bottom" id="5sm-Dg-ZjY"/>
                             <constraint firstItem="uJU-7f-15x" firstAttribute="top" secondItem="YQY-uR-d9X" secondAttribute="top" id="9gG-xU-6NY"/>
+                            <constraint firstAttribute="trailing" secondItem="uJU-7f-15x" secondAttribute="trailing" id="CMP-bW-kmD"/>
                             <constraint firstItem="Id7-pC-snC" firstAttribute="top" secondItem="Rpb-Du-zd5" secondAttribute="bottom" id="MbZ-u9-fGX"/>
+                            <constraint firstItem="uJU-7f-15x" firstAttribute="leading" secondItem="YQY-uR-d9X" secondAttribute="leading" id="auc-fd-8Gf"/>
                             <constraint firstItem="uJU-7f-15x" firstAttribute="width" secondItem="YQY-uR-d9X" secondAttribute="width" id="eF8-Qg-A92"/>
                         </constraints>
                     </view>
