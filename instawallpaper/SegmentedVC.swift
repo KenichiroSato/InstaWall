@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SegmentViewController: UIViewController, UIScrollViewDelegate {
+class SegmentedVC: UIViewController, UIScrollViewDelegate {
 
     
     @IBOutlet weak var headerView: UIView!
@@ -16,7 +16,7 @@ class SegmentViewController: UIViewController, UIScrollViewDelegate {
     
     static private let titles = ["home", "search"]
     
-    static private let TAB_NUM = SegmentViewController.titles.count
+    static private let TAB_NUM = SegmentedVC.titles.count
     
     private let segmentedControl = HMSegmentedControl(sectionTitles: titles)
     
@@ -40,7 +40,7 @@ class SegmentViewController: UIViewController, UIScrollViewDelegate {
         headerView.addSubview(segmentedControl)
         
         contentView.delegate = self
-        contentView.contentSize = CGSizeMake(scrollWidth * CGFloat(SegmentViewController.TAB_NUM), scrollHeight)
+        contentView.contentSize = CGSizeMake(scrollWidth * CGFloat(SegmentedVC.TAB_NUM), scrollHeight)
         
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
             //self.navigationController?.pushViewController(vc, animated: true)
