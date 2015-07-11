@@ -127,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="1260" y="-470"/>
         </scene>
-        <!--View Controller-->
+        <!--Home ContentVC-->
         <scene sceneID="dzw-np-ojH">
             <objects>
-                <viewController storyboardIdentifier="testVC" id="E4S-6u-Cbr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeContentVC" id="E4S-6u-Cbr" customClass="HomeContentVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yp4-SA-e9t"/>
                         <viewControllerLayoutGuide type="bottom" id="W60-W5-A4K"/>
@@ -139,23 +139,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="testtest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUk-Hc-h70">
-                                <rect key="frame" x="288" y="296" width="58" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDE-t9-xrs" customClass="Home">
+                                <rect key="frame" x="0.0" y="0.0" width="605" height="478"/>
+                                <color key="backgroundColor" red="1" green="0.94194567370000004" blue="0.50003217720000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-oT-KxQ">
+                                <rect key="frame" x="0.0" y="486" width="600" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkR-vC-8EA">
+                                        <rect key="frame" x="287" y="15" width="38" height="30"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.65600034539999996" green="0.96368429280000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="YkR-vC-8EA" secondAttribute="centerX" constant="-6" id="2Og-Z9-03Y"/>
+                                    <constraint firstAttribute="centerY" secondItem="YkR-vC-8EA" secondAttribute="centerY" id="Kdo-ml-evy"/>
+                                    <constraint firstAttribute="height" constant="60" id="XK0-pW-P05"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.59291296650000003" green="1" blue="0.10773939170000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="CUk-Hc-h70" secondAttribute="centerX" id="Fkk-Qa-cK4"/>
-                            <constraint firstAttribute="centerY" secondItem="CUk-Hc-h70" secondAttribute="centerY" id="p1y-aC-iVQ"/>
+                            <constraint firstItem="1KJ-oT-KxQ" firstAttribute="top" secondItem="GDE-t9-xrs" secondAttribute="bottom" id="Fgi-m8-224"/>
+                            <constraint firstItem="W60-W5-A4K" firstAttribute="top" secondItem="1KJ-oT-KxQ" secondAttribute="bottom" id="S4v-Kh-lYp"/>
+                            <constraint firstItem="GDE-t9-xrs" firstAttribute="top" secondItem="lX0-zs-rs2" secondAttribute="topMargin" id="Th8-6X-LdL"/>
+                            <constraint firstAttribute="trailing" secondItem="1KJ-oT-KxQ" secondAttribute="trailing" id="Wxj-0w-nTc"/>
+                            <constraint firstItem="1KJ-oT-KxQ" firstAttribute="leading" secondItem="lX0-zs-rs2" secondAttribute="leading" id="dw9-De-KcJ"/>
+                            <constraint firstAttribute="trailing" secondItem="GDE-t9-xrs" secondAttribute="trailing" id="pUo-Je-QwM"/>
+                            <constraint firstItem="GDE-t9-xrs" firstAttribute="leading" secondItem="lX0-zs-rs2" secondAttribute="leading" id="yUl-Ig-Buq"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxh-NF-wEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="576" y="13"/>
+            <point key="canvasLocation" x="560" y="-427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="24Y-FV-Jzk">
