@@ -113,9 +113,6 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="GQ8-yT-oa2" kind="show" identifier="segue.login" id="ggs-RG-NQV"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -141,7 +138,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDE-t9-xrs" userLabel="View" customClass="Home">
                                 <rect key="frame" x="0.0" y="0.0" width="605" height="478"/>
-                                <color key="backgroundColor" red="1" green="0.94194567370000004" blue="0.50003217720000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-oT-KxQ">
                                 <rect key="frame" x="0.0" y="486" width="600" height="100"/>
@@ -165,7 +161,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.59291296650000003" green="1" blue="0.10773939170000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="1KJ-oT-KxQ" firstAttribute="top" secondItem="GDE-t9-xrs" secondAttribute="bottom" id="Fgi-m8-224"/>
                             <constraint firstItem="W60-W5-A4K" firstAttribute="top" secondItem="1KJ-oT-KxQ" secondAttribute="bottom" id="S4v-Kh-lYp"/>
@@ -349,8 +344,60 @@
             </objects>
             <point key="canvasLocation" x="1970" y="-470"/>
         </scene>
+        <!--Search ContentVC-->
+        <scene sceneID="Kav-gf-aE2">
+            <objects>
+                <viewController storyboardIdentifier="SearchContentVC" id="0c2-gJ-dWc" customClass="SearchContentVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HrI-dq-iuB"/>
+                        <viewControllerLayoutGuide type="bottom" id="mLb-vV-Njk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7mH-l8-azq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dx7-3e-TyA" userLabel="View" customClass="Home">
+                                <rect key="frame" x="0.0" y="0.0" width="605" height="478"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KZo-FM-AD5">
+                                <rect key="frame" x="0.0" y="486" width="600" height="100"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4K-K0-DLm">
+                                        <rect key="frame" x="242" y="35" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Z4K-K0-DLm" secondAttribute="trailing" constant="20" id="2PP-dw-wnl"/>
+                                    <constraint firstItem="Z4K-K0-DLm" firstAttribute="leading" secondItem="KZo-FM-AD5" secondAttribute="leading" constant="20" id="4Fr-bV-ifk"/>
+                                    <constraint firstAttribute="height" constant="50" id="fxJ-VV-1S5"/>
+                                    <constraint firstAttribute="centerX" secondItem="Z4K-K0-DLm" secondAttribute="centerX" constant="9.5" id="p1d-AV-EqF"/>
+                                    <constraint firstAttribute="centerY" secondItem="Z4K-K0-DLm" secondAttribute="centerY" id="yQF-x4-Jk6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Dx7-3e-TyA" firstAttribute="top" secondItem="7mH-l8-azq" secondAttribute="topMargin" id="1BW-SM-9yM"/>
+                            <constraint firstItem="Dx7-3e-TyA" firstAttribute="leading" secondItem="7mH-l8-azq" secondAttribute="leading" id="RTj-x0-h2b"/>
+                            <constraint firstAttribute="trailing" secondItem="KZo-FM-AD5" secondAttribute="trailing" id="acC-fW-hON"/>
+                            <constraint firstItem="KZo-FM-AD5" firstAttribute="leading" secondItem="7mH-l8-azq" secondAttribute="leading" id="dvR-Sa-X5d"/>
+                            <constraint firstAttribute="trailing" secondItem="Dx7-3e-TyA" secondAttribute="trailing" id="mz6-kv-0A4"/>
+                            <constraint firstItem="KZo-FM-AD5" firstAttribute="top" secondItem="Dx7-3e-TyA" secondAttribute="bottom" id="s6e-i5-2u1"/>
+                            <constraint firstItem="mLb-vV-Njk" firstAttribute="top" secondItem="KZo-FM-AD5" secondAttribute="bottom" id="zVs-mx-Qgb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ContentView" destination="Dx7-3e-TyA" id="Lqg-Le-YAS"/>
+                        <outlet property="bottomView" destination="KZo-FM-AD5" id="1Ms-Ol-fSq"/>
+                        <outlet property="contentView" destination="Dx7-3e-TyA" id="2jy-j7-OVn"/>
+                        <outlet property="seatchBox" destination="Z4K-K0-DLm" id="OfP-af-4Ny"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mn1-mR-8j0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986" y="231"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Mnl-Z3-bJi"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -85,6 +85,15 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
                 contentView.addSubview(view)
             }
         }
+        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchContentVC") as? SearchContentVC {
+            self.addChildViewController(vc)
+            vc.didMoveToParentViewController(self)
+            //vc.view.frame.size = contentView.frame.size
+            vc.view.frame = CGRectMake(contentWidth(), 0, contentWidth(), contentHeight())
+            if let view = vc.view {
+                contentView.addSubview(view)
+            }
+        }
         
         /*
         let page2view: UILabel = UILabel(frame: CGRectMake(contentWidth(), 0, contentWidth(), contentHeight()))
