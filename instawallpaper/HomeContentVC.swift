@@ -10,10 +10,29 @@ import UIKit
 
 class HomeContentVC: UIViewController {
 
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
         // Do any additional setup after loading the view.
+    }
+    
+    private func setupView() {
+        bottomView.backgroundColor = Color.BASE_BLUE
+        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
+            self.addChildViewController(vc)
+            vc.didMoveToParentViewController(self)
+            vc.collectionView?.dataSource = vc
+            vc.collectionView?.delegate = vc
+            vc.view.frame.size = contentView.frame.size
+            if let view = vc.view {
+                contentView.addSubview(view)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

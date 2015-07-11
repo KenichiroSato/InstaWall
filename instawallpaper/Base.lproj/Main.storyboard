@@ -44,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b8-dg-Qnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1110" y="-1273"/>
+            <point key="canvasLocation" x="322" y="-1229"/>
         </scene>
         <!--Photos CollectionVC-->
         <scene sceneID="NLc-3I-iV5">
@@ -139,25 +139,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDE-t9-xrs" customClass="Home">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDE-t9-xrs" userLabel="View" customClass="Home">
                                 <rect key="frame" x="0.0" y="0.0" width="605" height="478"/>
                                 <color key="backgroundColor" red="1" green="0.94194567370000004" blue="0.50003217720000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-oT-KxQ">
                                 <rect key="frame" x="0.0" y="486" width="600" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkR-vC-8EA">
-                                        <rect key="frame" x="287" y="15" width="38" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkR-vC-8EA">
+                                        <rect key="frame" x="287" y="35" width="38" height="30"/>
                                         <state key="normal" title="Login">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="GQ8-yT-oa2" kind="show" id="Mnl-Z3-bJi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.65600034539999996" green="0.96368429280000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="YkR-vC-8EA" secondAttribute="centerX" constant="-6" id="2Og-Z9-03Y"/>
                                     <constraint firstAttribute="centerY" secondItem="YkR-vC-8EA" secondAttribute="centerY" id="Kdo-ml-evy"/>
-                                    <constraint firstAttribute="height" constant="60" id="XK0-pW-P05"/>
+                                    <constraint firstAttribute="height" constant="50" id="XK0-pW-P05"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -172,10 +176,16 @@
                             <constraint firstItem="GDE-t9-xrs" firstAttribute="leading" secondItem="lX0-zs-rs2" secondAttribute="leading" id="yUl-Ig-Buq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ContentView" destination="GDE-t9-xrs" id="CEd-Dw-mqK"/>
+                        <outlet property="bottomView" destination="1KJ-oT-KxQ" id="KJz-42-PjY"/>
+                        <outlet property="contentView" destination="GDE-t9-xrs" id="EtW-T2-uuG"/>
+                        <outlet property="loginButton" destination="YkR-vC-8EA" id="cVx-WH-IOo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxh-NF-wEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="560" y="-427"/>
+            <point key="canvasLocation" x="1120" y="-1219"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="24Y-FV-Jzk">
@@ -191,7 +201,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Gc-ggg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="-1188"/>
+            <point key="canvasLocation" x="-420" y="-1144"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="pA4-qB-q2a">
@@ -340,4 +350,7 @@
             <point key="canvasLocation" x="1970" y="-470"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Mnl-Z3-bJi"/>
+    </inferredMetricsTieBreakers>
 </document>
