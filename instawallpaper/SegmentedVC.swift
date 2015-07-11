@@ -43,16 +43,13 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
         contentView.contentSize = CGSizeMake(scrollWidth * CGFloat(SegmentedVC.TAB_NUM), scrollHeight)
         
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
-            //self.navigationController?.pushViewController(vc, animated: true)
             self.addChildViewController(vc)
             vc.didMoveToParentViewController(self)
             vc.collectionView?.dataSource = vc
             vc.collectionView?.delegate = vc
-            vc.view.frame = CGRectMake(0, 0, 608, scrollHeight)
             if let view = vc.view {
                 contentView.addSubview(view)
             }
-
         }
 
         

@@ -34,6 +34,14 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        //When instanciated from storyboard, width changes between viewWiiAppear and viewDidAppear
+        //So, width must be reset here.
+        if let size = self.parentViewController?.view.frame.size {
+            self.view.frame.size.width = size.width
+        }
+    }
+    
     private func roadPopularPictures() {
         prepareLoadingData()
         InstagramManager.sharedInstance.roadPopularPictures({
