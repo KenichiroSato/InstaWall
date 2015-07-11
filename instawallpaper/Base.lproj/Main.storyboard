@@ -364,7 +364,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZo-FM-AD5">
-                                <rect key="frame" x="0.0" y="0.0" width="592" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4K-K0-DLm">
                                         <rect key="frame" x="240" y="10" width="97" height="30"/>
@@ -388,7 +388,7 @@
                         <constraints>
                             <constraint firstItem="KZo-FM-AD5" firstAttribute="top" secondItem="7mH-l8-azq" secondAttribute="topMargin" id="049-f2-RCK"/>
                             <constraint firstItem="KZo-FM-AD5" firstAttribute="leading" secondItem="7mH-l8-azq" secondAttribute="leading" id="18T-Oh-f2j"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KZo-FM-AD5" secondAttribute="trailingMargin" id="IaI-lG-jC7"/>
+                            <constraint firstAttribute="trailing" secondItem="KZo-FM-AD5" secondAttribute="trailing" id="IaI-lG-jC7"/>
                             <constraint firstItem="KZo-FM-AD5" firstAttribute="bottom" secondItem="Dx7-3e-TyA" secondAttribute="top" constant="5" id="LOM-4G-pIw"/>
                             <constraint firstItem="Dx7-3e-TyA" firstAttribute="leading" secondItem="7mH-l8-azq" secondAttribute="leading" id="RTj-x0-h2b"/>
                             <constraint firstAttribute="trailing" secondItem="Dx7-3e-TyA" secondAttribute="trailing" id="mz6-kv-0A4"/>
