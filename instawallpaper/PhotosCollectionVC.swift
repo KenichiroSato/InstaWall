@@ -45,7 +45,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         })
     }
 
-    private func roadFromText(text: String) {
+    func roadFromText(text: String) {
         prepareLoadingData()
         InstagramManager.sharedInstance.roadTopSearchItems(text, success: {
             pictures in
