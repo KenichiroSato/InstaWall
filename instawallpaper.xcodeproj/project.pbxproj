@@ -250,6 +250,7 @@
 				TargetAttributes = {
 					595101A61B19EB8E006F2F65 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = H2W9ZJ8C83;
 					};
 					595101BB1B19EB8E006F2F65 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -496,6 +497,7 @@
 			baseConfigurationReference = AB44B66ABB926DF8F8D92988 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = instawallpaper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,6 +510,7 @@
 			baseConfigurationReference = 4FAEDB8F337C86D7B8F53BDE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = instawallpaper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
