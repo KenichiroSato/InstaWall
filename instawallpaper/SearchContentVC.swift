@@ -10,7 +10,6 @@ import UIKit
 
 class SearchContentVC: UIViewController, UITextFieldDelegate {
 
-    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var searchBox: UITextField!

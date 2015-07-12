@@ -23,7 +23,6 @@
                             </scrollView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpb-Du-zd5">
                                 <rect key="frame" x="0.0" y="534" width="600" height="46"/>
-                                <color key="backgroundColor" red="1" green="0.92373187131161216" blue="0.39500496873847835" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ibf-8d-6o2"/>
                                 </constraints>
@@ -125,7 +124,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ptk-fO-H9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260" y="-470"/>
+            <point key="canvasLocation" x="2012" y="-452"/>
         </scene>
         <!--Home ContentVC-->
         <scene sceneID="dzw-np-ojH">
@@ -162,7 +161,6 @@
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDE-t9-xrs" userLabel="View" customClass="Home">
                                 <rect key="frame" x="0.0" y="102" width="605" height="478"/>
-                                <color key="backgroundColor" red="1" green="0.96132533980000001" blue="0.43159017640000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <constraints>
@@ -347,7 +345,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1970" y="-470"/>
+            <point key="canvasLocation" x="2722" y="-452"/>
         </scene>
         <!--Search ContentVC-->
         <scene sceneID="Kav-gf-aE2">
@@ -409,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mn1-mR-8j0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986" y="231"/>
+            <point key="canvasLocation" x="1120" y="-487"/>
         </scene>
     </scenes>
 </document>
