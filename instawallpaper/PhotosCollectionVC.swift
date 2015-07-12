@@ -10,7 +10,7 @@ import UIKit
 
 let reuseIdentifier = "PictureCell"
 
-class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectionViewDelegateFlowLayout {
+class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     static private let CELL_NUMS_IN_ROW: CGFloat = 3
     
@@ -45,7 +45,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         })
     }
 
-    private func roadFromText(text: String) {
+    func roadFromText(text: String) {
         prepareLoadingData()
         InstagramManager.sharedInstance.roadTopSearchItems(text, success: {
             pictures in
@@ -56,7 +56,7 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         })
     }
     
-    private func roadTopSelfFeed() {
+    func roadTopSelfFeed() {
         prepareLoadingData()
         InstagramManager.sharedInstance.roadTopSeflFeed({
             pictures in
@@ -103,12 +103,6 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: LogInDelegate
-    func onLoggedIn(token: String) {
-        AccountManager.sharedInstance.saveToken(token)
-        roadTopSelfFeed()
-    }
-    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "segue.fullscreen") {
@@ -117,10 +111,6 @@ class PhotosCollectionVC: UICollectionViewController, LogInDelegate, UICollectio
                 let media: InstagramMedia = pictureArray[selectedIndexPath.item];
                 nextVC.pictureUrl = media.standardResolutionImageURL
             }
-        }
-        if (segue.identifier == "segue.login") {
-            let nextVC = segue.destinationViewController as! LoginVC
-            nextVC.logInDelegate = self
         }
     }
 
