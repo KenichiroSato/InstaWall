@@ -23,6 +23,7 @@
 		595101B71B19EB8E006F2F65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595101B51B19EB8E006F2F65 /* LaunchScreen.xib */; };
 		595101C31B19EB8E006F2F65 /* instawallpaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */; };
 		595101CD1B1A87D7006F2F65 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101CC1B1A87D7006F2F65 /* ImageUtil.swift */; };
+		59614E0E1B52BD1500C7E4C0 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AD7801B3647AF00E087B4 /* Text.swift */; };
 		597AD77F1B36432300E087B4 /* UIAlertController+show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AD77E1B36432300E087B4 /* UIAlertController+show.swift */; };
 		597AD7811B3647AF00E087B4 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AD7801B3647AF00E087B4 /* Text.swift */; };
 		599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E46AA1B227DDB005CE654 /* PictureManager.swift */; };
@@ -404,7 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				593C83AA1B3655DB00C9010F /* Text.swift in Sources */,
+				59614E0E1B52BD1500C7E4C0 /* Text.swift in Sources */,
 				59D398BF1B352F850079550E /* instawallpaper_UI_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
