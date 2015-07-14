@@ -9,6 +9,7 @@
 import Foundation
 import XCTest
 import UIKit
+@testable import instawallpaper
 
 extension UIImage {
     class func colorImage(color: UIColor, size: CGSize) -> UIImage {

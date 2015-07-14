@@ -8,6 +8,7 @@
 
 import Foundation
 import XCTest
+@testable import instawallpaper
 
 class instawallpaper_UI_Tests: XCTestCase {
         
@@ -27,40 +28,45 @@ class instawallpaper_UI_Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        let app = XCUIApplication()
-        sleep(5)
-        app.collectionViews.childrenMatchingType(.Cell).elementAtIndex(0).descendantsMatchingType(.Unknown).childrenMatchingType(.Image).elementAtIndex(0).tap()
-        sleep(5)
-        app.buttons["Back"].tap()
+    func testSearch() {
         
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        let searchKeywordTextField = app.navigationBars["instawallpaper.PhotosCollectionVC"].textFields["Search keyword"]
+        searchKeywordTextField.tap()
+        searchKeywordTextField.typeText("cat")
+        app.typeText("\r")
+        
     }
     
-    func testErrorDialog() {
+    func testSelectPhoto() {
+        
         let app = XCUIApplication()
-        sleep(5)
-        app.collectionViews.childrenMatchingType(.Cell).elementAtIndex(0).descendantsMatchingType(.Unknown).childrenMatchingType(.Image).elementAtIndex(0).tap()
-        let goButton = app.buttons["GO"]
-        goButton.tap()
-        app.alerts[Text.ERR_EPTRY_URL].collectionViews.buttons[Text.OK].tap()
+//        app.collectionViews.activityIndicators["In progress"].tap()
+            app.collectionViews.childrenMatchingType(.Cell).elementBoundByIndex(0).descendantsMatchingType(.Unknown).childrenMatchingType(.Image).elementBoundByIndex(0).tap()
         
-        let textField = app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(2).childrenMatchingType(.TextField).elementAtIndex(0)
+        let textField = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Unknown).element.childrenMatchingType(.Unknown).element.childrenMatchingType(.Unknown).element.childrenMatchingType(.Unknown).element.childrenMatchingType(.Unknown).elementBoundByIndex(2).childrenMatchingType(.TextField).element
         textField.tap()
-        textField.typeText("test")
+        textField.typeText("cat\r")
+        app.buttons["GO"].tap()
+        app.alerts["Please input appropriate URL"].collectionViews.buttons["OK"].tap()
+        app.buttons["Back"].tap()
         
-        goButton.tap()
-        app.alerts[Text.ERR_INVALID_URL].collectionViews.buttons[Text.OK].tap()
     }
     
     func testSaveImage() {
+        
         let app = XCUIApplication()
-        sleep(5)
-        app.collectionViews.childrenMatchingType(.Cell).elementAtIndex(8).descendantsMatchingType(.Unknown).childrenMatchingType(.Image).elementAtIndex(0).tap()
-        app.childrenMatchingType(.Window).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(0).childrenMatchingType(.Unknown).elementAtIndex(1).childrenMatchingType(.Image).elementAtIndex(0).tap()
-        app.sheets.collectionViews.buttons["Save"].tap()
+        app.collectionViews.childrenMatchingType(.Cell).elementBoundByIndex(0).descendantsMatchingType(.Unknown).childrenMatchingType(.Image).elementBoundByIndex(0).tap()
+        
+        let image = app.childrenMatchingType(.Window).elementBoundByIndex(0).childrenMatchingType(.Unknown).element.childrenMatchingType(.Unknown).element.childrenMatchingType(.Unknown).element.childrenMatchingType(.Unknown).element.childrenMatchingType(.Unknown).elementBoundByIndex(1).childrenMatchingType(.Image).element
+        image.tap()
+        
+        let sheetsQuery = app.sheets
+        sheetsQuery.buttons["Cancel"].tap()
+        image.tap()
+        sheetsQuery.collectionViews.buttons["Save"].tap()
         app.buttons["Back"].tap()
         
     }
+    
 }
