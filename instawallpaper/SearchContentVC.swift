@@ -16,6 +16,8 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
+        searchBox.text = "cat"
+        photosVC.roadFromText(searchBox.text)
     }
 
     override func didReceiveMemoryWarning() {

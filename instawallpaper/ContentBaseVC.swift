@@ -20,7 +20,6 @@ class ContentBaseVC: UIViewController {
     }
     
     func setupView() {
-        //topView.backgroundColor = Color.BASE_BLUE
         if let vc  = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
             photosVC = vc
             self.addChildViewController(photosVC)

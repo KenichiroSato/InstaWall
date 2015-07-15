@@ -16,6 +16,12 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
+        
+        if (AccountManager.sharedInstance.isLoggedIn()) {
+            photosVC.roadTopSelfFeed()
+        } else {
+            photosVC.roadPopularPictures()
+        }
     }
     
     override func didReceiveMemoryWarning() {
