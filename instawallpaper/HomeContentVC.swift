@@ -8,32 +8,14 @@
 
 import UIKit
 
-class HomeContentVC: UIViewController, LogInDelegate {
+class HomeContentVC: ContentBaseVC, LogInDelegate {
 
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var loginButton: UIButton!
-    
-    var photosVC: PhotosCollectionVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-    }
-    
-    private func setupView() {
-        bottomView.backgroundColor = Color.BASE_BLUE
-        if let vc  = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
-            photosVC = vc
-            self.addChildViewController(photosVC)
-            photosVC.didMoveToParentViewController(self)
-            photosVC.collectionView?.dataSource = photosVC
-            photosVC.collectionView?.delegate = photosVC
-            photosVC.view.frame.size = contentView.frame.size
-            if let view = photosVC.view {
-                contentView.addSubview(view)
-            }
-        }
+        topView.backgroundColor = Color.BASE_BLUE
     }
     
     override func didReceiveMemoryWarning() {

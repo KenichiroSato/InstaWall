@@ -159,7 +159,7 @@
                                     <constraint firstAttribute="height" constant="50" id="XK0-pW-P05"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDE-t9-xrs" userLabel="View" customClass="Home">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDE-t9-xrs" userLabel="View">
                                 <rect key="frame" x="0.0" y="102" width="605" height="478"/>
                             </view>
                         </subviews>
@@ -175,10 +175,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ContentView" destination="GDE-t9-xrs" id="CEd-Dw-mqK"/>
-                        <outlet property="bottomView" destination="1KJ-oT-KxQ" id="KJz-42-PjY"/>
                         <outlet property="contentView" destination="GDE-t9-xrs" id="EtW-T2-uuG"/>
                         <outlet property="loginButton" destination="YkR-vC-8EA" id="cVx-WH-IOo"/>
+                        <outlet property="topView" destination="1KJ-oT-KxQ" id="UOi-hc-9na"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxh-NF-wEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -359,7 +358,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZo-FM-AD5">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZo-FM-AD5" userLabel="topView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4K-K0-DLm">

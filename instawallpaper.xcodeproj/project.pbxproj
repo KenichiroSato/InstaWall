@@ -32,6 +32,7 @@
 		597AD77F1B36432300E087B4 /* UIAlertController+show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AD77E1B36432300E087B4 /* UIAlertController+show.swift */; };
 		597AD7811B3647AF00E087B4 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AD7801B3647AF00E087B4 /* Text.swift */; };
 		599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E46AA1B227DDB005CE654 /* PictureManager.swift */; };
+		59FDC00A1B555F1700E28AB5 /* ContentBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		597AD77E1B36432300E087B4 /* UIAlertController+show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+show.swift"; sourceTree = "<group>"; };
 		597AD7801B3647AF00E087B4 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		599E46AA1B227DDB005CE654 /* PictureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureManager.swift; sourceTree = "<group>"; };
+		59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseVC.swift; sourceTree = "<group>"; };
 		AB44B66ABB926DF8F8D92988 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E18011CEFA23ECE96F779DE6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 				5964135E1B511A50009B857A /* SearchContentVC.swift */,
 				5964135C1B511151009B857A /* Color.swift */,
 				5964135A1B510896009B857A /* HomeContentVC.swift */,
+				59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */,
 				5921B8411B3712D800FE739D /* LoginVC.swift */,
 				59135F7C1B46E49400D43F8E /* AccountManager.swift */,
 				5910BA291B2BE88E00ABFCF8 /* PhotosCollectionVC.swift */,
@@ -364,6 +367,7 @@
 				59135F7D1B46E49400D43F8E /* AccountManager.swift in Sources */,
 				597AD77F1B36432300E087B4 /* UIAlertController+show.swift in Sources */,
 				5910BA2D1B2C06AF00ABFCF8 /* PictureCell.swift in Sources */,
+				59FDC00A1B555F1700E28AB5 /* ContentBaseVC.swift in Sources */,
 				5907B2681B3E4EC6009A1F01 /* InstagramManager.swift in Sources */,
 				3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */,
 			);
