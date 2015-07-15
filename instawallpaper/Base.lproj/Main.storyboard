@@ -398,10 +398,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ContentView" destination="Dx7-3e-TyA" id="Lqg-Le-YAS"/>
-                        <outlet property="bottomView" destination="KZo-FM-AD5" id="1Ms-Ol-fSq"/>
                         <outlet property="contentView" destination="Dx7-3e-TyA" id="2jy-j7-OVn"/>
                         <outlet property="searchBox" destination="Z4K-K0-DLm" id="Sfr-A9-S9g"/>
+                        <outlet property="topView" destination="KZo-FM-AD5" id="FsH-by-GhO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mn1-mR-8j0" userLabel="First Responder" sceneMemberID="firstResponder"/>
