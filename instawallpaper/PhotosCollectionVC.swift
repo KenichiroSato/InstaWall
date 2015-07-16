@@ -12,8 +12,6 @@ let reuseIdentifier = "PictureCell"
 
 class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-    typealias SuccessLoadBlock = (([InstagramMedia], InstagramPaginationInfo?) -> Void)
-    
     private enum Content {
         case POPULAR, FEED, SEARCH
     }
@@ -70,7 +68,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     private func roadSearchFromText(text: String, success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         currentContent = .SEARCH
         searchText = text
-        instagramManager.roadTopSearchItems(text, success:success, failure:failure)
+        instagramManager.roadSearchItems(text, maxId: paginationInfo?.nextMaxId, success:success, failure:failure)
     }
     
     func roadTopSelfFeed() {
@@ -80,12 +78,21 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     
     private func roadSelfFeed(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         currentContent = .FEED
-        instagramManager.roadTopSeflFeed(success, failure:failure)
+        instagramManager.roadSelfFeed(paginationInfo?.nextMaxId, success:success, failure: failure)
     }
     
     private func roadNext() {
         if let info = paginationInfo?.nextMaxId {
-            instagramManager.roadNext(info, success:successBlock, failure:failureBlock)
+            switch(currentContent) {
+            case .POPULAR:
+                return
+            case .FEED:
+                roadSelfFeed(successBlock, failure: failureBlock)
+            case .SEARCH:
+                if let text = searchText {
+                    roadSearchFromText(text, success:successBlock, failure: failureBlock)
+                }
+            }
         } else {
             println("already bottom")
         }
@@ -107,17 +114,6 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
                 roadSearchFromText(text, success:success, failure: failureBlock)
             }
         }
-        /*
-        InstagramManager.sharedInstance.refresh({
-            pictures in
-            self.refreshControl.endRefreshing()
-            self.pictureArray.removeAll(keepCapacity: false)
-            self.pictureArray += pictures
-            self.finishLoadingData()
-            }, failure: { error, statusCode in
-                self.showErrorMessage()
-        })
-*/
     }
     
     private func showErrorMessage() {
