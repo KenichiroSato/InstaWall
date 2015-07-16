@@ -8,17 +8,35 @@
 
 import UIKit
 
-let reuseIdentifier = "PictureCell"
-
 class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    private static let reuseIdentifier = "PictureCell"
+    
+    private enum Content {
+        case POPULAR, FEED, SEARCH
+    }
+    
     static private let CELL_NUMS_IN_ROW: CGFloat = 3
     
     private var pictureArray: [InstagramMedia] = []
     private var paginationInfo: InstagramPaginationInfo? = nil
+    private var currentContent:Content = .POPULAR
+    private var searchText:String?
+    private let instagramManager = InstagramManager()
     private var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
+    lazy private var successBlock: SuccessLoadBlock
+    = {[unowned self] (pictures, paginationInfo) in
+        self.paginationInfo = paginationInfo
+        self.pictureArray += pictures
+        self.finishLoadingData()
+    }
+    
+    lazy private var failureBlock:InstagramFailureBlock  = {[unowned self] error, statusCode in
+        self.showErrorMessage()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,67 +44,77 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         refreshControl.addTarget(self, action: Selector("refresh"),
             forControlEvents: UIControlEvents.ValueChanged)
         self.collectionView?.addSubview(refreshControl)
-
-        if (AccountManager.sharedInstance.isLoggedIn()) {
-            roadTopSelfFeed()
-        } else {
-            roadPopularPictures()
-        }
     }
     
-    private func roadPopularPictures() {
-        prepareLoadingData()
-        InstagramManager.sharedInstance.roadPopularPictures({
-            pictures in
-            self.pictureArray += pictures
-            self.finishLoadingData()
-            }, failure: {error, statusCode in
-                self.showErrorMessage()
-        })
+    private func resetPaginationInfo() {
+        paginationInfo = nil
     }
 
-    func roadFromText(text: String) {
-        prepareLoadingData()
-        InstagramManager.sharedInstance.roadTopSearchItems(text, success: {
-            pictures in
-            self.pictureArray += pictures
-            self.finishLoadingData()
-            }, failure: {error, statusCode in
-                self.showErrorMessage()
-        })
+    func roadTopPopular() {
+        clearData()
+        roadPopular(successBlock, failure: failureBlock)
+    }
+    
+    private func roadPopular(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
+        currentContent = .POPULAR
+        instagramManager.roadPopular(success, failure:failure)
+    }
+
+    func roadTopSearchItems(text: String) {
+        clearData()
+        roadSearchItems(text, success: successBlock, failure: failureBlock)
+    }
+    
+    private func roadSearchItems(text: String, success:SuccessLoadBlock, failure:InstagramFailureBlock) {
+        currentContent = .SEARCH
+        searchText = text
+        instagramManager.roadSearchItems(text, maxId: paginationInfo?.nextMaxId, success:success, failure:failure)
     }
     
     func roadTopSelfFeed() {
-        prepareLoadingData()
-        InstagramManager.sharedInstance.roadTopSeflFeed({
-            pictures in
-                self.pictureArray += pictures
-                self.finishLoadingData()
-            }, failure: {error, statusCode in
-                self.showErrorMessage()
-        })
+        clearData()
+        roadSelfFeed(successBlock, failure: failureBlock)
+    }
+    
+    private func roadSelfFeed(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
+        currentContent = .FEED
+        instagramManager.roadSelfFeed(paginationInfo?.nextMaxId, success:success, failure: failure)
     }
     
     private func roadNext() {
-        InstagramManager.sharedInstance.roadNext({
-            pictures in
-                self.pictureArray += pictures
-                self.finishLoadingData()
-            }, failure: { error, statusCode in
-                self.showErrorMessage()
-        })
+        if let info = paginationInfo?.nextMaxId {
+            switch(currentContent) {
+            case .POPULAR:
+                return
+            case .FEED:
+                roadSelfFeed(successBlock, failure: failureBlock)
+            case .SEARCH:
+                if let text = searchText {
+                    roadSearchItems(text, success:successBlock, failure: failureBlock)
+                }
+            }
+        } else {
+            println("already bottom")
+        }
     }
     
     func refresh() {
-        InstagramManager.sharedInstance.refresh({
-            pictures in
+        paginationInfo = nil
+        let success:SuccessLoadBlock = {[unowned self] (pictures, paginationInfo) in
             self.refreshControl.endRefreshing()
             self.pictureArray.removeAll(keepCapacity: false)
-            self.pictureArray += pictures
-            self.finishLoadingData()
-            }, failure: { error, statusCode in
-                self.showErrorMessage()
-        })
+            self.successBlock(pictures, paginationInfo)
+        }
+        switch(currentContent) {
+        case .POPULAR:
+            roadPopular(success, failure: failureBlock)
+        case .FEED:
+            roadSelfFeed(success, failure: failureBlock)
+        case .SEARCH:
+            if let text = searchText {
+                roadSearchItems(text, success:success, failure: failureBlock)
+            }
+        }
     }
     
     private func showErrorMessage() {
@@ -114,7 +142,8 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         }
     }
 
-    private func prepareLoadingData() {
+    private func clearData() {
+        resetPaginationInfo()
         pictureArray.removeAll(keepCapacity: false)
         self.collectionView?.reloadData()
         indicatorView.hidden = false
@@ -136,7 +165,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
 
     override func collectionView(collectionView: UICollectionView,
         cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotosCollectionVC.reuseIdentifier, forIndexPath: indexPath)
             as! PictureCell
     
         cell.imageView.image = nil
@@ -147,15 +176,6 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         return cell
     }
     
-    // MARK - UITextFieldDelegate methods
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if let text = textField.text {
-            roadFromText(text)
-        }
-        textField.resignFirstResponder()
-        return true
-    }
-
     // MARK - UICollectionViewDelegateFlowLayout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

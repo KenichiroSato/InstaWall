@@ -8,96 +8,38 @@
 
 import Foundation
 
-public class InstagramManager {
-    
-    private enum Content {
-        case FEED, SEARCH
-    }
+typealias SuccessLoadBlock = (([InstagramMedia], InstagramPaginationInfo?) -> Void)
 
-    static let sharedInstance = InstagramManager()
+public class InstagramManager {
     
     static private let COUNT_PER_REQUEST = 50
     
-    private var paginationInfo: InstagramPaginationInfo? = nil
-    
-    private var currentContent:Content?
-    
-    private var searchText:String?
-    
-    private func resetPaginationInfo() {
-        paginationInfo = nil
-    }
-    
-    func roadPopularPictures(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
+    func roadPopular(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         InstagramEngine.sharedEngine().getPopularMediaWithSuccess(
             { (media, paginationInfo) in
-                self.paginationInfo = paginationInfo
                 if let pictures = media as? [InstagramMedia] {
-                    success(pictures)
+                    success(pictures, paginationInfo)
                 }
             }, failure: failure)
     }
     
-    func roadTopSeflFeed(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
-        resetPaginationInfo()
-        currentContent = Content.FEED
-        roadSelfFeed(success, failure: failure)
-    }
-    
-    func roadTopSearchItems(text: String, success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
-        resetPaginationInfo()
-        currentContent = Content.SEARCH
-        searchText = text
-        roadSearchItems(success, failure: failure)
-    }
-
-    func roadNext(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
-        if (self.paginationInfo?.nextMaxId == nil) {
-            println("already bottom")
-            return
-        }
-        println("roedNext:")
-        if let content = self.currentContent {
-            switch(content) {
-            case .FEED:
-                roadSelfFeed(success, failure: failure)
-            case .SEARCH:
-                roadSearchItems(success, failure: failure)
-            }
-        }
-    }
-    
-    func refresh(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
-        if let content = self.currentContent {
-            switch(content) {
-            case .FEED:
-                roadTopSeflFeed(success, failure: failure)
-            case .SEARCH:
-                if let text = searchText {
-                    roadTopSearchItems(text, success: success, failure: failure)
-                }
-            }
-        }
-    }
-
-    private func roadSelfFeed(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
+    func roadSelfFeed(maxId:String?, success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         InstagramEngine.sharedEngine().getSelfFeedWithCount(InstagramManager.COUNT_PER_REQUEST,
-            maxId: self.paginationInfo?.nextMaxId, success:
+            maxId: maxId, success:
             { (media, paginationInfo) in
-                self.paginationInfo = paginationInfo
                 if let pictures = media as? [InstagramMedia] {
-                    success(pictures)
+                    success(pictures, paginationInfo)
                 }
             }, failure: failure)
     }
     
-    private func roadSearchItems(success:(([InstagramMedia]) -> Void), failure:InstagramFailureBlock) {
+    func roadSearchItems(searchText:String, maxId:String?,
+        success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         InstagramEngine.sharedEngine().getMediaWithTagName(searchText, count: InstagramManager.COUNT_PER_REQUEST,
-            maxId: self.paginationInfo?.nextMaxId, withSuccess:
+            maxId: maxId, withSuccess:
             { (media, paginationInfo) in
-                self.paginationInfo = paginationInfo
                 if let pictures = media as? [InstagramMedia] {
-                    success(pictures)
+                    success(pictures, paginationInfo)
                 }
             }, failure: failure)
     }
