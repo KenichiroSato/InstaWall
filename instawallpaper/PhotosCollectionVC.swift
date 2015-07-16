@@ -8,10 +8,10 @@
 
 import UIKit
 
-let reuseIdentifier = "PictureCell"
-
 class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    private static let reuseIdentifier = "PictureCell"
+    
     private enum Content {
         case POPULAR, FEED, SEARCH
     }
@@ -50,22 +50,22 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         paginationInfo = nil
     }
 
-    func roadTopPopularPictures() {
+    func roadTopPopular() {
         clearData()
-        roadPopularPictures(successBlock, failure: failureBlock)
+        roadPopular(successBlock, failure: failureBlock)
     }
     
-    private func roadPopularPictures(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
+    private func roadPopular(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         currentContent = .POPULAR
-        instagramManager.roadPopularPictures(success, failure:failure)
+        instagramManager.roadPopular(success, failure:failure)
     }
 
-    func roadTopSearchFromText(text: String) {
+    func roadTopSearchItems(text: String) {
         clearData()
-        roadSearchFromText(text, success: successBlock, failure: failureBlock)
+        roadSearchItems(text, success: successBlock, failure: failureBlock)
     }
     
-    private func roadSearchFromText(text: String, success:SuccessLoadBlock, failure:InstagramFailureBlock) {
+    private func roadSearchItems(text: String, success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         currentContent = .SEARCH
         searchText = text
         instagramManager.roadSearchItems(text, maxId: paginationInfo?.nextMaxId, success:success, failure:failure)
@@ -90,7 +90,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
                 roadSelfFeed(successBlock, failure: failureBlock)
             case .SEARCH:
                 if let text = searchText {
-                    roadSearchFromText(text, success:successBlock, failure: failureBlock)
+                    roadSearchItems(text, success:successBlock, failure: failureBlock)
                 }
             }
         } else {
@@ -106,12 +106,12 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         }
         switch(currentContent) {
         case .POPULAR:
-            roadPopularPictures(success, failure: failureBlock)
+            roadPopular(success, failure: failureBlock)
         case .FEED:
             roadSelfFeed(success, failure: failureBlock)
         case .SEARCH:
             if let text = searchText {
-                roadSearchFromText(text, success:success, failure: failureBlock)
+                roadSearchItems(text, success:success, failure: failureBlock)
             }
         }
     }
@@ -164,7 +164,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
 
     override func collectionView(collectionView: UICollectionView,
         cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotosCollectionVC.reuseIdentifier, forIndexPath: indexPath)
             as! PictureCell
     
         cell.imageView.image = nil

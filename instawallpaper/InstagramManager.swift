@@ -14,7 +14,7 @@ public class InstagramManager {
     
     static private let COUNT_PER_REQUEST = 50
     
-    func roadPopularPictures(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
+    func roadPopular(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         InstagramEngine.sharedEngine().getPopularMediaWithSuccess(
             { (media, paginationInfo) in
                 if let pictures = media as? [InstagramMedia] {
