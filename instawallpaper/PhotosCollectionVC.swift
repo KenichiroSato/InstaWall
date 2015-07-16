@@ -12,6 +12,8 @@ let reuseIdentifier = "PictureCell"
 
 class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    typealias SuccessLoadBlock = (([InstagramMedia], InstagramPaginationInfo?) -> Void)
+    
     private enum Content {
         case POPULAR, FEED, SEARCH
     }
@@ -23,9 +25,20 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     private var currentContent:Content = .POPULAR
     private var searchText:String?
     private let instagramManager = InstagramManager()
-
-    private var refreshControl = UIRefreshControl()
     
+    lazy private var successBlock: SuccessLoadBlock
+    = {[unowned self] (pictures, paginationInfo) in
+        self.paginationInfo = paginationInfo
+        self.pictureArray += pictures
+        self.finishLoadingData()
+    }
+    
+    lazy private var failureBlock:InstagramFailureBlock  = {[unowned self] error, statusCode in
+        self.showErrorMessage()
+    }
+    
+    private var refreshControl = UIRefreshControl()
+
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -41,69 +54,58 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     }
 
     func roadPopularPictures() {
+        roadPopularPictures(successBlock, failure: failureBlock)
+    }
+    
+    private func roadPopularPictures(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         prepareLoadingData()
         currentContent = .POPULAR
-        instagramManager.roadPopularPictures({
-            (pictures, paginationInfo) in
-            self.paginationInfo = paginationInfo
-            self.pictureArray += pictures
-            self.finishLoadingData()
-            }, failure: {error, statusCode in
-                self.showErrorMessage()
-        })
+        instagramManager.roadPopularPictures(success, failure:failure)
     }
 
     func roadFromText(text: String) {
+        roadFromText(text, success: successBlock, failure: failureBlock)
+    }
+    
+    private func roadFromText(text: String, success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         prepareLoadingData()
         currentContent = .SEARCH
         searchText = text
-        instagramManager.roadTopSearchItems(text, success: {
-            (pictures, paginationInfo) in
-            self.paginationInfo = paginationInfo
-            self.pictureArray += pictures
-            self.finishLoadingData()
-            }, failure: {error, statusCode in
-                self.showErrorMessage()
-        })
+        instagramManager.roadTopSearchItems(text, success:success, failure:failure)
     }
     
     func roadTopSelfFeed() {
+        roadTopSelfFeed(successBlock, failure: failureBlock)
+    }
+    
+    private func roadTopSelfFeed(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         prepareLoadingData()
         currentContent = .FEED
-        instagramManager.roadTopSeflFeed({
-            (pictures, paginationInfo) in
-                self.paginationInfo = paginationInfo
-                self.pictureArray += pictures
-                self.finishLoadingData()
-            }, failure: {error, statusCode in
-                self.showErrorMessage()
-        })
+        instagramManager.roadTopSeflFeed(success, failure:failure)
     }
     
     private func roadNext() {
         if let info = paginationInfo?.nextMaxId {
-            instagramManager.roadNext(info, success: {
-                (pictures, paginationInfo) in
-                    self.paginationInfo = paginationInfo
-                    self.pictureArray += pictures
-                    self.finishLoadingData()
-                }, failure: { error, statusCode in
-                    self.showErrorMessage()
-            })
+            instagramManager.roadNext(info, success:successBlock, failure:failureBlock)
         } else {
             println("already bottom")
         }
     }
     
     func refresh() {
+        let success:SuccessLoadBlock = {[unowned self] (pictures, paginationInfo) in
+            self.refreshControl.endRefreshing()
+            self.pictureArray.removeAll(keepCapacity: false)
+            self.successBlock(pictures, paginationInfo)
+        }
         switch(currentContent) {
         case .POPULAR:
-            roadPopularPictures()
+            roadPopularPictures(success, failure: failureBlock)
         case .FEED:
-            roadTopSelfFeed()
+            roadTopSelfFeed(success, failure: failureBlock)
         case .SEARCH:
             if let text = searchText {
-                roadFromText(text)
+                roadFromText(text, success:success, failure: failureBlock)
             }
         }
         /*
