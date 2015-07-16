@@ -20,7 +20,7 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         if (AccountManager.sharedInstance.isLoggedIn()) {
             photosVC.roadTopSelfFeed()
         } else {
-            photosVC.roadPopularPictures()
+            photosVC.roadTopPopularPictures()
         }
     }
     

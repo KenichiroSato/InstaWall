@@ -25,6 +25,9 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     private var currentContent:Content = .POPULAR
     private var searchText:String?
     private let instagramManager = InstagramManager()
+    private var refreshControl = UIRefreshControl()
+    
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     lazy private var successBlock: SuccessLoadBlock
     = {[unowned self] (pictures, paginationInfo) in
@@ -36,10 +39,6 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     lazy private var failureBlock:InstagramFailureBlock  = {[unowned self] error, statusCode in
         self.showErrorMessage()
     }
-    
-    private var refreshControl = UIRefreshControl()
-
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,33 +52,33 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         paginationInfo = nil
     }
 
-    func roadPopularPictures() {
+    func roadTopPopularPictures() {
+        clearData()
         roadPopularPictures(successBlock, failure: failureBlock)
     }
     
     private func roadPopularPictures(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
-        prepareLoadingData()
         currentContent = .POPULAR
         instagramManager.roadPopularPictures(success, failure:failure)
     }
 
-    func roadFromText(text: String) {
-        roadFromText(text, success: successBlock, failure: failureBlock)
+    func roadTopSearchFromText(text: String) {
+        clearData()
+        roadSearchFromText(text, success: successBlock, failure: failureBlock)
     }
     
-    private func roadFromText(text: String, success:SuccessLoadBlock, failure:InstagramFailureBlock) {
-        prepareLoadingData()
+    private func roadSearchFromText(text: String, success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         currentContent = .SEARCH
         searchText = text
         instagramManager.roadTopSearchItems(text, success:success, failure:failure)
     }
     
     func roadTopSelfFeed() {
-        roadTopSelfFeed(successBlock, failure: failureBlock)
+        clearData()
+        roadSelfFeed(successBlock, failure: failureBlock)
     }
     
-    private func roadTopSelfFeed(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
-        prepareLoadingData()
+    private func roadSelfFeed(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
         currentContent = .FEED
         instagramManager.roadTopSeflFeed(success, failure:failure)
     }
@@ -102,10 +101,10 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         case .POPULAR:
             roadPopularPictures(success, failure: failureBlock)
         case .FEED:
-            roadTopSelfFeed(success, failure: failureBlock)
+            roadSelfFeed(success, failure: failureBlock)
         case .SEARCH:
             if let text = searchText {
-                roadFromText(text, success:success, failure: failureBlock)
+                roadSearchFromText(text, success:success, failure: failureBlock)
             }
         }
         /*
@@ -146,7 +145,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         }
     }
 
-    private func prepareLoadingData() {
+    private func clearData() {
         resetPaginationInfo()
         pictureArray.removeAll(keepCapacity: false)
         self.collectionView?.reloadData()
@@ -180,15 +179,6 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         return cell
     }
     
-    // MARK - UITextFieldDelegate methods
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if let text = textField.text {
-            roadFromText(text)
-        }
-        textField.resignFirstResponder()
-        return true
-    }
-
     // MARK - UICollectionViewDelegateFlowLayout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

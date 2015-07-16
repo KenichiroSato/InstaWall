@@ -17,7 +17,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
         searchBox.text = "cat"
-        photosVC.roadFromText(searchBox.text)
+        photosVC.roadTopSearchFromText(searchBox.text)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +28,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     // MARK - UITextFieldDelegate methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let text = textField.text {
-            photosVC.roadFromText(text)
+            photosVC.roadTopSearchFromText(text)
         }
         textField.resignFirstResponder()
         return true
