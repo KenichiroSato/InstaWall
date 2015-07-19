@@ -18,8 +18,10 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         topView.backgroundColor = Color.BASE_BLUE
         
         if (AccountManager.sharedInstance.isLoggedIn()) {
+            loginButton.setTitle(Text.LOG_OUT, forState: UIControlState.Normal)
             photosVC.roadTopSelfFeed()
         } else {
+            loginButton.setTitle(Text.LOG_IN, forState: UIControlState.Normal)
             photosVC.roadTopPopular()
         }
     }
@@ -31,8 +33,26 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
     
     
     // MARK: - Navigation
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if (identifier == SegueIdentifier.LOG_IN) {
+            if (AccountManager.sharedInstance.isLoggedIn()) {
+                logOut()
+                return false
+            } else {
+                return true
+            }
+        }
+        return super.shouldPerformSegueWithIdentifier(identifier, sender: sender)
+    }
+    
+    private func logOut() {
+        AccountManager.sharedInstance.logOut()
+        loginButton.setTitle(Text.LOG_IN, forState: UIControlState.Normal)
+        photosVC.roadTopPopular()
+    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "segue.login") {
+        if (segue.identifier == SegueIdentifier.LOG_IN) {
             let nextVC = segue.destinationViewController as! LoginVC
             nextVC.logInDelegate = self
         }
@@ -42,6 +62,7 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
     func onLoggedIn(token: String) {
         AccountManager.sharedInstance.saveToken(token)
         photosVC.roadTopSelfFeed()
+        loginButton.setTitle(Text.LOG_OUT, forState: UIControlState.Normal)
     }
     
     /*

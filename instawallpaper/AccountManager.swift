@@ -28,6 +28,10 @@ public class AccountManager {
             InstagramEngine.sharedEngine().accessToken = token
         }
     }
+    
+    func logOut() {
+        InstagramEngine.sharedEngine().logout()
+    }
 
     func isLoggedIn() -> Bool {
         if let token = InstagramEngine.sharedEngine().accessToken {
