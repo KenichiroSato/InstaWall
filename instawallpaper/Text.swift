@@ -13,6 +13,9 @@ public class Text {
     static public let OK = "OK"
     static public let CANCEL = "Cancel"
     
+    static public let LOG_IN = "Login"
+    static public let LOG_OUT = "Logout"
+    
     static public let MSG_SAVE = "Save"
     static public let MSG_SAVE_AND_OPEN_PHOTOS = "Save and open Photos"
     static public let ERR_EPTRY_URL = "TextBox is empty"

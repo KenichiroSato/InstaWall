@@ -133,7 +133,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
 
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "segue.fullscreen") {
+        if (segue.identifier == SegueIdentifier.FULL_SCREEN) {
             let nextVC = segue.destinationViewController as! PictureConfirmVC
             if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems()[0] as? NSIndexPath {
                 let media: InstagramMedia = pictureArray[selectedIndexPath.item];
