@@ -294,8 +294,8 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="NUg-6T-I9d">
                                 <rect key="frame" x="291" y="291" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRO-8A-rYg">
-                                <rect key="frame" x="16" y="501" width="154" height="89"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRO-8A-rYg">
+                                <rect key="frame" x="11" y="560" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="X91-K1-GHl"/>
                                     <constraint firstAttribute="height" constant="25" id="rcp-AW-gBg"/>
