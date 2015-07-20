@@ -14,11 +14,13 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var contentView: UIScrollView!
     
-    static private let titles = ["home", "search"]
+    static private let imageSize = CGSizeMake(40, 30)
+    static private let images = [UIImage.named("home", size: imageSize)!,
+        UIImage.named("search", size: imageSize)!]
     
-    static private let TAB_NUM = SegmentedVC.titles.count
+    static private let TAB_NUM = SegmentedVC.images.count
     
-    private let segmentedControl = HMSegmentedControl(sectionTitles: titles)
+    private let segmentedControl = HMSegmentedControl(sectionImages: images, sectionSelectedImages: images)
     
     var token: dispatch_once_t = 0
     
