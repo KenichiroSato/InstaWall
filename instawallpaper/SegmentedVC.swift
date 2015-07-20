@@ -14,7 +14,7 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var contentView: UIScrollView!
     
-    static private let imageSize = CGSizeMake(40, 30)
+    static private let imageSize = CGSizeMake(36, 27)
     static private let images = [UIImage.named("home", size: imageSize)!,
         UIImage.named("search", size: imageSize)!]
     
