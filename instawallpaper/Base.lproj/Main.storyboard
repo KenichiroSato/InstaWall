@@ -278,6 +278,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Lab-Pn-ME6" firstAttribute="leading" secondItem="mQ9-Dk-IQl" secondAttribute="leading" id="4GB-br-xzP"/>
                                     <constraint firstAttribute="centerY" secondItem="z73-ZB-21O" secondAttribute="centerY" id="K4z-45-HnO"/>
@@ -290,6 +291,9 @@
                                     <constraint firstAttribute="trailing" secondItem="z73-ZB-21O" secondAttribute="trailing" id="qq9-Sn-nNQ"/>
                                     <constraint firstAttribute="trailing" secondItem="WhG-s7-7vF" secondAttribute="trailing" id="vBB-g8-wmc"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="O6Q-TJ-isC" appends="YES" id="Qk9-SP-GcJ"/>
+                                </connections>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="NUg-6T-I9d">
                                 <rect key="frame" x="291" y="291" width="20" height="20"/>
@@ -350,6 +354,11 @@
                         <action selector="onTapped:" destination="BYZ-38-t0r" id="TNl-u5-GpV"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="O6Q-TJ-isC">
+                    <connections>
+                        <action selector="onSwiped:" destination="BYZ-38-t0r" id="lne-nz-kq0"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2722" y="-452"/>
         </scene>

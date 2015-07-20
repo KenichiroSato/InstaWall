@@ -113,10 +113,6 @@ class PictureConfirmVC: UIViewController {
         }
     }
     
-    @IBAction func onTapped(sender: UITapGestureRecognizer) {
-        showSaveMenu()
-    }
-    
     private func showSaveMenu() {
         let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let cancelAction = UIAlertAction(title: Text.CANCEL, style: UIAlertActionStyle.Cancel, handler: { action in print("canceled")})
@@ -142,9 +138,20 @@ class PictureConfirmVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onBackPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func onTapped(sender: UITapGestureRecognizer) {
+        showSaveMenu()
     }
     
+    @IBAction func onSwiped(sender: AnyObject) {
+        dismiss()
+    }
+    
+    @IBAction func onBackPressed(sender: AnyObject) {
+        dismiss()
+    }
+    
+    private func dismiss() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }
 
