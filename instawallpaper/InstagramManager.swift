@@ -35,7 +35,8 @@ public class InstagramManager {
     
     func roadSearchItems(searchText:String, maxId:String?,
         success:SuccessLoadBlock, failure:InstagramFailureBlock) {
-        InstagramEngine.sharedEngine().getMediaWithTagName(searchText, count: InstagramManager.COUNT_PER_REQUEST,
+        let text = searchText.removeSpace()
+        InstagramEngine.sharedEngine().getMediaWithTagName(text, count: InstagramManager.COUNT_PER_REQUEST,
             maxId: maxId, withSuccess:
             { (media, paginationInfo) in
                 if let pictures = media as? [InstagramMedia] {
