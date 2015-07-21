@@ -51,6 +51,15 @@ class LoginVC: UIViewController, UIWebViewDelegate {
         return true
     }
     
+    
+    @IBAction func onBackPressed(sender: AnyObject) {
+        dismiss()
+    }
+    
+    private func dismiss() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+
     func webViewDidFinishLoad(webView: UIWebView) {
         activityIndicator.hidden = true
         println("webViewDidFinishLoad")

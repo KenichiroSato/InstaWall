@@ -222,14 +222,30 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-0v-3qe">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tc4-aV-wLX">
+                                <rect key="frame" x="16" y="562" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="VYq-np-eAG"/>
+                                    <constraint firstAttribute="width" constant="25" id="zUG-kr-cRb"/>
+                                </constraints>
+                                <state key="normal" image="back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onBackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ive-b1-o6g"/>
+                                    <action selector="onBackPressed:" destination="GQ8-yT-oa2" eventType="touchUpInside" id="Phj-NI-aBE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="Niv-mG-SbO" secondAttribute="bottom" id="0LI-KB-ZmV"/>
+                            <constraint firstItem="rKC-dR-Tg8" firstAttribute="top" secondItem="Tc4-aV-wLX" secondAttribute="bottom" constant="15" id="At3-yS-gVP"/>
                             <constraint firstAttribute="trailing" secondItem="Niv-mG-SbO" secondAttribute="trailing" id="KbJ-dM-hN9"/>
                             <constraint firstItem="Niv-mG-SbO" firstAttribute="top" secondItem="o6Z-N7-Gja" secondAttribute="topMargin" id="Lgt-jJ-BbF"/>
                             <constraint firstItem="Niv-mG-SbO" firstAttribute="leading" secondItem="o6Z-N7-Gja" secondAttribute="leading" id="Vjx-S5-gii"/>
                             <constraint firstAttribute="centerY" secondItem="6ep-0v-3qe" secondAttribute="centerY" id="YDw-TO-JE8"/>
                             <constraint firstAttribute="centerX" secondItem="6ep-0v-3qe" secondAttribute="centerX" id="txw-iE-7RC"/>
+                            <constraint firstItem="Tc4-aV-wLX" firstAttribute="leading" secondItem="o6Z-N7-Gja" secondAttribute="leadingMargin" constant="-5" id="wTV-H9-V1k"/>
                         </constraints>
                     </view>
                     <connections>
