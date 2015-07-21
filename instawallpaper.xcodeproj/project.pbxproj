@@ -149,7 +149,6 @@
 				595101CC1B1A87D7006F2F65 /* ImageUtil.swift */,
 				3D614AB61B2413D700B3CE59 /* TimeTracker.swift */,
 				595101B01B19EB8E006F2F65 /* Main.storyboard */,
-				5921B8411B3712D800FE739D /* LoginVC.swift */,
 				59135F7C1B46E49400D43F8E /* AccountManager.swift */,
 				5907B2671B3E4EC6009A1F01 /* InstagramManager.swift */,
 				5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */,
@@ -201,6 +200,7 @@
 			children = (
 				59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */,
 				5964135A1B510896009B857A /* HomeContentVC.swift */,
+				5921B8411B3712D800FE739D /* LoginVC.swift */,
 				595101AE1B19EB8E006F2F65 /* PictureConfirmVC.swift */,
 				5910BA291B2BE88E00ABFCF8 /* PhotosCollectionVC.swift */,
 				5964135E1B511A50009B857A /* SearchContentVC.swift */,
