@@ -58,25 +58,13 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
         
         contentView.delegate = self
         contentView.contentSize = CGSizeMake(contentWidth() * CGFloat(SegmentedVC.TAB_NUM), contentHeight())
+        contentView.delaysContentTouches = false
         
     }
     
     private func setupSubViews() {
         println("setupSubViews")
 
-        /*
-        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
-            self.addChildViewController(vc)
-            vc.didMoveToParentViewController(self)
-            vc.collectionView?.dataSource = vc
-            vc.collectionView?.delegate = vc
-            vc.view.frame.size = contentView.frame.size
-            if let view = vc.view {
-                contentView.addSubview(view)
-            }
-        }
-*/
-        
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("HomeContentVC") as? HomeContentVC {
             self.addChildViewController(vc)
             vc.didMoveToParentViewController(self)
@@ -95,13 +83,7 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
             if let view = vc.view {
                 contentView.addSubview(view)
             }
-        }
-        
-        /*
-        let page2view: UILabel = UILabel(frame: CGRectMake(contentWidth(), 0, contentWidth(), contentHeight()))
-        page2view.backgroundColor = UIColor.greenColor()
-        contentView.addSubview(page2view)
-*/
+        }        
     }
     
     private func contentWidth() -> CGFloat {
