@@ -14,7 +14,7 @@ extension UIScrollView {
     static private let DEFAULT_CONTENT_OFFSET_Y: CGFloat = -44.0
     
     // return true when scroll view hits the bottom
-    func isHitBottom() -> Bool {
+    func didHitBottom() -> Bool {
         if (self.contentOffset.y >= (self.contentSize.height - self.frame.size.height)) {
             return true
         } else {
@@ -31,7 +31,7 @@ extension UIScrollView {
         }
     }
     
-    func isHitTop() -> Bool {
+    func didHitTop() -> Bool {
         if (self.contentOffset.y == UIScrollView.DEFAULT_CONTENT_OFFSET_Y){
             return true
         } else {

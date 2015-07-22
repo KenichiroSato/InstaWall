@@ -24,6 +24,8 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     private var searchText:String?
     private let instagramManager = InstagramManager()
     private var refreshControl = UIRefreshControl()
+    private var isLoading = false
+    private var didHitBottom = false
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
@@ -95,11 +97,15 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
             }
         } else {
             println("already bottom")
+            didHitBottom = true
+            collectionView?.reloadData()
         }
     }
     
     func refresh() {
         paginationInfo = nil
+        isLoading = true
+        didHitBottom = false
         let success:SuccessLoadBlock = {[unowned self] (pictures, paginationInfo) in
             self.pictureArray.removeAll(keepCapacity: false)
             self.successBlock(pictures, paginationInfo)
@@ -120,10 +126,6 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     private func showErrorMessage() {
         indicatorView.hidden = true
         UIAlertController.show(Text.ERR_FAIL_LOAD, message: nil, forVC: self)
-    }
-    
-    private func isLoading() -> Bool {
-        return !indicatorView.hidden
     }
     
     override func didReceiveMemoryWarning() {
@@ -147,10 +149,13 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         pictureArray.removeAll(keepCapacity: false)
         self.collectionView?.reloadData()
         indicatorView.hidden = false
+        isLoading = true
+        didHitBottom = false
     }
     
     private func finishLoadingData() {
         indicatorView.hidden = true
+        isLoading = false
         self.collectionView?.reloadData()
     }
     
@@ -160,7 +165,19 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pictureArray.count
+        let picCount = pictureArray.count
+        if (picCount == 0) { return 0 }
+        if (didHitBottom) {return picCount }
+        
+        //This is to display activity indicator at the center cell of the bottom line
+        let rest = picCount % 3
+        if (rest == 0) {
+            return picCount + 3
+        } else if (rest == 1) {
+            return picCount + 2
+        } else { // rest == 2
+            return picCount + 4
+        }
     }
 
     override func collectionView(collectionView: UICollectionView,
@@ -172,6 +189,10 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         if (pictureArray.count >= indexPath.row + 1) {
             let media: InstagramMedia = pictureArray[indexPath.row]
             cell.imageView.setImageWithURL(media.thumbnailURL)
+            cell.indicator.hidden = true
+        } else if (indexPath.item == collectionView.numberOfItemsInSection(0) - 2){
+            //cell is the second from the end, which means indicator should be displayed.
+            cell.indicator.hidden = false
         }
         return cell
     }
@@ -192,12 +213,11 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         
         objc_sync_enter(self)
         if (scrollView.isCloseToBottom()) {
-            if (!isLoading()) {
-                indicatorView.hidden = false
+            if (!isLoading) {
+                isLoading = true
                 roadNext()
             }
-            //reach bottom
-        }        
+        }
         objc_sync_exit(self)
     }
     
