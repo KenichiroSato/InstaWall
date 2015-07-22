@@ -18,6 +18,8 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
         searchBox.text = "cat"
+        searchBox.clearButtonMode = UITextFieldViewMode.WhileEditing
+        searchBox.placeholder = Text.SEARCH_BOX_PLACEHOLDER
         photosVC.roadTopSearchItems(searchBox.text)
         addTransparentView()
     }
