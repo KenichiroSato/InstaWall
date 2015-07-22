@@ -101,9 +101,9 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     func refresh() {
         paginationInfo = nil
         let success:SuccessLoadBlock = {[unowned self] (pictures, paginationInfo) in
-            self.refreshControl.endRefreshing()
             self.pictureArray.removeAll(keepCapacity: false)
             self.successBlock(pictures, paginationInfo)
+            self.refreshControl.endRefreshing()
         }
         switch(currentContent) {
         case .POPULAR:
