@@ -45,6 +45,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         
         refreshControl.addTarget(self, action: Selector("refresh"),
             forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.tintColor = UIColor.whiteColor()
         self.collectionView?.addSubview(refreshControl)
     }
     
