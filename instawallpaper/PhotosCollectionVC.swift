@@ -173,11 +173,11 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         //This is to display activity indicator at the center cell of the bottom line
         let rest = picCount % 3
         if (rest == 0) {
-            return picCount + 3
-        } else if (rest == 1) {
             return picCount + 2
+        } else if (rest == 1) {
+            return picCount + 1
         } else { // rest == 2
-            return picCount + 4
+            return picCount + 3
         }
     }
 
@@ -191,7 +191,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
             let media: InstagramMedia = pictureArray[indexPath.row]
             cell.imageView.setImageWithURL(media.thumbnailURL)
             cell.indicator.hidden = true
-        } else if (indexPath.item == collectionView.numberOfItemsInSection(0) - 2){
+        } else if (indexPath.item == collectionView.numberOfItemsInSection(0) - 1){
             //cell is the second from the end, which means indicator should be displayed.
             cell.indicator.hidden = false
         }
