@@ -36,7 +36,6 @@ class PictureConfirmVC: UIViewController {
         super.viewDidAppear(animated)
         setupGradientLayers()
         setImage()
-        indicatorView.hidden = true
     }
     
     private func setupGradientLayers() {
@@ -60,16 +59,22 @@ class PictureConfirmVC: UIViewController {
     private func setImage() {
         let timeTracker = TimeTracker(tag: "setImage")
         timeTracker.start()
-        if let imageData = imageDataFromURL(pictureUrl),
-            img = UIImage(data:imageData) {
-                imageView.image = img
-                updateBackground(img)
-        } else {
-            UIAlertController.show(Text.ERR_INVALID_URL, message: nil, forVC: self)
-        }
-        timeTracker.finish()
+        dispatch_async(dispatch_queue_create("imageLoadQueue", DISPATCH_QUEUE_SERIAL), {
+            let imageData = self.imageDataFromURL(self.pictureUrl)
+            dispatch_sync(dispatch_get_main_queue(), {
+                if let data = imageData,
+                    img = UIImage(data: data) {
+                        self.imageView.image = img
+                        self.updateBackground(img)
+                } else {
+                    UIAlertController.show(Text.ERR_INVALID_URL, message: nil, forVC: self)
+                }
+                self.indicatorView.hidden = true
+                timeTracker.finish()
+            })
+        })
     }
-    
+
     private func imageDataFromURL(url:NSURL) -> NSData? {
         return NSData(contentsOfURL: url,
             options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
