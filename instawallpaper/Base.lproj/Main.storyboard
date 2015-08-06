@@ -77,6 +77,9 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8lx-Iz-PDF">
                                             <rect key="frame" x="1" y="0.0" width="104" height="105"/>
                                         </imageView>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="eCp-fr-szT">
+                                            <rect key="frame" x="43" y="43" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -88,6 +91,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="8lx-Iz-PDF" id="aaK-Wu-MMV"/>
+                                    <outlet property="indicator" destination="eCp-fr-szT" id="qVb-nR-33X"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="segue.fullscreen" id="Joa-zm-Qm0"/>
                                 </connections>
                             </collectionViewCell>
