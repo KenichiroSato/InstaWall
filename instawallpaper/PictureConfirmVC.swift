@@ -71,10 +71,19 @@ class PictureConfirmVC: UIViewController {
                     UIAlertController.show(Text.ERR_INVALID_URL, message: nil, forVC: self)
                 }
                 self.indicatorView.hidden = true
-                self.tapImageView.fadeInAndOut()
+                self.showTapAnimation()
                 timeTracker.finish()
             })
         })
+    }
+    
+    private func showTapAnimation() {
+        let ud = NSUserDefaults.standardUserDefaults()
+        let hasShown = ud.boolForKey(UserDefaultKey.TAP_ANIMATION_HAS_SHOWN)
+        if (!hasShown) {
+            self.tapImageView.fadeInAndOut()
+            ud.setBool(true, forKey: UserDefaultKey.TAP_ANIMATION_HAS_SHOWN)
+        }
     }
 
     private func imageDataFromURL(url:NSURL) -> NSData? {
