@@ -20,6 +20,8 @@
 		5910BA2D1B2C06AF00ABFCF8 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */; };
 		59135F7D1B46E49400D43F8E /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59135F7C1B46E49400D43F8E /* AccountManager.swift */; };
 		5921B8421B3712D800FE739D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5921B8411B3712D800FE739D /* LoginVC.swift */; };
+		5940F5061B90A34800822980 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5940F5051B90A34800822980 /* UIView+extension.swift */; };
+		5940F5081B91A63800822980 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5940F5071B91A63800822980 /* UserDefaultKey.swift */; };
 		595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AC1B19EB8E006F2F65 /* AppDelegate.swift */; };
 		595101AF1B19EB8E006F2F65 /* PictureConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AE1B19EB8E006F2F65 /* PictureConfirmVC.swift */; };
 		595101B21B19EB8E006F2F65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 595101B01B19EB8E006F2F65 /* Main.storyboard */; };
@@ -62,6 +64,8 @@
 		5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		59135F7C1B46E49400D43F8E /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		5921B8411B3712D800FE739D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		5940F5051B90A34800822980 /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
+		5940F5071B91A63800822980 /* UserDefaultKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
 		595101A71B19EB8E006F2F65 /* instawallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instawallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		595101AB1B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101AC1B19EB8E006F2F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				597AD77E1B36432300E087B4 /* UIAlertController+show.swift */,
+				5940F5051B90A34800822980 /* UIView+extension.swift */,
 				5907B2651B3E2C12009A1F01 /* UIScrollView+hit.swift */,
 				59FDC00E1B5C999700E28AB5 /* UIImage+extension.swift */,
 				59FDC0101B5E6BAF00E28AB5 /* String+extension.swift */,
@@ -191,6 +196,7 @@
 				5964135C1B511151009B857A /* Color.swift */,
 				3DB8F9E81B5B4DF4000B8747 /* SegueIdentifier.swift */,
 				597AD7801B3647AF00E087B4 /* Text.swift */,
+				5940F5071B91A63800822980 /* UserDefaultKey.swift */,
 			);
 			name = constant;
 			sourceTree = "<group>";
@@ -387,10 +393,12 @@
 				5964135D1B511151009B857A /* Color.swift in Sources */,
 				599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */,
 				5910BA2A1B2BE88E00ABFCF8 /* PhotosCollectionVC.swift in Sources */,
+				5940F5061B90A34800822980 /* UIView+extension.swift in Sources */,
 				5921B8421B3712D800FE739D /* LoginVC.swift in Sources */,
 				5964135F1B511A50009B857A /* SearchContentVC.swift in Sources */,
 				597AD7811B3647AF00E087B4 /* Text.swift in Sources */,
 				595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */,
+				5940F5081B91A63800822980 /* UserDefaultKey.swift in Sources */,
 				59135F7D1B46E49400D43F8E /* AccountManager.swift in Sources */,
 				597AD77F1B36432300E087B4 /* UIAlertController+show.swift in Sources */,
 				59FDC00F1B5C999700E28AB5 /* UIImage+extension.swift in Sources */,

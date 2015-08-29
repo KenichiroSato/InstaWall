@@ -28,6 +28,7 @@ class PictureConfirmVC: UIViewController {
     @IBOutlet weak var bottomBackground: UIView!
     @IBOutlet weak var topBackground: UIView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var tapImageView: UIImageView!
     private var bottomGradientLayer: CAGradientLayer = CAGradientLayer()
     private var topGradientLayer: CAGradientLayer = CAGradientLayer()
     var pictureUrl: NSURL = NSURL(string: DEFAULT_IMAGE_URL + INSTAGRAM_URL_SUFFIX)!
@@ -70,9 +71,19 @@ class PictureConfirmVC: UIViewController {
                     UIAlertController.show(Text.ERR_INVALID_URL, message: nil, forVC: self)
                 }
                 self.indicatorView.hidden = true
+                self.showTapAnimation()
                 timeTracker.finish()
             })
         })
+    }
+    
+    private func showTapAnimation() {
+        let ud = NSUserDefaults.standardUserDefaults()
+        let hasShown = ud.boolForKey(UserDefaultKey.TAP_ANIMATION_HAS_SHOWN)
+        if (!hasShown) {
+            self.tapImageView.fadeInAndOut()
+            ud.setBool(true, forKey: UserDefaultKey.TAP_ANIMATION_HAS_SHOWN)
+        }
     }
 
     private func imageDataFromURL(url:NSURL) -> NSData? {

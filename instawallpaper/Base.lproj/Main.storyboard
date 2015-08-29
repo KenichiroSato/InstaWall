@@ -331,6 +331,9 @@
                                     <action selector="onBackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awh-Zy-wUV"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="Gzb-YW-shl" userLabel="Image View">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -340,12 +343,14 @@
                             <constraint firstItem="RRO-8A-rYg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-5" id="EO5-3h-cQW"/>
                             <constraint firstAttribute="trailing" secondItem="mQ9-Dk-IQl" secondAttribute="trailing" id="FNl-MO-fmn"/>
                             <constraint firstAttribute="centerY" secondItem="NUg-6T-I9d" secondAttribute="centerY" id="FR8-Vp-nHu"/>
+                            <constraint firstAttribute="centerX" secondItem="Gzb-YW-shl" secondAttribute="centerX" id="JIx-Pa-yjB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mQ9-Dk-IQl" secondAttribute="bottom" id="MzW-eC-YiM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mQ9-Dk-IQl" secondAttribute="trailing" id="Slk-hE-EiC"/>
                             <constraint firstAttribute="centerX" secondItem="NUg-6T-I9d" secondAttribute="centerX" id="V8h-gJ-vTh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mQ9-Dk-IQl" secondAttribute="bottom" id="Y9A-iu-no0"/>
                             <constraint firstItem="mQ9-Dk-IQl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="YKY-fu-ESd"/>
                             <constraint firstItem="mQ9-Dk-IQl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="134" id="d0f-Ew-Nee"/>
+                            <constraint firstAttribute="centerY" secondItem="Gzb-YW-shl" secondAttribute="centerY" id="eec-Ak-BIa"/>
                             <constraint firstItem="mQ9-Dk-IQl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="i52-eZ-6M8"/>
                         </constraints>
                         <variation key="default">
@@ -365,6 +370,7 @@
                         <outlet property="imageView" destination="z73-ZB-21O" id="HEP-MZ-21u"/>
                         <outlet property="indicatorView" destination="NUg-6T-I9d" id="IPH-Rn-3tR"/>
                         <outlet property="parentPictureView" destination="mQ9-Dk-IQl" id="Ylb-kH-Ei4"/>
+                        <outlet property="tapImageView" destination="Gzb-YW-shl" id="rrN-jf-sSE"/>
                         <outlet property="topBackground" destination="Lab-Pn-ME6" id="kIG-66-sDS"/>
                     </connections>
                 </viewController>
@@ -446,5 +452,6 @@
     </scenes>
     <resources>
         <image name="back" width="112" height="89"/>
+        <image name="home" width="112" height="89"/>
     </resources>
 </document>
