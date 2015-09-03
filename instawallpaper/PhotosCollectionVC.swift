@@ -126,6 +126,10 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     
     private func showErrorMessage() {
         indicatorView.hidden = true
+        
+        let reload = ReloadImageView.instance()
+        reload.frame = self.view.frame
+        self.view.addSubview(reload)
         UIAlertController.show(Text.ERR_FAIL_LOAD, message: nil, forVC: self)
     }
     

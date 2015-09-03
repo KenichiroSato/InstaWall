@@ -19,6 +19,8 @@
 		5910BA2A1B2BE88E00ABFCF8 /* PhotosCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910BA291B2BE88E00ABFCF8 /* PhotosCollectionVC.swift */; };
 		5910BA2D1B2C06AF00ABFCF8 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */; };
 		59135F7D1B46E49400D43F8E /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59135F7C1B46E49400D43F8E /* AccountManager.swift */; };
+		591F008C1B974D4600452D86 /* ReloadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F008B1B974D4600452D86 /* ReloadImageView.swift */; };
+		591F008E1B974DDB00452D86 /* ReloadImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591F008D1B974DDB00452D86 /* ReloadImageView.xib */; };
 		5921B8421B3712D800FE739D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5921B8411B3712D800FE739D /* LoginVC.swift */; };
 		5940F5061B90A34800822980 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5940F5051B90A34800822980 /* UIView+extension.swift */; };
 		5940F5081B91A63800822980 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5940F5071B91A63800822980 /* UserDefaultKey.swift */; };
@@ -63,6 +65,8 @@
 		5910BA2B1B2BF94B00ABFCF8 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		59135F7C1B46E49400D43F8E /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		591F008B1B974D4600452D86 /* ReloadImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReloadImageView.swift; sourceTree = "<group>"; };
+		591F008D1B974DDB00452D86 /* ReloadImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReloadImageView.xib; sourceTree = "<group>"; };
 		5921B8411B3712D800FE739D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5940F5051B90A34800822980 /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		5940F5071B91A63800822980 /* UserDefaultKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				595101CC1B1A87D7006F2F65 /* ImageUtil.swift */,
 				3D614AB61B2413D700B3CE59 /* TimeTracker.swift */,
 				595101B01B19EB8E006F2F65 /* Main.storyboard */,
+				591F008B1B974D4600452D86 /* ReloadImageView.swift */,
+				591F008D1B974DDB00452D86 /* ReloadImageView.xib */,
 				59135F7C1B46E49400D43F8E /* AccountManager.swift */,
 				5907B2671B3E4EC6009A1F01 /* InstagramManager.swift */,
 				5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */,
@@ -279,6 +285,7 @@
 		5951019F1B19EB8D006F2F65 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Kenichiro Sato";
 				TargetAttributes = {
@@ -318,6 +325,7 @@
 			files = (
 				0C71AA2A1B4BFEDB00710E96 /* Settings.bundle in Resources */,
 				595101B21B19EB8E006F2F65 /* Main.storyboard in Resources */,
+				591F008E1B974DDB00452D86 /* ReloadImageView.xib in Resources */,
 				595101B71B19EB8E006F2F65 /* LaunchScreen.xib in Resources */,
 				595101B41B19EB8E006F2F65 /* Images.xcassets in Resources */,
 			);
@@ -404,6 +412,7 @@
 				59FDC00F1B5C999700E28AB5 /* UIImage+extension.swift in Sources */,
 				5910BA2D1B2C06AF00ABFCF8 /* PictureCell.swift in Sources */,
 				59FDC00A1B555F1700E28AB5 /* ContentBaseVC.swift in Sources */,
+				591F008C1B974D4600452D86 /* ReloadImageView.swift in Sources */,
 				5907B2681B3E4EC6009A1F01 /* InstagramManager.swift in Sources */,
 				3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */,
 			);
