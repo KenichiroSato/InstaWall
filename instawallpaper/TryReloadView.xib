@@ -4,7 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TryReloadView" customModule="instawallpaper" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TryReloadView" customModule="instawallpaper" customModuleProvider="target">
+            <connections>
+                <outlet property="indicator" destination="HgW-J9-7Cz" id="9CS-pI-ul4"/>
+                <outlet property="reloadImage" destination="k6H-VQ-qno" id="tlR-WX-Lyq"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -18,12 +23,17 @@
                         <constraint firstAttribute="width" constant="100" id="JCS-om-76j"/>
                     </constraints>
                 </imageView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="HgW-J9-7Cz">
+                    <rect key="frame" x="290" y="295" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstAttribute="centerY" secondItem="HgW-J9-7Cz" secondAttribute="centerY" id="3WZ-4P-qfb"/>
                 <constraint firstAttribute="centerY" secondItem="k6H-VQ-qno" secondAttribute="centerY" id="9Vc-M5-MWP"/>
                 <constraint firstAttribute="centerX" secondItem="k6H-VQ-qno" secondAttribute="centerX" id="PTh-ZL-NZs"/>
+                <constraint firstAttribute="centerX" secondItem="HgW-J9-7Cz" secondAttribute="centerX" id="k3F-Xr-BED"/>
             </constraints>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="80x-ys-SFo" appends="YES" id="m7O-FE-W4y"/>

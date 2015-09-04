@@ -16,6 +16,9 @@ class TryReloadView: UIView {
     
     var reloadDelegate: TryReloadDelegate?
     
+    @IBOutlet weak var reloadImage: UIImageView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.customViewCommonInit()
@@ -33,9 +36,18 @@ class TryReloadView: UIView {
     }
     
     @IBAction func onTapped(sender: UITapGestureRecognizer) {
-        println("ontapped")
         if let delegate = reloadDelegate {
             delegate.onTryReload()
         }
+    }
+    
+    func showReload() {
+        reloadImage.hidden = false
+        indicator.hidden = true
+    }
+    
+    func showIndicator() {
+        reloadImage.hidden = true
+        indicator.hidden = false
     }
 }
