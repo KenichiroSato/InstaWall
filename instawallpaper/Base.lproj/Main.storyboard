@@ -62,7 +62,7 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <view key="backgroundView" contentMode="scaleToFill" id="Sdt-ya-col" customClass="ReloadImageView" customModule="instawallpaper" customModuleProvider="target">
+                        <view key="backgroundView" contentMode="scaleToFill" id="gke-D1-EQW" customClass="TryReloadView" customModule="instawallpaper" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,7 +124,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="reloadImageView" destination="Sdt-ya-col" id="TAv-dj-W0E"/>
+                        <outlet property="tryReloadView" destination="gke-D1-EQW" id="T95-Ji-aHJ"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ptk-fO-H9B" userLabel="First Responder" sceneMemberID="firstResponder"/>

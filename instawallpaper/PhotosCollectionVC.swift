@@ -29,7 +29,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     
     //@IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
-    @IBOutlet weak var reloadImageView: ReloadImageView!
+    @IBOutlet weak var tryReloadView: TryReloadView!
     
     lazy private var successBlock: SuccessLoadBlock
     = {[unowned self] (pictures, paginationInfo) in
@@ -128,7 +128,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     
     private func showErrorMessage() {
         //indicatorView.hidden = true
-        reloadImageView.hidden = false
+        tryReloadView.hidden = false
         UIAlertController.show(Text.ERR_FAIL_LOAD, message: nil, forVC: self)
     }
     
@@ -153,14 +153,14 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         pictureArray.removeAll(keepCapacity: false)
         self.collectionView?.reloadData()
         //indicatorView.hidden = false
-        reloadImageView.hidden = true
+        tryReloadView.hidden = true
         isLoading = true
         didHitBottom = false
     }
     
     private func finishLoadingData() {
         //indicatorView.hidden = true
-        reloadImageView.hidden = true
+        tryReloadView.hidden = true
         isLoading = false
         self.collectionView?.reloadData()
     }

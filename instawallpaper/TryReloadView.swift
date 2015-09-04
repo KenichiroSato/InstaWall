@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReloadImageView: UIView {
+class TryReloadView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,7 +21,7 @@ class ReloadImageView: UIView {
     }
     
     func customViewCommonInit() {
-        let view: UIView  = NSBundle.mainBundle().loadNibNamed("ReloadImageView", owner: self, options: nil).first as! UIView
+        let view: UIView  = NSBundle.mainBundle().loadNibNamed("TryReloadView", owner: self, options: nil).first as! UIView
         view.frame = self.bounds
         addSubview(view)
     }
