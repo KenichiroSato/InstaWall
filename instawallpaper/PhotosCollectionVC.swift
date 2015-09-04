@@ -113,14 +113,20 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
             self.successBlock(pictures, paginationInfo)
             self.refreshControl.endRefreshing()
         }
+        let failure:InstagramFailureBlock = {[unowned self] error, statusCode in
+            self.failureBlock(error, statusCode)
+            self.refreshControl.endRefreshing()
+            self.tryReloadView.hidden = true
+        }
+
         switch(currentContent) {
         case .POPULAR:
-            roadPopular(success, failure: failureBlock)
+            roadPopular(success, failure: failure)
         case .FEED:
-            roadSelfFeed(success, failure: failureBlock)
+            roadSelfFeed(success, failure: failure)
         case .SEARCH:
             if let text = searchText {
-                roadSearchItems(text, success:success, failure: failureBlock)
+                roadSearchItems(text, success:success, failure: failure)
             }
         }
     }
