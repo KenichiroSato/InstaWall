@@ -10,9 +10,20 @@ import UIKit
 
 class ReloadImageView: UIView {
     
-    class func instance() -> ReloadImageView {
-        return UINib(nibName: "ReloadImageView", bundle: nil)
-            .instantiateWithOwner(self, options: nil)[0] as! ReloadImageView
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.customViewCommonInit()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.customViewCommonInit()
+    }
+    
+    func customViewCommonInit() {
+        let view: UIView  = NSBundle.mainBundle().loadNibNamed("ReloadImageView", owner: self, options: nil).first as! UIView
+        view.frame = self.bounds
+        addSubview(view)
     }
     
     @IBAction func onTapped(sender: UITapGestureRecognizer) {
