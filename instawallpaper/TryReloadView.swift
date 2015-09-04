@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol TryReloadDelegate {
+    func onTryReload()
+}
+
 class TryReloadView: UIView {
+    
+    var reloadDelegate: TryReloadDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,5 +34,8 @@ class TryReloadView: UIView {
     
     @IBAction func onTapped(sender: UITapGestureRecognizer) {
         println("ontapped")
+        if let delegate = reloadDelegate {
+            delegate.onTryReload()
+        }
     }
 }

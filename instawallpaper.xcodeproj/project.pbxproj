@@ -113,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5904134B1B99D3E700100068 /* customView */ = {
+			isa = PBXGroup;
+			children = (
+				591F008B1B974D4600452D86 /* TryReloadView.swift */,
+				591F008D1B974DDB00452D86 /* TryReloadView.xib */,
+			);
+			name = customView;
+			sourceTree = "<group>";
+		};
 		5907B2641B3E29D3009A1F01 /* extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +158,7 @@
 		595101A91B19EB8E006F2F65 /* instawallpaper */ = {
 			isa = PBXGroup;
 			children = (
+				5904134B1B99D3E700100068 /* customView */,
 				59FDC00D1B5C8EC400E28AB5 /* viewController */,
 				59FDC00C1B5C8E5C00E28AB5 /* constant */,
 				5907B2641B3E29D3009A1F01 /* extension */,
@@ -158,8 +168,6 @@
 				595101CC1B1A87D7006F2F65 /* ImageUtil.swift */,
 				3D614AB61B2413D700B3CE59 /* TimeTracker.swift */,
 				595101B01B19EB8E006F2F65 /* Main.storyboard */,
-				591F008B1B974D4600452D86 /* TryReloadView.swift */,
-				591F008D1B974DDB00452D86 /* TryReloadView.xib */,
 				59135F7C1B46E49400D43F8E /* AccountManager.swift */,
 				5907B2671B3E4EC6009A1F01 /* InstagramManager.swift */,
 				5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */,

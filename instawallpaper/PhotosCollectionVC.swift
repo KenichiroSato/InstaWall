@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, TryReloadDelegate {
 
     private static let reuseIdentifier = "PictureCell"
     
@@ -49,6 +49,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
             forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.tintColor = UIColor.whiteColor()
         self.collectionView?.addSubview(refreshControl)
+        tryReloadView.reloadDelegate = self
     }
     
     private func resetPaginationInfo() {
@@ -225,6 +226,12 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
             }
         }
         objc_sync_exit(self)
+    }
+    
+    // MARK: TryReloadDelegate
+    func onTryReload() {
+        clearData()
+        refresh()
     }
     
     /*
