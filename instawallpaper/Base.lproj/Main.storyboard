@@ -62,10 +62,11 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" id="vOB-F6-Vga">
+                        <view key="backgroundView" contentMode="scaleToFill" id="gke-D1-EQW" customClass="TryReloadView" customModule="instawallpaper" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PictureCell" id="aCe-dU-UyK" customClass="PictureCell" customModule="instawallpaper" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -123,7 +124,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="indicatorView" destination="vOB-F6-Vga" id="ae9-QR-IFs"/>
+                        <outlet property="tryReloadView" destination="gke-D1-EQW" id="T95-Ji-aHJ"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ptk-fO-H9B" userLabel="First Responder" sceneMemberID="firstResponder"/>

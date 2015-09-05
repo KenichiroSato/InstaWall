@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, TryReloadDelegate {
 
     private static let reuseIdentifier = "PictureCell"
     
@@ -27,7 +27,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     private var isLoading = false
     private var didHitBottom = false
     
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var tryReloadView: TryReloadView!
     
     lazy private var successBlock: SuccessLoadBlock
     = {[unowned self] (pictures, paginationInfo) in
@@ -37,6 +37,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     lazy private var failureBlock:InstagramFailureBlock  = {[unowned self] error, statusCode in
+        self.clearData()
         self.showErrorMessage()
     }
     
@@ -47,6 +48,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
             forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.tintColor = UIColor.whiteColor()
         self.collectionView?.addSubview(refreshControl)
+        tryReloadView.reloadDelegate = self
     }
     
     private func resetPaginationInfo() {
@@ -55,6 +57,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
 
     func roadTopPopular() {
         clearData()
+        prepareFullScreenLoading()
         roadPopular(successBlock, failure: failureBlock)
     }
     
@@ -65,6 +68,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
 
     func roadTopSearchItems(text: String) {
         clearData()
+        prepareFullScreenLoading()
         roadSearchItems(text, success: successBlock, failure: failureBlock)
     }
     
@@ -76,6 +80,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     
     func roadTopSelfFeed() {
         clearData()
+        prepareFullScreenLoading()
         roadSelfFeed(successBlock, failure: failureBlock)
     }
     
@@ -112,20 +117,25 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
             self.successBlock(pictures, paginationInfo)
             self.refreshControl.endRefreshing()
         }
+        let failure:InstagramFailureBlock = {[unowned self] error, statusCode in
+            self.failureBlock(error, statusCode)
+            self.refreshControl.endRefreshing()
+        }
+
         switch(currentContent) {
         case .POPULAR:
-            roadPopular(success, failure: failureBlock)
+            roadPopular(success, failure: failure)
         case .FEED:
-            roadSelfFeed(success, failure: failureBlock)
+            roadSelfFeed(success, failure: failure)
         case .SEARCH:
             if let text = searchText {
-                roadSearchItems(text, success:success, failure: failureBlock)
+                roadSearchItems(text, success:success, failure: failure)
             }
         }
     }
     
     private func showErrorMessage() {
-        indicatorView.hidden = true
+        tryReloadView.showReload()
         UIAlertController.show(Text.ERR_FAIL_LOAD, message: nil, forVC: self)
     }
     
@@ -149,13 +159,16 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         resetPaginationInfo()
         pictureArray.removeAll(keepCapacity: false)
         self.collectionView?.reloadData()
-        indicatorView.hidden = false
-        isLoading = true
         didHitBottom = false
     }
     
+    private func prepareFullScreenLoading() {
+        tryReloadView.showIndicator()
+        isLoading = true
+    }
+    
     private func finishLoadingData() {
-        indicatorView.hidden = true
+        tryReloadView.hide()
         isLoading = false
         self.collectionView?.reloadData()
     }
@@ -220,6 +233,13 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
             }
         }
         objc_sync_exit(self)
+    }
+    
+    // MARK: TryReloadDelegate
+    func onTryReload() {
+        clearData()
+        prepareFullScreenLoading()
+        refresh()
     }
     
     /*
