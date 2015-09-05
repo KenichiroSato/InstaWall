@@ -37,6 +37,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     lazy private var failureBlock:InstagramFailureBlock  = {[unowned self] error, statusCode in
+        self.clearData()
         self.showErrorMessage()
     }
     
@@ -56,6 +57,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
 
     func roadTopPopular() {
         clearData()
+        prepareFullScreenLoading()
         roadPopular(successBlock, failure: failureBlock)
     }
     
@@ -66,6 +68,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
 
     func roadTopSearchItems(text: String) {
         clearData()
+        prepareFullScreenLoading()
         roadSearchItems(text, success: successBlock, failure: failureBlock)
     }
     
@@ -77,6 +80,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     
     func roadTopSelfFeed() {
         clearData()
+        prepareFullScreenLoading()
         roadSelfFeed(successBlock, failure: failureBlock)
     }
     
@@ -116,7 +120,6 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         let failure:InstagramFailureBlock = {[unowned self] error, statusCode in
             self.failureBlock(error, statusCode)
             self.refreshControl.endRefreshing()
-            self.tryReloadView.hidden = true
         }
 
         switch(currentContent) {
@@ -156,13 +159,16 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         resetPaginationInfo()
         pictureArray.removeAll(keepCapacity: false)
         self.collectionView?.reloadData()
-        tryReloadView.showIndicator()
-        isLoading = true
         didHitBottom = false
     }
     
+    private func prepareFullScreenLoading() {
+        tryReloadView.showIndicator()
+        isLoading = true
+    }
+    
     private func finishLoadingData() {
-        tryReloadView.hidden = true
+        tryReloadView.hide()
         isLoading = false
         self.collectionView?.reloadData()
     }
@@ -232,6 +238,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     // MARK: TryReloadDelegate
     func onTryReload() {
         clearData()
+        prepareFullScreenLoading()
         refresh()
     }
     
