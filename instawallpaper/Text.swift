@@ -20,6 +20,7 @@ public class Text {
     static public let MSG_SAVE_AND_OPEN_PHOTOS = "Save and open Photos"
     
     static public let SEARCH_BOX_PLACEHOLDER = "Please input search keyword."
+    static public let SEARCH_DEFAULT_KEYWORD = "cat"
     
     static public let ERR_EPTRY_URL = "TextBox is empty"
     static public let ERR_INVALID_URL = "Please input appropriate URL"

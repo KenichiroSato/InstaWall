@@ -17,11 +17,22 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
-        searchBox.text = "cat"
+        searchBox.text = loadSearchKeyword()
         searchBox.clearButtonMode = UITextFieldViewMode.WhileEditing
         searchBox.placeholder = Text.SEARCH_BOX_PLACEHOLDER
         photosVC.roadTopSearchItems(searchBox.text)
         addTransparentView()
+    }
+    
+    private func loadSearchKeyword() -> String {
+        let ud = NSUserDefaults.standardUserDefaults()
+        return  ud.stringForKey(UserDefaultKey.SEARCH_KEYWORD) ?? Text.SEARCH_DEFAULT_KEYWORD
+    }
+    
+    private func saveSearchKeyword(keyword:String) {
+        let ud = NSUserDefaults.standardUserDefaults()
+        ud.setObject(keyword, forKey: UserDefaultKey.SEARCH_KEYWORD)
+        ud.synchronize()
     }
     
     private func addTransparentView() {
@@ -48,6 +59,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let text = textField.text {
             photosVC.roadTopSearchItems(text)
+            saveSearchKeyword(text)
         }
         closeKeyboard()
         return true

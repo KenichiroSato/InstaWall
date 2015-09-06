@@ -11,5 +11,7 @@ import Foundation
 class UserDefaultKey {
     
     static let TAP_ANIMATION_HAS_SHOWN = "tap_animation_has_shown"
+    
+    static let SEARCH_KEYWORD = "search_keyword"
 
 }
