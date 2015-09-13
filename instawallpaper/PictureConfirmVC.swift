@@ -68,7 +68,8 @@ class PictureConfirmVC: UIViewController {
                         self.imageView.image = img
                         self.updateBackground(img)
                 } else {
-                    UIAlertController.show(Text.ERR_INVALID_URL, message: nil, forVC: self)
+                    UIAlertController.show(NSLocalizedString("ERR_FAIL_LOAD", comment:""),
+                        message: nil, forVC: self)
                 }
                 self.indicatorView.hidden = true
                 self.showTapAnimation()
@@ -131,9 +132,9 @@ class PictureConfirmVC: UIViewController {
     
     private func showSaveMenu() {
         let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        let cancelAction = UIAlertAction(title: Text.CANCEL, style: UIAlertActionStyle.Cancel, handler: { action in print("canceled")})
-        let saveAction = UIAlertAction(title: Text.MSG_SAVE, style: UIAlertActionStyle.Default, handler: {action in self.storeImage()})
-        let saveAndOpenAction = UIAlertAction(title: Text.MSG_SAVE_AND_OPEN_PHOTOS, style: UIAlertActionStyle.Default, handler: {action in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("CANCEL", comment:""), style: UIAlertActionStyle.Cancel, handler: { action in print("canceled")})
+        let saveAction = UIAlertAction(title: NSLocalizedString("MSG_SAVE", comment:""), style: UIAlertActionStyle.Default, handler: {action in self.storeImage()})
+        let saveAndOpenAction = UIAlertAction(title: NSLocalizedString("MSG_SAVE_AND_OPEN_PHOTOS", comment:""), style: UIAlertActionStyle.Default, handler: {action in
             self.storeImage()
             self.openPhotosApp()
         })

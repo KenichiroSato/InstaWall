@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  instawallpaper
+
+  Created by Kenichiro Sato on 2015/09/13.
+  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.
+*/
+"OK" = "OK";
+"CANCEL" = "キャンセル";
+
+"LOG_IN" = "ログイン";
+"LOG_OUT" = "ログアウト";
+
+"MSG_SAVE" = "保存する";
+"MSG_SAVE_AND_OPEN_PHOTOS" = "保存してPhotosを開く";
+
+"SEARCH_BOX_PLACEHOLDER" = "検索キーワード";
+"SEARCH_DEFAULT_KEYWORD" = "猫";
+
+"ERR_FAIL_LOAD" = "画像の読み込みに失敗しました。";
