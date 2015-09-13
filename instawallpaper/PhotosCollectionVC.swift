@@ -136,7 +136,8 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     
     private func showErrorMessage() {
         tryReloadView.showReload()
-        UIAlertController.show(Text.ERR_FAIL_LOAD, message: nil, forVC: self)
+        UIAlertController.show( NSLocalizedString("ERR_FAIL_LOAD", comment:""),
+            message: nil, forVC: self)
     }
     
     override func didReceiveMemoryWarning() {
