@@ -332,7 +332,7 @@
                                     <action selector="onBackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awh-Zy-wUV"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="Gzb-YW-shl" userLabel="Image View">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tap" translatesAutoresizingMaskIntoConstraints="NO" id="Gzb-YW-shl" userLabel="Image View">
                                 <rect key="frame" x="180" y="236" width="240" height="128"/>
                             </imageView>
                         </subviews>
@@ -453,6 +453,6 @@
     </scenes>
     <resources>
         <image name="back" width="112" height="89"/>
-        <image name="home" width="112" height="89"/>
+        <image name="tap" width="227" height="187"/>
     </resources>
 </document>
