@@ -12,9 +12,10 @@
 "LOG_OUT" = "ログアウト";
 
 "MSG_SAVE" = "保存する";
-"MSG_SAVE_AND_OPEN_PHOTOS" = "保存してPhotosを開く";
+"MSG_SAVE_AND_OPEN_PHOTOS" = "保存して写真アプリを開く";
 
 "SEARCH_BOX_PLACEHOLDER" = "検索キーワード";
 "SEARCH_DEFAULT_KEYWORD" = "猫";
 
 "ERR_FAIL_LOAD" = "画像の読み込みに失敗しました。";
+"ERR_FAIL_SAVE" = "画像を保存できませんでした。設定＞プライバシー＞写真 からこのアプリを有効にしてください。";

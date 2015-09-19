@@ -17,14 +17,6 @@ public class PictureManager {
         case SUCCESS, ERROR, DENIED
     }
     
-    class func requestAnthorization() {
-        PHPhotoLibrary.requestAuthorization{ status in
-            if status == .Authorized {
-                print("authorized", terminator: "")
-            }
-        }
-    }
-    
     class func isAuthorized() -> Bool {
         return PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.Authorized ||
             PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.NotDetermined

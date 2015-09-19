@@ -118,17 +118,21 @@ class PictureConfirmVC: UIViewController {
     
     private func storeImage() {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
-        //TODO error handling
-        parentPictureView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        if (PictureManager.isAuthorized()) {
-            PictureManager.saveImage(image, completion: { result in print("saved!!", terminator: "")})
+        if let context = UIGraphicsGetCurrentContext() {
+            parentPictureView.layer.renderInContext(context)
+            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
+
+            PictureManager.saveImage(image, completion: { result in
+                if (result != .SUCCESS) {
+                    UIAlertController.show(NSLocalizedString("ERR_FAIL_SAVE", comment:""),
+                        message: nil, forVC: self)
+                }
+            })
         } else {
-            PictureManager.requestAnthorization()
+            UIAlertController.show(NSLocalizedString("ERR_FAIL_SAVE", comment:""),
+                message: nil, forVC: self)
         }
+        UIGraphicsEndImageContext();
     }
     
     private func showSaveMenu() {

@@ -18,3 +18,4 @@
 "SEARCH_DEFAULT_KEYWORD" = "cat";
 
 "ERR_FAIL_LOAD" = "Failed to load images.";
+"ERR_FAIL_SAVE" = "Failed to save image.\n Please enable this app in \n Settings > Privacy > Photos.";
