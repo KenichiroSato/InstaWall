@@ -11,7 +11,7 @@ import UIKit
 extension UIAlertController {
     
     static func show(title:String, message:String?, forVC vc:UIViewController) {
-        var alertController = UIAlertController(title: title, message: message,
+        let alertController = UIAlertController(title: title, message: message,
             preferredStyle: .Alert)
         
         let okAction = UIAlertAction(title: NSLocalizedString("OK", comment:""),

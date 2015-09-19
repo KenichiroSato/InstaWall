@@ -21,7 +21,7 @@ class LoginVC: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.hidden = false
-        webView.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+        webView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
         webView.scrollView.bounces = false
         webView.contentMode = UIViewContentMode.ScaleAspectFill
         webView.delegate = self
@@ -38,7 +38,6 @@ class LoginVC: UIViewController, UIWebViewDelegate {
                 let delimiter = "access_token="
                 let components:Array = urlString.componentsSeparatedByString(delimiter)
                 if let token = components.last {
-                    print("token=" + token)
                     self.navigationController?.popViewControllerAnimated(true)
                     if let delegate = logInDelegate {
                         delegate.onLoggedIn(token)
@@ -62,16 +61,13 @@ class LoginVC: UIViewController, UIWebViewDelegate {
 
     func webViewDidFinishLoad(webView: UIWebView) {
         activityIndicator.hidden = true
-        println("webViewDidFinishLoad")
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
-        println("start")
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         activityIndicator.hidden = true
-        println(error)
     }
 
 }

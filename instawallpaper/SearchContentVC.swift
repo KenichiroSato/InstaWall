@@ -20,8 +20,10 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
         searchBox.text = loadSearchKeyword()
         searchBox.clearButtonMode = UITextFieldViewMode.WhileEditing
         searchBox.placeholder = NSLocalizedString("SEARCH_BOX_PLACEHOLDER", comment:"")
-        photosVC.roadTopSearchItems(searchBox.text)
         addTransparentView()
+        if let text = searchBox.text {
+            photosVC.roadTopSearchItems(text)
+        }
     }
     
     private func loadSearchKeyword() -> String {
@@ -65,7 +67,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
         return true
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         closeKeyboard()
         super.touchesBegan(touches, withEvent: event)
     }
