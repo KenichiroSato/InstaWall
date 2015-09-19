@@ -24,8 +24,8 @@ public class TimeTracker {
     public func finish() {
         let endDate =  NSDate()
         if let start = startDate {
-            var time = Float(endDate.timeIntervalSinceDate(start))
-            println(tag + ": time=" + time.description)
+            let time = Float(endDate.timeIntervalSinceDate(start))
+            print(tag + ": time=" + time.description)
         }
     }
     

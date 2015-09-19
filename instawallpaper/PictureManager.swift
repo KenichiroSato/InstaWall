@@ -20,7 +20,7 @@ public class PictureManager {
     class func requestAnthorization() {
         PHPhotoLibrary.requestAuthorization{ status in
             if status == .Authorized {
-                println("authorized")
+                print("authorized", terminator: "")
             }
         }
     }
@@ -64,20 +64,21 @@ public class PictureManager {
     private class func doSave(album: PHAssetCollection, image: UIImage, completion: ((result: PhotoAlbumUtilResult) -> ())?) {
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             let result = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
-            let assetPlaceholder = result.placeholderForCreatedAsset
-            let albumChangeRequset = PHAssetCollectionChangeRequest(forAssetCollection: album)
-            albumChangeRequset.addAssets([assetPlaceholder])
+            if let assetPlaceholder = result.placeholderForCreatedAsset,
+               let albumChangeRequset = PHAssetCollectionChangeRequest(forAssetCollection: album) {
+                albumChangeRequset.addAssets([assetPlaceholder])
+            }
             }, completionHandler: { (isSuccess, error) in
                 if isSuccess {
                     completion?(result: .SUCCESS)
                 } else{
-                    println(error.localizedDescription)
+                    print(error?.localizedDescription)
                     completion?(result: .ERROR)
                 }
         })
     }
     
-    private class func createAlbum(completion: ((Bool, NSError!) -> Void)!) {
+    private class func createAlbum(completion: ((Bool, NSError?) -> Void)?) {
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(PictureManager.ALBUM_NAME)
             }, completionHandler: completion)

@@ -18,7 +18,7 @@ extension UIView {
         self.hidden = false
         UIView.animateWithDuration( fadeInInterval, animations: {self.alpha = 1}
             , completion: { (finished: Bool) in
-                UIView.animateWithDuration(fadeOutInterval, delay: showInterval, options: nil,
+                UIView.animateWithDuration(fadeOutInterval, delay: showInterval, options: [],
                     animations: {self.alpha = 0}, completion: nil)
         })
     }
