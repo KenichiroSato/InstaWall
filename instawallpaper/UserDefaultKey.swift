@@ -14,4 +14,6 @@ class UserDefaultKey {
     
     static let SEARCH_KEYWORD = "search_keyword"
 
+    static let INSTAGRAM_TOKEN = "token"
+
 }

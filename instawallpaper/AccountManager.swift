@@ -10,7 +10,6 @@ import Foundation
 
 public class AccountManager {
 
-    static private let KEY_TOKEN = "token"
     
     static let sharedInstance = AccountManager()
 
@@ -18,26 +17,24 @@ public class AccountManager {
         InstagramEngine.sharedEngine().accessToken = token
         
         let ud = NSUserDefaults.standardUserDefaults()
-        ud.setObject(token, forKey: AccountManager.KEY_TOKEN)
+        ud.setObject(token, forKey: UserDefaultKey.INSTAGRAM_TOKEN)
     }
     
     // load token from storage and set it to InstagramEngine
     func loadToken() {
         let ud = NSUserDefaults.standardUserDefaults()
-        if let token = ud.objectForKey(AccountManager.KEY_TOKEN) as? String {
+        if let token = ud.objectForKey(UserDefaultKey.INSTAGRAM_TOKEN) as? String {
             InstagramEngine.sharedEngine().accessToken = token
         }
     }
     
     func logOut() {
+        let ud = NSUserDefaults.standardUserDefaults()
+        ud.removeObjectForKey(UserDefaultKey.INSTAGRAM_TOKEN)
         InstagramEngine.sharedEngine().logout()
     }
 
     func isLoggedIn() -> Bool {
-        if let token = InstagramEngine.sharedEngine().accessToken {
-            return true
-        } else {
-            return false
-        }
+        return (InstagramEngine.sharedEngine().accessToken != nil)
     }
 }
