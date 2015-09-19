@@ -88,8 +88,9 @@ class PictureConfirmVC: UIViewController {
     }
 
     private func imageDataFromURL(url:NSURL) -> NSData? {
-        return NSData(contentsOfURL: url,
-            options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
+        //return NSData(contentsOfURL: url,
+        //    options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
+        return NSData(contentsOfURL: url)
     }
     
     private func updateBackground(image: UIImage) {
@@ -117,14 +118,14 @@ class PictureConfirmVC: UIViewController {
     
     private func storeImage() {
         UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
-        //self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
-        parentPictureView.layer.renderInContext(UIGraphicsGetCurrentContext())
+        //TODO error handling
+        parentPictureView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
         if (PictureManager.isAuthorized()) {
-            PictureManager.saveImage(image, completion: { result in print("saved!!")})
+            PictureManager.saveImage(image, completion: { result in print("saved!!", terminator: "")})
         } else {
             PictureManager.requestAnthorization()
         }
@@ -132,7 +133,7 @@ class PictureConfirmVC: UIViewController {
     
     private func showSaveMenu() {
         let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        let cancelAction = UIAlertAction(title: NSLocalizedString("CANCEL", comment:""), style: UIAlertActionStyle.Cancel, handler: { action in print("canceled")})
+        let cancelAction = UIAlertAction(title: NSLocalizedString("CANCEL", comment:""), style: UIAlertActionStyle.Cancel, handler: { action in print("canceled", terminator: "")})
         let saveAction = UIAlertAction(title: NSLocalizedString("MSG_SAVE", comment:""), style: UIAlertActionStyle.Default, handler: {action in self.storeImage()})
         let saveAndOpenAction = UIAlertAction(title: NSLocalizedString("MSG_SAVE_AND_OPEN_PHOTOS", comment:""), style: UIAlertActionStyle.Default, handler: {action in
             self.storeImage()

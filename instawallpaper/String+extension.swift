@@ -11,6 +11,6 @@ import Foundation
 extension String {
 
     func removeSpace() -> String {
-        return self.stringByReplacingOccurrencesOfString(" ", withString: "", options: nil, range: nil)
+        return self.stringByReplacingOccurrencesOfString(" ", withString: "", options: [], range: nil)
     }
 }

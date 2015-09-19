@@ -26,15 +26,10 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("headersize=" + NSStringFromCGRect(self.headerView.frame))
-        println("contentview=" + NSStringFromCGRect(self.contentView.frame))
     }
     
     
     override func viewDidAppear(animated: Bool) {
-        println("viewDidAppear")
-        println("headersize=" + NSStringFromCGRect(self.headerView.frame))
-        println("contentview=" + NSStringFromCGRect(self.contentView.frame))
         dispatch_once(&token) {
             self.setupViews()
             self.setupSubViews()
@@ -63,14 +58,11 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     }
     
     private func setupSubViews() {
-        println("setupSubViews")
 
         if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("HomeContentVC") as? HomeContentVC {
             self.addChildViewController(vc)
             vc.didMoveToParentViewController(self)
             vc.view.frame.size = contentView.frame.size
-            println("home=" + NSStringFromCGRect(vc.view.frame))
-            //vc.view.frame = CGRectMake(contentWidth(), 0, contentWidth(), contentHeight())
             if let view = vc.view {
                 contentView.addSubview(view)
             }

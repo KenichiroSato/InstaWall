@@ -35,7 +35,7 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
     
     
     // MARK: - Navigation
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if (identifier == SegueIdentifier.LOG_IN) {
             if (AccountManager.sharedInstance.isLoggedIn()) {
                 logOut()

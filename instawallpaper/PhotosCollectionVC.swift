@@ -90,7 +90,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     private func roadNext() {
-        if let info = paginationInfo?.nextMaxId {
+        if let _ = paginationInfo?.nextMaxId {
             switch(currentContent) {
             case .POPULAR:
                 return
@@ -102,7 +102,6 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
                 }
             }
         } else {
-            println("already bottom")
             didHitBottom = true
             collectionView?.reloadData()
         }
@@ -149,8 +148,8 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == SegueIdentifier.FULL_SCREEN) {
             let nextVC = segue.destinationViewController as! PictureConfirmVC
-            if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems()[0] as? NSIndexPath {
-                let media: InstagramMedia = pictureArray[selectedIndexPath.item];
+            if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems(){
+                let media: InstagramMedia = pictureArray[selectedIndexPath[0].item];
                 nextVC.pictureUrl = media.standardResolutionImageURL
             }
         }
