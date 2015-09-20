@@ -11,7 +11,8 @@ import Photos
 
 public class PictureManager {
     
-    static private let ALBUM_NAME = "InstaWallpaper"
+    static private let ALBUM_NAME = NSBundle.mainBundle().infoDictionary!["CFBundleName"]
+        as? String ?? "Wallpapers from Instagram"
 
     enum PhotoAlbumUtilResult {
         case SUCCESS, ERROR, DENIED
