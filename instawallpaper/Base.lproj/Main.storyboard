@@ -424,6 +424,7 @@
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="QrT-VC-Dpf" secondAttribute="trailing" constant="30" id="0nQ-E5-zwM"/>
                                             <constraint firstItem="QrT-VC-Dpf" firstAttribute="leading" secondItem="ARw-qx-pwO" secondAttribute="leading" constant="30" id="GsC-gd-6UM"/>
@@ -434,6 +435,9 @@
                                             <constraint firstAttribute="height" constant="1200" id="paZ-cy-8Eq"/>
                                             <constraint firstItem="MGd-F7-AvZ" firstAttribute="leading" secondItem="ARw-qx-pwO" secondAttribute="leading" constant="30" id="tGw-RP-J1m"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="NFM-a1-k5r" appends="YES" id="ncz-Z7-XUi"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -471,6 +475,11 @@
                     <size key="freeformSize" width="400" height="1200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxe-b4-02V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="NFM-a1-k5r">
+                    <connections>
+                        <action selector="onSwiped:" destination="UWr-Z2-OGF" id="PvZ-bH-Jd7"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3464" y="-452"/>
         </scene>

@@ -25,6 +25,10 @@ class InstructionVC: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
 
+    @IBAction func onSwiped(sender: AnyObject) {
+        dismiss()
+    }
+    
     @IBAction func onBackPressed(sender: AnyObject) {
         dismiss()
     }
