@@ -333,13 +333,6 @@
                                     <action selector="onBackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awh-Zy-wUV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz5-PY-Qud">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="UWr-Z2-OGF" kind="show" id="8vt-SD-UJl"/>
-                                </connections>
-                            </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tap" translatesAutoresizingMaskIntoConstraints="NO" id="Gzb-YW-shl" userLabel="Image View">
                                 <rect key="frame" x="180" y="236" width="240" height="128"/>
                             </imageView>
@@ -381,6 +374,7 @@
                         <outlet property="parentPictureView" destination="mQ9-Dk-IQl" id="Ylb-kH-Ei4"/>
                         <outlet property="tapImageView" destination="Gzb-YW-shl" id="rrN-jf-sSE"/>
                         <outlet property="topBackground" destination="Lab-Pn-ME6" id="kIG-66-sDS"/>
+                        <segue destination="UWr-Z2-OGF" kind="show" identifier="segue.instruction" id="Dwb-nD-udl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -395,12 +389,12 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2722" y="-452"/>
+            <point key="canvasLocation" x="2786" y="-452"/>
         </scene>
-        <!--View Controller-->
+        <!--InstructionVC-->
         <scene sceneID="Grq-Xq-HXW">
             <objects>
-                <viewController id="UWr-Z2-OGF" sceneMemberID="viewController">
+                <viewController id="UWr-Z2-OGF" customClass="InstructionVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tna-wx-4l8"/>
                         <viewControllerLayoutGuide type="bottom" id="WwQ-5a-nmz"/>
@@ -457,6 +451,9 @@
                                     <constraint firstAttribute="width" constant="25" id="eFS-4h-ASX"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="back"/>
+                                <connections>
+                                    <action selector="onBackPressed:" destination="UWr-Z2-OGF" eventType="touchUpInside" id="kx7-a3-xXy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

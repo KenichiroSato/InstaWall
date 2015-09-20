@@ -13,4 +13,6 @@ class SegueIdentifier {
     static let LOG_IN = "segue.login"
     
     static let FULL_SCREEN = "segue.fullscreen"
+    
+    static let SHOW_INSTRUCTION = "segue.instruction"
 }

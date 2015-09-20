@@ -11,8 +11,9 @@
 "LOG_IN" = "ログイン";
 "LOG_OUT" = "ログアウト";
 
-"MSG_SAVE" = "保存する";
+"MSG_SAVE" = "画像を保存する";
 "MSG_SAVE_AND_OPEN_PHOTOS" = "保存して写真アプリを開く";
+"MSG_SHOW_INSTRUCTION" = "壁紙の設定方法";
 
 "SEARCH_BOX_PLACEHOLDER" = "検索キーワード";
 "SEARCH_DEFAULT_KEYWORD" = "猫";

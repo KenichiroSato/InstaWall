@@ -143,10 +143,17 @@ class PictureConfirmVC: UIViewController {
             self.storeImage()
             self.openPhotosApp()
         })
+        let showInstruction = UIAlertAction(title: NSLocalizedString("MSG_SHOW_INSTRUCTION", comment: ""), style: UIAlertActionStyle.Default, handler: {action in self.showInstruction()})
+        
         actionController.addAction(cancelAction)
         actionController.addAction(saveAction)
         actionController.addAction(saveAndOpenAction)
+        actionController.addAction(showInstruction)
         self.presentViewController(actionController, animated: true, completion: nil)
+    }
+    
+    private func showInstruction() {
+        performSegueWithIdentifier(SegueIdentifier.SHOW_INSTRUCTION, sender: self)
     }
     
     private func openPhotosApp() {
