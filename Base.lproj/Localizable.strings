@@ -11,8 +11,9 @@
 "LOG_IN" = "Login";
 "LOG_OUT" = "Logout";
 
-"MSG_SAVE" = "Save";
+"MSG_SAVE" = "Save image";
 "MSG_SAVE_AND_OPEN_PHOTOS" = "Save and open Photos";
+"MSG_SHOW_INSTRUCTION" = "How to set wallpaper";
 
 "SEARCH_BOX_PLACEHOLDER" = "search keyword";
 "SEARCH_DEFAULT_KEYWORD" = "cat";

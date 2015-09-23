@@ -231,8 +231,8 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tc4-aV-wLX">
                                 <rect key="frame" x="16" y="562" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="VYq-np-eAG"/>
-                                    <constraint firstAttribute="width" constant="25" id="zUG-kr-cRb"/>
+                                    <constraint firstAttribute="height" constant="35" id="VYq-np-eAG"/>
+                                    <constraint firstAttribute="width" constant="35" id="zUG-kr-cRb"/>
                                 </constraints>
                                 <state key="normal" image="back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -276,24 +276,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQ9-Dk-IQl">
-                                <rect key="frame" x="21" y="20" width="557" height="560"/>
+                                <rect key="frame" x="20" y="20" width="558" height="560"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WhG-s7-7vF">
-                                        <rect key="frame" x="15" y="236" width="527" height="316"/>
+                                        <rect key="frame" x="16" y="236" width="527" height="316"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="WhG-s7-7vF" secondAttribute="height" multiplier="1:1" id="ibl-fY-IZl"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lab-Pn-ME6">
-                                        <rect key="frame" x="18" y="21" width="524" height="302"/>
+                                        <rect key="frame" x="19" y="21" width="524" height="302"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Lab-Pn-ME6" secondAttribute="height" multiplier="1:1" id="alB-oj-UEh"/>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z73-ZB-21O">
-                                        <rect key="frame" x="118" y="120" width="320" height="320"/>
+                                        <rect key="frame" x="119" y="120" width="320" height="320"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="z73-ZB-21O" secondAttribute="height" multiplier="1:1" id="3xQ-9N-Vxd"/>
@@ -323,8 +323,8 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRO-8A-rYg">
                                 <rect key="frame" x="11" y="560" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="X91-K1-GHl"/>
-                                    <constraint firstAttribute="height" constant="25" id="rcp-AW-gBg"/>
+                                    <constraint firstAttribute="width" constant="35" id="X91-K1-GHl"/>
+                                    <constraint firstAttribute="height" constant="35" id="rcp-AW-gBg"/>
                                 </constraints>
                                 <state key="normal" image="back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -374,6 +374,7 @@
                         <outlet property="parentPictureView" destination="mQ9-Dk-IQl" id="Ylb-kH-Ei4"/>
                         <outlet property="tapImageView" destination="Gzb-YW-shl" id="rrN-jf-sSE"/>
                         <outlet property="topBackground" destination="Lab-Pn-ME6" id="kIG-66-sDS"/>
+                        <segue destination="UWr-Z2-OGF" kind="show" identifier="segue.instruction" id="Dwb-nD-udl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -388,7 +389,126 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2722" y="-452"/>
+            <point key="canvasLocation" x="2786" y="-452"/>
+        </scene>
+        <!--InstructionVC-->
+        <scene sceneID="Grq-Xq-HXW">
+            <objects>
+                <viewController id="UWr-Z2-OGF" customClass="InstructionVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tna-wx-4l8"/>
+                        <viewControllerLayoutGuide type="bottom" id="WwQ-5a-nmz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZxC-Cy-CDF">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="3000"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFL-fx-IPf">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="3000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARw-qx-pwO">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="2500"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instruction3" translatesAutoresizingMaskIntoConstraints="NO" id="wD3-YG-Cne">
+                                                <rect key="frame" x="30" y="1300" width="340" height="604"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="wD3-YG-Cne" secondAttribute="height" multiplier="9:16" id="dQH-wd-cTp"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instruction2" translatesAutoresizingMaskIntoConstraints="NO" id="QrT-VC-Dpf">
+                                                <rect key="frame" x="30" y="666" width="340" height="604"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="QrT-VC-Dpf" secondAttribute="height" multiplier="85:151" id="OLr-G7-7sK"/>
+                                                    <constraint firstAttribute="width" secondItem="QrT-VC-Dpf" secondAttribute="height" multiplier="9:16" id="Sl5-eM-Z8e"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instruction1" translatesAutoresizingMaskIntoConstraints="NO" id="MGd-F7-AvZ">
+                                                <rect key="frame" x="30" y="30" width="340" height="604"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="MGd-F7-AvZ" secondAttribute="height" multiplier="9:16" id="hc8-LE-IHS"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instruction4" translatesAutoresizingMaskIntoConstraints="NO" id="C5t-gj-gpb">
+                                                <rect key="frame" x="30" y="1934" width="340" height="604"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="C5t-gj-gpb" secondAttribute="height" multiplier="9:16" id="Odz-Ol-qKS"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instruction5" translatesAutoresizingMaskIntoConstraints="NO" id="Diy-Aj-6xR">
+                                                <rect key="frame" x="30" y="2568" width="340" height="604"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Diy-Aj-6xR" secondAttribute="height" multiplier="9:16" id="HJb-8a-EOV"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="QrT-VC-Dpf" secondAttribute="trailing" constant="30" id="0nQ-E5-zwM"/>
+                                            <constraint firstItem="wD3-YG-Cne" firstAttribute="leading" secondItem="ARw-qx-pwO" secondAttribute="leading" constant="30" id="0yw-3G-TlF"/>
+                                            <constraint firstAttribute="trailing" secondItem="Diy-Aj-6xR" secondAttribute="trailing" constant="30" id="1ji-9g-3Be"/>
+                                            <constraint firstItem="Diy-Aj-6xR" firstAttribute="top" secondItem="C5t-gj-gpb" secondAttribute="bottom" constant="30" id="6QR-3g-t0I"/>
+                                            <constraint firstItem="QrT-VC-Dpf" firstAttribute="leading" secondItem="ARw-qx-pwO" secondAttribute="leading" constant="30" id="GsC-gd-6UM"/>
+                                            <constraint firstItem="wD3-YG-Cne" firstAttribute="top" secondItem="QrT-VC-Dpf" secondAttribute="bottom" constant="30" id="J5s-hl-8Sy"/>
+                                            <constraint firstItem="Diy-Aj-6xR" firstAttribute="leading" secondItem="ARw-qx-pwO" secondAttribute="leading" constant="30" id="R1L-Nd-Yb0"/>
+                                            <constraint firstAttribute="trailing" secondItem="MGd-F7-AvZ" secondAttribute="trailing" constant="30" id="SeT-rF-Jy4"/>
+                                            <constraint firstAttribute="trailing" secondItem="C5t-gj-gpb" secondAttribute="trailing" constant="30" id="a3i-Yg-69l"/>
+                                            <constraint firstItem="QrT-VC-Dpf" firstAttribute="top" secondItem="MGd-F7-AvZ" secondAttribute="bottom" constant="32" id="dc1-vT-bIN"/>
+                                            <constraint firstItem="MGd-F7-AvZ" firstAttribute="top" secondItem="ARw-qx-pwO" secondAttribute="top" constant="30" id="fkr-jh-FiR"/>
+                                            <constraint firstAttribute="trailing" secondItem="wD3-YG-Cne" secondAttribute="trailing" constant="30" id="gz7-SS-crt"/>
+                                            <constraint firstItem="QrT-VC-Dpf" firstAttribute="width" secondItem="QrT-VC-Dpf" secondAttribute="height" multiplier="9:16" id="oLk-JM-9uy"/>
+                                            <constraint firstAttribute="height" constant="2500" id="paZ-cy-8Eq"/>
+                                            <constraint firstItem="MGd-F7-AvZ" firstAttribute="leading" secondItem="ARw-qx-pwO" secondAttribute="leading" constant="30" id="tGw-RP-J1m"/>
+                                            <constraint firstItem="C5t-gj-gpb" firstAttribute="leading" secondItem="ARw-qx-pwO" secondAttribute="leading" constant="30" id="wal-Vm-bMy"/>
+                                            <constraint firstItem="C5t-gj-gpb" firstAttribute="top" secondItem="wD3-YG-Cne" secondAttribute="bottom" constant="30" id="wuo-fd-vcC"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="NFM-a1-k5r" appends="YES" id="ncz-Z7-XUi"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ARw-qx-pwO" secondAttribute="bottom" id="DNl-dp-Z8z"/>
+                                    <constraint firstItem="ARw-qx-pwO" firstAttribute="leading" secondItem="uFL-fx-IPf" secondAttribute="leading" id="UpJ-zH-XbW"/>
+                                    <constraint firstItem="ARw-qx-pwO" firstAttribute="width" secondItem="uFL-fx-IPf" secondAttribute="width" id="Zh1-Uv-ytW"/>
+                                    <constraint firstAttribute="trailing" secondItem="ARw-qx-pwO" secondAttribute="trailing" id="f0x-eq-wg1"/>
+                                    <constraint firstItem="ARw-qx-pwO" firstAttribute="top" secondItem="uFL-fx-IPf" secondAttribute="top" id="wXB-wY-nPl"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-qB-Qrs">
+                                <rect key="frame" x="15" y="2950" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Rwz-xi-gFa"/>
+                                    <constraint firstAttribute="width" constant="35" id="eFS-4h-ASX"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="back"/>
+                                <connections>
+                                    <action selector="onBackPressed:" destination="UWr-Z2-OGF" eventType="touchUpInside" id="kx7-a3-xXy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="uFL-fx-IPf" firstAttribute="top" secondItem="ZxC-Cy-CDF" secondAttribute="topMargin" id="4RL-6I-l17"/>
+                            <constraint firstItem="uFL-fx-IPf" firstAttribute="leading" secondItem="ZxC-Cy-CDF" secondAttribute="leading" id="Ihm-rF-fxj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uFL-fx-IPf" secondAttribute="trailing" id="ONh-5T-QeW"/>
+                            <constraint firstItem="IDN-qB-Qrs" firstAttribute="leading" secondItem="ZxC-Cy-CDF" secondAttribute="leadingMargin" constant="-5" id="QrM-ZP-WR5"/>
+                            <constraint firstItem="WwQ-5a-nmz" firstAttribute="top" secondItem="IDN-qB-Qrs" secondAttribute="bottom" constant="15" id="lx6-d6-TDO"/>
+                            <constraint firstItem="uFL-fx-IPf" firstAttribute="width" secondItem="ZxC-Cy-CDF" secondAttribute="width" id="xou-Nc-tdh"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="uFL-fx-IPf" secondAttribute="bottom" id="yHQ-Ns-Qrp"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="3000"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oxe-b4-02V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="NFM-a1-k5r">
+                    <connections>
+                        <action selector="onSwiped:" destination="UWr-Z2-OGF" id="PvZ-bH-Jd7"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3464" y="-452"/>
         </scene>
         <!--Search ContentVC-->
         <scene sceneID="Kav-gf-aE2">
@@ -453,7 +573,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="129" height="103"/>
+        <image name="back" width="136" height="121"/>
+        <image name="instruction1" width="640" height="1136"/>
+        <image name="instruction2" width="640" height="1136"/>
+        <image name="instruction3" width="640" height="1136"/>
+        <image name="instruction4" width="640" height="1136"/>
+        <image name="instruction5" width="640" height="1136"/>
         <image name="tap" width="227" height="187"/>
     </resources>
 </document>

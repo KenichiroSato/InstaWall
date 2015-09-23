@@ -135,7 +135,7 @@ class PictureConfirmVC: UIViewController {
         UIGraphicsEndImageContext();
     }
     
-    private func showSaveMenu() {
+    private func showActionMenu() {
         let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let cancelAction = UIAlertAction(title: NSLocalizedString("CANCEL", comment:""), style: UIAlertActionStyle.Cancel, handler: { action in print("canceled", terminator: "")})
         let saveAction = UIAlertAction(title: NSLocalizedString("MSG_SAVE", comment:""), style: UIAlertActionStyle.Default, handler: {action in self.storeImage()})
@@ -143,10 +143,17 @@ class PictureConfirmVC: UIViewController {
             self.storeImage()
             self.openPhotosApp()
         })
+        let showInstruction = UIAlertAction(title: NSLocalizedString("MSG_SHOW_INSTRUCTION", comment: ""), style: UIAlertActionStyle.Destructive, handler: {action in self.showInstruction()})
+        
         actionController.addAction(cancelAction)
         actionController.addAction(saveAction)
         actionController.addAction(saveAndOpenAction)
+        actionController.addAction(showInstruction)
         self.presentViewController(actionController, animated: true, completion: nil)
+    }
+    
+    private func showInstruction() {
+        performSegueWithIdentifier(SegueIdentifier.SHOW_INSTRUCTION, sender: self)
     }
     
     private func openPhotosApp() {
@@ -161,7 +168,7 @@ class PictureConfirmVC: UIViewController {
     }
 
     @IBAction func onTapped(sender: UITapGestureRecognizer) {
-        showSaveMenu()
+        showActionMenu()
     }
     
     @IBAction func onSwiped(sender: AnyObject) {
