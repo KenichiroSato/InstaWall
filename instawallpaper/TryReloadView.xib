@@ -17,11 +17,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reload" translatesAutoresizingMaskIntoConstraints="NO" id="k6H-VQ-qno">
-                    <rect key="frame" x="270" y="275" width="60" height="50"/>
+                    <rect key="frame" x="275" y="275" width="50" height="50"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="5bG-nW-YFY"/>
-                        <constraint firstAttribute="width" constant="60" id="JCS-om-76j"/>
+                        <constraint firstAttribute="width" constant="50" id="JCS-om-76j"/>
                     </constraints>
                 </imageView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="HgW-J9-7Cz">
@@ -47,6 +47,6 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="reload" width="112" height="89"/>
+        <image name="reload" width="100" height="100"/>
     </resources>
 </document>

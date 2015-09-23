@@ -231,8 +231,8 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tc4-aV-wLX">
                                 <rect key="frame" x="16" y="562" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="VYq-np-eAG"/>
-                                    <constraint firstAttribute="width" constant="25" id="zUG-kr-cRb"/>
+                                    <constraint firstAttribute="height" constant="35" id="VYq-np-eAG"/>
+                                    <constraint firstAttribute="width" constant="35" id="zUG-kr-cRb"/>
                                 </constraints>
                                 <state key="normal" image="back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -323,8 +323,8 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRO-8A-rYg">
                                 <rect key="frame" x="11" y="560" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="X91-K1-GHl"/>
-                                    <constraint firstAttribute="height" constant="25" id="rcp-AW-gBg"/>
+                                    <constraint firstAttribute="width" constant="35" id="X91-K1-GHl"/>
+                                    <constraint firstAttribute="height" constant="35" id="rcp-AW-gBg"/>
                                 </constraints>
                                 <state key="normal" image="back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -476,10 +476,10 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-qB-Qrs">
-                                <rect key="frame" x="15" y="2960" width="25" height="25"/>
+                                <rect key="frame" x="15" y="2950" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Rwz-xi-gFa"/>
-                                    <constraint firstAttribute="width" constant="25" id="eFS-4h-ASX"/>
+                                    <constraint firstAttribute="height" constant="35" id="Rwz-xi-gFa"/>
+                                    <constraint firstAttribute="width" constant="35" id="eFS-4h-ASX"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="back"/>
                                 <connections>
@@ -573,7 +573,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="129" height="103"/>
+        <image name="back" width="136" height="121"/>
         <image name="instruction1" width="640" height="1136"/>
         <image name="instruction2" width="640" height="1136"/>
         <image name="instruction3" width="640" height="1136"/>
