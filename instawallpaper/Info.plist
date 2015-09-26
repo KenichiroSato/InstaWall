@@ -30,13 +30,17 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>api.instagram.com</key>
+			<key>cdninstagram.com</key>
 			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
 			<key>instagram.com</key>
 			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
