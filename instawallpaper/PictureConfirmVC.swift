@@ -116,7 +116,19 @@ class PictureConfirmVC: UIViewController {
         bottomGradientLayer.colors = [startColor.CGColor, endColor.CGColor]
     }
     
-    private func storeImage() {
+    private func storeImage(completion:(()-> Void)?) {
+        if (PictureManager.isAuthorizationNotDetermined()) {
+            PictureManager.requestAuthorization({status in
+                if (status == PictureManager.PhotoAlbumUtilResult.SUCCESS) {
+                    self.storeImage(completion)
+                } else {
+                    UIAlertController.show(NSLocalizedString("ERR_FAIL_SAVE", comment:""),
+                        message: nil, forVC: self)
+                }
+            })
+            return
+        }
+        
         UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
         if let context = UIGraphicsGetCurrentContext() {
             parentPictureView.layer.renderInContext(context)
@@ -133,15 +145,17 @@ class PictureConfirmVC: UIViewController {
                 message: nil, forVC: self)
         }
         UIGraphicsEndImageContext();
+        completion?()
     }
     
     private func showActionMenu() {
         let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let cancelAction = UIAlertAction(title: NSLocalizedString("CANCEL", comment:""), style: UIAlertActionStyle.Cancel, handler: { action in print("canceled", terminator: "")})
-        let saveAction = UIAlertAction(title: NSLocalizedString("MSG_SAVE", comment:""), style: UIAlertActionStyle.Default, handler: {action in self.storeImage()})
+        let saveAction = UIAlertAction(title: NSLocalizedString("MSG_SAVE", comment:""), style: UIAlertActionStyle.Default, handler: {action in self.storeImage(nil)})
         let saveAndOpenAction = UIAlertAction(title: NSLocalizedString("MSG_SAVE_AND_OPEN_PHOTOS", comment:""), style: UIAlertActionStyle.Default, handler: {action in
-            self.storeImage()
-            self.openPhotosApp()
+            self.storeImage() {
+                self.openPhotosApp()
+            }
         })
         let showInstruction = UIAlertAction(title: NSLocalizedString("MSG_SHOW_INSTRUCTION", comment: ""), style: UIAlertActionStyle.Destructive, handler: {action in self.showInstruction()})
         

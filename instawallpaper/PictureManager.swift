@@ -18,9 +18,34 @@ public class PictureManager {
         case SUCCESS, ERROR, DENIED
     }
     
+    class func isAuthorizationNotDetermined() -> Bool {
+        return (PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.NotDetermined)
+    }
+    
     class func isAuthorized() -> Bool {
+        switch(PHPhotoLibrary.authorizationStatus()) {
+        case .Authorized:
+            print("Authorized")
+        case .NotDetermined:
+            print("notdetermined")
+        case .Denied:
+            print("denied")
+        case .Restricted:
+            print ("restricted")
+        }
+        
         return PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.Authorized ||
             PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.NotDetermined
+    }
+    
+    class func requestAuthorization(completion: (status :PhotoAlbumUtilResult) -> Void) {
+        PHPhotoLibrary.requestAuthorization({ status in
+            if (status == PHAuthorizationStatus.Authorized) {
+                completion(status:.SUCCESS)
+            } else {
+                completion(status:.DENIED)
+            }
+        })
     }
     
     class func saveImage(image: UIImage, completion: ((result: PhotoAlbumUtilResult) -> ())?) {
