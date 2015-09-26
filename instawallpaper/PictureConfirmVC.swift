@@ -137,11 +137,7 @@ class PictureConfirmVC: UIViewController {
             return
         }
         
-        UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
-        if let context = UIGraphicsGetCurrentContext() {
-            parentPictureView.layer.renderInContext(context)
-            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
-
+        if let image = PictureManager.getImageFromView(parentPictureView) {
             PictureManager.saveImage(image, completion: { success in
                 if (!success) {
                     UIAlertController.show(NSLocalizedString("ERR_FAIL_SAVE", comment:""),
@@ -154,7 +150,6 @@ class PictureConfirmVC: UIViewController {
                 message: nil, forVC: self)
             completion?(success: false)
         }
-        UIGraphicsEndImageContext();
     }
     
     private func showActionMenu() {

@@ -32,6 +32,17 @@ public class PictureManager {
         })
     }
     
+    class func getImageFromView(view:UIView) -> UIImage? {
+        var image: UIImage?
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
+        if let context = UIGraphicsGetCurrentContext() {
+            view.layer.renderInContext(context)
+            image = UIGraphicsGetImageFromCurrentImageContext()
+        }
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
     //Before call this method, Photo Authorization must be requested
     class func saveImage(image: UIImage, completion: ((success: Bool) -> ())?) {
         if let album = getAlbum() {
