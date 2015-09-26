@@ -10,10 +10,25 @@ import UIKit
 
 class InstructionVC: UIViewController {
 
+    static private let MARGIN_BETWEEN_IMAGE: CGFloat = 30.0
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var contentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        var totalHeight: CGFloat = InstructionVC.MARGIN_BETWEEN_IMAGE
+        for view in contentView.subviews {
+            totalHeight += view.frame.size.height + InstructionVC.MARGIN_BETWEEN_IMAGE
+        }
+        contentView.frame.size.height = totalHeight
+        self.scrollView.contentSize.height = contentView.frame.height;
     }
 
     override func didReceiveMemoryWarning() {

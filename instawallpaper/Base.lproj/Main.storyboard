@@ -403,10 +403,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="3000"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFL-fx-IPf">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFL-fx-IPf">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="3000"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARw-qx-pwO">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARw-qx-pwO">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="2500"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instruction3" translatesAutoresizingMaskIntoConstraints="NO" id="wD3-YG-Cne">
@@ -457,7 +457,6 @@
                                             <constraint firstItem="MGd-F7-AvZ" firstAttribute="top" secondItem="ARw-qx-pwO" secondAttribute="top" constant="30" id="fkr-jh-FiR"/>
                                             <constraint firstAttribute="trailing" secondItem="wD3-YG-Cne" secondAttribute="trailing" constant="30" id="gz7-SS-crt"/>
                                             <constraint firstItem="QrT-VC-Dpf" firstAttribute="width" secondItem="QrT-VC-Dpf" secondAttribute="height" multiplier="9:16" id="oLk-JM-9uy"/>
-                                            <constraint firstAttribute="height" constant="2500" id="paZ-cy-8Eq"/>
                                             <constraint firstItem="MGd-F7-AvZ" firstAttribute="leading" secondItem="ARw-qx-pwO" secondAttribute="leading" constant="30" id="tGw-RP-J1m"/>
                                             <constraint firstItem="C5t-gj-gpb" firstAttribute="leading" secondItem="ARw-qx-pwO" secondAttribute="leading" constant="30" id="wal-Vm-bMy"/>
                                             <constraint firstItem="C5t-gj-gpb" firstAttribute="top" secondItem="wD3-YG-Cne" secondAttribute="bottom" constant="30" id="wuo-fd-vcC"/>
@@ -500,6 +499,10 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="3000"/>
+                    <connections>
+                        <outlet property="contentView" destination="ARw-qx-pwO" id="L7B-Au-DqR"/>
+                        <outlet property="scrollView" destination="uFL-fx-IPf" id="cTu-w2-IpP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxe-b4-02V" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="NFM-a1-k5r">
