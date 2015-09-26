@@ -16,7 +16,7 @@
 "MSG_SHOW_INSTRUCTION" = "壁紙の設定方法";
 
 "SEARCH_BOX_PLACEHOLDER" = "検索キーワード";
-"SEARCH_DEFAULT_KEYWORD" = "猫";
+"SEARCH_DEFAULT_KEYWORD" = "ねこ";
 
 "ERR_FAIL_LOAD" = "画像の読み込みに失敗しました。";
 "ERR_FAIL_SAVE" = "画像を保存できませんでした。";
