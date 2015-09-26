@@ -14,27 +14,42 @@ public class PictureManager {
     static private let ALBUM_NAME = NSBundle.mainBundle().infoDictionary!["CFBundleName"]
         as? String ?? "Wallpapers from Instagram"
 
-    enum PhotoAlbumUtilResult {
-        case SUCCESS, ERROR, DENIED
+    class func isAuthorizationDenied() -> Bool {
+        return (PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.Denied)
     }
     
-    class func isAuthorized() -> Bool {
-        return PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.Authorized ||
-            PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.NotDetermined
+    class func isAuthorizationNotDetermined() -> Bool {
+        return (PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.NotDetermined)
     }
     
-    class func saveImage(image: UIImage, completion: ((result: PhotoAlbumUtilResult) -> ())?) {
-        
-        if  !isAuthorized() {
-            completion?(result: .DENIED)
-            return
+    class func requestAuthorization(completion: (authorized :Bool) -> Void) {
+        PHPhotoLibrary.requestAuthorization({ status in
+            if (status == PHAuthorizationStatus.Authorized) {
+                completion(authorized:true)
+            } else {
+                completion(authorized: false)
+            }
+        })
+    }
+    
+    class func getImageFromView(view:UIView) -> UIImage? {
+        var image: UIImage?
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
+        if let context = UIGraphicsGetCurrentContext() {
+            view.layer.renderInContext(context)
+            image = UIGraphicsGetImageFromCurrentImageContext()
         }
-        
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    //Before call this method, Photo Authorization must be requested
+    class func saveImage(image: UIImage, completion: ((success: Bool) -> ())?) {
         if let album = getAlbum() {
             doSave(album, image: image, completion: completion)
         } else {
-            createAlbum({ (isSccess, error) in
-                if (isSccess) {
+            createAlbum({ (success, error) in
+                if (success) {
                     self.saveImage(image, completion: completion)
                 }
             })
@@ -54,20 +69,15 @@ public class PictureManager {
         return assetAlbum
     }
     
-    private class func doSave(album: PHAssetCollection, image: UIImage, completion: ((result: PhotoAlbumUtilResult) -> ())?) {
+    private class func doSave(album: PHAssetCollection, image: UIImage, completion: ((success: Bool) -> ())?) {
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             let result = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
             if let assetPlaceholder = result.placeholderForCreatedAsset,
                let albumChangeRequset = PHAssetCollectionChangeRequest(forAssetCollection: album) {
                 albumChangeRequset.addAssets([assetPlaceholder])
             }
-            }, completionHandler: { (isSuccess, error) in
-                if isSuccess {
-                    completion?(result: .SUCCESS)
-                } else{
-                    print(error?.localizedDescription)
-                    completion?(result: .ERROR)
-                }
+            }, completionHandler: { (success, error) in
+                completion?(success:success)
         })
     }
     

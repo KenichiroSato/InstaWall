@@ -116,39 +116,73 @@ class PictureConfirmVC: UIViewController {
         bottomGradientLayer.colors = [startColor.CGColor, endColor.CGColor]
     }
     
-    private func storeImage() {
-        UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0)
-        if let context = UIGraphicsGetCurrentContext() {
-            parentPictureView.layer.renderInContext(context)
-            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext();
-
-            PictureManager.saveImage(image, completion: { result in
-                if (result != .SUCCESS) {
+    private func storeImage(completion:((success:Bool)-> Void)?) {
+        if (PictureManager.isAuthorizationDenied()) {
+            UIAlertController.show(NSLocalizedString("ERR_DENIED_SAVE", comment:""),
+                message: nil, forVC: self)
+            completion?(success: false)
+            return
+        }
+        
+        if (PictureManager.isAuthorizationNotDetermined()) {
+            PictureManager.requestAuthorization(){ authorized in
+                if (authorized) {
+                    self.storeImage(completion)
+                } else {
+                    UIAlertController.show(NSLocalizedString("ERR_DENIED_SAVE", comment:""),
+                        message: nil, forVC: self)
+                    completion?(success: false)
+                }
+            }
+            return
+        }
+        
+        if let image = PictureManager.getImageFromView(parentPictureView) {
+            PictureManager.saveImage(image, completion: { success in
+                if (!success) {
                     UIAlertController.show(NSLocalizedString("ERR_FAIL_SAVE", comment:""),
                         message: nil, forVC: self)
                 }
+                completion?(success: success)
             })
         } else {
             UIAlertController.show(NSLocalizedString("ERR_FAIL_SAVE", comment:""),
                 message: nil, forVC: self)
+            completion?(success: false)
         }
-        UIGraphicsEndImageContext();
     }
     
     private func showActionMenu() {
         let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        let cancelAction = UIAlertAction(title: NSLocalizedString("CANCEL", comment:""), style: UIAlertActionStyle.Cancel, handler: { action in print("canceled", terminator: "")})
-        let saveAction = UIAlertAction(title: NSLocalizedString("MSG_SAVE", comment:""), style: UIAlertActionStyle.Default, handler: {action in self.storeImage()})
-        let saveAndOpenAction = UIAlertAction(title: NSLocalizedString("MSG_SAVE_AND_OPEN_PHOTOS", comment:""), style: UIAlertActionStyle.Default, handler: {action in
-            self.storeImage()
-            self.openPhotosApp()
-        })
-        let showInstruction = UIAlertAction(title: NSLocalizedString("MSG_SHOW_INSTRUCTION", comment: ""), style: UIAlertActionStyle.Destructive, handler: {action in self.showInstruction()})
         
+        let cancelAction = UIAlertAction(
+            title: NSLocalizedString("CANCEL", comment:""),
+            style: UIAlertActionStyle.Cancel,
+            handler: { action in print("canceled", terminator: "")})
         actionController.addAction(cancelAction)
+        
+        let saveAction = UIAlertAction(
+            title: NSLocalizedString("MSG_SAVE", comment:""),
+            style: UIAlertActionStyle.Default,
+            handler: {action in self.storeImage(nil)})
         actionController.addAction(saveAction)
+        
+        let saveAndOpenAction = UIAlertAction(
+            title: NSLocalizedString("MSG_SAVE_AND_OPEN_PHOTOS", comment:""),
+            style: UIAlertActionStyle.Default,
+            handler: {action in
+                self.storeImage() { success in
+                    if (success) { self.openPhotosApp() }
+                }
+            })
         actionController.addAction(saveAndOpenAction)
+        
+        let showInstruction = UIAlertAction(
+            title: NSLocalizedString("MSG_SHOW_INSTRUCTION", comment: ""),
+            style: UIAlertActionStyle.Destructive,
+            handler: {action in self.showInstruction()})
         actionController.addAction(showInstruction)
+        
         self.presentViewController(actionController, animated: true, completion: nil)
     }
     
