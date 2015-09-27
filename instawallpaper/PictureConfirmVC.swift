@@ -69,7 +69,7 @@ class PictureConfirmVC: UIViewController {
                         self.updateBackground(img)
                 } else {
                     UIAlertController.show(NSLocalizedString("ERR_FAIL_LOAD", comment:""),
-                        message: nil, forVC: self)
+                        message: nil, forVC: self, handler:nil)
                 }
                 self.indicatorView.hidden = true
                 self.showTapAnimation()
@@ -117,10 +117,16 @@ class PictureConfirmVC: UIViewController {
     }
     
     private func storeImage(completion:((success:Bool)-> Void)?) {
+        let failHandler:((UIAlertAction) -> Void) = { action in
+            completion?(success: false)
+        }
+        let successHandler:(()-> Void) = {
+            completion?(success: true)
+        }
+        
         if (PictureManager.isAuthorizationDenied()) {
             UIAlertController.show(NSLocalizedString("ERR_DENIED_SAVE", comment:""),
-                message: nil, forVC: self)
-            completion?(success: false)
+                message: nil, forVC: self, handler:failHandler)
             return
         }
         
@@ -130,8 +136,7 @@ class PictureConfirmVC: UIViewController {
                     self.storeImage(completion)
                 } else {
                     UIAlertController.show(NSLocalizedString("ERR_DENIED_SAVE", comment:""),
-                        message: nil, forVC: self)
-                    completion?(success: false)
+                        message: nil, forVC: self, handler:failHandler)
                 }
             }
             return
@@ -139,21 +144,35 @@ class PictureConfirmVC: UIViewController {
         
         if let image = PictureManager.getImageFromView(parentPictureView) {
             PictureManager.saveImage(image, completion: { success in
-                if (!success) {
+                if (success) {
+                    if(!PictureManager.firstSavedMessageHasShown()) {
+                        self.showFirstSavedMessage(successHandler)
+                    } else {
+                        successHandler()
+                    }
+                } else {
                     UIAlertController.show(NSLocalizedString("ERR_FAIL_SAVE", comment:""),
-                        message: nil, forVC: self)
+                        message: nil, forVC: self, handler:failHandler)
                 }
-                completion?(success: success)
             })
         } else {
             UIAlertController.show(NSLocalizedString("ERR_FAIL_SAVE", comment:""),
-                message: nil, forVC: self)
-            completion?(success: false)
+                message: nil, forVC: self, handler:failHandler)
         }
+    }
+        
+    private func showFirstSavedMessage(completion:(()-> Void)) {
+        UIAlertController.show(NSLocalizedString("MSG_FIRST_SAVED", comment: ""), message: nil, forVC: self, handler: {action in
+            PictureManager.setFirstSavedMessageHasShown()
+            completion()
+        })
     }
     
     private func showActionMenu() {
         let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        actionController.popoverPresentationController?.sourceView = self.view
+        actionController.popoverPresentationController?.sourceRect =
+            CGRectMake(self.view.frame.width/2, self.view.frame.height/2, 200, 300)
         
         let cancelAction = UIAlertAction(
             title: NSLocalizedString("CANCEL", comment:""),
