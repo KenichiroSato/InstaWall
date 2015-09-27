@@ -14,6 +14,7 @@
 "MSG_SAVE" = "Save image";
 "MSG_SAVE_AND_OPEN_PHOTOS" = "Save and open Photos";
 "MSG_SHOW_INSTRUCTION" = "How to set wallpaper";
+"MSG_FIRST_SAVED" = "Image is saved. Please set wallpaper with Settings app or Photos app.";
 
 "SEARCH_BOX_PLACEHOLDER" = "search keyword";
 "SEARCH_DEFAULT_KEYWORD" = "dog";
