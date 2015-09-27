@@ -10,14 +10,16 @@ import UIKit
 
 extension UIAlertController {
     
-    static func show(title:String, message:String?, forVC vc:UIViewController) {
+    static func show(title:String, message:String?, forVC vc:UIViewController, handler:((UIAlertAction) -> Void)?) {
         let alertController = UIAlertController(title: title, message: message,
             preferredStyle: .Alert)
         
         let okAction = UIAlertAction(title: NSLocalizedString("OK", comment:""),
-            style: .Default, handler:nil)
+            style: .Default, handler:handler)
         alertController.addAction(okAction)
-        vc.presentViewController(alertController, animated: true, completion: nil)
+        dispatch_async(dispatch_get_main_queue(), {
+            vc.presentViewController(alertController, animated: true, completion: nil)
+        })
     }
 
 }

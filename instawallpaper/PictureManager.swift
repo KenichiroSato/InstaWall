@@ -43,6 +43,17 @@ public class PictureManager {
         return image
     }
     
+    class func firstSavedMessageHasShown() -> Bool {
+        let ud = NSUserDefaults.standardUserDefaults()
+        return ud.boolForKey(UserDefaultKey.FIRST_SAVED_MESSAGE_HAS_SHOWN)
+    }
+    
+    class func setFirstSavedMessageHasShown() {
+        let ud = NSUserDefaults.standardUserDefaults()
+        ud.setBool(true, forKey: UserDefaultKey.FIRST_SAVED_MESSAGE_HAS_SHOWN)
+        ud.synchronize()
+    }
+    
     //Before call this method, Photo Authorization must be requested
     class func saveImage(image: UIImage, completion: ((success: Bool) -> ())?) {
         if let album = getAlbum() {
