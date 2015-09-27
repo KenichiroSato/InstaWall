@@ -154,6 +154,9 @@ class PictureConfirmVC: UIViewController {
     
     private func showActionMenu() {
         let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        actionController.popoverPresentationController?.sourceView = self.view
+        actionController.popoverPresentationController?.sourceRect =
+            CGRectMake(self.view.frame.width/2, self.view.frame.height/2, 200, 300)
         
         let cancelAction = UIAlertAction(
             title: NSLocalizedString("CANCEL", comment:""),
