@@ -10,7 +10,6 @@ import UIKit
 
 class SegmentedVC: UIViewController, UIScrollViewDelegate {
 
-    
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var contentView: UIScrollView!
     
@@ -24,8 +23,27 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     
     var token: dispatch_once_t = 0
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "applicationDidBecomeActive",
+            name: UIApplicationDidBecomeActiveNotification,
+            object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @objc func applicationDidBecomeActive() {
+        if (shouldMoveToSearch()) {
+            moveToSearch()
+        }
     }
     
     
@@ -34,7 +52,23 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
             self.setupViews()
             self.setupSubViews()
         }
-
+        applicationDidBecomeActive()
+    }
+    
+    private func shouldMoveToSearch() -> Bool {
+        if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            return appDelegate.shouldShowSearch()
+        }
+        return false
+    }
+    
+    private func moveToSearch() {
+        segmentedControl.setSelectedSegmentIndex(1, animated: true)
+        let move = self.contentWidth();
+        self.contentView.scrollRectToVisible(CGRectMake(move , 0, self.contentWidth(), self.contentHeight()), animated: true)
+        if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            appDelegate.finishSearch()
+        }
     }
    
     private func setupViews() {
