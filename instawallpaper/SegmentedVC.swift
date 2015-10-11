@@ -10,14 +10,38 @@ import UIKit
 
 class SegmentedVC: UIViewController, UIScrollViewDelegate {
 
+    enum Segment {
+        case HOME
+        case SEARCH
+        
+        func image() -> UIImage {
+            switch(self) {
+            case .HOME:
+                return UIImage.named("home", size: imageSize)!
+            case .SEARCH:
+                return UIImage.named("search", size: imageSize)!
+            }
+        }
+        
+        func vcIdentifier() -> String {
+            switch(self) {
+            case .HOME:
+                return "HomeContentVC"
+            case .SEARCH:
+                return "SearchContentVC"
+            }
+        }
+        
+        static let allValues = [HOME, SEARCH]
+    }
+    
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var contentView: UIScrollView!
     
     static private let imageSize = CGSizeMake(36, 27)
-    static private let images = [UIImage.named("home", size: imageSize)!,
-        UIImage.named("search", size: imageSize)!]
+    static private let images = [Segment.HOME.image(), Segment.SEARCH.image()]
     
-    static private let TAB_NUM = SegmentedVC.images.count
+    static private let TAB_NUM = Segment.allValues.count
     
     private let segmentedControl = HMSegmentedControl(sectionImages: images, sectionSelectedImages: images)
     
@@ -92,24 +116,18 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     }
     
     private func setupSubViews() {
-
-        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("HomeContentVC") as? HomeContentVC {
-            self.addChildViewController(vc)
-            vc.didMoveToParentViewController(self)
-            vc.view.frame.size = contentView.frame.size
-            if let view = vc.view {
-                contentView.addSubview(view)
+        var totalWidth: CGFloat = 0
+        for segment in Segment.allValues {
+            if let vc = self.storyboard?.instantiateViewControllerWithIdentifier(segment.vcIdentifier()) {
+                self.addChildViewController(vc)
+                vc.didMoveToParentViewController(self)
+                vc.view.frame = CGRectMake(totalWidth, 0, contentWidth(), contentHeight())
+                totalWidth += contentWidth()
+                if let view = vc.view {
+                    contentView.addSubview(view)
+                }
             }
         }
-        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchContentVC") as? SearchContentVC {
-            self.addChildViewController(vc)
-            vc.didMoveToParentViewController(self)
-            //vc.view.frame.size = contentView.frame.size
-            vc.view.frame = CGRectMake(contentWidth(), 0, contentWidth(), contentHeight())
-            if let view = vc.view {
-                contentView.addSubview(view)
-            }
-        }        
     }
     
     private func contentWidth() -> CGFloat {
