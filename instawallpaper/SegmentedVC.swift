@@ -70,16 +70,21 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    
     override func viewDidAppear(animated: Bool) {
         dispatch_once(&token) {
             self.setupViews()
             self.setupSubViews()
         }
-        applicationDidBecomeActive()
+        if (shouldMoveToSearch()) {
+            moveToSearch()
+        }
     }
     
     private func shouldMoveToSearch() -> Bool {
+        if (contentView == nil) {
+            return false
+        }
+        
         if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             return appDelegate.shouldShowSearch()
         }
