@@ -18,6 +18,10 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
         return "type.search"
     }
     
+    override func iconImage() -> UIImage {
+        return UIImage.named("search", size: ContentBaseVC.SEGMENT_ICON_SIZE)!
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE

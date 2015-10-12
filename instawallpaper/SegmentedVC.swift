@@ -10,18 +10,10 @@ import UIKit
 
 class SegmentedVC: UIViewController, UIScrollViewDelegate {
 
+    // add Segment here which will be displayed in HMSegmentedControl
     enum Segment {
         case HOME
         case SEARCH
-        
-        func image() -> UIImage {
-            switch(self) {
-            case .HOME:
-                return UIImage.named("home", size: imageSize)!
-            case .SEARCH:
-                return UIImage.named("search", size: imageSize)!
-            }
-        }
         
         func vcIdentifier() -> String {
             switch(self) {
@@ -38,12 +30,7 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var contentView: UIScrollView!
     
-    static private let imageSize = CGSizeMake(36, 27)
-    static private let images = [Segment.HOME.image(), Segment.SEARCH.image()]
-    
-    static private let TAB_NUM = Segment.allValues.count
-    
-    private let segmentedControl = HMSegmentedControl(sectionImages: images, sectionSelectedImages: images)
+    private let segmentedControl = HMSegmentedControl()
     
     var token: dispatch_once_t = 0
     var segments: [UInt: ContentBaseVC] = [:]
@@ -72,7 +59,6 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     override func viewDidAppear(animated: Bool) {
         dispatch_once(&token) {
             self.setupViews()
-            self.setupSubViews()
         }
         handleShortcutItem()
     }
@@ -110,6 +96,14 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     }
    
     private func setupViews() {
+        setupSubViews()
+        
+        var images: [UIImage] = []
+        for (_, vc) in segments {
+            images += [vc.iconImage()]
+        }
+        segmentedControl.sectionImages = images
+        segmentedControl.type = HMSegmentedControlTypeImages
         segmentedControl.backgroundColor = Color.BASE_BLUE
         segmentedControl.frame = CGRectMake(0, 0, contentWidth(), self.headerView.frame.size.height)
         segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
@@ -124,7 +118,8 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
         headerView.addSubview(segmentedControl)
         
         contentView.delegate = self
-        contentView.contentSize = CGSizeMake(contentWidth() * CGFloat(SegmentedVC.TAB_NUM), contentHeight())
+        contentView.contentSize =
+            CGSizeMake(contentWidth() * CGFloat(Segment.allValues.count), contentHeight())
         contentView.delaysContentTouches = false
         
     }

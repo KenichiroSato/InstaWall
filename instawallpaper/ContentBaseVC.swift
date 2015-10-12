@@ -10,6 +10,8 @@ import UIKit
 
 class ContentBaseVC: UIViewController {
 
+    static let SEGMENT_ICON_SIZE = CGSizeMake(36, 27)
+
     @IBOutlet var contentView: UIView!
     
     var photosVC: PhotosCollectionVC!
@@ -20,6 +22,10 @@ class ContentBaseVC: UIViewController {
     }
     
     func shortcutItemType() -> String {
+        fatalError("must be overriden")
+    }
+    
+    func iconImage() -> UIImage {
         fatalError("must be overriden")
     }
     

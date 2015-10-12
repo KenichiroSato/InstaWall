@@ -17,6 +17,10 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         return "type.home"
     }
     
+    override func iconImage() -> UIImage {
+        return UIImage.named("home", size: ContentBaseVC.SEGMENT_ICON_SIZE)!
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
