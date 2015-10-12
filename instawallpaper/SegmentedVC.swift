@@ -33,7 +33,7 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     private let segmentedControl = HMSegmentedControl()
     
     var token: dispatch_once_t = 0
-    var segments: [UInt: ContentBaseVC] = [:]
+    var segments: [ContentBaseVC] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -83,9 +83,9 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     private func move() {
         if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             let type = appDelegate.shortcutItem()
-            for (index, vc) in segments {
+            for (index, vc) in segments.enumerate() {
                 if (vc.shortcutItemType() == type) {
-                    segmentedControl.setSelectedSegmentIndex(index, animated: true)
+                    segmentedControl.setSelectedSegmentIndex(UInt(index), animated: true)
                     let x = CGFloat(index) * self.contentWidth();
                     self.contentView.scrollRectToVisible(
                         CGRectMake(x , 0, self.contentWidth(), self.contentHeight()), animated: true)
@@ -97,12 +97,8 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
    
     private func setupViews() {
         setupSubViews()
-        
-        var images: [UIImage] = []
-        for (_, vc) in segments {
-            images += [vc.iconImage()]
-        }
-        segmentedControl.sectionImages = images
+
+        segmentedControl.sectionImages = segments.map{$0.iconImage()}
         segmentedControl.type = HMSegmentedControlTypeImages
         segmentedControl.backgroundColor = Color.BASE_BLUE
         segmentedControl.frame = CGRectMake(0, 0, contentWidth(), self.headerView.frame.size.height)
@@ -132,7 +128,7 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
                 vc.view.frame = CGRectMake(CGFloat(index) * contentWidth(), 0, contentWidth(), contentHeight())
                 if let view = vc.view {
                     contentView.addSubview(view)
-                    segments[UInt(index)] = vc
+                    segments += [vc]
                 }
             }
         }
