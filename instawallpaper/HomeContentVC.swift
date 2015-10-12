@@ -13,6 +13,10 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     
+    override func shortcutItemType() -> String {
+        return "type.home"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE

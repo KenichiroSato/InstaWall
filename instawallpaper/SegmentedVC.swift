@@ -46,6 +46,7 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     private let segmentedControl = HMSegmentedControl(sectionImages: images, sectionSelectedImages: images)
     
     var token: dispatch_once_t = 0
+    var segments: [UInt: ContentBaseVC] = [:]
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -65,9 +66,7 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func applicationDidBecomeActive() {
-        if (shouldMoveToSearch()) {
-            moveToSearch()
-        }
+        handleShortcutItem()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -75,28 +74,38 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
             self.setupViews()
             self.setupSubViews()
         }
-        if (shouldMoveToSearch()) {
-            moveToSearch()
+        handleShortcutItem()
+    }
+    
+    private func handleShortcutItem() {
+        if (shouldMove()) {
+            move()
         }
     }
     
-    private func shouldMoveToSearch() -> Bool {
+    private func shouldMove() -> Bool {
         if (contentView == nil) {
             return false
         }
         
         if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            return appDelegate.shouldShowSearch()
+            return appDelegate.hasShortcutItem()
         }
         return false
     }
     
-    private func moveToSearch() {
-        segmentedControl.setSelectedSegmentIndex(1, animated: true)
-        let move = self.contentWidth();
-        self.contentView.scrollRectToVisible(CGRectMake(move , 0, self.contentWidth(), self.contentHeight()), animated: true)
+    private func move() {
         if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            appDelegate.finishSearch()
+            let type = appDelegate.shortcutItem()
+            for (index, vc) in segments {
+                if (vc.shortcutItemType() == type) {
+                    segmentedControl.setSelectedSegmentIndex(index, animated: true)
+                    let x = CGFloat(index) * self.contentWidth();
+                    self.contentView.scrollRectToVisible(
+                        CGRectMake(x , 0, self.contentWidth(), self.contentHeight()), animated: true)
+                }
+            }
+            appDelegate.resetShortcutItem()
         }
     }
    
@@ -121,15 +130,14 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     }
     
     private func setupSubViews() {
-        var totalWidth: CGFloat = 0
-        for segment in Segment.allValues {
-            if let vc = self.storyboard?.instantiateViewControllerWithIdentifier(segment.vcIdentifier()) {
+        for (index, segment) in Segment.allValues.enumerate() {
+            if let vc = self.storyboard?.instantiateViewControllerWithIdentifier(segment.vcIdentifier()) as? ContentBaseVC {
                 self.addChildViewController(vc)
                 vc.didMoveToParentViewController(self)
-                vc.view.frame = CGRectMake(totalWidth, 0, contentWidth(), contentHeight())
-                totalWidth += contentWidth()
+                vc.view.frame = CGRectMake(CGFloat(index) * contentWidth(), 0, contentWidth(), contentHeight())
                 if let view = vc.view {
                     contentView.addSubview(view)
+                    segments[UInt(index)] = vc
                 }
             }
         }

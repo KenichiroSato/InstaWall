@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private var shouldSearch: Bool = false
+    private var shortcutItemType: String? = nil
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -42,19 +42,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func shouldShowSearch() -> Bool {
-        return shouldSearch
+    func hasShortcutItem() -> Bool {
+        return (shortcutItemType != nil)
     }
     
-    func finishSearch() {
-        shouldSearch = false
+    func resetShortcutItem() {
+        shortcutItemType = nil
+    }
+    
+    func shortcutItem() -> String? {
+        return shortcutItemType
     }
 
     @available(iOS 9.0, *)
     func application(application: UIApplication,
         performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
-        
-        shouldSearch = true        
+        shortcutItemType = shortcutItem.type
     }
 
 }

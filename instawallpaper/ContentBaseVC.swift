@@ -2,7 +2,7 @@
 //  ContentBaseVC.swift
 //  instawallpaper
 //
-//  Created by 佐藤健一朗 on 2015/07/15.
+//  Created by Kenichiro Sato on 2015/07/15.
 //  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.
 //
 
@@ -17,6 +17,10 @@ class ContentBaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    func shortcutItemType() -> String {
+        fatalError("must be overriden")
     }
     
     func setupView() {

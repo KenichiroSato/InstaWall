@@ -14,6 +14,10 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     @IBOutlet weak var searchBox: UITextField!
     private let transparentView = UIView()
     
+    override func shortcutItemType() -> String {
+        return "type.search"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
