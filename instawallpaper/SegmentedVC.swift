@@ -23,9 +23,9 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
                 return "SearchContentVC"
             }
         }
-        
-        static let allValues = [HOME, SEARCH]
     }
+    
+    private let allSegments = [Segment.SEARCH, Segment.HOME]
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var contentView: UIScrollView!
@@ -115,13 +115,13 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
         
         contentView.delegate = self
         contentView.contentSize =
-            CGSizeMake(contentWidth() * CGFloat(Segment.allValues.count), contentHeight())
+            CGSizeMake(contentWidth() * CGFloat(allSegments.count), contentHeight())
         contentView.delaysContentTouches = false
         
     }
     
     private func setupSubViews() {
-        for (index, segment) in Segment.allValues.enumerate() {
+        for (index, segment) in allSegments.enumerate() {
             if let vc = self.storyboard?.instantiateViewControllerWithIdentifier(segment.vcIdentifier()) as? ContentBaseVC {
                 self.addChildViewController(vc)
                 vc.didMoveToParentViewController(self)
