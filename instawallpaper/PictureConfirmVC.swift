@@ -180,33 +180,33 @@ class PictureConfirmVC: UIViewController {
             handler: { action in print("canceled", terminator: "")})
         actionController.addAction(cancelAction)
         
-        let saveAction = UIAlertAction(
-            title: NSLocalizedString("MSG_SAVE", comment:""),
-            style: UIAlertActionStyle.Default,
-            handler: {action in self.storeImage(nil)})
-        actionController.addAction(saveAction)
-        
-        let saveAndOpenAction = UIAlertAction(
-            title: NSLocalizedString("MSG_SAVE_AND_OPEN_PHOTOS", comment:""),
-            style: UIAlertActionStyle.Default,
-            handler: {action in
-                self.storeImage() { success in
-                    if (success) { self.openPhotosApp() }
-                }
-            })
-        actionController.addAction(saveAndOpenAction)
-        
         let showInstruction = UIAlertAction(
             title: NSLocalizedString("MSG_SHOW_INSTRUCTION", comment: ""),
             style: UIAlertActionStyle.Destructive,
             handler: {action in self.showInstruction()})
         actionController.addAction(showInstruction)
         
+        let openPhotosAction = UIAlertAction(
+            title: NSLocalizedString("MSG_OPEN_PHOTOS", comment:""),
+            style: UIAlertActionStyle.Default,
+            handler: {action in self.openPhotosApp()})
+        actionController.addAction(openPhotosAction)
+        
+        let backAction = UIAlertAction(
+            title: NSLocalizedString("MSG_BACK_TO_LIST", comment: ""),
+            style: UIAlertActionStyle.Default,
+            handler: {action in self.backToList()})
+        actionController.addAction(backAction)
+        
         self.presentViewController(actionController, animated: true, completion: nil)
     }
     
     private func showInstruction() {
         performSegueWithIdentifier(SegueIdentifier.SHOW_INSTRUCTION, sender: self)
+    }
+    
+    private func backToList() {
+        dismiss()
     }
     
     private func openPhotosApp() {
