@@ -25,7 +25,7 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    private let allSegments = [Segment.SEARCH, Segment.HOME]
+    private let allSegments = [Segment.HOME, Segment.SEARCH]
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var contentView: UIScrollView!
