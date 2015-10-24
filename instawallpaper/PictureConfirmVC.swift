@@ -228,10 +228,6 @@ class PictureConfirmVC: UIViewController {
         dismiss()
     }
     
-    @IBAction func onBackPressed(sender: AnyObject) {
-        dismiss()
-    }
-    
     private func dismiss() {
         self.navigationController?.popViewControllerAnimated(true)
     }
