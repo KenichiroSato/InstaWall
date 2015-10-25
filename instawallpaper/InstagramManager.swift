@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import InstagramKit
 
 typealias SuccessLoadBlock = (([InstagramMedia], InstagramPaginationInfo?) -> Void)
 

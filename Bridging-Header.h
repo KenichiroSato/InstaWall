@@ -9,10 +9,10 @@
 #ifndef instawallpaper_Header_h
 #define instawallpaper_Header_h
 
-#import "InstagramKit.h"
-#import "AFNetworking.h"
-#import "HMSegmentedControl.h"
-#import "UIImageView+AFNetworking.h"
+//#import "InstagramKit.h"
+//#import "AFNetworking.h"
+//#import "HMSegmentedControl.h"
+//#import "UIImageView+AFNetworking.h"
 //#import "InstagramMedia.h"
 //#import "InstagramUser.h"
 

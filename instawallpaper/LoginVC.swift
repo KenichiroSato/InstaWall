@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import InstagramKit
 
 protocol LogInDelegate {
     func onLoggedIn(token: String)

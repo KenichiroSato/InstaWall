@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import InstagramKit
+import SDWebImage
 
 class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, TryReloadDelegate {
 
@@ -202,7 +204,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         cell.imageView.image = nil
         if (pictureArray.count >= indexPath.row + 1) {
             let media: InstagramMedia = pictureArray[indexPath.row]
-            cell.imageView.setImageWithURL(media.thumbnailURL)
+            cell.imageView.sd_setImageWithURL(media.thumbnailURL)
             cell.indicator.hidden = true
         } else if (indexPath.item == collectionView.numberOfItemsInSection(0) - 1){
             //cell is the second from the end, which means indicator should be displayed.
