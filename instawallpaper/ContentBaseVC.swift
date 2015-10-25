@@ -29,6 +29,11 @@ class ContentBaseVC: UIViewController {
         fatalError("must be overriden")
     }
     
+    // This will be called when VC is displayed by using 3D touch shortcut
+    func onMovedByShortcut() {
+        // add any additional step in subclass
+    }
+    
     func setupView() {
         if let vc  = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
             photosVC = vc

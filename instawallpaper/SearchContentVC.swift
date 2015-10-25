@@ -21,6 +21,10 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     override func iconImage() -> UIImage {
         return UIImage.named("search", size: ContentBaseVC.SEGMENT_ICON_SIZE)!
     }
+    
+    override func onMovedByShortcut() {
+        searchBox.becomeFirstResponder()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +87,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     private func closeKeyboard() {
         searchBox.resignFirstResponder()
     }
+    
     
     /*
     // MARK: - Navigation

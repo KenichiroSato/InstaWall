@@ -88,7 +88,8 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
                     segmentedControl.setSelectedSegmentIndex(UInt(index), animated: true)
                     let x = CGFloat(index) * self.contentWidth();
                     self.contentView.scrollRectToVisible(
-                        CGRectMake(x , 0, self.contentWidth(), self.contentHeight()), animated: true)
+                        CGRectMake(x , 0, self.contentWidth(), self.contentHeight()), animated: false)
+                    vc.onMovedByShortcut()
                 }
             }
             appDelegate.resetShortcutItem()
