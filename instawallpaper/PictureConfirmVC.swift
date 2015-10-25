@@ -60,13 +60,17 @@ class PictureConfirmVC: UIViewController {
     private func setImage() {
         let timeTracker = TimeTracker(tag: "setImage")
         timeTracker.start()
-        imageView.sd_setImageWithURL(self.pictureUrl)
-        if let image = imageView.image {
-            updateBackground(image)
-        }
-        indicatorView.hidden = true
-        showTapAnimation()
-        timeTracker.finish()
+        imageView.sd_setImageWithURL(pictureUrl, completed: {(image, error, _, _) in
+            self.indicatorView.hidden = true
+            if (error != nil) {
+                UIAlertController.show( NSLocalizedString("ERR_FAIL_LOAD", comment:""),
+                    message: nil, forVC: self, handler:{ _ in self.dismiss()})
+            } else {
+                self.updateBackground(image)
+                self.showTapAnimation()
+            }
+            timeTracker.finish()
+        })
     }
     
     private func showTapAnimation() {
