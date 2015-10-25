@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PictureConfirmVC: UIViewController {
 
@@ -60,7 +61,7 @@ class PictureConfirmVC: UIViewController {
     private func setImage() {
         let timeTracker = TimeTracker(tag: "setImage")
         timeTracker.start()
-        imageView.sd_setImageWithURL(pictureUrl, completed: {(image, error, _, _) in
+        imageView.sd_setImageWithURL(pictureUrl, placeholderImage: nil, options: SDWebImageOptions.RetryFailed, completed: {(image, error, _, _) in
             self.indicatorView.hidden = true
             if (error != nil) {
                 UIAlertController.show( NSLocalizedString("ERR_FAIL_LOAD", comment:""),
