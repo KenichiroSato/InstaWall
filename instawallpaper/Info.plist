@@ -2,6 +2,80 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeSearch</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>type.search</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>search</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>home</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>type.home</string>
+		</dict>
+	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;array&gt;
+	&lt;dict&gt;
+		&lt;key&gt;UIApplicationShortcutItemType&lt;/key&gt;
+		&lt;string&gt;myapp.home&lt;/string&gt;
+		&lt;key&gt;UIApplicationShortcutItemTitle&lt;/key&gt;
+		&lt;string&gt;home&lt;/string&gt;
+	&lt;/dict&gt;
+	&lt;dict&gt;
+		&lt;key&gt;UIApplicationShortcutItemType&lt;/key&gt;
+		&lt;string&gt;myapp.search&lt;/string&gt;
+		&lt;key&gt;UIApplicationShortcutItemTitle&lt;/key&gt;
+		&lt;string&gt;search&lt;/string&gt;
+	&lt;/dict&gt;
+&lt;/array&gt;
+&lt;/plist&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;array&gt;
+	&lt;dict&gt;
+		&lt;key&gt;UIApplicationShortcutItemType&lt;/key&gt;
+		&lt;string&gt;myapp.home&lt;/string&gt;
+		&lt;key&gt;UIApplicationShortcutItemTitle&lt;/key&gt;
+		&lt;string&gt;home&lt;/string&gt;
+	&lt;/dict&gt;
+	&lt;dict&gt;
+		&lt;key&gt;UIApplicationShortcutItemType&lt;/key&gt;
+		&lt;string&gt;myapp.search&lt;/string&gt;
+		&lt;key&gt;UIApplicationShortcutItemTitle&lt;/key&gt;
+		&lt;string&gt;search&lt;/string&gt;
+	&lt;/dict&gt;
+&lt;/array&gt;
+&lt;/plist&gt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;array&gt;
+	&lt;dict&gt;
+		&lt;key&gt;UIApplicationShortcutItemType&lt;/key&gt;
+		&lt;string&gt;myapp.home&lt;/string&gt;
+		&lt;key&gt;UIApplicationShortcutItemTitle&lt;/key&gt;
+		&lt;string&gt;home&lt;/string&gt;
+	&lt;/dict&gt;
+	&lt;dict&gt;
+		&lt;key&gt;UIApplicationShortcutItemType&lt;/key&gt;
+		&lt;string&gt;myapp.search&lt;/string&gt;
+		&lt;key&gt;UIApplicationShortcutItemTitle&lt;/key&gt;
+		&lt;string&gt;search&lt;/string&gt;
+	&lt;/dict&gt;
+&lt;/array&gt;
+&lt;/plist&gt;
+</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

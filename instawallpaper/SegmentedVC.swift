@@ -10,34 +10,100 @@ import UIKit
 
 class SegmentedVC: UIViewController, UIScrollViewDelegate {
 
+    // add Segment here which will be displayed in HMSegmentedControl
+    enum Segment {
+        case HOME
+        case SEARCH
+        
+        func vcIdentifier() -> String {
+            switch(self) {
+            case .HOME:
+                return "HomeContentVC"
+            case .SEARCH:
+                return "SearchContentVC"
+            }
+        }
+    }
+    
+    private let allSegments = [Segment.HOME, Segment.SEARCH]
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var contentView: UIScrollView!
     
-    static private let imageSize = CGSizeMake(36, 27)
-    static private let images = [UIImage.named("home", size: imageSize)!,
-        UIImage.named("search", size: imageSize)!]
-    
-    static private let TAB_NUM = SegmentedVC.images.count
-    
-    private let segmentedControl = HMSegmentedControl(sectionImages: images, sectionSelectedImages: images)
+    private let segmentedControl = HMSegmentedControl()
     
     var token: dispatch_once_t = 0
+    var segments: [ContentBaseVC] = []
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "applicationDidBecomeActive",
+            name: UIApplicationDidBecomeActiveNotification,
+            object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    @objc func applicationDidBecomeActive() {
+        handleShortcutItem()
+    }
     
     override func viewDidAppear(animated: Bool) {
         dispatch_once(&token) {
             self.setupViews()
-            self.setupSubViews()
         }
-
+        handleShortcutItem()
     }
-   
+    
+    private func handleShortcutItem() {
+        if (shouldMove()) {
+            move()
+        }
+    }
+    
+    private func shouldMove() -> Bool {
+        if (contentView == nil) {
+            return false
+        }
+        
+        if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            return appDelegate.hasShortcutItem()
+        }
+        return false
+    }
+    
+    private func move() {
+        //remove unnecessary VCs
+        self.navigationController?.popToRootViewControllerAnimated(false)
+
+        if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            let type = appDelegate.shortcutItem()
+            for (index, vc) in segments.enumerate() {
+                if (vc.shortcutItemType() == type) {
+                    segmentedControl.setSelectedSegmentIndex(UInt(index), animated: true)
+                    let x = CGFloat(index) * self.contentWidth();
+                    self.contentView.scrollRectToVisible(
+                        CGRectMake(x , 0, self.contentWidth(), self.contentHeight()), animated: false)
+                    vc.onMovedByShortcut()
+                }
+            }
+            appDelegate.resetShortcutItem()
+        }
+    }
+
     private func setupViews() {
+        setupSubViews()
+
+        segmentedControl.sectionImages = segments.map{$0.iconImage()}
+        segmentedControl.type = HMSegmentedControlTypeImages
         segmentedControl.backgroundColor = Color.BASE_BLUE
         segmentedControl.frame = CGRectMake(0, 0, contentWidth(), self.headerView.frame.size.height)
         segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
@@ -52,30 +118,24 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
         headerView.addSubview(segmentedControl)
         
         contentView.delegate = self
-        contentView.contentSize = CGSizeMake(contentWidth() * CGFloat(SegmentedVC.TAB_NUM), contentHeight())
+        contentView.contentSize =
+            CGSizeMake(contentWidth() * CGFloat(allSegments.count), contentHeight())
         contentView.delaysContentTouches = false
         
     }
     
     private func setupSubViews() {
-
-        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("HomeContentVC") as? HomeContentVC {
-            self.addChildViewController(vc)
-            vc.didMoveToParentViewController(self)
-            vc.view.frame.size = contentView.frame.size
-            if let view = vc.view {
-                contentView.addSubview(view)
+        for (index, segment) in allSegments.enumerate() {
+            if let vc = self.storyboard?.instantiateViewControllerWithIdentifier(segment.vcIdentifier()) as? ContentBaseVC {
+                self.addChildViewController(vc)
+                vc.didMoveToParentViewController(self)
+                vc.view.frame = CGRectMake(CGFloat(index) * contentWidth(), 0, contentWidth(), contentHeight())
+                if let view = vc.view {
+                    contentView.addSubview(view)
+                    segments += [vc]
+                }
             }
         }
-        if let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SearchContentVC") as? SearchContentVC {
-            self.addChildViewController(vc)
-            vc.didMoveToParentViewController(self)
-            //vc.view.frame.size = contentView.frame.size
-            vc.view.frame = CGRectMake(contentWidth(), 0, contentWidth(), contentHeight())
-            if let view = vc.view {
-                contentView.addSubview(view)
-            }
-        }        
     }
     
     private func contentWidth() -> CGFloat {

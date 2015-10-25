@@ -2,13 +2,15 @@
 //  ContentBaseVC.swift
 //  instawallpaper
 //
-//  Created by 佐藤健一朗 on 2015/07/15.
+//  Created by Kenichiro Sato on 2015/07/15.
 //  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.
 //
 
 import UIKit
 
 class ContentBaseVC: UIViewController {
+
+    static let SEGMENT_ICON_SIZE = CGSizeMake(36, 27)
 
     @IBOutlet var contentView: UIView!
     
@@ -17,6 +19,19 @@ class ContentBaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    func shortcutItemType() -> String {
+        fatalError("must be overriden")
+    }
+    
+    func iconImage() -> UIImage {
+        fatalError("must be overriden")
+    }
+    
+    // This will be called when VC is displayed by using 3D touch shortcut
+    func onMovedByShortcut() {
+        // add any additional step in subclass
     }
     
     func setupView() {

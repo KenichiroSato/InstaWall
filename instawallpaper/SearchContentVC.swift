@@ -14,6 +14,18 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     @IBOutlet weak var searchBox: UITextField!
     private let transparentView = UIView()
     
+    override func shortcutItemType() -> String {
+        return "type.search"
+    }
+    
+    override func iconImage() -> UIImage {
+        return UIImage.named("search", size: ContentBaseVC.SEGMENT_ICON_SIZE)!
+    }
+    
+    override func onMovedByShortcut() {
+        searchBox.becomeFirstResponder()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
@@ -75,6 +87,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     private func closeKeyboard() {
         searchBox.resignFirstResponder()
     }
+    
     
     /*
     // MARK: - Navigation
