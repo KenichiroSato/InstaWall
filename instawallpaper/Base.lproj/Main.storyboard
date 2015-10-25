@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ln7-NZ-e4U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ln7-NZ-e4U">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -345,20 +345,6 @@
                                 <rect key="frame" x="291" y="291" width="20" height="20"/>
                                 <animations/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRO-8A-rYg">
-                                <rect key="frame" x="11" y="560" width="25" height="25"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="X91-K1-GHl"/>
-                                    <constraint firstAttribute="height" constant="35" id="rcp-AW-gBg"/>
-                                </constraints>
-                                <state key="normal" image="back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onBackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="awh-Zy-wUV"/>
-                                </connections>
-                            </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tap" translatesAutoresizingMaskIntoConstraints="NO" id="Gzb-YW-shl" userLabel="Image View">
                                 <rect key="frame" x="180" y="236" width="240" height="128"/>
                                 <animations/>
@@ -369,8 +355,6 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="mQ9-Dk-IQl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="1yD-aI-L76"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RRO-8A-rYg" secondAttribute="bottom" constant="15" id="AUR-Lc-qPJ"/>
-                            <constraint firstItem="RRO-8A-rYg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-5" id="EO5-3h-cQW"/>
                             <constraint firstAttribute="trailing" secondItem="mQ9-Dk-IQl" secondAttribute="trailing" id="FNl-MO-fmn"/>
                             <constraint firstAttribute="centerY" secondItem="NUg-6T-I9d" secondAttribute="centerY" id="FR8-Vp-nHu"/>
                             <constraint firstAttribute="centerX" secondItem="Gzb-YW-shl" secondAttribute="centerX" id="JIx-Pa-yjB"/>
@@ -620,7 +604,7 @@
         <image name="back" width="136" height="121"/>
         <image name="instruction1" width="640" height="1136"/>
         <image name="instruction2" width="640" height="1136"/>
-        <image name="instruction3" width="640" height="1136"/>
+        <image name="instruction3" width="595" height="842"/>
         <image name="instruction4" width="640" height="1136"/>
         <image name="instruction5" width="640" height="1136"/>
         <image name="tap" width="227" height="187"/>
