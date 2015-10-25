@@ -81,6 +81,9 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
     }
     
     private func move() {
+        //remove unnecessary VCs
+        self.navigationController?.popToRootViewControllerAnimated(false)
+
         if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             let type = appDelegate.shortcutItem()
             for (index, vc) in segments.enumerate() {
@@ -95,7 +98,7 @@ class SegmentedVC: UIViewController, UIScrollViewDelegate {
             appDelegate.resetShortcutItem()
         }
     }
-   
+
     private func setupViews() {
         setupSubViews()
 
