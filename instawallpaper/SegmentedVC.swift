@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HMSegmentedControl
 
 class SegmentedVC: UIViewController, UIScrollViewDelegate {
 

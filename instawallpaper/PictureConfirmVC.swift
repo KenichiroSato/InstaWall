@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PictureConfirmVC: UIViewController {
 
@@ -60,21 +61,17 @@ class PictureConfirmVC: UIViewController {
     private func setImage() {
         let timeTracker = TimeTracker(tag: "setImage")
         timeTracker.start()
-        dispatch_async(dispatch_queue_create("imageLoadQueue", DISPATCH_QUEUE_SERIAL), {
-            let imageData = self.imageDataFromURL(self.pictureUrl)
-            dispatch_sync(dispatch_get_main_queue(), {
-                if let data = imageData,
-                    img = UIImage(data: data) {
-                        self.imageView.image = img
-                        self.updateBackground(img)
-                } else {
-                    UIAlertController.show(NSLocalizedString("ERR_FAIL_LOAD", comment:""),
-                        message: nil, forVC: self, handler:nil)
-                }
-                self.indicatorView.hidden = true
+        imageView.sd_setImageWithURL(pictureUrl, placeholderImage: nil,
+            options: SDWebImageOptions.RetryFailed, completed: {(image, error, _, _) in
+            self.indicatorView.hidden = true
+            if (error != nil) {
+                UIAlertController.show( NSLocalizedString("ERR_FAIL_LOAD", comment:""),
+                    message: nil, forVC: self, handler:{ _ in self.dismiss()})
+            } else {
+                self.updateBackground(image)
                 self.showTapAnimation()
-                timeTracker.finish()
-            })
+            }
+            timeTracker.finish()
         })
     }
     
@@ -162,14 +159,16 @@ class PictureConfirmVC: UIViewController {
     }
         
     private func showFirstSavedMessage(completion:(()-> Void)) {
-        UIAlertController.show(NSLocalizedString("MSG_FIRST_SAVED", comment: ""), message: nil, forVC: self, handler: {action in
+        UIAlertController.show(NSLocalizedString("MSG_FIRST_SAVED", comment: ""),
+            message: nil, forVC: self, handler: {action in
             PictureManager.setFirstSavedMessageHasShown()
             completion()
         })
     }
     
     private func showActionMenu() {
-        let actionController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let actionController = UIAlertController(title: nil, message: nil,
+            preferredStyle: UIAlertControllerStyle.ActionSheet)
         actionController.popoverPresentationController?.sourceView = self.view
         actionController.popoverPresentationController?.sourceRect =
             CGRectMake(self.view.frame.width/2, self.view.frame.height/2, 200, 300)
