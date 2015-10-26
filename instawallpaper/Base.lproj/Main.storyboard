@@ -604,7 +604,7 @@
         <image name="back" width="136" height="121"/>
         <image name="instruction1" width="640" height="1136"/>
         <image name="instruction2" width="640" height="1136"/>
-        <image name="instruction3" width="595" height="842"/>
+        <image name="instruction3" width="640" height="1136"/>
         <image name="instruction4" width="640" height="1136"/>
         <image name="instruction5" width="640" height="1136"/>
         <image name="tap" width="227" height="187"/>
