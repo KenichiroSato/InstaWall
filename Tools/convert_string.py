@@ -20,9 +20,9 @@ Developed with Python 3.4.1 and openpyxl 2.1.0
   Note that StringIDs are sorted internally.
 """
 
-__author__ = "Jun Imura <Jun.Imura@jp.sony.com>"
+__author__ = "Kenichiro Sato"
 __version__ = "0.0.1"
-__date__ = "02 October 2014"
+__date__ = "28 October 2015"
 
 import csv
 from os.path import join, dirname, isdir
@@ -32,8 +32,8 @@ import argparse
 
 COL_STR_ID = -1
 ALT_LANG = "en"
-LANGS = [("jp",0, "ja"), ("en", 1, "en")]
-OUT_DIR = "Resources"
+LANGS = [("jp",0, "ja"), ("en", 1, "Base")]
+OUT_DIR = "../"
 DIR_SUFFIX = ".lproj"
 OUT_NAME = "Localizable.strings"
 IGNORED_ID = set()
