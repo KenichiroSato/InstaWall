@@ -1,24 +1,13 @@
-/* 
-  Localizable.strings
-  instawallpaper
-
-  Created by Kenichiro Sato on 2015/09/13.
-  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.
-*/
-"OK" = "OK";
 "CANCEL" = "キャンセル";
-
-"LOG_IN" = "ログイン";
-"LOG_OUT" = "ログアウト";
-
-"MSG_SHOW_INSTRUCTION" = "壁紙の設定方法";
-"MSG_OPEN_PHOTOS" = "写真アプリを開く";
-"MSG_BACK_TO_LIST" = "一覧に戻る";
-"MSG_FIRST_SAVED" = "画像を保存しました。設定アプリまたは写真アプリから壁紙を設定してください。";
-
-"SEARCH_BOX_PLACEHOLDER" = "検索キーワード";
-"SEARCH_DEFAULT_KEYWORD" = "ねこ";
-
+"ERR_DENIED_SAVE" = "画像を保存できませんでした。設定＞プライバシー＞写真からこのアプリを有効にしてください。";
 "ERR_FAIL_LOAD" = "画像の読み込みに失敗しました。";
 "ERR_FAIL_SAVE" = "画像を保存できませんでした。";
-"ERR_DENIED_SAVE" = "画像を保存できませんでした。設定＞プライバシー＞写真 からこのアプリを有効にしてください。";
+"LOG_IN" = "ログイン";
+"LOG_OUT" = "ログアウト";
+"MSG_BACK_TO_LIST" = "一覧に戻る";
+"MSG_FIRST_SAVED" = "画像を保存しました。設定アプリまたは写真アプリから壁紙を設定してください。";
+"MSG_OPEN_PHOTOS" = "写真アプリを開く";
+"MSG_SHOW_INSTRUCTION" = "壁紙の設定方法";
+"OK" = "OK";
+"SEARCH_BOX_PLACEHOLDER" = "検索キーワード";
+"SEARCH_DEFAULT_KEYWORD" = "ねこ";

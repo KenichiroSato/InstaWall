@@ -84,8 +84,7 @@ def is_valid_string_id(k):
     Determines if a StringID is valid.
     """
     print("k=" + k)
-    ret = k is not None and k != "" and (k.startswith("IDMR_") or k.startswith("TMP_")) \
-          and "espresso_" not in k and "duration_" not in k and "elapsed_" not in k
+    ret = k is not None and k != ""
     if not ret and k:
         global IGNORED_ID
         IGNORED_ID.add(k)
