@@ -1,24 +1,13 @@
-/* 
-  Localizable.strings
-  instawallpaper
-
-  Created by Kenichiro Sato on 2015/09/13.
-  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.
-*/
-"OK" = "OK";
 "CANCEL" = "Cancel";
-
-"LOG_IN" = "Login";
-"LOG_OUT" = "Logout";
-
-"MSG_SHOW_INSTRUCTION" = "How to set wallpaper";
-"MSG_OPEN_PHOTOS" = "Open Photos";
-"MSG_BACK_TO_LIST" = "Back to list";
-"MSG_FIRST_SAVED" = "Image is saved. Please set wallpaper with Settings app or Photos app.";
-
-"SEARCH_BOX_PLACEHOLDER" = "search keyword";
-"SEARCH_DEFAULT_KEYWORD" = "dogs";
-
+"ERR_DENIED_SAVE" = "Failed to save image.\n Please enable this app in \n Settings \> Privacy \> Photos.";
 "ERR_FAIL_LOAD" = "Failed to load images.";
 "ERR_FAIL_SAVE" = "Failed to save image.";
-"ERR_DENIED_SAVE" = "Failed to save image.\n Please enable this app in \n Settings > Privacy > Photos.";
+"LOG_IN" = "Login";
+"LOG_OUT" = "Logout";
+"MSG_BACK_TO_LIST" = "Back to list";
+"MSG_FIRST_SAVED" = "Image is saved. Please set wallpaper with Settings app or Photos app.";
+"MSG_OPEN_PHOTOS" = "Open Photos";
+"MSG_SHOW_INSTRUCTION" = "How to set wallpaper";
+"OK" = "OK";
+"SEARCH_BOX_PLACEHOLDER" = "search keyword";
+"SEARCH_DEFAULT_KEYWORD" = "dogs";
