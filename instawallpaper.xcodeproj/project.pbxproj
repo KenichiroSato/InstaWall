@@ -24,6 +24,7 @@
 		5921B8421B3712D800FE739D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5921B8411B3712D800FE739D /* LoginVC.swift */; };
 		5940F5061B90A34800822980 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5940F5051B90A34800822980 /* UIView+extension.swift */; };
 		5940F5081B91A63800822980 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5940F5071B91A63800822980 /* UserDefaultKey.swift */; };
+		5942CE971BE261FC00966D64 /* instawallpaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5942CE961BE261FC00966D64 /* instawallpaperUITests.swift */; };
 		595101AD1B19EB8E006F2F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AC1B19EB8E006F2F65 /* AppDelegate.swift */; };
 		595101AF1B19EB8E006F2F65 /* PictureConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101AE1B19EB8E006F2F65 /* PictureConfirmVC.swift */; };
 		595101B21B19EB8E006F2F65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 595101B01B19EB8E006F2F65 /* Main.storyboard */; };
@@ -44,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5942CE991BE261FC00966D64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5951019F1B19EB8D006F2F65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 595101A61B19EB8E006F2F65;
+			remoteInfo = instawallpaper;
+		};
 		595101BD1B19EB8E006F2F65 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5951019F1B19EB8D006F2F65 /* Project object */;
@@ -73,6 +81,9 @@
 		5921B8411B3712D800FE739D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5940F5051B90A34800822980 /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		5940F5071B91A63800822980 /* UserDefaultKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
+		5942CE941BE261FC00966D64 /* instawallpaperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instawallpaperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5942CE961BE261FC00966D64 /* instawallpaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instawallpaperUITests.swift; sourceTree = "<group>"; };
+		5942CE981BE261FC00966D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101A71B19EB8E006F2F65 /* instawallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instawallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		595101AB1B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101AC1B19EB8E006F2F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +108,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5942CE911BE261FC00966D64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		595101A41B19EB8E006F2F65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,12 +154,22 @@
 			name = extension;
 			sourceTree = "<group>";
 		};
+		5942CE951BE261FC00966D64 /* instawallpaperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5942CE961BE261FC00966D64 /* instawallpaperUITests.swift */,
+				5942CE981BE261FC00966D64 /* Info.plist */,
+			);
+			path = instawallpaperUITests;
+			sourceTree = "<group>";
+		};
 		5951019E1B19EB8D006F2F65 = {
 			isa = PBXGroup;
 			children = (
 				590413511BA5288D00100068 /* Localizable.strings */,
 				595101A91B19EB8E006F2F65 /* instawallpaper */,
 				595101BF1B19EB8E006F2F65 /* instawallpaperTests */,
+				5942CE951BE261FC00966D64 /* instawallpaperUITests */,
 				595101A81B19EB8E006F2F65 /* Products */,
 				E3290B68C226A43311D121B2 /* Pods */,
 				CB18B5850265EC3D4DAE6E18 /* Frameworks */,
@@ -153,6 +181,7 @@
 			children = (
 				595101A71B19EB8E006F2F65 /* instawallpaper.app */,
 				595101BC1B19EB8E006F2F65 /* instawallpaperTests.xctest */,
+				5942CE941BE261FC00966D64 /* instawallpaperUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,6 +280,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5942CE931BE261FC00966D64 /* instawallpaperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5942CE9B1BE261FC00966D64 /* Build configuration list for PBXNativeTarget "instawallpaperUITests" */;
+			buildPhases = (
+				5942CE901BE261FC00966D64 /* Sources */,
+				5942CE911BE261FC00966D64 /* Frameworks */,
+				5942CE921BE261FC00966D64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5942CE9A1BE261FC00966D64 /* PBXTargetDependency */,
+			);
+			name = instawallpaperUITests;
+			productName = instawallpaperUITests;
+			productReference = 5942CE941BE261FC00966D64 /* instawallpaperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		595101A61B19EB8E006F2F65 /* instawallpaper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 595101C61B19EB8E006F2F65 /* Build configuration list for PBXNativeTarget "instawallpaper" */;
@@ -297,10 +344,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Kenichiro Sato";
 				TargetAttributes = {
+					5942CE931BE261FC00966D64 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 595101A61B19EB8E006F2F65;
+					};
 					595101A61B19EB8E006F2F65 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = H2W9ZJ8C83;
@@ -327,11 +378,19 @@
 			targets = (
 				595101A61B19EB8E006F2F65 /* instawallpaper */,
 				595101BB1B19EB8E006F2F65 /* instawallpaperTests */,
+				5942CE931BE261FC00966D64 /* instawallpaperUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5942CE921BE261FC00966D64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		595101A51B19EB8E006F2F65 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,6 +475,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5942CE901BE261FC00966D64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5942CE971BE261FC00966D64 /* instawallpaperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		595101A31B19EB8E006F2F65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -460,6 +527,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5942CE9A1BE261FC00966D64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 595101A61B19EB8E006F2F65 /* instawallpaper */;
+			targetProxy = 5942CE991BE261FC00966D64 /* PBXContainerItemProxy */;
+		};
 		595101BE1B19EB8E006F2F65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 595101A61B19EB8E006F2F65 /* instawallpaper */;
@@ -496,6 +568,33 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5942CE9C1BE261FC00966D64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = instawallpaperUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capken.instawallpaperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = instawallpaper;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		5942CE9D1BE261FC00966D64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = instawallpaperUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capken.instawallpaperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = instawallpaper;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		595101C41B19EB8E006F2F65 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -649,6 +748,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5942CE9B1BE261FC00966D64 /* Build configuration list for PBXNativeTarget "instawallpaperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5942CE9C1BE261FC00966D64 /* Debug */,
+				5942CE9D1BE261FC00966D64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		595101A21B19EB8D006F2F65 /* Build configuration list for PBXProject "instawallpaper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
