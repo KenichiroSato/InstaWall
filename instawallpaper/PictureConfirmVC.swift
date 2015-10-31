@@ -12,11 +12,6 @@ import SDWebImage
 class PictureConfirmVC: UIViewController {
 
     static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3k7-yGxmzD/"
-    //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3iIhzJRm5s/"
-    //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3jLlOoTf5t/"
-    //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3iqc5aRi-0/"
-    //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3hJGONxOcG/"
-    //static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/pRTKnyGLtp/"
     
     static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
     
@@ -33,9 +28,10 @@ class PictureConfirmVC: UIViewController {
     private var bottomGradientLayer: CAGradientLayer = CAGradientLayer()
     private var topGradientLayer: CAGradientLayer = CAGradientLayer()
     var pictureUrl: NSURL = NSURL(string: DEFAULT_IMAGE_URL + INSTAGRAM_URL_SUFFIX)!
+    var placeHosderImage : UIImage?
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         setupGradientLayers()
         setImage()
     }
@@ -61,7 +57,7 @@ class PictureConfirmVC: UIViewController {
     private func setImage() {
         let timeTracker = TimeTracker(tag: "setImage")
         timeTracker.start()
-        imageView.sd_setImageWithURL(pictureUrl, placeholderImage: nil,
+        imageView.sd_setImageWithURL(pictureUrl, placeholderImage: placeHosderImage,
             options: SDWebImageOptions.RetryFailed, completed: {(image, error, _, _) in
             self.indicatorView.hidden = true
             if (error != nil) {
