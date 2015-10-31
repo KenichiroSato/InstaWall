@@ -432,8 +432,7 @@
                                                 <rect key="frame" x="30" y="666" width="340" height="604"/>
                                                 <animations/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="QrT-VC-Dpf" secondAttribute="height" multiplier="85:151" id="OLr-G7-7sK"/>
-                                                    <constraint firstAttribute="width" secondItem="QrT-VC-Dpf" secondAttribute="height" multiplier="9:16" id="Sl5-eM-Z8e"/>
+                                                    <constraint firstAttribute="width" secondItem="QrT-VC-Dpf" secondAttribute="height" multiplier="9:16" id="OLr-G7-7sK"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instruction1" translatesAutoresizingMaskIntoConstraints="NO" id="MGd-F7-AvZ">
@@ -511,7 +510,6 @@
                         <constraints>
                             <constraint firstItem="uFL-fx-IPf" firstAttribute="top" secondItem="ZxC-Cy-CDF" secondAttribute="topMargin" id="4RL-6I-l17"/>
                             <constraint firstItem="uFL-fx-IPf" firstAttribute="leading" secondItem="ZxC-Cy-CDF" secondAttribute="leading" id="Ihm-rF-fxj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uFL-fx-IPf" secondAttribute="trailing" id="ONh-5T-QeW"/>
                             <constraint firstItem="IDN-qB-Qrs" firstAttribute="leading" secondItem="ZxC-Cy-CDF" secondAttribute="leadingMargin" constant="-5" id="QrM-ZP-WR5"/>
                             <constraint firstItem="WwQ-5a-nmz" firstAttribute="top" secondItem="IDN-qB-Qrs" secondAttribute="bottom" constant="15" id="lx6-d6-TDO"/>
                             <constraint firstItem="uFL-fx-IPf" firstAttribute="width" secondItem="ZxC-Cy-CDF" secondAttribute="width" id="xou-Nc-tdh"/>
