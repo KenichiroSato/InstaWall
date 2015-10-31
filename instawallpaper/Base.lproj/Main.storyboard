@@ -23,8 +23,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                                 <animations/>
                             </scrollView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpb-Du-zd5">
-                                <rect key="frame" x="0.0" y="534" width="600" height="46"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpb-Du-zd5">
+                                <rect key="frame" x="0.0" y="550" width="580" height="50"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ibf-8d-6o2"/>
@@ -34,7 +34,9 @@
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rpb-Du-zd5" secondAttribute="trailing" id="4uQ-f0-i2E"/>
                             <constraint firstItem="Rpb-Du-zd5" firstAttribute="top" secondItem="uJU-7f-15x" secondAttribute="bottom" id="5sm-Dg-ZjY"/>
+                            <constraint firstItem="Rpb-Du-zd5" firstAttribute="leading" secondItem="YQY-uR-d9X" secondAttribute="leading" id="77t-mY-LhZ"/>
                             <constraint firstItem="uJU-7f-15x" firstAttribute="top" secondItem="YQY-uR-d9X" secondAttribute="top" id="9gG-xU-6NY"/>
                             <constraint firstAttribute="trailing" secondItem="uJU-7f-15x" secondAttribute="trailing" id="CMP-bW-kmD"/>
                             <constraint firstItem="Id7-pC-snC" firstAttribute="top" secondItem="Rpb-Du-zd5" secondAttribute="bottom" id="MbZ-u9-fGX"/>
