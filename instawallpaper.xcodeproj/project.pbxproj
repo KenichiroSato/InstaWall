@@ -36,6 +36,7 @@
 		5964135D1B511151009B857A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964135C1B511151009B857A /* Color.swift */; };
 		5964135F1B511A50009B857A /* SearchContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964135E1B511A50009B857A /* SearchContentVC.swift */; };
 		597AD77F1B36432300E087B4 /* UIAlertController+show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AD77E1B36432300E087B4 /* UIAlertController+show.swift */; };
+		599C44281BE3AC2C00160BA5 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C44271BE3AC2C00160BA5 /* Text.swift */; };
 		599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E46AA1B227DDB005CE654 /* PictureManager.swift */; };
 		59FD8B9B1BAEA702005C86B0 /* InstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD8B9A1BAEA702005C86B0 /* InstructionVC.swift */; };
 		59FDC00A1B555F1700E28AB5 /* ContentBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */; };
@@ -99,6 +100,7 @@
 		5964135C1B511151009B857A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		5964135E1B511A50009B857A /* SearchContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContentVC.swift; sourceTree = "<group>"; };
 		597AD77E1B36432300E087B4 /* UIAlertController+show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+show.swift"; sourceTree = "<group>"; };
+		599C44271BE3AC2C00160BA5 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		599E46AA1B227DDB005CE654 /* PictureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureManager.swift; sourceTree = "<group>"; };
 		59FD8B9A1BAEA702005C86B0 /* InstructionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionVC.swift; sourceTree = "<group>"; };
 		59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseVC.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				5964135C1B511151009B857A /* Color.swift */,
+				599C44271BE3AC2C00160BA5 /* Text.swift */,
 				3DB8F9E81B5B4DF4000B8747 /* SegueIdentifier.swift */,
 				5940F5071B91A63800822980 /* UserDefaultKey.swift */,
 			);
@@ -493,6 +496,7 @@
 				5907B2661B3E2C12009A1F01 /* UIScrollView+hit.swift in Sources */,
 				595101AF1B19EB8E006F2F65 /* PictureConfirmVC.swift in Sources */,
 				59FDC0111B5E6BAF00E28AB5 /* String+extension.swift in Sources */,
+				599C44281BE3AC2C00160BA5 /* Text.swift in Sources */,
 				3DB8F9E91B5B4DF4000B8747 /* SegueIdentifier.swift in Sources */,
 				5964135D1B511151009B857A /* Color.swift in Sources */,
 				599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */,
@@ -755,6 +759,7 @@
 				5942CE9D1BE261FC00966D64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		595101A21B19EB8D006F2F65 /* Build configuration list for PBXProject "instawallpaper" */ = {
 			isa = XCConfigurationList;

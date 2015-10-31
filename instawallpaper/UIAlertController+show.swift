@@ -14,7 +14,7 @@ extension UIAlertController {
         let alertController = UIAlertController(title: title, message: message,
             preferredStyle: .Alert)
         
-        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment:""),
+        let okAction = UIAlertAction(title: Text.OK,
             style: .Default, handler:handler)
         alertController.addAction(okAction)
         dispatch_async(dispatch_get_main_queue(), {
