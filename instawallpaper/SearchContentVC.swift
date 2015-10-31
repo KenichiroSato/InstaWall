@@ -31,7 +31,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
         topView.backgroundColor = Color.BASE_BLUE
         searchBox.text = loadSearchKeyword()
         searchBox.clearButtonMode = UITextFieldViewMode.WhileEditing
-        searchBox.placeholder = NSLocalizedString("SEARCH_BOX_PLACEHOLDER", comment:"")
+        searchBox.placeholder = Text.SEARCH_BOX_PLACEHOLDER
         addTransparentView()
         if let text = searchBox.text {
             photosVC.roadTopSearchItems(text)
@@ -40,7 +40,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     
     private func loadSearchKeyword() -> String {
         let ud = NSUserDefaults.standardUserDefaults()
-        return  ud.stringForKey(UserDefaultKey.SEARCH_KEYWORD) ?? NSLocalizedString("SEARCH_DEFAULT_KEYWORD", comment:"")
+        return  ud.stringForKey(UserDefaultKey.SEARCH_KEYWORD) ?? Text.SEARCH_DEFAULT_KEYWORD
     }
     
     private func saveSearchKeyword(keyword:String) {

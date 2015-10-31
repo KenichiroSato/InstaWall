@@ -65,7 +65,7 @@ class PictureConfirmVC: UIViewController {
             options: SDWebImageOptions.RetryFailed, completed: {(image, error, _, _) in
             self.indicatorView.hidden = true
             if (error != nil) {
-                UIAlertController.show( NSLocalizedString("ERR_FAIL_LOAD", comment:""),
+                UIAlertController.show( Text.ERR_FAIL_LOAD,
                     message: nil, forVC: self, handler:{ _ in self.dismiss()})
             } else {
                 self.updateBackground(image)
@@ -122,7 +122,7 @@ class PictureConfirmVC: UIViewController {
         }
         
         if (PictureManager.isAuthorizationDenied()) {
-            UIAlertController.show(NSLocalizedString("ERR_DENIED_SAVE", comment:""),
+            UIAlertController.show(Text.ERR_DENIED_SAVE,
                 message: nil, forVC: self, handler:failHandler)
             return
         }
@@ -132,7 +132,7 @@ class PictureConfirmVC: UIViewController {
                 if (authorized) {
                     self.storeImage(completion)
                 } else {
-                    UIAlertController.show(NSLocalizedString("ERR_DENIED_SAVE", comment:""),
+                    UIAlertController.show(Text.ERR_DENIED_SAVE,
                         message: nil, forVC: self, handler:failHandler)
                 }
             }
@@ -148,18 +148,18 @@ class PictureConfirmVC: UIViewController {
                         successHandler()
                     }
                 } else {
-                    UIAlertController.show(NSLocalizedString("ERR_FAIL_SAVE", comment:""),
+                    UIAlertController.show(Text.ERR_FAIL_SAVE,
                         message: nil, forVC: self, handler:failHandler)
                 }
             })
         } else {
-            UIAlertController.show(NSLocalizedString("ERR_FAIL_SAVE", comment:""),
+            UIAlertController.show(Text.ERR_FAIL_SAVE,
                 message: nil, forVC: self, handler:failHandler)
         }
     }
         
     private func showFirstSavedMessage(completion:(()-> Void)) {
-        UIAlertController.show(NSLocalizedString("MSG_FIRST_SAVED", comment: ""),
+        UIAlertController.show(Text.MSG_FIRST_SAVED,
             message: nil, forVC: self, handler: {action in
             PictureManager.setFirstSavedMessageHasShown()
             completion()
@@ -174,25 +174,25 @@ class PictureConfirmVC: UIViewController {
             CGRectMake(self.view.frame.width/2, self.view.frame.height/2, 200, 300)
         
         let cancelAction = UIAlertAction(
-            title: NSLocalizedString("CANCEL", comment:""),
+            title: Text.CANCEL,
             style: UIAlertActionStyle.Cancel,
             handler: { action in print("canceled", terminator: "")})
         actionController.addAction(cancelAction)
         
         let showInstruction = UIAlertAction(
-            title: NSLocalizedString("MSG_SHOW_INSTRUCTION", comment: ""),
+            title: Text.MSG_SHOW_INSTRUCTION,
             style: UIAlertActionStyle.Destructive,
             handler: {action in self.showInstruction()})
         actionController.addAction(showInstruction)
         
         let openPhotosAction = UIAlertAction(
-            title: NSLocalizedString("MSG_OPEN_PHOTOS", comment:""),
+            title: Text.MSG_OPEN_PHOTOS,
             style: UIAlertActionStyle.Default,
             handler: {action in self.openPhotosApp()})
         actionController.addAction(openPhotosAction)
         
         let backAction = UIAlertAction(
-            title: NSLocalizedString("MSG_BACK_TO_LIST", comment: ""),
+            title: Text.MSG_BACK_TO_LIST,
             style: UIAlertActionStyle.Default,
             handler: {action in self.backToList()})
         actionController.addAction(backAction)

@@ -26,11 +26,11 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         topView.backgroundColor = Color.BASE_BLUE
         
         if (AccountManager.sharedInstance.isLoggedIn()) {
-            loginButton.setTitle(NSLocalizedString("LOG_OUT", comment:""),
+            loginButton.setTitle(Text.LOG_OUT,
                 forState: UIControlState.Normal)
             photosVC.roadTopSelfFeed()
         } else {
-            loginButton.setTitle(NSLocalizedString("LOG_IN", comment:""),
+            loginButton.setTitle(Text.LOG_IN,
                 forState: UIControlState.Normal)
             photosVC.roadTopPopular()
         }
@@ -57,7 +57,7 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
     
     private func logOut() {
         AccountManager.sharedInstance.logOut()
-        loginButton.setTitle(NSLocalizedString("LOG_IN", comment:""),
+        loginButton.setTitle(Text.LOG_IN,
             forState: UIControlState.Normal)
         photosVC.roadTopPopular()
     }
@@ -73,7 +73,7 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
     func onLoggedIn(token: String) {
         AccountManager.sharedInstance.saveToken(token)
         photosVC.roadTopSelfFeed()
-        loginButton.setTitle(NSLocalizedString("LOG_OUT", comment:""),
+        loginButton.setTitle(Text.LOG_OUT,
             forState: UIControlState.Normal)
     }
     
