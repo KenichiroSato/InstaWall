@@ -126,7 +126,7 @@
                                 <outlet property="delegate" destination="INZ-LP-xpe" id="IGN-xf-AMl"/>
                             </connections>
                         </textField>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="F9P-KS-oXk">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="F9P-KS-oXk">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eTp-OP-OkU">
                                 <rect key="frame" x="-23" y="-15" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
