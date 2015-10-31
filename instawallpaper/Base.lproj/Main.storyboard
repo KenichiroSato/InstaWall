@@ -549,8 +549,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZo-FM-AD5" userLabel="topView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4K-K0-DLm">
-                                        <rect key="frame" x="240" y="10" width="97" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4K-K0-DLm">
+                                        <rect key="frame" x="20" y="10" width="560" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -565,7 +565,6 @@
                                     <constraint firstAttribute="trailing" secondItem="Z4K-K0-DLm" secondAttribute="trailing" constant="20" id="2PP-dw-wnl"/>
                                     <constraint firstItem="Z4K-K0-DLm" firstAttribute="leading" secondItem="KZo-FM-AD5" secondAttribute="leading" constant="20" id="4Fr-bV-ifk"/>
                                     <constraint firstAttribute="height" constant="50" id="WZJ-u8-fJy"/>
-                                    <constraint firstAttribute="centerX" secondItem="Z4K-K0-DLm" secondAttribute="centerX" constant="9.5" id="p1d-AV-EqF"/>
                                     <constraint firstAttribute="centerY" secondItem="Z4K-K0-DLm" secondAttribute="centerY" id="yQF-x4-Jk6"/>
                                 </constraints>
                             </view>
