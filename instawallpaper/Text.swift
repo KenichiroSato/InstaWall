@@ -11,6 +11,8 @@ class Text {
 
     static let ERR_FAIL_LOAD = NSLocalizedString("ERR_FAIL_LOAD", comment:"")
 
+    static let ERR_FAIL_OPEN_INSTAGRAM = NSLocalizedString("ERR_FAIL_OPEN_INSTAGRAM", comment:"")
+
     static let ERR_FAIL_SAVE = NSLocalizedString("ERR_FAIL_SAVE", comment:"")
 
     static let LOG_IN = NSLocalizedString("LOG_IN", comment:"")
@@ -22,6 +24,8 @@ class Text {
     static let MSG_FIRST_SAVED = NSLocalizedString("MSG_FIRST_SAVED", comment:"")
 
     static let MSG_OPEN_PHOTOS = NSLocalizedString("MSG_OPEN_PHOTOS", comment:"")
+
+    static let MSG_OPEN_WITH_INSTAGRAM = NSLocalizedString("MSG_OPEN_WITH_INSTAGRAM", comment:"")
 
     static let MSG_SHOW_INSTRUCTION = NSLocalizedString("MSG_SHOW_INSTRUCTION", comment:"")
 

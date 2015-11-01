@@ -184,6 +184,12 @@ class PictureConfirmVC: UIViewController {
             handler: {action in self.showInstruction()})
         actionController.addAction(showInstruction)
         
+        let openInstagramAction = UIAlertAction(
+            title: Text.MSG_OPEN_WITH_INSTAGRAM,
+            style: UIAlertActionStyle.Default,
+            handler: {action in self.openInstagramApp()})
+        actionController.addAction(openInstagramAction)
+
         let openPhotosAction = UIAlertAction(
             title: Text.MSG_OPEN_PHOTOS,
             style: UIAlertActionStyle.Default,
@@ -233,7 +239,11 @@ class PictureConfirmVC: UIViewController {
     private func openInstagramApp() {
         if let id = instagramId,
             let url = NSURL(string: PictureConfirmVC.INSTAGRAM_URL_SCHEME + id) {
-                UIApplication.sharedApplication().openURL(url)
+                let success = UIApplication.sharedApplication().openURL(url)
+                if (!success) {
+                    UIAlertController.show(Text.ERR_FAIL_OPEN_INSTAGRAM,
+                        message: nil, forVC: self, handler: nil)
+                }
         }
     }
     

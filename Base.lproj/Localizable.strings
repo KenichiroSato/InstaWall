@@ -1,12 +1,14 @@
 "CANCEL" = "Cancel";
 "ERR_DENIED_SAVE" = "Failed to save image.\n Please enable this app in \n Settings \> Privacy \> Photos.";
 "ERR_FAIL_LOAD" = "Failed to load images.";
+"ERR_FAIL_OPEN_INSTAGRAM" = "Failed to open Instagram.\n Please install Instagram app.";
 "ERR_FAIL_SAVE" = "Failed to save image.";
 "LOG_IN" = "Login";
 "LOG_OUT" = "Logout";
 "MSG_BACK_TO_LIST" = "Back to list";
 "MSG_FIRST_SAVED" = "Image is saved. Please set wallpaper with Settings app or Photos app.";
 "MSG_OPEN_PHOTOS" = "Open Photos";
+"MSG_OPEN_WITH_INSTAGRAM" = "Open with Instagram";
 "MSG_SHOW_INSTRUCTION" = "How to set wallpaper";
 "OK" = "OK";
 "SEARCH_BOX_PLACEHOLDER" = "search keyword";
