@@ -341,6 +341,7 @@
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="O6Q-TJ-isC" appends="YES" id="Qk9-SP-GcJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="GaV-ZC-0aF" appends="YES" id="lEn-Ph-gWq"/>
                                 </connections>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="NUg-6T-I9d">
@@ -399,7 +400,12 @@
                 </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="O6Q-TJ-isC">
                     <connections>
-                        <action selector="onSwiped:" destination="BYZ-38-t0r" id="lne-nz-kq0"/>
+                        <action selector="onSwipedRight:" destination="BYZ-38-t0r" id="z0S-QB-xDu"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="GaV-ZC-0aF">
+                    <connections>
+                        <action selector="onSwipedLeft:" destination="BYZ-38-t0r" id="NM2-30-BYW"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
