@@ -155,6 +155,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
                     let media: InstagramMedia = pictureArray[selectedIndexPath[0].item];
                     nextVC.pictureUrl = media.standardResolutionImageURL
                     nextVC.placeHosderImage = cell.imageView.image
+                    nextVC.instagramId = media.Id
             }
         }
     }

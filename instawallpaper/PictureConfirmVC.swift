@@ -15,6 +15,8 @@ class PictureConfirmVC: UIViewController {
     
     static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
     
+    static private let INSTAGRAM_URL_SCHEME = "instagram://media?id="
+    
     static private let PHOTOS_APP_URL_SCHEME = "photos-redirect:"
     
     static private let GRADATION_HEIGHT: CGFloat = 20.0
@@ -29,6 +31,7 @@ class PictureConfirmVC: UIViewController {
     private var topGradientLayer: CAGradientLayer = CAGradientLayer()
     var pictureUrl: NSURL = NSURL(string: DEFAULT_IMAGE_URL + INSTAGRAM_URL_SUFFIX)!
     var placeHosderImage : UIImage?
+    var instagramId: String?
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -181,6 +184,12 @@ class PictureConfirmVC: UIViewController {
             handler: {action in self.showInstruction()})
         actionController.addAction(showInstruction)
         
+        let openInstagramAction = UIAlertAction(
+            title: Text.MSG_OPEN_WITH_INSTAGRAM,
+            style: UIAlertActionStyle.Default,
+            handler: {action in self.openInstagramApp()})
+        actionController.addAction(openInstagramAction)
+
         let openPhotosAction = UIAlertAction(
             title: Text.MSG_OPEN_PHOTOS,
             style: UIAlertActionStyle.Default,
@@ -219,8 +228,23 @@ class PictureConfirmVC: UIViewController {
         showActionMenu()
     }
     
-    @IBAction func onSwiped(sender: AnyObject) {
+    @IBAction func onSwipedRight(sender: AnyObject) {
         dismiss()
+    }
+    
+    @IBAction func onSwipedLeft(sender: AnyObject) {
+        openInstagramApp()
+    }
+    
+    private func openInstagramApp() {
+        if let id = instagramId,
+            let url = NSURL(string: PictureConfirmVC.INSTAGRAM_URL_SCHEME + id) {
+                let success = UIApplication.sharedApplication().openURL(url)
+                if (!success) {
+                    UIAlertController.show(Text.ERR_FAIL_OPEN_INSTAGRAM,
+                        message: nil, forVC: self, handler: nil)
+                }
+        }
     }
     
     private func dismiss() {
