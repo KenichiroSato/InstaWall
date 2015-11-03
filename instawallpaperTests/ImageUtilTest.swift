@@ -57,7 +57,7 @@ class ImageUtilTest: XCTestCase {
         resutlColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha )
         print( red.description + " " + green.description + " " + blue.description)
         
-        XCTAssertEqual(red, 1.0)
+        XCTAssertEqual(red, 0.0)
         XCTAssertEqual(green, 1.0)
         XCTAssertEqual(blue, 0.0)
         XCTAssertEqual(alpha, 1.0)
