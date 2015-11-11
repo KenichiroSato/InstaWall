@@ -316,27 +316,15 @@
                                             <constraint firstAttribute="width" secondItem="Lab-Pn-ME6" secondAttribute="height" multiplier="1:1" id="alB-oj-UEh"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z73-ZB-21O">
-                                        <rect key="frame" x="0.0" y="-10" width="600" height="600"/>
-                                        <animations/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="z73-ZB-21O" secondAttribute="height" multiplier="1:1" id="3xQ-9N-Vxd"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <animations/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Lab-Pn-ME6" firstAttribute="leading" secondItem="mQ9-Dk-IQl" secondAttribute="leading" id="4GB-br-xzP"/>
-                                    <constraint firstAttribute="centerY" secondItem="z73-ZB-21O" secondAttribute="centerY" id="K4z-45-HnO"/>
                                     <constraint firstItem="WhG-s7-7vF" firstAttribute="leading" secondItem="mQ9-Dk-IQl" secondAttribute="leading" id="KPL-4L-wa3"/>
                                     <constraint firstAttribute="bottom" secondItem="WhG-s7-7vF" secondAttribute="bottom" id="Vii-81-M0T"/>
-                                    <constraint firstAttribute="centerX" secondItem="z73-ZB-21O" secondAttribute="centerX" id="YWE-KS-w62"/>
-                                    <constraint firstItem="z73-ZB-21O" firstAttribute="leading" secondItem="mQ9-Dk-IQl" secondAttribute="leading" id="bs8-er-jTe"/>
                                     <constraint firstItem="Lab-Pn-ME6" firstAttribute="top" secondItem="mQ9-Dk-IQl" secondAttribute="top" id="ny7-Zh-5hk"/>
                                     <constraint firstAttribute="trailing" secondItem="Lab-Pn-ME6" secondAttribute="trailing" id="qfF-JF-K1c"/>
-                                    <constraint firstAttribute="trailing" secondItem="z73-ZB-21O" secondAttribute="trailing" id="qq9-Sn-nNQ"/>
                                     <constraint firstAttribute="trailing" secondItem="WhG-s7-7vF" secondAttribute="trailing" id="vBB-g8-wmc"/>
                                 </constraints>
                                 <connections>
@@ -384,7 +372,6 @@
                     </view>
                     <connections>
                         <outlet property="bottomBackground" destination="WhG-s7-7vF" id="Hr3-EK-85h"/>
-                        <outlet property="imageView" destination="z73-ZB-21O" id="HEP-MZ-21u"/>
                         <outlet property="indicatorView" destination="NUg-6T-I9d" id="IPH-Rn-3tR"/>
                         <outlet property="parentPictureView" destination="mQ9-Dk-IQl" id="Ylb-kH-Ei4"/>
                         <outlet property="tapImageView" destination="Gzb-YW-shl" id="rrN-jf-sSE"/>

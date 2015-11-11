@@ -19,11 +19,11 @@ class PictureConfirmVC: UIViewController {
     static private let GRADATION_HEIGHT: CGFloat = 20.0
     
     @IBOutlet weak var parentPictureView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bottomBackground: UIView!
     @IBOutlet weak var topBackground: UIView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var tapImageView: UIImageView!
+    private var imageView: UIImageView = UIImageView()
     private var bottomGradientLayer: CAGradientLayer = CAGradientLayer()
     private var topGradientLayer: CAGradientLayer = CAGradientLayer()
     var placeHosderImage : UIImage?
@@ -31,26 +31,38 @@ class PictureConfirmVC: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        setupGradientLayers()
+        setupImageViews()
         setImage()
     }
     
-    private func setupGradientLayers() {
+    private func setupImageViews() {
         
-        let screenWidth = UIScreen.mainScreen().bounds.size.width
-        
-        var topFrame: CGRect = imageView.bounds
-        topFrame.size.height = PictureConfirmVC.GRADATION_HEIGHT
-        topFrame.size.width = screenWidth
-        topGradientLayer.frame = topFrame
-        imageView.layer.addSublayer(topGradientLayer)
-
-        var bottomFrame: CGRect = imageView.bounds
-        bottomFrame.size.height = PictureConfirmVC.GRADATION_HEIGHT
-        bottomFrame.origin.y = screenWidth  - PictureConfirmVC.GRADATION_HEIGHT
-        bottomFrame.size.width = screenWidth
-        bottomGradientLayer.frame = bottomFrame
-        imageView.layer.addSublayer(bottomGradientLayer)        
+        if let originalPictureHeight = instagramMedia?.standardResolutionImageFrameSize.height,
+            let originalPictureWidth = instagramMedia?.standardResolutionImageFrameSize.width {
+                self.parentPictureView.addSubview(imageView)
+                
+                let screenWidth = UIScreen.mainScreen().bounds.size.width
+                let screenHeight = UIScreen.mainScreen().bounds.size.height
+                let ratio = originalPictureHeight / originalPictureWidth
+                
+                let width = screenWidth
+                let height = screenWidth * ratio
+                let x: CGFloat = 0.0
+                let y = screenHeight/2 - height/2
+                imageView.frame = CGRectMake(x, y, width, height)
+                
+                var topFrame: CGRect = imageView.bounds
+                topFrame.size.height = PictureConfirmVC.GRADATION_HEIGHT
+                topGradientLayer.frame = topFrame
+                imageView.layer.addSublayer(topGradientLayer)
+                
+                var bottomFrame: CGRect = imageView.bounds
+                bottomFrame.size.height = PictureConfirmVC.GRADATION_HEIGHT
+                bottomFrame.origin.y = bottomFrame.origin.y
+                    + imageView.frame.height  - PictureConfirmVC.GRADATION_HEIGHT
+                bottomGradientLayer.frame = bottomFrame
+                imageView.layer.addSublayer(bottomGradientLayer)
+        }
     }
         
     private func setImage() {
