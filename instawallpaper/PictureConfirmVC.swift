@@ -8,13 +8,10 @@
 
 import UIKit
 import SDWebImage
+import InstagramKit
 
 class PictureConfirmVC: UIViewController {
 
-    static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3k7-yGxmzD/"
-    
-    static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
-    
     static private let INSTAGRAM_URL_SCHEME = "instagram://media?id="
     
     static private let PHOTOS_APP_URL_SCHEME = "photos-redirect:"
@@ -22,55 +19,74 @@ class PictureConfirmVC: UIViewController {
     static private let GRADATION_HEIGHT: CGFloat = 20.0
     
     @IBOutlet weak var parentPictureView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bottomBackground: UIView!
     @IBOutlet weak var topBackground: UIView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var tapImageView: UIImageView!
+    private var imageView: UIImageView = UIImageView()
     private var bottomGradientLayer: CAGradientLayer = CAGradientLayer()
     private var topGradientLayer: CAGradientLayer = CAGradientLayer()
-    var pictureUrl: NSURL = NSURL(string: DEFAULT_IMAGE_URL + INSTAGRAM_URL_SUFFIX)!
     var placeHosderImage : UIImage?
-    var instagramId: String?
+    var instagramMedia: InstagramMedia?
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        setupGradientLayers()
         setImage()
     }
     
-    private func setupGradientLayers() {
+    private func setImage() {
+        if let height = instagramMedia?.standardResolutionImageFrameSize.height,
+            let width = instagramMedia?.standardResolutionImageFrameSize.width,
+            let url = instagramMedia?.standardResolutionImageURL {
+                setupImageViews(height, pictureWidth: width)
+                loadImage(url)
+        } else {
+            UIAlertController.show( Text.ERR_FAIL_LOAD,
+                message: nil, forVC: self, handler:{ _ in self.dismiss()})
+        }
+    }
+
+    private func setupImageViews(pictureHeight:CGFloat, pictureWidth:CGFloat) {
         
+        self.parentPictureView.addSubview(imageView)
+                
         let screenWidth = UIScreen.mainScreen().bounds.size.width
+        let screenHeight = UIScreen.mainScreen().bounds.size.height
+        let ratio = pictureHeight / pictureWidth
+
+        let width = screenWidth
+        let height = screenWidth * ratio
+        let x: CGFloat = 0.0
+        let y = screenHeight/2 - height/2
+        imageView.frame = CGRectMake(x, y, width, height)
         
         var topFrame: CGRect = imageView.bounds
         topFrame.size.height = PictureConfirmVC.GRADATION_HEIGHT
-        topFrame.size.width = screenWidth
         topGradientLayer.frame = topFrame
         imageView.layer.addSublayer(topGradientLayer)
-
+        
         var bottomFrame: CGRect = imageView.bounds
         bottomFrame.size.height = PictureConfirmVC.GRADATION_HEIGHT
-        bottomFrame.origin.y = screenWidth  - PictureConfirmVC.GRADATION_HEIGHT
-        bottomFrame.size.width = screenWidth
+        bottomFrame.origin.y = bottomFrame.origin.y
+            + imageView.frame.height  - PictureConfirmVC.GRADATION_HEIGHT
         bottomGradientLayer.frame = bottomFrame
-        imageView.layer.addSublayer(bottomGradientLayer)        
+        imageView.layer.addSublayer(bottomGradientLayer)
     }
-        
-    private func setImage() {
+    
+    private func loadImage(pictureUrl:NSURL) {
         let timeTracker = TimeTracker(tag: "setImage")
         timeTracker.start()
         imageView.sd_setImageWithURL(pictureUrl, placeholderImage: placeHosderImage,
             options: SDWebImageOptions.RetryFailed, completed: {(image, error, _, _) in
-            self.indicatorView.hidden = true
-            if (error != nil) {
-                UIAlertController.show( Text.ERR_FAIL_LOAD,
-                    message: nil, forVC: self, handler:{ _ in self.dismiss()})
-            } else {
-                self.updateBackground(image)
-                self.showTapAnimation()
-            }
-            timeTracker.finish()
+                self.indicatorView.hidden = true
+                if (error != nil) {
+                    UIAlertController.show( Text.ERR_FAIL_LOAD,
+                        message: nil, forVC: self, handler:{ _ in self.dismiss()})
+                } else {
+                    self.updateBackground(image)
+                    self.showTapAnimation()
+                }
+                timeTracker.finish()
         })
     }
     
@@ -225,7 +241,7 @@ class PictureConfirmVC: UIViewController {
     }
     
     private func openInstagramApp() {
-        if let id = instagramId,
+        if let id = instagramMedia?.Id,
             let url = NSURL(string: PictureConfirmVC.INSTAGRAM_URL_SCHEME + id) {
                 let success = UIApplication.sharedApplication().openURL(url)
                 if (!success) {
