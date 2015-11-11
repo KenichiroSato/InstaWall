@@ -153,9 +153,9 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
                 let cell = self.collectionView?.cellForItemAtIndexPath(selectedIndexPath[0]) as? PictureCell {
                     let nextVC = segue.destinationViewController as! PictureConfirmVC
                     let media: InstagramMedia = pictureArray[selectedIndexPath[0].item];
-                    nextVC.pictureUrl = media.standardResolutionImageURL
+                    nextVC.instagramMedia = media
                     nextVC.placeHosderImage = cell.imageView.image
-                    nextVC.instagramId = media.Id
+                    print("size=" + NSStringFromCGSize(media.standardResolutionImageFrameSize))
             }
         }
     }

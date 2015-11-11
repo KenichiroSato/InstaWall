@@ -8,13 +8,10 @@
 
 import UIKit
 import SDWebImage
+import InstagramKit
 
 class PictureConfirmVC: UIViewController {
 
-    static private let DEFAULT_IMAGE_URL = "https://instagram.com/p/3k7-yGxmzD/"
-    
-    static private let INSTAGRAM_URL_SUFFIX = "media?size=l"
-    
     static private let INSTAGRAM_URL_SCHEME = "instagram://media?id="
     
     static private let PHOTOS_APP_URL_SCHEME = "photos-redirect:"
@@ -29,9 +26,8 @@ class PictureConfirmVC: UIViewController {
     @IBOutlet weak var tapImageView: UIImageView!
     private var bottomGradientLayer: CAGradientLayer = CAGradientLayer()
     private var topGradientLayer: CAGradientLayer = CAGradientLayer()
-    var pictureUrl: NSURL = NSURL(string: DEFAULT_IMAGE_URL + INSTAGRAM_URL_SUFFIX)!
     var placeHosderImage : UIImage?
-    var instagramId: String?
+    var instagramMedia: InstagramMedia?
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -58,20 +54,23 @@ class PictureConfirmVC: UIViewController {
     }
         
     private func setImage() {
-        let timeTracker = TimeTracker(tag: "setImage")
-        timeTracker.start()
-        imageView.sd_setImageWithURL(pictureUrl, placeholderImage: placeHosderImage,
-            options: SDWebImageOptions.RetryFailed, completed: {(image, error, _, _) in
-            self.indicatorView.hidden = true
-            if (error != nil) {
-                UIAlertController.show( Text.ERR_FAIL_LOAD,
-                    message: nil, forVC: self, handler:{ _ in self.dismiss()})
-            } else {
-                self.updateBackground(image)
-                self.showTapAnimation()
-            }
-            timeTracker.finish()
-        })
+        if let pictureUrl = instagramMedia?.standardResolutionImageURL {
+            let timeTracker = TimeTracker(tag: "setImage")
+            timeTracker.start()
+            print("pictureUrl=" + pictureUrl.description)
+            imageView.sd_setImageWithURL(pictureUrl, placeholderImage: placeHosderImage,
+                options: SDWebImageOptions.RetryFailed, completed: {(image, error, _, _) in
+                    self.indicatorView.hidden = true
+                    if (error != nil) {
+                        UIAlertController.show( Text.ERR_FAIL_LOAD,
+                            message: nil, forVC: self, handler:{ _ in self.dismiss()})
+                    } else {
+                        self.updateBackground(image)
+                        self.showTapAnimation()
+                    }
+                    timeTracker.finish()
+            })
+        }
     }
     
     private func showTapAnimation() {
@@ -225,7 +224,7 @@ class PictureConfirmVC: UIViewController {
     }
     
     private func openInstagramApp() {
-        if let id = instagramId,
+        if let id = instagramMedia?.Id,
             let url = NSURL(string: PictureConfirmVC.INSTAGRAM_URL_SCHEME + id) {
                 let success = UIApplication.sharedApplication().openURL(url)
                 if (!success) {
