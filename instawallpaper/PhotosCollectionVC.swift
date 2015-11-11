@@ -155,7 +155,6 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
                     let media: InstagramMedia = pictureArray[selectedIndexPath[0].item];
                     nextVC.instagramMedia = media
                     nextVC.placeHosderImage = cell.imageView.image
-                    print("size=" + NSStringFromCGSize(media.standardResolutionImageFrameSize))
             }
         }
     }
