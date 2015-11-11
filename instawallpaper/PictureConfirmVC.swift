@@ -178,24 +178,12 @@ class PictureConfirmVC: UIViewController {
             handler: { action in print("canceled", terminator: "")})
         actionController.addAction(cancelAction)
         
-        let showInstruction = UIAlertAction(
-            title: Text.MSG_SHOW_INSTRUCTION,
-            style: UIAlertActionStyle.Destructive,
-            handler: {action in self.showInstruction()})
-        actionController.addAction(showInstruction)
-        
         let openInstagramAction = UIAlertAction(
             title: Text.MSG_OPEN_WITH_INSTAGRAM,
             style: UIAlertActionStyle.Default,
             handler: {action in self.openInstagramApp()})
         actionController.addAction(openInstagramAction)
 
-        let openPhotosAction = UIAlertAction(
-            title: Text.MSG_OPEN_PHOTOS,
-            style: UIAlertActionStyle.Default,
-            handler: {action in self.openPhotosApp()})
-        actionController.addAction(openPhotosAction)
-        
         let backAction = UIAlertAction(
             title: Text.MSG_BACK_TO_LIST,
             style: UIAlertActionStyle.Default,
