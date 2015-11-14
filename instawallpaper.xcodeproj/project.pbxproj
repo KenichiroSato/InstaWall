@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C71AA2A1B4BFEDB00710E96 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0C71AA291B4BFEDB00710E96 /* Settings.bundle */; };
 		0CD2A6A31B29AFB200FD111E /* ImageUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */; };
-		0CD2A6A51B29B46C00FD111E /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101CC1B1A87D7006F2F65 /* ImageUtil.swift */; };
 		0CE915091B4EAE1D009551EE /* SegmentedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE915081B4EAE1D009551EE /* SegmentedVC.swift */; };
 		3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614AB61B2413D700B3CE59 /* TimeTracker.swift */; };
 		3DB8F9E91B5B4DF4000B8747 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8F9E81B5B4DF4000B8747 /* SegueIdentifier.swift */; };
@@ -32,6 +31,8 @@
 		595101B71B19EB8E006F2F65 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 595101B51B19EB8E006F2F65 /* LaunchScreen.xib */; };
 		595101C31B19EB8E006F2F65 /* instawallpaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */; };
 		595101CD1B1A87D7006F2F65 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101CC1B1A87D7006F2F65 /* ImageUtil.swift */; };
+		5952D5E11BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5952D5E01BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift */; };
+		5952D5E91BF6E02200FDAAFD /* TryReloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F008B1B974D4600452D86 /* TryReloadView.swift */; };
 		5964135B1B510896009B857A /* HomeContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964135A1B510896009B857A /* HomeContentVC.swift */; };
 		5964135D1B511151009B857A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964135C1B511151009B857A /* Color.swift */; };
 		5964135F1B511A50009B857A /* SearchContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964135E1B511A50009B857A /* SearchContentVC.swift */; };
@@ -96,6 +97,7 @@
 		595101C11B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instawallpaperTests.swift; sourceTree = "<group>"; };
 		595101CC1B1A87D7006F2F65 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
+		5952D5E01BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionVCTest.swift; sourceTree = "<group>"; };
 		5964135A1B510896009B857A /* HomeContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentVC.swift; sourceTree = "<group>"; };
 		5964135C1B511151009B857A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		5964135E1B511A50009B857A /* SearchContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContentVC.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */,
 				0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */,
+				5952D5E01BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift */,
 				595101C01B19EB8E006F2F65 /* Supporting Files */,
 			);
 			path = instawallpaperTests;
@@ -522,7 +525,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CD2A6A51B29B46C00FD111E /* ImageUtil.swift in Sources */,
+				5952D5E11BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift in Sources */,
+				5952D5E91BF6E02200FDAAFD /* TryReloadView.swift in Sources */,
 				595101C31B19EB8E006F2F65 /* instawallpaperTests.swift in Sources */,
 				0CD2A6A31B29AFB200FD111E /* ImageUtilTest.swift in Sources */,
 			);

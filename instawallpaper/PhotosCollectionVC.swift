@@ -184,17 +184,21 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let picCount = pictureArray.count
-        if (picCount == 0) { return 0 }
-        if (didHitBottom) {return picCount }
+        return numberOfItems(picCount, didHitBottom: didHitBottom)
+    }
+    
+    private func numberOfItems(count: Int, didHitBottom: Bool) -> Int{
+        if (count == 0) { return 0 }
+        if (didHitBottom) {return count }
         
         //This is to display activity indicator at the center cell of the bottom line
-        let rest = picCount % 3
+        let rest = count % 3
         if (rest == 0) {
-            return picCount + 2
+            return count + 2
         } else if (rest == 1) {
-            return picCount + 1
+            return count + 1
         } else { // rest == 2
-            return picCount + 3
+            return count + 3
         }
     }
 
@@ -277,3 +281,12 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     */
 
 }
+
+// Only for UnitTest
+extension PhotosCollectionVC {
+    func numberOfItemsTest(count: Int, didHitBottom: Bool) -> Int{
+        return self.numberOfItems(count, didHitBottom: didHitBottom)
+    }
+}
+
+
