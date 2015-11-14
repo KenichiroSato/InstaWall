@@ -2,7 +2,7 @@
 //  PhotosCollectionVC.swift
 //  instawallpaper
 //
-//  Created by 佐藤健一朗 on 2015/11/14.
+//  Created by Kenichiro Sato on 2015/11/14.
 //  Copyright © 2015年 Kenichiro Sato. All rights reserved.
 //
 
