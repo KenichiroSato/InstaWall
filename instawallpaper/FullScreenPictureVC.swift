@@ -111,6 +111,13 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
         //*targetContentOffset = CGPointMake(0, MAX(nextIndex*kUVCellDragInterval, self.collectionView.contentInset.top));
     }
     
+    @IBAction func onSwipedRight(sender: AnyObject) {
+        dismiss()
+    }
+
+    private func dismiss() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 
     
 }
