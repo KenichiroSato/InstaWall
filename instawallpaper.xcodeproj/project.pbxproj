@@ -33,6 +33,9 @@
 		595101CD1B1A87D7006F2F65 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595101CC1B1A87D7006F2F65 /* ImageUtil.swift */; };
 		5952D5E11BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5952D5E01BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift */; };
 		5952D5E91BF6E02200FDAAFD /* TryReloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F008B1B974D4600452D86 /* TryReloadView.swift */; };
+		5952D5F11BF721B900FDAAFD /* FullScreenPictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5952D5F01BF721B900FDAAFD /* FullScreenPictureVC.swift */; };
+		5952D5F31BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5952D5F21BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift */; };
+		5952D5F51BF82C3200FDAAFD /* FullScreenPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5952D5F41BF82C3200FDAAFD /* FullScreenPictureCell.swift */; };
 		5964135B1B510896009B857A /* HomeContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964135A1B510896009B857A /* HomeContentVC.swift */; };
 		5964135D1B511151009B857A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964135C1B511151009B857A /* Color.swift */; };
 		5964135F1B511A50009B857A /* SearchContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5964135E1B511A50009B857A /* SearchContentVC.swift */; };
@@ -98,6 +101,9 @@
 		595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instawallpaperTests.swift; sourceTree = "<group>"; };
 		595101CC1B1A87D7006F2F65 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		5952D5E01BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionVCTest.swift; sourceTree = "<group>"; };
+		5952D5F01BF721B900FDAAFD /* FullScreenPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureVC.swift; sourceTree = "<group>"; };
+		5952D5F21BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenCollectionViewLayout.swift; sourceTree = "<group>"; };
+		5952D5F41BF82C3200FDAAFD /* FullScreenPictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureCell.swift; sourceTree = "<group>"; };
 		5964135A1B510896009B857A /* HomeContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContentVC.swift; sourceTree = "<group>"; };
 		5964135C1B511151009B857A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		5964135E1B511A50009B857A /* SearchContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContentVC.swift; sourceTree = "<group>"; };
@@ -209,6 +215,8 @@
 				595101B31B19EB8E006F2F65 /* Images.xcassets */,
 				595101B51B19EB8E006F2F65 /* LaunchScreen.xib */,
 				595101AA1B19EB8E006F2F65 /* Supporting Files */,
+				5952D5F21BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift */,
+				5952D5F41BF82C3200FDAAFD /* FullScreenPictureCell.swift */,
 			);
 			path = instawallpaper;
 			sourceTree = "<group>";
@@ -262,6 +270,7 @@
 				5910BA291B2BE88E00ABFCF8 /* PhotosCollectionVC.swift */,
 				5964135E1B511A50009B857A /* SearchContentVC.swift */,
 				0CE915081B4EAE1D009551EE /* SegmentedVC.swift */,
+				5952D5F01BF721B900FDAAFD /* FullScreenPictureVC.swift */,
 			);
 			name = viewController;
 			sourceTree = "<group>";
@@ -494,8 +503,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CE915091B4EAE1D009551EE /* SegmentedVC.swift in Sources */,
+				5952D5F51BF82C3200FDAAFD /* FullScreenPictureCell.swift in Sources */,
 				595101CD1B1A87D7006F2F65 /* ImageUtil.swift in Sources */,
 				5964135B1B510896009B857A /* HomeContentVC.swift in Sources */,
+				5952D5F31BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift in Sources */,
 				5907B2661B3E2C12009A1F01 /* UIScrollView+hit.swift in Sources */,
 				595101AF1B19EB8E006F2F65 /* PictureConfirmVC.swift in Sources */,
 				59FDC0111B5E6BAF00E28AB5 /* String+extension.swift in Sources */,
@@ -517,6 +528,7 @@
 				59FDC00A1B555F1700E28AB5 /* ContentBaseVC.swift in Sources */,
 				591F008C1B974D4600452D86 /* TryReloadView.swift in Sources */,
 				5907B2681B3E4EC6009A1F01 /* InstagramManager.swift in Sources */,
+				5952D5F11BF721B900FDAAFD /* FullScreenPictureVC.swift in Sources */,
 				3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

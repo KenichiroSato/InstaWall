@@ -105,7 +105,7 @@
                                 <connections>
                                     <outlet property="imageView" destination="8lx-Iz-PDF" id="aaK-Wu-MMV"/>
                                     <outlet property="indicator" destination="eCp-fr-szT" id="qVb-nR-33X"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="segue.fullscreen" id="Joa-zm-Qm0"/>
+                                    <segue destination="0go-gA-Olp" kind="show" identifier="segue.fullscreen" id="6r0-ty-53Z"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -397,6 +397,25 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2786" y="-452"/>
+        </scene>
+        <!--Full Screen PictureVC-->
+        <scene sceneID="IAW-6T-UeE">
+            <objects>
+                <viewController id="0go-gA-Olp" customClass="FullScreenPictureVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="51F-cV-dOn"/>
+                        <viewControllerLayoutGuide type="bottom" id="dji-de-9iR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Afi-T5-64Z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iIC-2D-ChJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2639" y="-61"/>
         </scene>
         <!--InstructionVC-->
         <scene sceneID="Grq-Xq-HXW">
