@@ -15,13 +15,22 @@ class FullScreenPictureCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         imageView = UIImageView()
-        let rect = CGRect(x: 0, y: 0, width: 300, height: 300)
-        imageView?.frame = rect
+        imageView?.translatesAutoresizingMaskIntoConstraints = false;
+        imageView?.contentMode = UIViewContentMode.ScaleAspectFill//UIViewContentModeScaleAspectFill;
+        imageView?.clipsToBounds = true;
+        
         if let view = imageView {
             self.contentView.addSubview(view)
         }
+        
+        // Auto Layout
+        var viewBindingsDict: [String: AnyObject] = [String: AnyObject]()
+        viewBindingsDict["imageView"] = imageView
+        let constraints = NSLayoutConstraint.constraintsWithVisualFormat("|[imageView]|", options:NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: viewBindingsDict)
+        self.contentView.addConstraints(constraints)
+        let constraints2 = NSLayoutConstraint.constraintsWithVisualFormat("V:|[imageView]|", options:NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: viewBindingsDict)
+        self.contentView.addConstraints(constraints2)
     }
-
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

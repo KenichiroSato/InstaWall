@@ -11,7 +11,7 @@ import UIKit
 class FullScreenCollectionViewLayout: UICollectionViewLayout {
 
     static let ACTIVE_HEIGHT: CGFloat = 300.0
-    static let DEFAULT_HEIGHT: CGFloat = 10.0
+    static let DEFAULT_HEIGHT: CGFloat = 0.0
     static let DRAG_INTERVAL: CGFloat = 180.0
     
     private var layoutInfo: [NSIndexPath:UICollectionViewLayoutAttributes] = [:]
