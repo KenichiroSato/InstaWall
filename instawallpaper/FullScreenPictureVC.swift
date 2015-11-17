@@ -18,6 +18,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
 
     //private let layout: KTUVDemoLayout
     var pictureArray: [InstagramMedia] = []
+    var initialIndex: Int?
     private var collectionView: UICollectionView!
     let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
 
@@ -36,7 +37,19 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
         collectionView.registerClass(FullScreenPictureCell.self, forCellWithReuseIdentifier: FullScreenPictureVC.reuseIdentifier)
         self.view.addSubview(collectionView)
     }
- 
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if let index = initialIndex {
+            moveToIndex(index)
+        }
+    }
+
+    private func moveToIndex(index: Int) {
+        collectionView.contentOffset.y = CGFloat(index) * FullScreenCollectionViewLayout.DRAG_INTERVAL
+        collectionView.setNeedsLayout()
+        collectionView.layoutIfNeeded()
+    }
     
     // MARK: UICollectionViewDataSource
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

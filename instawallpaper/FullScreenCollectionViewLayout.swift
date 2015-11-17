@@ -19,7 +19,7 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
     
     override func prepareLayout() {
         super.prepareLayout()
-        
+
         var newLayoutInfo:[NSIndexPath:UICollectionViewLayoutAttributes] = [:]
         let itemCount: Int = collectionView?.numberOfItemsInSection(0) ?? 0
         var indexPath = NSIndexPath(forItem: 0, inSection: 0)

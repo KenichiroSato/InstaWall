@@ -159,8 +159,12 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
             
             }
             */
-            let nextVC = segue.destinationViewController as! FullScreenPictureVC
-            nextVC.pictureArray = pictureArray
+            if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems() {
+                let nextVC = segue.destinationViewController as! FullScreenPictureVC
+                nextVC.pictureArray = pictureArray
+                let indexPath = selectedIndexPath[0]
+                nextVC.initialIndex = indexPath.item
+            }
         }
     }
 
