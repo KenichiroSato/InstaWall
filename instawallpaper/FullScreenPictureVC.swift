@@ -27,7 +27,6 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
         let fullScreenRect: CGRect = UIScreen.mainScreen().applicationFrame  //[[UIScreen mainScreen] applicationFrame];
         collectionView = UICollectionView(frame: fullScreenRect, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.blackColor()
-//        collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionVieawLayout:self.layout];
         collectionView.translatesAutoresizingMaskIntoConstraints = false;
         collectionView.dataSource = self;
         collectionView.delegate = self;
@@ -35,10 +34,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast; // Faster deceleration!
         collectionView.scrollsToTop = true;
         collectionView.registerClass(FullScreenPictureCell.self, forCellWithReuseIdentifier: FullScreenPictureVC.reuseIdentifier)
-        //[self.collectionView registerClass:[KTUVDemoCell class] forCellWithReuseIdentifier:@"KTUVDemoCell"];
         self.view.addSubview(collectionView)
-        //[self.view addSubview:self.collectionView];
-
     }
  
     
@@ -74,18 +70,13 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
         var nextIndex: Int = 0
         let currentY = scrollView.contentOffset.y
         let yDiff: CGFloat = abs(targetContentOffset.memory.y - currentY)
-//    NSInteger nextIndex;
-//    CGFloat currentY = scrollView.contentOffset.y;
-//    CGFloat yDiff = abs(targetContentOffset->y - currentY);
-
+        
         if (velocity.y == 0)
         {
             // A 0 velocity means the user dragged and stopped (no flick)
             // In this case, tell the scroll view to animate to the closest index
             nextIndex = Int(roundf(Float(targetContentOffset.memory.y / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
             targetContentOffset.memory = CGPointMake(0, CGFloat(nextIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL)
-            //    nextIndex = roundf(targetContentOffset->y / kUVCellDragInterval);
-            //    *targetContentOffset = CGPointMake(0, nextIndex * kUVCellDragInterval);
         }
         else if (velocity.y > 0)
         {
@@ -94,7 +85,6 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
             // Err towards closer a index by forcing a slightly closer target offset
             nextIndex = Int(ceilf(Float((targetContentOffset.memory.y -
                 (yDiff * FullScreenPictureVC.DRAG_VELOCITY_DAMPENER))/FullScreenCollectionViewLayout.DRAG_INTERVAL)))
-//            nextIndex = ceil((targetContentOffset->y - (yDiff*kDragVelocityDampener)) / kUVCellDragInterval);
         }
         else
         {
@@ -102,13 +92,11 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
             // Evaluate to the nearest index
             // Err towards closer a index by forcing a slightly closer target offset
             nextIndex = Int(floorf(Float((targetContentOffset.memory.y + (yDiff * FullScreenPictureVC.DRAG_VELOCITY_DAMPENER)) / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
-//            nextIndex = floor((targetContentOffset->y + (yDiff*kDragVelocityDampener)) / kUVCellDragInterval);
         }
     
         // Return our adjusted target point
         targetContentOffset.memory = CGPointMake(0, max(CGFloat(nextIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL,
         collectionView.contentInset.top))
-        //*targetContentOffset = CGPointMake(0, MAX(nextIndex*kUVCellDragInterval, self.collectionView.contentInset.top));
     }
     
     @IBAction func onSwipedRight(sender: AnyObject) {
@@ -118,6 +106,5 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
     private func dismiss() {
         self.navigationController?.popViewControllerAnimated(true)
     }
-
     
 }
