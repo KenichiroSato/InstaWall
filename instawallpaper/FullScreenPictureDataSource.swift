@@ -20,6 +20,15 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
         pictureArray = mediaArray
     }
     
+    func heightOfCellAtIndex(index:Int) -> CGFloat? {
+        guard (0 <= index && index < pictureArray.count) else {
+            return nil
+        }
+        let size = pictureArray[index].standardResolutionImageFrameSize
+        let screenWidth = UIScreen.mainScreen().bounds.size.width
+        return screenWidth * size.height / size.width
+    }
+    
     // MARK: UICollectionViewDataSource
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1

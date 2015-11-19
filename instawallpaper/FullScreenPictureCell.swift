@@ -27,7 +27,7 @@ class FullScreenPictureCell: UICollectionViewCell {
         
         shadowView = UIView()
         shadowView?.translatesAutoresizingMaskIntoConstraints = false;
-        shadowView?.backgroundColor = UIColor.blackColor()
+        //shadowView?.backgroundColor = UIColor.clearColor()
         if let shadow = shadowView {
             self.contentView.addSubview(shadow)
         }
@@ -53,11 +53,12 @@ class FullScreenPictureCell: UICollectionViewCell {
     
     override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
         super.applyLayoutAttributes(layoutAttributes)
-        
+
         // Calculate how much the cell has 'grown' towards its active height
         // Featured cells will be 1.0
         // Default cells are 0.0
         // Incoming cells will be somewhere between
+        /*
         let hardHeightDiff: CGFloat = FullScreenCollectionViewLayout.ACTIVE_HEIGHT - FullScreenCollectionViewLayout.DEFAULT_HEIGHT
         let amountGrown: CGFloat = FullScreenCollectionViewLayout.ACTIVE_HEIGHT - layoutAttributes.frame.size.height
         let percentOfGrowth: CGFloat = min(1 - (amountGrown / hardHeightDiff), 1.0)
@@ -67,6 +68,7 @@ class FullScreenPictureCell: UICollectionViewCell {
         } else {
             shadowView?.layer.opacity = Float(DEFAULT_OPACITY)
         }
+*/
     }
 
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class FullScreenCollectionViewLayout: UICollectionViewLayout {
 
-    static let ACTIVE_HEIGHT: CGFloat = 300.0
+    static let DEFAULT_CELL_HEIGHT: CGFloat = 300.0
     static let DEFAULT_HEIGHT: CGFloat = 0.0
     static let DRAG_INTERVAL: CGFloat = 180.0
     
@@ -42,6 +42,14 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
             itemAttributes.zIndex = item;
             
             var yOffset: CGFloat = 0.0
+           
+            let cellHeight: CGFloat
+            if let dataSource = collectionView?.dataSource as? FullScreenPictureDataSource,
+                let height = dataSource.heightOfCellAtIndex(item) {
+                    cellHeight = height
+            } else {
+                cellHeight = FullScreenCollectionViewLayout.DEFAULT_CELL_HEIGHT
+            }
             
             // The current featured cell
             if (currentIndex == item)
@@ -56,15 +64,14 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
                 }
                 
                 // Build that frame, yo! Set the height to the activeHeight value
-                itemAttributes.frame = CGRectMake(0, yOffset, collectionView?.bounds.size.width ?? 0,
-                    FullScreenCollectionViewLayout.ACTIVE_HEIGHT);
+                itemAttributes.frame = CGRectMake(0, yOffset, collectionView?.bounds.size.width ?? 0, cellHeight);
                 lastRect = itemAttributes.frame;
             }
             // The 'incoming' cell
             else if (item == currentIndex + 1)
             {
                 // Calculate how much the cell should 'grow' based on how close it is to becomming featured
-                let heightDelta: CGFloat = max((FullScreenCollectionViewLayout.ACTIVE_HEIGHT - FullScreenCollectionViewLayout.DEFAULT_HEIGHT) * interpolation, 0)
+                let heightDelta: CGFloat = max((cellHeight - FullScreenCollectionViewLayout.DEFAULT_HEIGHT) * interpolation, 0)
                 let height: CGFloat = CGFloat(ceil(Double(FullScreenCollectionViewLayout.DEFAULT_HEIGHT + heightDelta)))
                 
                 // Position the BOTTOM of this cell [defaultHeight] pts below the featured cell (lastRect). This is how they visually overlap
