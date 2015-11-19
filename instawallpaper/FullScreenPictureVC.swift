@@ -10,7 +10,7 @@ import UIKit
 import InstagramKit
 import SDWebImage
 
-class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
 
     private static let DRAG_VELOCITY_DAMPENER: CGFloat = 0.85
     
@@ -19,6 +19,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
     //private let layout: KTUVDemoLayout
     var pictureArray: [InstagramMedia] = []
     var initialIndex: Int?
+    private var dataSource: FullScreenPictureDataSource?
     private var collectionView: UICollectionView!
     let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
 
@@ -29,11 +30,12 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
         collectionView = UICollectionView(frame: fullScreenRect, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.blackColor()
         collectionView.translatesAutoresizingMaskIntoConstraints = false;
-        collectionView.dataSource = self;
-        collectionView.delegate = self;
-        collectionView.alwaysBounceVertical = true;
-        collectionView.decelerationRate = UIScrollViewDecelerationRateFast; // Faster deceleration!
-        collectionView.scrollsToTop = true;
+        dataSource = FullScreenPictureDataSource(mediaArray: pictureArray)
+        collectionView.dataSource = dataSource
+        collectionView.delegate = self
+        collectionView.alwaysBounceVertical = true
+        collectionView.decelerationRate = UIScrollViewDecelerationRateFast // Faster deceleration!
+        collectionView.scrollsToTop = true
         collectionView.registerClass(FullScreenPictureCell.self, forCellWithReuseIdentifier: FullScreenPictureVC.reuseIdentifier)
         self.view.addSubview(collectionView)
     }
@@ -50,30 +52,6 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDataSource, UIColle
         collectionView.setNeedsLayout()
         collectionView.layoutIfNeeded()
     }
-    
-    // MARK: UICollectionViewDataSource
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pictureArray.count
-    }
-
-    func collectionView(collectionView: UICollectionView,
-        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(FullScreenPictureVC.reuseIdentifier, forIndexPath: indexPath)
-                as! FullScreenPictureCell
-            
-            if let imgView = cell.imageView {
-                imgView.image = nil
-                let media: InstagramMedia = pictureArray[indexPath.row]
-                imgView.sd_setImageWithURL(media.standardResolutionImageURL,
-                    placeholderImage:nil, options: SDWebImageOptions.RetryFailed)
-            }
-            return cell
-    }
-
     
     // MARK: UIScrollViewDelegate
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
