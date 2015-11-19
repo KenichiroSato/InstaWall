@@ -161,7 +161,8 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
             */
             if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems() {
                 let nextVC = segue.destinationViewController as! FullScreenPictureVC
-                nextVC.pictureArray = pictureArray
+                let dataSource = FullScreenPictureDataSource(mediaArray: pictureArray)
+                nextVC.dataSource = dataSource
                 let indexPath = selectedIndexPath[0]
                 nextVC.initialIndex = indexPath.item
             }

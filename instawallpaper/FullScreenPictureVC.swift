@@ -16,10 +16,8 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
     
     private static let reuseIdentifier = "FullScreenPictureCell"
 
-    //private let layout: KTUVDemoLayout
-    var pictureArray: [InstagramMedia] = []
     var initialIndex: Int?
-    private var dataSource: FullScreenPictureDataSource?
+    var dataSource: FullScreenPictureDataSource?
     private var collectionView: UICollectionView!
     let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
 
@@ -30,7 +28,6 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
         collectionView = UICollectionView(frame: fullScreenRect, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.blackColor()
         collectionView.translatesAutoresizingMaskIntoConstraints = false;
-        dataSource = FullScreenPictureDataSource(mediaArray: pictureArray)
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true

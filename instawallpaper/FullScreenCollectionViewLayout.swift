@@ -15,7 +15,6 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
     static let DRAG_INTERVAL: CGFloat = 180.0
     
     private var layoutInfo: [NSIndexPath:UICollectionViewLayoutAttributes] = [:]
-
     
     override func prepareLayout() {
         super.prepareLayout()
