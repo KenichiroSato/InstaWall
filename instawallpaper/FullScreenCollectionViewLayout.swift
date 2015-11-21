@@ -11,7 +11,6 @@ import UIKit
 class FullScreenCollectionViewLayout: UICollectionViewLayout {
 
     static let DEFAULT_CELL_HEIGHT: CGFloat = 300.0
-    static let DEFAULT_HEIGHT: CGFloat = 0.0
     static let DRAG_INTERVAL: CGFloat = 180.0
     
     private var layoutInfo: [NSIndexPath:UICollectionViewLayoutAttributes] = [:]
@@ -59,8 +58,7 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
                 {
                     // Place the feautured cell at the current content offset, 
                     //and back it off the screen based on how close we are to the next index
-                    let yDelta:CGFloat = FullScreenCollectionViewLayout.DEFAULT_HEIGHT * interpolation
-                    yOffset = CGFloat(ceil(Double(contentOffsetTop - yDelta)))
+                    yOffset = CGFloat(ceil(contentOffsetTop))
                 }
                 
                 // Build that frame, yo! Set the height to the activeHeight value
@@ -71,11 +69,11 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
             else if (item == currentIndex + 1)
             {
                 // Calculate how much the cell should 'grow' based on how close it is to becomming featured
-                let heightDelta: CGFloat = max((cellHeight - FullScreenCollectionViewLayout.DEFAULT_HEIGHT) * interpolation, 0)
-                let height: CGFloat = CGFloat(ceil(Double(FullScreenCollectionViewLayout.DEFAULT_HEIGHT + heightDelta)))
+                let heightDelta: CGFloat = max(cellHeight * interpolation, 0)
+                let height: CGFloat = CGFloat(ceil(heightDelta))
                 
                 // Position the BOTTOM of this cell [defaultHeight] pts below the featured cell (lastRect). This is how they visually overlap
-                let yOffset: CGFloat = lastRect.origin.y + lastRect.size.height + FullScreenCollectionViewLayout.DEFAULT_HEIGHT - height;
+                let yOffset: CGFloat = lastRect.origin.y + lastRect.size.height - height;
                 itemAttributes.frame = CGRectMake(0, yOffset, collectionView?.bounds.size.width ?? 0, height);
                 lastRect = itemAttributes.frame;
             }
@@ -90,7 +88,7 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
             {
                 // Stack it below the last frame
                 yOffset = lastRect.origin.y + lastRect.size.height;
-                itemAttributes.frame = CGRectMake(0, yOffset, collectionView?.bounds.size.width ?? 0, FullScreenCollectionViewLayout.DEFAULT_HEIGHT);
+                itemAttributes.frame = CGRectMake(0, yOffset, collectionView?.bounds.size.width ?? 0, 0);
                 lastRect = itemAttributes.frame;
             }
             
