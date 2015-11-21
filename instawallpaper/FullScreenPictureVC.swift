@@ -16,7 +16,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
     
     private static let reuseIdentifier = "FullScreenPictureCell"
 
-    var initialIndex: Int?
+    var currentIndex: Int = 0
     var dataSource: FullScreenPictureDataSource?
     private var collectionView: UICollectionView!
     let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
@@ -39,9 +39,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if let index = initialIndex {
-            moveToIndex(index)
-        }
+        moveToIndex(currentIndex)
     }
 
     private func moveToIndex(index: Int) {
@@ -50,12 +48,23 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
         collectionView.layoutIfNeeded()
     }
     
+    private func updateBackground() {
+        if let color = dataSource?.topColorOfCellAtIndex(currentIndex) {
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.collectionView.backgroundColor = color
+            })
+        }
+    }
+    
     // MARK: UIScrollViewDelegate
+    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        updateBackground()
+    }
+    
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         /**
         * Here we target a specific cell index to move towards
         */
-        var nextIndex: Int = 0
         let currentY = scrollView.contentOffset.y
         let yDiff: CGFloat = abs(targetContentOffset.memory.y - currentY)
         
@@ -63,15 +72,15 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
         {
             // A 0 velocity means the user dragged and stopped (no flick)
             // In this case, tell the scroll view to animate to the closest index
-            nextIndex = Int(roundf(Float(targetContentOffset.memory.y / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
-            targetContentOffset.memory = CGPointMake(0, CGFloat(nextIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL)
+            currentIndex = Int(roundf(Float(targetContentOffset.memory.y / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
+            targetContentOffset.memory = CGPointMake(0, CGFloat(currentIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL)
         }
         else if (velocity.y > 0)
         {
             // User scrolled downwards
             // Evaluate to the nearest index
             // Err towards closer a index by forcing a slightly closer target offset
-            nextIndex = Int(ceilf(Float((targetContentOffset.memory.y -
+            currentIndex = Int(ceilf(Float((targetContentOffset.memory.y -
                 (yDiff * FullScreenPictureVC.DRAG_VELOCITY_DAMPENER))/FullScreenCollectionViewLayout.DRAG_INTERVAL)))
         }
         else
@@ -79,11 +88,11 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
             // User scrolled upwards
             // Evaluate to the nearest index
             // Err towards closer a index by forcing a slightly closer target offset
-            nextIndex = Int(floorf(Float((targetContentOffset.memory.y + (yDiff * FullScreenPictureVC.DRAG_VELOCITY_DAMPENER)) / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
+            currentIndex = Int(floorf(Float((targetContentOffset.memory.y + (yDiff * FullScreenPictureVC.DRAG_VELOCITY_DAMPENER)) / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
         }
     
         // Return our adjusted target point
-        targetContentOffset.memory = CGPointMake(0, max(CGFloat(nextIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL,
+        targetContentOffset.memory = CGPointMake(0, max(CGFloat(currentIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL,
         collectionView.contentInset.top))
     }
     

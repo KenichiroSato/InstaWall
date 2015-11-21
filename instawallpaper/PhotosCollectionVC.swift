@@ -164,7 +164,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
                 let dataSource = FullScreenPictureDataSource(mediaArray: pictureArray)
                 nextVC.dataSource = dataSource
                 let indexPath = selectedIndexPath[0]
-                nextVC.initialIndex = indexPath.item
+                nextVC.currentIndex = indexPath.item
             }
         }
     }
