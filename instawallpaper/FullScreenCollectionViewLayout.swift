@@ -57,6 +57,7 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
             {
                 yOffset = CGFloat(ceil(contentOffsetTop) + SCREEN_HEIGHT/2 - cellHeight/2)
                 itemAttributes.frame = CGRectMake(0, yOffset, SCREEN_WIDTH, cellHeight);
+                itemAttributes.alpha = 1 - interpolation
                 lastRect = itemAttributes.frame;
             }
             // The 'incoming' cell
@@ -66,8 +67,10 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
                 let heightDelta: CGFloat = max(cellHeight * interpolation, 0)
                 let height: CGFloat = CGFloat(ceil(heightDelta))
                 
-                // Position the BOTTOM of this cell [defaultHeight] pts below the featured cell (lastRect). This is how they visually overlap
-                let yOffset: CGFloat = lastRect.origin.y + lastRect.size.height - height;
+                // Position the BOTTOM of this cell [defaultHeight] pts below the featured cell (lastRect).
+                // This is how they visually overlap
+                let yOffsetDelat: CGFloat = (cellHeight/2 - lastRect.size.height/2) * interpolation
+                let yOffset: CGFloat = lastRect.origin.y + lastRect.size.height - height + yOffsetDelat;
                 itemAttributes.frame = CGRectMake(0, yOffset, SCREEN_WIDTH, height);
                 lastRect = itemAttributes.frame;
             }
