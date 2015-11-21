@@ -12,6 +12,8 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
 
     static let DEFAULT_CELL_HEIGHT: CGFloat = 300.0
     static let DRAG_INTERVAL: CGFloat = 180.0
+    let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
+    let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.size.height
     
     private var layoutInfo: [NSIndexPath:UICollectionViewLayoutAttributes] = [:]
     
@@ -53,16 +55,8 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
             // The current featured cell
             if (currentIndex == item)
             {
-                // Is the content offset past the top inset?
-                if (contentOffsetTop > collectionView?.contentInset.top ?? 0)
-                {
-                    // Place the feautured cell at the current content offset, 
-                    //and back it off the screen based on how close we are to the next index
-                    yOffset = CGFloat(ceil(contentOffsetTop))
-                }
-                
-                // Build that frame, yo! Set the height to the activeHeight value
-                itemAttributes.frame = CGRectMake(0, yOffset, collectionView?.bounds.size.width ?? 0, cellHeight);
+                yOffset = CGFloat(ceil(contentOffsetTop) + SCREEN_HEIGHT/2 - cellHeight/2)
+                itemAttributes.frame = CGRectMake(0, yOffset, SCREEN_WIDTH, cellHeight);
                 lastRect = itemAttributes.frame;
             }
             // The 'incoming' cell
@@ -74,21 +68,21 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
                 
                 // Position the BOTTOM of this cell [defaultHeight] pts below the featured cell (lastRect). This is how they visually overlap
                 let yOffset: CGFloat = lastRect.origin.y + lastRect.size.height - height;
-                itemAttributes.frame = CGRectMake(0, yOffset, collectionView?.bounds.size.width ?? 0, height);
+                itemAttributes.frame = CGRectMake(0, yOffset, SCREEN_WIDTH, height);
                 lastRect = itemAttributes.frame;
             }
             // Cells before the current featured cell
             else if (item < currentIndex)
             {
                 // Hide that shit offscreen!
-                itemAttributes.frame = CGRectMake(0, -5, collectionView?.bounds.size.width ?? 0, 0);
+                itemAttributes.frame = CGRectMake(0, -5, SCREEN_WIDTH, 0);
             }
             else
                 // Cells beyond the featured/incoming cells
             {
                 // Stack it below the last frame
                 yOffset = lastRect.origin.y + lastRect.size.height;
-                itemAttributes.frame = CGRectMake(0, yOffset, collectionView?.bounds.size.width ?? 0, 0);
+                itemAttributes.frame = CGRectMake(0, yOffset, SCREEN_WIDTH, 0);
                 lastRect = itemAttributes.frame;
             }
             
