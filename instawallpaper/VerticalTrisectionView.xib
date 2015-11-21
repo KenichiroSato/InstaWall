@@ -20,17 +20,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhY-D5-R1a" userLabel="TopView">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                     <animations/>
-                    <color key="backgroundColor" red="0.65600034539999996" green="0.96368429280000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntE-UR-yWm" userLabel="CenterView">
                     <rect key="frame" x="0.0" y="200" width="600" height="200"/>
                     <animations/>
-                    <color key="backgroundColor" red="1" green="0.94194567370000004" blue="0.50003217720000004" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isu-se-bny" userLabel="BottomView">
                     <rect key="frame" x="0.0" y="400" width="600" height="200"/>
                     <animations/>
-                    <color key="backgroundColor" red="0.80029966289999999" green="1" blue="0.7522316913" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <animations/>

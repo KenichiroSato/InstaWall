@@ -16,9 +16,10 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
     
     private static let reuseIdentifier = "FullScreenPictureCell"
 
+    @IBOutlet var backgroundView: VerticalTrisectionView!
+    private var collectionView: UICollectionView!
     var currentIndex: Int = 0
     var dataSource: FullScreenPictureDataSource?
-    private var collectionView: UICollectionView!
     let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
 
     override func viewDidLoad() {
@@ -49,10 +50,10 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
     }
     
     private func updateBackground() {
-        if let color = dataSource?.topColorOfCellAtIndex(currentIndex) {
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                //self.collectionView.backgroundColor = color
-            })
+        if let source = dataSource {
+            let topColor = source.topColorOfCellAtIndex(currentIndex)
+            let bottomColor = source.bottomColorOfCellAtIndex(currentIndex)
+            backgroundView.updateTopColor(topColor, andBottomColor: bottomColor)
         }
     }
     

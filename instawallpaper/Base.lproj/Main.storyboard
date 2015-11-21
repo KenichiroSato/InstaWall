@@ -416,6 +416,9 @@
                             <outletCollection property="gestureRecognizers" destination="Ad0-zH-V64" appends="YES" id="H9J-Qn-PBA"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="Afi-T5-64Z" id="3G2-4P-SEG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIC-2D-ChJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="Ad0-zH-V64">
