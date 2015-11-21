@@ -16,7 +16,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
     
     private static let reuseIdentifier = "FullScreenPictureCell"
 
-    @IBOutlet var backgroundView: VerticalTrisectionView!
+    @IBOutlet var backgroundView: GradationView!
     private var collectionView: UICollectionView!
     var currentIndex: Int = 0
     var dataSource: FullScreenPictureDataSource?

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VerticalTrisectionView: UIView {
+class GradationView: UIView {
 
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -34,7 +34,7 @@ class VerticalTrisectionView: UIView {
     
     func customViewCommonInit() {
         let view: UIView  = NSBundle.mainBundle()
-            .loadNibNamed("VerticalTrisectionView", owner: self, options: nil).first as! UIView
+            .loadNibNamed("GradationView", owner: self, options: nil).first as! UIView
         view.frame = self.bounds
         addSubview(view)
         
