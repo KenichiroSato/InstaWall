@@ -2,50 +2,16 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerticalTrisectionView" customModule="instawallpaper" customModuleProvider="target">
-            <connections>
-                <outlet property="bottomVIew" destination="Isu-se-bny" id="09n-cQ-3XI"/>
-                <outlet property="centerView" destination="ntE-UR-yWm" id="ZAX-M3-zGN"/>
-                <outlet property="topView" destination="hhY-D5-R1a" id="oS8-Ha-KTn"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerticalTrisectionView" customModule="instawallpaper" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhY-D5-R1a" userLabel="TopView">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
-                    <animations/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntE-UR-yWm" userLabel="CenterView">
-                    <rect key="frame" x="0.0" y="200" width="600" height="200"/>
-                    <animations/>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isu-se-bny" userLabel="BottomView">
-                    <rect key="frame" x="0.0" y="400" width="600" height="200"/>
-                    <animations/>
-                </view>
-            </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="Isu-se-bny" secondAttribute="trailing" id="3B0-fd-2EB"/>
-                <constraint firstItem="hhY-D5-R1a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5r6-Qd-FJD"/>
-                <constraint firstItem="Isu-se-bny" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="MvK-aL-aWi"/>
-                <constraint firstAttribute="bottom" secondItem="Isu-se-bny" secondAttribute="bottom" id="WV9-Td-11E"/>
-                <constraint firstItem="ntE-UR-yWm" firstAttribute="height" secondItem="hhY-D5-R1a" secondAttribute="height" id="cJj-7k-WKb"/>
-                <constraint firstItem="Isu-se-bny" firstAttribute="top" secondItem="ntE-UR-yWm" secondAttribute="bottom" id="cRQ-x5-l0J"/>
-                <constraint firstItem="Isu-se-bny" firstAttribute="height" secondItem="hhY-D5-R1a" secondAttribute="height" id="eCA-Nx-wWI"/>
-                <constraint firstItem="ntE-UR-yWm" firstAttribute="top" secondItem="hhY-D5-R1a" secondAttribute="bottom" id="eik-zx-oPJ"/>
-                <constraint firstItem="ntE-UR-yWm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="h3v-am-cB1"/>
-                <constraint firstAttribute="trailing" secondItem="hhY-D5-R1a" secondAttribute="trailing" id="jty-fG-gW7"/>
-                <constraint firstAttribute="trailing" secondItem="ntE-UR-yWm" secondAttribute="trailing" id="kAt-lG-uma"/>
-                <constraint firstItem="hhY-D5-R1a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vNK-Xr-9f4"/>
-            </constraints>
         </view>
     </objects>
 </document>

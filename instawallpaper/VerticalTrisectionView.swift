@@ -2,7 +2,7 @@
 //  VerticalTrisectionView.swift
 //  instawallpaper
 //
-//  Created by 佐藤健一朗 on 2015/11/21.
+//  Created by Kenichiro Sato on 2015/11/21.
 //  Copyright © 2015年 Kenichiro Sato. All rights reserved.
 //
 
@@ -18,13 +18,7 @@ class VerticalTrisectionView: UIView {
     }
     */
 
-    private let ANIMATION_DURATION = 0.4
-    
-    @IBOutlet weak var topView: UIView!
-    
-    @IBOutlet weak var centerView: UIView!
-    
-    @IBOutlet weak var bottomVIew: UIView!
+    private let ANIMATION_DURATION = 0.8
     
     private var gradientLayer: CAGradientLayer = CAGradientLayer()
 
@@ -39,19 +33,24 @@ class VerticalTrisectionView: UIView {
     }
     
     func customViewCommonInit() {
-        let view: UIView  = NSBundle.mainBundle().loadNibNamed("VerticalTrisectionView", owner: self, options: nil).first as! UIView
+        let view: UIView  = NSBundle.mainBundle()
+            .loadNibNamed("VerticalTrisectionView", owner: self, options: nil).first as! UIView
         view.frame = self.bounds
         addSubview(view)
         
-        gradientLayer.frame = centerView.bounds
-        centerView.layer.addSublayer(gradientLayer)
+        gradientLayer.frame = view.bounds
+        view.layer.addSublayer(gradientLayer)
     }
 
     func updateTopColor(topColor:UIColor, andBottomColor bottomColor:UIColor) {
         UIView.animateWithDuration(ANIMATION_DURATION, animations: { () -> Void in
-            self.topView.backgroundColor = topColor
-            self.bottomVIew.backgroundColor = bottomColor
-            self.gradientLayer.colors = [topColor.CGColor, bottomColor.CGColor]
+            self.gradientLayer.colors =
+                   [topColor.CGColor,
+                    topColor.CGColor,
+                    topColor.CGColor,
+                    bottomColor.CGColor,
+                    bottomColor.CGColor,
+                    bottomColor.CGColor]
         })
     }
 }

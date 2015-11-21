@@ -72,6 +72,7 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
                 let yOffsetDelat: CGFloat = (cellHeight/2 - lastRect.size.height/2) * interpolation
                 let yOffset: CGFloat = lastRect.origin.y + lastRect.size.height - height + yOffsetDelat;
                 itemAttributes.frame = CGRectMake(0, yOffset, SCREEN_WIDTH, height);
+                itemAttributes.alpha = interpolation
                 lastRect = itemAttributes.frame;
             }
             // Cells before the current featured cell
