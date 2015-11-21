@@ -26,7 +26,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
         
         let fullScreenRect: CGRect = UIScreen.mainScreen().applicationFrame  //[[UIScreen mainScreen] applicationFrame];
         collectionView = UICollectionView(frame: fullScreenRect, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.blackColor()
+        collectionView.backgroundColor = UIColor.clearColor()
         collectionView.translatesAutoresizingMaskIntoConstraints = false;
         collectionView.dataSource = dataSource
         collectionView.delegate = self
@@ -51,7 +51,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
     private func updateBackground() {
         if let color = dataSource?.topColorOfCellAtIndex(currentIndex) {
             UIView.animateWithDuration(0.4, animations: { () -> Void in
-                self.collectionView.backgroundColor = color
+                //self.collectionView.backgroundColor = color
             })
         }
     }

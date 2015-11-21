@@ -406,7 +406,7 @@
                         <viewControllerLayoutGuide type="top" id="51F-cV-dOn"/>
                         <viewControllerLayoutGuide type="bottom" id="dji-de-9iR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Afi-T5-64Z">
+                    <view key="view" contentMode="scaleToFill" id="Afi-T5-64Z" customClass="VerticalTrisectionView" customModule="instawallpaper" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>

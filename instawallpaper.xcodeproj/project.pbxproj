@@ -13,6 +13,8 @@
 		0CE915091B4EAE1D009551EE /* SegmentedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE915081B4EAE1D009551EE /* SegmentedVC.swift */; };
 		3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614AB61B2413D700B3CE59 /* TimeTracker.swift */; };
 		3DB8F9E91B5B4DF4000B8747 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8F9E81B5B4DF4000B8747 /* SegueIdentifier.swift */; };
+		5902E0971C006BA900CB5FE9 /* VerticalTrisectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5902E0961C006BA800CB5FE9 /* VerticalTrisectionView.xib */; };
+		5902E0991C006BEF00CB5FE9 /* VerticalTrisectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902E0981C006BEF00CB5FE9 /* VerticalTrisectionView.swift */; };
 		5904134F1BA5288D00100068 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 590413511BA5288D00100068 /* Localizable.strings */; };
 		5907B2661B3E2C12009A1F01 /* UIScrollView+hit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907B2651B3E2C12009A1F01 /* UIScrollView+hit.swift */; };
 		5907B2681B3E4EC6009A1F01 /* InstagramManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907B2671B3E4EC6009A1F01 /* InstagramManager.swift */; };
@@ -76,6 +78,8 @@
 		3D614AB61B2413D700B3CE59 /* TimeTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
 		3DB8F9E81B5B4DF4000B8747 /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		4FAEDB8F337C86D7B8F53BDE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5902E0961C006BA800CB5FE9 /* VerticalTrisectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerticalTrisectionView.xib; sourceTree = "<group>"; };
+		5902E0981C006BEF00CB5FE9 /* VerticalTrisectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTrisectionView.swift; sourceTree = "<group>"; };
 		590413501BA5288D00100068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		590413521BA5289C00100068 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5907B2651B3E2C12009A1F01 /* UIScrollView+hit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+hit.swift"; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 			children = (
 				591F008B1B974D4600452D86 /* TryReloadView.swift */,
 				591F008D1B974DDB00452D86 /* TryReloadView.xib */,
+				5902E0981C006BEF00CB5FE9 /* VerticalTrisectionView.swift */,
+				5902E0961C006BA800CB5FE9 /* VerticalTrisectionView.xib */,
 			);
 			name = customView;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 				595101B21B19EB8E006F2F65 /* Main.storyboard in Resources */,
 				591F008E1B974DDB00452D86 /* TryReloadView.xib in Resources */,
 				595101B71B19EB8E006F2F65 /* LaunchScreen.xib in Resources */,
+				5902E0971C006BA900CB5FE9 /* VerticalTrisectionView.xib in Resources */,
 				595101B41B19EB8E006F2F65 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +522,7 @@
 				595101AF1B19EB8E006F2F65 /* PictureConfirmVC.swift in Sources */,
 				59FDC0111B5E6BAF00E28AB5 /* String+extension.swift in Sources */,
 				599C44281BE3AC2C00160BA5 /* Text.swift in Sources */,
+				5902E0991C006BEF00CB5FE9 /* VerticalTrisectionView.swift in Sources */,
 				3DB8F9E91B5B4DF4000B8747 /* SegueIdentifier.swift in Sources */,
 				5964135D1B511151009B857A /* Color.swift in Sources */,
 				599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */,
