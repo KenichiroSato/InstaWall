@@ -10,6 +10,10 @@ import UIKit
 import InstagramKit
 import SDWebImage
 
+protocol ImageLoadDelegate {
+    func onImageLoaded(index: Int)
+}
+
 class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
     
     private let REUSE_IDENTIFIER = "FullScreenPictureCell"
@@ -17,6 +21,8 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
     private let DEFAULT_COLOR = UIColor.blackColor()
     
     private var pictureArray: [(media:InstagramMedia, topColor:UIColor, bottomColor:UIColor)] = []
+    
+    var imageLoadDelegate: ImageLoadDelegate?
     
     init(mediaArray:[InstagramMedia]) {
         for media in mediaArray {
@@ -72,6 +78,9 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
                                 ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.TOP)
                             self.pictureArray[indexPath.row].bottomColor =
                                 ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.BOTTOM)
+                            if let delegate = self.imageLoadDelegate {
+                                delegate.onImageLoaded(indexPath.row)
+                            }
                         }
                 })
             }

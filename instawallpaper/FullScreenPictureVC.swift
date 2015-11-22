@@ -10,7 +10,7 @@ import UIKit
 import InstagramKit
 import SDWebImage
 
-class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
+class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoadDelegate {
 
     private static let DRAG_VELOCITY_DAMPENER: CGFloat = 0.85
     
@@ -30,6 +30,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
         collectionView.backgroundColor = UIColor.clearColor()
         collectionView.translatesAutoresizingMaskIntoConstraints = false;
         collectionView.dataSource = dataSource
+        dataSource?.imageLoadDelegate = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast // Faster deceleration!
@@ -54,6 +55,13 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate {
             let topColor = source.topColorOfCellAtIndex(currentIndex)
             let bottomColor = source.bottomColorOfCellAtIndex(currentIndex)
             backgroundView.updateTopColor(topColor, andBottomColor: bottomColor)
+        }
+    }
+
+    // MARK: ImageLoadDelegate
+    func onImageLoaded(index: Int) {
+        if (index == currentIndex) {
+            updateBackground()
         }
     }
     
