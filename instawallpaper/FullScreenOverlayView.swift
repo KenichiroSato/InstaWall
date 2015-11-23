@@ -10,7 +10,7 @@ import UIKit
 
 class FullScreenOverlayView: UIView {
 
-    private let GRADATION_HEIGHT: CGFloat = 20.0
+    private let GRADATION_HEIGHT: CGFloat = 30.0
     private let ANIMATION_DURATION = 0.4
 
     private var topGradientView: UIView!
@@ -56,21 +56,21 @@ class FullScreenOverlayView: UIView {
     
     private func updateGradienViewFrame(contentHeight: CGFloat) {
         var topFrame = topGradientView.frame
-        topFrame.origin.y = Screen.HEIGHT() / 2 - contentHeight / 2
+        topFrame.origin.y = Screen.HEIGHT() / 2 - contentHeight / 2 - GRADATION_HEIGHT / 2
         topGradientView.frame = topFrame
         
         
         var bottomFrame = bottomGradientView.frame
-        bottomFrame.origin.y = Screen.HEIGHT() / 2 + contentHeight / 2 - GRADATION_HEIGHT
+        bottomFrame.origin.y = Screen.HEIGHT() / 2 + contentHeight / 2 - GRADATION_HEIGHT / 2
         bottomGradientView.frame = bottomFrame
     }
     
     private func updateGradientLayer(topColor: UIColor, bottomColor: UIColor) {
         let topEndColor = topColor.colorWithAlphaComponent(0.0)
-        topGradientLayer.colors = [topColor.CGColor, topEndColor.CGColor]
+        topGradientLayer.colors = [topColor.CGColor, topColor.CGColor, topEndColor.CGColor]
         
         let bottomStartColor = bottomColor.colorWithAlphaComponent(0.0)
-        bottomGradientLayer.colors = [bottomStartColor.CGColor, bottomColor.CGColor]
+        bottomGradientLayer.colors = [bottomStartColor.CGColor, bottomColor.CGColor, bottomColor.CGColor]
     }
 
     // pass touch event to underlying views
