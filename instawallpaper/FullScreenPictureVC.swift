@@ -12,8 +12,6 @@ import SDWebImage
 
 class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoadDelegate {
 
-    private static let DRAG_VELOCITY_DAMPENER: CGFloat = 0.85
-    
     private static let reuseIdentifier = "FullScreenPictureCell"
 
     @IBOutlet var backgroundView: GradationView!
@@ -99,7 +97,6 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
             // A 0 velocity means the user dragged and stopped (no flick)
             // In this case, tell the scroll view to animate to the closest index
             currentIndex = Int(roundf(Float(targetContentOffset.memory.y / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
-            targetContentOffset.memory = CGPointMake(0, CGFloat(currentIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL)
         }
         else if (velocity.y > 0)
         {
@@ -107,14 +104,14 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
             // Evaluate to the nearest index
             // Err towards closer a index by forcing a slightly closer target offset
             currentIndex = Int(ceilf(Float((targetContentOffset.memory.y -
-                (yDiff * FullScreenPictureVC.DRAG_VELOCITY_DAMPENER))/FullScreenCollectionViewLayout.DRAG_INTERVAL)))
+                yDiff)/FullScreenCollectionViewLayout.DRAG_INTERVAL)))
         }
         else
         {
             // User scrolled upwards
             // Evaluate to the nearest index
             // Err towards closer a index by forcing a slightly closer target offset
-            currentIndex = Int(floorf(Float((targetContentOffset.memory.y + (yDiff * FullScreenPictureVC.DRAG_VELOCITY_DAMPENER)) / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
+            currentIndex = Int(floorf(Float((targetContentOffset.memory.y + yDiff) / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
         }
     
         // Return our adjusted target point
