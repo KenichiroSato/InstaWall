@@ -11,7 +11,7 @@ import UIKit
 class FullScreenOverlayView: UIView {
 
     private let GRADATION_HEIGHT: CGFloat = 30.0
-    private let ANIMATION_DURATION = 0.4
+    private let ANIMATION_DURATION = 0.2
 
     private var topGradientView: UIView!
     private var bottomGradientView: UIView!
