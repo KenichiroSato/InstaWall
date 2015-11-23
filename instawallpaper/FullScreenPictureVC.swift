@@ -18,6 +18,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
 
     @IBOutlet var backgroundView: GradationView!
     private var collectionView: UICollectionView!
+    private var overlayView: FullScreenOverlayView!
     var currentIndex: Int = 0
     var dataSource: FullScreenPictureDataSource?
     let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
@@ -37,6 +38,9 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         collectionView.scrollsToTop = true
         collectionView.registerClass(FullScreenPictureCell.self, forCellWithReuseIdentifier: FullScreenPictureVC.reuseIdentifier)
         self.view.addSubview(collectionView)
+        
+        overlayView = FullScreenOverlayView(frame: fullScreenRect)
+        self.view.addSubview(overlayView)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -50,24 +54,37 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         collectionView.layoutIfNeeded()
     }
     
-    private func updateBackground() {
-        if let source = dataSource {
-            let topColor = source.topColorOfCellAtIndex(currentIndex)
-            let bottomColor = source.bottomColorOfCellAtIndex(currentIndex)
-            backgroundView.updateTopColor(topColor, andBottomColor: bottomColor)
+    private func updateViews() {
+        guard let source = dataSource else {
+            return
+        }
+        let topColor = source.topColorOfCellAtIndex(currentIndex)
+        let bottomColor = source.bottomColorOfCellAtIndex(currentIndex)
+        backgroundView.updateTopColor(topColor, andBottomColor: bottomColor)
+        if let height = source.heightOfCellAtIndex(currentIndex) {
+            overlayView.updateGradientViews(height,
+                topColor: topColor, bottomColor: bottomColor)
         }
     }
 
+    private func hideOverlay() {
+        overlayView.hideGradientViews()
+    }
+    
     // MARK: ImageLoadDelegate
     func onImageLoaded(index: Int) {
         if (index == currentIndex) {
-            updateBackground()
+            updateViews()
         }
     }
     
     // MARK: UIScrollViewDelegate
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        hideOverlay()
+    }
+    
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
-        updateBackground()
+        updateViews()
     }
     
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

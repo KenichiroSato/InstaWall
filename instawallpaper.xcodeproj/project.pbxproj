@@ -15,6 +15,8 @@
 		3DB8F9E91B5B4DF4000B8747 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8F9E81B5B4DF4000B8747 /* SegueIdentifier.swift */; };
 		5902E0971C006BA900CB5FE9 /* GradationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5902E0961C006BA800CB5FE9 /* GradationView.xib */; };
 		5902E0991C006BEF00CB5FE9 /* GradationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902E0981C006BEF00CB5FE9 /* GradationView.swift */; };
+		5902E09B1C029A0300CB5FE9 /* FullScreenOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902E09A1C029A0200CB5FE9 /* FullScreenOverlayView.swift */; };
+		5902E09D1C02ADBE00CB5FE9 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902E09C1C02ADBE00CB5FE9 /* Screen.swift */; };
 		5904134F1BA5288D00100068 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 590413511BA5288D00100068 /* Localizable.strings */; };
 		5907B2661B3E2C12009A1F01 /* UIScrollView+hit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907B2651B3E2C12009A1F01 /* UIScrollView+hit.swift */; };
 		5907B2681B3E4EC6009A1F01 /* InstagramManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907B2671B3E4EC6009A1F01 /* InstagramManager.swift */; };
@@ -80,6 +82,8 @@
 		4FAEDB8F337C86D7B8F53BDE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5902E0961C006BA800CB5FE9 /* GradationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GradationView.xib; sourceTree = "<group>"; };
 		5902E0981C006BEF00CB5FE9 /* GradationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradationView.swift; sourceTree = "<group>"; };
+		5902E09A1C029A0200CB5FE9 /* FullScreenOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenOverlayView.swift; sourceTree = "<group>"; };
+		5902E09C1C02ADBE00CB5FE9 /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		590413501BA5288D00100068 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		590413521BA5289C00100068 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5907B2651B3E2C12009A1F01 /* UIScrollView+hit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+hit.swift"; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 				595101B51B19EB8E006F2F65 /* LaunchScreen.xib */,
 				595101AA1B19EB8E006F2F65 /* Supporting Files */,
 				5952D5F21BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift */,
+				5902E09A1C029A0200CB5FE9 /* FullScreenOverlayView.swift */,
 				0C30FA4A1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift */,
 				5952D5F41BF82C3200FDAAFD /* FullScreenPictureCell.swift */,
 			);
@@ -261,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				5964135C1B511151009B857A /* Color.swift */,
+				5902E09C1C02ADBE00CB5FE9 /* Screen.swift */,
 				599C44271BE3AC2C00160BA5 /* Text.swift */,
 				3DB8F9E81B5B4DF4000B8747 /* SegueIdentifier.swift */,
 				5940F5071B91A63800822980 /* UserDefaultKey.swift */,
@@ -519,6 +525,7 @@
 				5952D5F31BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift in Sources */,
 				0C30FA4B1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift in Sources */,
 				5907B2661B3E2C12009A1F01 /* UIScrollView+hit.swift in Sources */,
+				5902E09D1C02ADBE00CB5FE9 /* Screen.swift in Sources */,
 				595101AF1B19EB8E006F2F65 /* PictureConfirmVC.swift in Sources */,
 				59FDC0111B5E6BAF00E28AB5 /* String+extension.swift in Sources */,
 				599C44281BE3AC2C00160BA5 /* Text.swift in Sources */,
@@ -540,6 +547,7 @@
 				59FDC00A1B555F1700E28AB5 /* ContentBaseVC.swift in Sources */,
 				591F008C1B974D4600452D86 /* TryReloadView.swift in Sources */,
 				5907B2681B3E4EC6009A1F01 /* InstagramManager.swift in Sources */,
+				5902E09B1C029A0300CB5FE9 /* FullScreenOverlayView.swift in Sources */,
 				5952D5F11BF721B900FDAAFD /* FullScreenPictureVC.swift in Sources */,
 				3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */,
 			);
