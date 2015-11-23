@@ -19,4 +19,7 @@ class Screen {
         return UIScreen.mainScreen().bounds.width
     }
     
+    static func APPLICATION_FRAME() -> CGRect {
+        return UIScreen.mainScreen().applicationFrame
+    }
 }

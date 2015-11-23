@@ -26,7 +26,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fullScreenRect: CGRect = UIScreen.mainScreen().applicationFrame  //[[UIScreen mainScreen] applicationFrame];
+        let fullScreenRect: CGRect = Screen.APPLICATION_FRAME()
         collectionView = UICollectionView(frame: fullScreenRect, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clearColor()
         collectionView.translatesAutoresizingMaskIntoConstraints = false;

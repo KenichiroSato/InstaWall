@@ -35,8 +35,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
             return nil
         }
         let size = pictureArray[index].media.standardResolutionImageFrameSize
-        let screenWidth = UIScreen.mainScreen().bounds.size.width
-        return screenWidth * size.height / size.width
+        return Screen.WIDTH() * size.height / size.width
     }
     
     func topColorOfCellAtIndex(index:Int) -> UIColor {

@@ -12,8 +12,6 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
 
     static let DEFAULT_CELL_HEIGHT: CGFloat = 300.0
     static let DRAG_INTERVAL: CGFloat = 180.0
-    let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
-    let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.size.height
     
     private var layoutInfo: [NSIndexPath:UICollectionViewLayoutAttributes] = [:]
     
@@ -55,8 +53,8 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
             // The current featured cell
             if (currentIndex == item)
             {
-                yOffset = CGFloat(ceil(contentOffsetTop) + SCREEN_HEIGHT/2 - cellHeight/2)
-                itemAttributes.frame = CGRectMake(0, yOffset, SCREEN_WIDTH, cellHeight);
+                yOffset = CGFloat(ceil(contentOffsetTop) + Screen.HEIGHT()/2 - cellHeight/2)
+                itemAttributes.frame = CGRectMake(0, yOffset, Screen.WIDTH(), cellHeight);
                 itemAttributes.alpha = 1 - interpolation
                 lastRect = itemAttributes.frame;
             }
@@ -71,7 +69,7 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
                 // This is how they visually overlap
                 let yOffsetDelat: CGFloat = (cellHeight/2 - lastRect.size.height/2) * interpolation
                 let yOffset: CGFloat = lastRect.origin.y + lastRect.size.height - height + yOffsetDelat;
-                itemAttributes.frame = CGRectMake(0, yOffset, SCREEN_WIDTH, height);
+                itemAttributes.frame = CGRectMake(0, yOffset, Screen.WIDTH(), height);
                 itemAttributes.alpha = interpolation
                 lastRect = itemAttributes.frame;
             }
@@ -79,14 +77,14 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
             else if (item < currentIndex)
             {
                 // Hide that shit offscreen!
-                itemAttributes.frame = CGRectMake(0, -5, SCREEN_WIDTH, 0);
+                itemAttributes.frame = CGRectMake(0, -5, Screen.WIDTH(), 0);
             }
             else
                 // Cells beyond the featured/incoming cells
             {
                 // Stack it below the last frame
                 yOffset = lastRect.origin.y + lastRect.size.height;
-                itemAttributes.frame = CGRectMake(0, yOffset, SCREEN_WIDTH, 0);
+                itemAttributes.frame = CGRectMake(0, yOffset, Screen.WIDTH(), 0);
                 lastRect = itemAttributes.frame;
             }
             

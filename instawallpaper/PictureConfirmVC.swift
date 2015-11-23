@@ -50,14 +50,12 @@ class PictureConfirmVC: UIViewController {
         
         self.parentPictureView.addSubview(imageView)
                 
-        let screenWidth = UIScreen.mainScreen().bounds.size.width
-        let screenHeight = UIScreen.mainScreen().bounds.size.height
         let ratio = pictureHeight / pictureWidth
 
-        let width = screenWidth
-        let height = screenWidth * ratio
+        let width = Screen.WIDTH()
+        let height = Screen.WIDTH() * ratio
         let x: CGFloat = 0.0
-        let y = screenHeight/2 - height/2
+        let y = Screen.HEIGHT()/2 - height/2
         imageView.frame = CGRectMake(x, y, width, height)
         
         var topFrame: CGRect = imageView.bounds
