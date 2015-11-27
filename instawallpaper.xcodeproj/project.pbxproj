@@ -153,6 +153,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5902E09E1C089D8E00CB5FE9 /* fullScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5952D5F01BF721B900FDAAFD /* FullScreenPictureVC.swift */,
+				5952D5F21BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift */,
+				5902E09A1C029A0200CB5FE9 /* FullScreenOverlayView.swift */,
+				0C30FA4A1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift */,
+				5952D5F41BF82C3200FDAAFD /* FullScreenPictureCell.swift */,
+			);
+			name = fullScreen;
+			sourceTree = "<group>";
+		};
 		5904134B1B99D3E700100068 /* customView */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +223,7 @@
 		595101A91B19EB8E006F2F65 /* instawallpaper */ = {
 			isa = PBXGroup;
 			children = (
+				5902E09E1C089D8E00CB5FE9 /* fullScreen */,
 				5904134B1B99D3E700100068 /* customView */,
 				59FDC00D1B5C8EC400E28AB5 /* viewController */,
 				59FDC00C1B5C8E5C00E28AB5 /* constant */,
@@ -227,10 +240,6 @@
 				595101B31B19EB8E006F2F65 /* Images.xcassets */,
 				595101B51B19EB8E006F2F65 /* LaunchScreen.xib */,
 				595101AA1B19EB8E006F2F65 /* Supporting Files */,
-				5952D5F21BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift */,
-				5902E09A1C029A0200CB5FE9 /* FullScreenOverlayView.swift */,
-				0C30FA4A1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift */,
-				5952D5F41BF82C3200FDAAFD /* FullScreenPictureCell.swift */,
 			);
 			path = instawallpaper;
 			sourceTree = "<group>";
@@ -285,7 +294,6 @@
 				5910BA291B2BE88E00ABFCF8 /* PhotosCollectionVC.swift */,
 				5964135E1B511A50009B857A /* SearchContentVC.swift */,
 				0CE915081B4EAE1D009551EE /* SegmentedVC.swift */,
-				5952D5F01BF721B900FDAAFD /* FullScreenPictureVC.swift */,
 			);
 			name = viewController;
 			sourceTree = "<group>";
