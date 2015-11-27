@@ -149,12 +149,22 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == SegueIdentifier.FULL_SCREEN) {
+            /*
             if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems(),
                 let cell = self.collectionView?.cellForItemAtIndexPath(selectedIndexPath[0]) as? PictureCell {
                     let nextVC = segue.destinationViewController as! PictureConfirmVC
                     let media: InstagramMedia = pictureArray[selectedIndexPath[0].item];
                     nextVC.instagramMedia = media
                     nextVC.placeHosderImage = cell.imageView.image
+            
+            }
+            */
+            if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems() {
+                let nextVC = segue.destinationViewController as! FullScreenPictureVC
+                let dataSource = FullScreenPictureDataSource(mediaArray: pictureArray)
+                nextVC.dataSource = dataSource
+                let indexPath = selectedIndexPath[0]
+                nextVC.currentIndex = indexPath.item
             }
         }
     }
