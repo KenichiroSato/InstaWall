@@ -128,17 +128,12 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     // MARK - UICollectionViewDelegateFlowLayout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        if let width = self.collectionView?.bounds.size.width {
-            let size = width / PhotosCollectionVC.CELL_NUMS_IN_ROW
+            let size = Screen.WIDTH() / 3
             return CGSizeMake(size, size)
-        } else {
-            return CGSizeMake(320, 320)
-        }
     }
 
     // MARK: UICollectionViewDelegate
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        
         objc_sync_enter(self)
         if (scrollView.isCloseToBottom()) {
             if (!isLoading) {
