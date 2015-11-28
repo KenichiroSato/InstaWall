@@ -22,20 +22,11 @@ class GradationView: UIView {
     
     private var gradientLayer: CAGradientLayer = CAGradientLayer()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.customViewCommonInit()
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.customViewCommonInit()
-    }
-    
-    func customViewCommonInit() {
         let view: UIView  = NSBundle.mainBundle()
             .loadNibNamed("GradationView", owner: self, options: nil).first as! UIView
-        view.frame = self.bounds
+        view.frame = CGRectMake(0, 0, Screen.WIDTH(), Screen.HEIGHT())
         addSubview(view)
         
         gradientLayer.frame = view.bounds
