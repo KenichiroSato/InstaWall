@@ -7,14 +7,10 @@
 //
 
 import UIKit
-import InstagramKit
-import SDWebImage
 
 class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout,
     TryReloadDelegate, PhotosLoadDelegate {
 
-    private static let reuseIdentifier = "PictureCell"
-    
     static private let CELL_NUMS_IN_ROW: CGFloat = 3
     
     private var refreshControl = UIRefreshControl()
@@ -121,41 +117,12 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let picCount = dataSource.pictureArray.count
-        return numberOfItems(picCount, didHitBottom: didHitBottom)
+        return dataSource.numberOfItems(didHitBottom)
     }
     
-    private func numberOfItems(count: Int, didHitBottom: Bool) -> Int{
-        if (count == 0) { return 0 }
-        if (didHitBottom) {return count }
-        
-        //This is to display activity indicator at the center cell of the bottom line
-        let rest = count % 3
-        if (rest == 0) {
-            return count + 2
-        } else if (rest == 1) {
-            return count + 1
-        } else { // rest == 2
-            return count + 3
-        }
-    }
-
     override func collectionView(collectionView: UICollectionView,
         cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PhotosCollectionVC.reuseIdentifier, forIndexPath: indexPath)
-            as! PictureCell
-    
-        cell.imageView.image = nil
-        if (dataSource.pictureArray.count >= indexPath.row + 1) {
-            let media: InstagramMedia = dataSource.pictureArray[indexPath.row]
-            cell.imageView.sd_setImageWithURL(media.thumbnailURL,
-                placeholderImage:nil, options: SDWebImageOptions.RetryFailed)
-            cell.indicator.hidden = true
-        } else if (indexPath.item == collectionView.numberOfItemsInSection(0) - 1){
-            //cell is the second from the end, which means indicator should be displayed.
-            cell.indicator.hidden = false
-        }
-        return cell
+        return dataSource.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
     }
     
     // MARK - UICollectionViewDelegateFlowLayout
@@ -201,12 +168,4 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     }
     
 }
-
-// Only for UnitTest
-extension PhotosCollectionVC {
-    func numberOfItemsTest(count: Int, didHitBottom: Bool) -> Int{
-        return self.numberOfItems(count, didHitBottom: didHitBottom)
-    }
-}
-
 
