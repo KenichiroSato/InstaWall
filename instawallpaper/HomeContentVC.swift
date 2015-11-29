@@ -36,7 +36,7 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
             dataSource = PhotosCollectionDataSource(contentLoader: PopularContentLoader())
         }
         photosVC.dataSource = dataSource
-        photosVC.loadTopContent()
+        photosVC.loadTopContent(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,7 +64,7 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
             forState: UIControlState.Normal)
         let dataSource = PhotosCollectionDataSource(contentLoader: PopularContentLoader())
         photosVC.dataSource = dataSource
-        photosVC.loadTopContent()
+        photosVC.loadTopContent(true)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -79,7 +79,7 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         AccountManager.sharedInstance.saveToken(token)
         let dataSource = PhotosCollectionDataSource(contentLoader: FeedContentLoader())
         photosVC.dataSource = dataSource
-        photosVC.loadTopContent()
+        photosVC.loadTopContent(true)
         loginButton.setTitle(Text.LOG_OUT,
             forState: UIControlState.Normal)
     }

@@ -43,7 +43,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     
     private func doSearch(text:String) {
         dataLoader.searchText = text
-        photosVC.loadTopContent()
+        photosVC.loadTopContent(true)
     }
     
     private func loadSearchKeyword() -> String {

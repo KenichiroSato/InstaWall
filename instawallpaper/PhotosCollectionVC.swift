@@ -27,16 +27,21 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl.addTarget(self, action: Selector("refresh"),
+        refreshControl.addTarget(self, action: Selector("pullToRefresh"),
             forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.tintColor = UIColor.whiteColor()
         self.collectionView?.addSubview(refreshControl)
         tryReloadView.reloadDelegate = self
     }
 
-    func loadTopContent() {
+    func loadTopContent(showFullScreenLoading:Bool) {
+        didHitBottom = false
+        isLoading = true
         dataSource.clearData()
-        prepareFullScreenLoading()
+        if (showFullScreenLoading) {
+            self.collectionView?.reloadData()
+            tryReloadView.showIndicator()
+        }
         dataSource.loadContent()
     }
     
@@ -49,10 +54,8 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         }
     }
     
-    func refresh() {
-        isLoading = true
-        didHitBottom = false
-        dataSource.loadContent()
+    func pullToRefresh() {
+        loadTopContent(false)
     }
     
     private func showErrorMessage() {
@@ -89,13 +92,6 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         }
     }
 
-    private func prepareFullScreenLoading() {
-        self.collectionView?.reloadData()
-        didHitBottom = false
-        tryReloadView.showIndicator()
-        isLoading = true
-    }
-    
     private func finishLoadingData() {
         self.refreshControl.endRefreshing()
         isLoading = false
@@ -137,9 +133,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     
     // MARK: TryReloadDelegate
     func onTryReload() {
-        dataSource.clearData()
-        prepareFullScreenLoading()
-        refresh()
+        loadTopContent(true)
     }
     
     // MARK: PhotosLoadDelegate
