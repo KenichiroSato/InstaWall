@@ -16,7 +16,11 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     private var refreshControl = UIRefreshControl()
     private var isLoading = false
     private var didHitBottom = false
-    private var dataSource: PhotosCollectionDataSource = PhotosCollectionDataSource()
+    var dataSource: PhotosCollectionDataSource! {
+        didSet {
+            dataSource.photosLoadDelegate = self
+        }
+    }
     
     @IBOutlet weak var tryReloadView: TryReloadView!
     
@@ -28,40 +32,27 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         refreshControl.tintColor = UIColor.whiteColor()
         self.collectionView?.addSubview(refreshControl)
         tryReloadView.reloadDelegate = self
-        dataSource.photosLoadDelegate = self
     }
-    
-    func roadTopPopular() {
+
+    func loadTopContent() {
         dataSource.clearData()
         prepareFullScreenLoading()
-        dataSource.roadTopPopular()
+        dataSource.loadContent()
     }
     
-    func roadTopSearchItems(text: String) {
-        dataSource.clearData()
-        prepareFullScreenLoading()
-        dataSource.roadTopSearchItems(text)
-    }
-    
-    func roadTopSelfFeed() {
-        dataSource.clearData()
-        prepareFullScreenLoading()
-        dataSource.roadTopSelfFeed()
-    }
-    
-    private func roadNext() {
+    private func loadNext() {
         if dataSource.isBottom() {
             didHitBottom = true
             collectionView?.reloadData()
         } else {
-            dataSource.roadNext()
+            dataSource.loadContent()
         }
     }
     
     func refresh() {
         isLoading = true
         didHitBottom = false
-        dataSource.refresh()
+        dataSource.loadContent()
     }
     
     private func showErrorMessage() {
@@ -138,7 +129,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
         if (scrollView.isCloseToBottom()) {
             if (!isLoading) {
                 isLoading = true
-                roadNext()
+                loadNext()
             }
         }
         objc_sync_exit(self)

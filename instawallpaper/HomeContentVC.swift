@@ -25,15 +25,18 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
         
+        let dataSource: PhotosCollectionDataSource
         if (AccountManager.sharedInstance.isLoggedIn()) {
             loginButton.setTitle(Text.LOG_OUT,
                 forState: UIControlState.Normal)
-            photosVC.roadTopSelfFeed()
+            dataSource = PhotosCollectionDataSource(contentLoader: FeedContentLoader())
         } else {
             loginButton.setTitle(Text.LOG_IN,
                 forState: UIControlState.Normal)
-            photosVC.roadTopPopular()
+            dataSource = PhotosCollectionDataSource(contentLoader: PopularContentLoader())
         }
+        photosVC.dataSource = dataSource
+        photosVC.loadTopContent()
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,7 +62,9 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         AccountManager.sharedInstance.logOut()
         loginButton.setTitle(Text.LOG_IN,
             forState: UIControlState.Normal)
-        photosVC.roadTopPopular()
+        let dataSource = PhotosCollectionDataSource(contentLoader: PopularContentLoader())
+        photosVC.dataSource = dataSource
+        photosVC.loadTopContent()
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -72,7 +77,9 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
     // MARK: LogInDelegate
     func onLoggedIn(token: String) {
         AccountManager.sharedInstance.saveToken(token)
-        photosVC.roadTopSelfFeed()
+        let dataSource = PhotosCollectionDataSource(contentLoader: FeedContentLoader())
+        photosVC.dataSource = dataSource
+        photosVC.loadTopContent()
         loginButton.setTitle(Text.LOG_OUT,
             forState: UIControlState.Normal)
     }
