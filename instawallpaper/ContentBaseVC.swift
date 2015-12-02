@@ -14,7 +14,7 @@ class ContentBaseVC: UIViewController {
 
     @IBOutlet var contentView: UIView!
     
-    var photosVC: GridPictureVC!
+    var gridPictureVC: GridPictureVC!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +36,11 @@ class ContentBaseVC: UIViewController {
     
     func setupView() {
         if let vc  = self.storyboard?.instantiateViewControllerWithIdentifier("GridPictureVC") as? GridPictureVC {
-            photosVC = vc
-            self.addChildViewController(photosVC)
-            photosVC.didMoveToParentViewController(self)
-            photosVC.collectionView?.dataSource = photosVC
-            photosVC.collectionView?.delegate = photosVC
-            photosVC.view.frame.size = contentView.frame.size
-            if let view = photosVC.view {
+            gridPictureVC = vc
+            self.addChildViewController(gridPictureVC)
+            gridPictureVC.didMoveToParentViewController(self)
+            gridPictureVC.view.frame.size = contentView.frame.size
+            if let view = gridPictureVC.view {
                 contentView.addSubview(view)
             }
         }

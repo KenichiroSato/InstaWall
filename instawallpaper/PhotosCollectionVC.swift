@@ -102,11 +102,11 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-
+/*
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.numberOfItems(didHitBottom)
     }
-    
+    */
     override func collectionView(collectionView: UICollectionView,
         cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         return dataSource.collectionView(collectionView, cellForItemAtIndexPath: indexPath)

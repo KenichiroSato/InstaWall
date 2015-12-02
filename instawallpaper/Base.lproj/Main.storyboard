@@ -207,7 +207,6 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="I6D-lS-mwe" id="Pld-kK-KbW"/>
                                     <outlet property="delegate" destination="I6D-lS-mwe" id="Frs-wa-RTP"/>
                                 </connections>
                             </collectionView>

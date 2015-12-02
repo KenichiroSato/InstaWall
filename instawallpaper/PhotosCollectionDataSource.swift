@@ -15,7 +15,7 @@ protocol PhotosLoadDelegate {
     func onLoadFail()
 }
 
-class PhotosCollectionDataSource: NSObject {
+class PhotosCollectionDataSource: NSObject, UICollectionViewDataSource {
 
     private let REUSE_IDENTIFIER = "PictureCell"
     
@@ -54,24 +54,14 @@ class PhotosCollectionDataSource: NSObject {
     func clearData() {
         contentLoader.clearData()
     }
-
-    func numberOfItems(didHitBottom:Bool) -> Int {
-        return numberOfItems(pictureArray.count, didHitBottom: didHitBottom)
+    
+    // MARK: UICollectionViewDataSource
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
     }
-
-    func numberOfItems(count:Int, didHitBottom:Bool) -> Int {
-        if (count == 0) { return 0 }
-        if (didHitBottom) {return count }
-        
-        //This is to display activity indicator at the center cell of the bottom line
-        let rest = count % 3
-        if (rest == 0) {
-            return count + 2
-        } else if (rest == 1) {
-            return count + 1
-        } else { // rest == 2
-            return count + 3
-        }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return numberOfItems(pictureArray.count, didHitBottom: isBottom())
     }
     
     func collectionView(collectionView: UICollectionView,
@@ -91,6 +81,19 @@ class PhotosCollectionDataSource: NSObject {
             }
             return cell
     }
-
-
+    
+    func numberOfItems(count:Int, didHitBottom:Bool) -> Int {
+        if (count == 0) { return 0 }
+        if (didHitBottom) {return count }
+        
+        //This is to display activity indicator at the center cell of the bottom line
+        let rest = count % 3
+        if (rest == 0) {
+            return count + 2
+        } else if (rest == 1) {
+            return count + 1
+        } else { // rest == 2
+            return count + 3
+        }
+    }
 }

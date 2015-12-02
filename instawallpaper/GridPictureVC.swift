@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GridPictureVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
+class GridPictureVC: UIViewController, UICollectionViewDelegateFlowLayout,
     TryReloadDelegate, PhotosLoadDelegate {
     
     static private let CELL_NUMS_IN_ROW: CGFloat = 3
@@ -22,6 +22,7 @@ class GridPictureVC: UIViewController, UICollectionViewDataSource, UICollectionV
 
     var dataSource: PhotosCollectionDataSource! {
         didSet {
+            collectionView.dataSource = dataSource
             dataSource.photosLoadDelegate = self
         }
     }
@@ -99,20 +100,7 @@ class GridPictureVC: UIViewController, UICollectionViewDataSource, UICollectionV
         isLoading = false
         self.collectionView?.reloadData()
     }
-    
-    // MARK: UICollectionViewDataSource
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.numberOfItems(didHitBottom)
-    }
-    
-    func collectionView(collectionView: UICollectionView,
-        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-            return dataSource.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
-    }
+
     
     // MARK - UICollectionViewDelegateFlowLayout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
