@@ -14,7 +14,7 @@ class ContentBaseVC: UIViewController {
 
     @IBOutlet var contentView: UIView!
     
-    var photosVC: PhotosCollectionVC!
+    var photosVC: GridPictureVC!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class ContentBaseVC: UIViewController {
     }
     
     func setupView() {
-        if let vc  = self.storyboard?.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as? PhotosCollectionVC {
+        if let vc  = self.storyboard?.instantiateViewControllerWithIdentifier("GridPictureVC") as? GridPictureVC {
             photosVC = vc
             self.addChildViewController(photosVC)
             photosVC.didMoveToParentViewController(self)
