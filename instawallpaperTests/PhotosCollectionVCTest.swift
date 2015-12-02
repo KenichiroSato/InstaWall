@@ -10,16 +10,14 @@ import XCTest
 import InstagramKit
 @testable import instawallpaper
 
-class PhotosCollectionVCTest: XCTestCase {
+class PhotosCollectionDataSourceTest: XCTestCase {
 
-    var photosVC: PhotosCollectionVC!
+    var dataSource: PhotosCollectionDataSource!
     
     override func setUp() {
         super.setUp()
 
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        photosVC = storyboard.instantiateViewControllerWithIdentifier("PhotosCollectionVC") as! PhotosCollectionVC
-        
+        dataSource = PhotosCollectionDataSource(contentLoader: FeedContentLoader())
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -30,41 +28,41 @@ class PhotosCollectionVCTest: XCTestCase {
 
     func testnumberOfItems0() {
         var result: Int
-        result = photosVC.numberOfItemsTest(0, didHitBottom: false)
+        result = dataSource.numberOfItems(0, didHitBottom: false)
         XCTAssertEqual(result, 0)
-        result = photosVC.numberOfItemsTest(0, didHitBottom: true)
+        result = dataSource.numberOfItems(0, didHitBottom: true)
         XCTAssertEqual(result, 0)
     }
     
     func testnumberOfItems1() {
         var result: Int
-        result = photosVC.numberOfItemsTest(1, didHitBottom: false)
+        result = dataSource.numberOfItems(1, didHitBottom: false)
         XCTAssertEqual(result, 2)
-        result = photosVC.numberOfItemsTest(1, didHitBottom: true)
+        result = dataSource.numberOfItems(1, didHitBottom: true)
         XCTAssertEqual(result, 1)
     }
     
     func testnumberOfItems2() {
         var result: Int
-        result = photosVC.numberOfItemsTest(2, didHitBottom: false)
+        result = dataSource.numberOfItems(2, didHitBottom: false)
         XCTAssertEqual(result, 5)
-        result = photosVC.numberOfItemsTest(2, didHitBottom: true)
+        result = dataSource.numberOfItems(2, didHitBottom: true)
         XCTAssertEqual(result, 2)
     }
 
     func testnumberOfItems3() {
         var result: Int
-        result = photosVC.numberOfItemsTest(3, didHitBottom: false)
+        result = dataSource.numberOfItems(3, didHitBottom: false)
         XCTAssertEqual(result, 5)
-        result = photosVC.numberOfItemsTest(3, didHitBottom: true)
+        result = dataSource.numberOfItems(3, didHitBottom: true)
         XCTAssertEqual(result, 3)
     }
     
     func testnumberOfItems8() {
         var result: Int
-        result = photosVC.numberOfItemsTest(8, didHitBottom: false)
+        result = dataSource.numberOfItems(8, didHitBottom: false)
         XCTAssertEqual(result, 11)
-        result = photosVC.numberOfItemsTest(8, didHitBottom: true)
+        result = dataSource.numberOfItems(8, didHitBottom: true)
         XCTAssertEqual(result, 8)
     }
     

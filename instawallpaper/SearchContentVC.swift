@@ -13,6 +13,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var searchBox: UITextField!
     private let transparentView = UIView()
+    private let dataLoader:SearchContentLoader = SearchContentLoader()
     
     override func shortcutItemType() -> String {
         return "type.search"
@@ -33,9 +34,16 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
         searchBox.clearButtonMode = UITextFieldViewMode.WhileEditing
         searchBox.placeholder = Text.SEARCH_BOX_PLACEHOLDER
         addTransparentView()
+        let dataSource = PhotosCollectionDataSource(contentLoader: dataLoader)
+        photosVC.dataSource = dataSource
         if let text = searchBox.text {
-            photosVC.roadTopSearchItems(text)
+            doSearch(text)
         }
+    }
+    
+    private func doSearch(text:String) {
+        dataLoader.searchText = text
+        photosVC.loadTopContent(true)
     }
     
     private func loadSearchKeyword() -> String {
@@ -72,7 +80,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let text = textField.text {
-            photosVC.roadTopSearchItems(text)
+            doSearch(text)
             saveSearchKeyword(text)
         }
         closeKeyboard()
