@@ -22,6 +22,9 @@ class PhotosCollectionDataSource: NSObject, UICollectionViewDataSource {
     var pictureArray: [InstagramMedia] {
         return contentLoader.pictureArray
     }
+    var hasContents: Bool {
+        return (pictureArray.count > 0)
+    }
     
     var photosLoadDelegate: PhotosLoadDelegate? {
         set(delegate) {

@@ -167,12 +167,6 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <view key="backgroundView" contentMode="scaleToFill" restorationIdentifier="TryReloadView" id="5wo-ic-uVI" customClass="TryReloadView" customModule="instawallpaper" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <animations/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PictureCell" id="yUj-em-Jyo" customClass="PictureCell" customModule="instawallpaper" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
@@ -211,14 +205,23 @@
                                     <outlet property="delegate" destination="I6D-lS-mwe" id="Frs-wa-RTP"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" restorationIdentifier="TryReloadView" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-ic-uVI" customClass="TryReloadView" customModule="instawallpaper" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SuC-rE-Gmt" firstAttribute="top" secondItem="HFb-HV-ZiN" secondAttribute="bottom" id="A2P-bF-rad"/>
+                            <constraint firstItem="5wo-ic-uVI" firstAttribute="leading" secondItem="i3x-Ec-Vav" secondAttribute="leading" id="CWe-F8-8TQ"/>
                             <constraint firstAttribute="trailing" secondItem="HFb-HV-ZiN" secondAttribute="trailing" id="H8U-bh-Wya"/>
                             <constraint firstItem="HFb-HV-ZiN" firstAttribute="leading" secondItem="i3x-Ec-Vav" secondAttribute="leading" id="ThE-A8-itL"/>
                             <constraint firstItem="HFb-HV-ZiN" firstAttribute="top" secondItem="i3x-Ec-Vav" secondAttribute="topMargin" id="Xc8-VF-DdZ"/>
+                            <constraint firstItem="SuC-rE-Gmt" firstAttribute="top" secondItem="5wo-ic-uVI" secondAttribute="bottom" id="cdg-oP-Lpt"/>
+                            <constraint firstItem="5wo-ic-uVI" firstAttribute="top" secondItem="i3x-Ec-Vav" secondAttribute="topMargin" id="t0a-ZB-Ncg"/>
+                            <constraint firstAttribute="trailing" secondItem="5wo-ic-uVI" secondAttribute="trailing" id="w7s-64-XEi"/>
                         </constraints>
                     </view>
                     <connections>

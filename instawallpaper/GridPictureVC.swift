@@ -98,7 +98,12 @@ class GridPictureVC: UIViewController, UICollectionViewDelegateFlowLayout,
     private func finishLoadingData() {
         self.refreshControl.endRefreshing()
         isLoading = false
-        self.collectionView?.reloadData()
+        if (dataSource.hasContents) {
+            collectionView.hidden = false
+            collectionView.reloadData()
+        } else {
+            collectionView.hidden = true
+        }
     }
 
     

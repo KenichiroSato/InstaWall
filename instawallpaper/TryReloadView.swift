@@ -42,16 +42,19 @@ class TryReloadView: UIView {
     }
     
     func hide() {
+        self.hidden = true
         reloadImage.hidden = true
         indicator.hidden = true
     }
     
     func showReload() {
+        self.hidden = false
         reloadImage.hidden = false
         indicator.hidden = true
     }
     
     func showIndicator() {
+        self.hidden = false
         reloadImage.hidden = true
         indicator.hidden = false
     }
