@@ -201,9 +201,22 @@
 		593E3C5C1C0F4A11009F6A34 /* grid */ = {
 			isa = PBXGroup;
 			children = (
+				59677AB91C09B97600BF90DE /* GridPictureDataSource.swift */,
 				0C2A28A91C0F0B3D00690911 /* GridPictureVC.swift */,
+				5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */,
 			);
 			name = grid;
+			sourceTree = "<group>";
+		};
+		593E3C5D1C109474009F6A34 /* contentLoader */ = {
+			isa = PBXGroup;
+			children = (
+				59677ABB1C09F3C300BF90DE /* ContentLoader.swift */,
+				59677ABD1C0A86EE00BF90DE /* PopularContentLoader.swift */,
+				59677ABF1C0A8A7300BF90DE /* FeedContentLoader.swift */,
+				59677AC11C0A8DB100BF90DE /* SearchContentLoader.swift */,
+			);
+			name = contentLoader;
 			sourceTree = "<group>";
 		};
 		5942CE951BE261FC00966D64 /* instawallpaperUITests */ = {
@@ -241,28 +254,23 @@
 		595101A91B19EB8E006F2F65 /* instawallpaper */ = {
 			isa = PBXGroup;
 			children = (
-				593E3C5C1C0F4A11009F6A34 /* grid */,
-				5902E09E1C089D8E00CB5FE9 /* fullScreen */,
-				5904134B1B99D3E700100068 /* customView */,
-				59FDC00D1B5C8EC400E28AB5 /* viewController */,
 				59FDC00C1B5C8E5C00E28AB5 /* constant */,
+				5904134B1B99D3E700100068 /* customView */,
+				593E3C5D1C109474009F6A34 /* contentLoader */,
+				5902E09E1C089D8E00CB5FE9 /* fullScreen */,
+				593E3C5C1C0F4A11009F6A34 /* grid */,
+				59FDC00D1B5C8EC400E28AB5 /* viewController */,
 				5907B2641B3E29D3009A1F01 /* extension */,
 				595101AC1B19EB8E006F2F65 /* AppDelegate.swift */,
-				0C71AA291B4BFEDB00710E96 /* Settings.bundle */,
 				599E46AA1B227DDB005CE654 /* PictureManager.swift */,
-				59677AB91C09B97600BF90DE /* GridPictureDataSource.swift */,
-				59677ABB1C09F3C300BF90DE /* ContentLoader.swift */,
-				59677ABD1C0A86EE00BF90DE /* PopularContentLoader.swift */,
-				59677ABF1C0A8A7300BF90DE /* FeedContentLoader.swift */,
-				59677AC11C0A8DB100BF90DE /* SearchContentLoader.swift */,
 				595101CC1B1A87D7006F2F65 /* ImageUtil.swift */,
 				3D614AB61B2413D700B3CE59 /* TimeTracker.swift */,
-				595101B01B19EB8E006F2F65 /* Main.storyboard */,
 				59135F7C1B46E49400D43F8E /* AccountManager.swift */,
 				5907B2671B3E4EC6009A1F01 /* InstagramManager.swift */,
-				5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */,
 				595101B31B19EB8E006F2F65 /* Images.xcassets */,
 				595101B51B19EB8E006F2F65 /* LaunchScreen.xib */,
+				595101B01B19EB8E006F2F65 /* Main.storyboard */,
+				0C71AA291B4BFEDB00710E96 /* Settings.bundle */,
 				595101AA1B19EB8E006F2F65 /* Supporting Files */,
 			);
 			path = instawallpaper;
