@@ -25,15 +25,15 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
         
-        let dataSource: PhotosCollectionDataSource
+        let dataSource: GridPictureDataSource
         if (AccountManager.sharedInstance.isLoggedIn()) {
             loginButton.setTitle(Text.LOG_OUT,
                 forState: UIControlState.Normal)
-            dataSource = PhotosCollectionDataSource(contentLoader: FeedContentLoader())
+            dataSource = GridPictureDataSource(contentLoader: FeedContentLoader())
         } else {
             loginButton.setTitle(Text.LOG_IN,
                 forState: UIControlState.Normal)
-            dataSource = PhotosCollectionDataSource(contentLoader: PopularContentLoader())
+            dataSource = GridPictureDataSource(contentLoader: PopularContentLoader())
         }
         photosVC.dataSource = dataSource
         photosVC.loadTopContent(true)
@@ -62,7 +62,7 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         AccountManager.sharedInstance.logOut()
         loginButton.setTitle(Text.LOG_IN,
             forState: UIControlState.Normal)
-        let dataSource = PhotosCollectionDataSource(contentLoader: PopularContentLoader())
+        let dataSource = GridPictureDataSource(contentLoader: PopularContentLoader())
         photosVC.dataSource = dataSource
         photosVC.loadTopContent(true)
     }
@@ -77,7 +77,7 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
     // MARK: LogInDelegate
     func onLoggedIn(token: String) {
         AccountManager.sharedInstance.saveToken(token)
-        let dataSource = PhotosCollectionDataSource(contentLoader: FeedContentLoader())
+        let dataSource = GridPictureDataSource(contentLoader: FeedContentLoader())
         photosVC.dataSource = dataSource
         photosVC.loadTopContent(true)
         loginButton.setTitle(Text.LOG_OUT,

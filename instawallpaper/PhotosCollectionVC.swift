@@ -16,7 +16,7 @@ class PhotosCollectionVC: UICollectionViewController, UICollectionViewDelegateFl
     private var refreshControl = UIRefreshControl()
     private var isLoading = false
     private var didHitBottom = false
-    var dataSource: PhotosCollectionDataSource! {
+    var dataSource: GridPictureDataSource! {
         didSet {
             dataSource.photosLoadDelegate = self
         }

@@ -34,7 +34,7 @@ class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
         searchBox.clearButtonMode = UITextFieldViewMode.WhileEditing
         searchBox.placeholder = Text.SEARCH_BOX_PLACEHOLDER
         addTransparentView()
-        let dataSource = PhotosCollectionDataSource(contentLoader: dataLoader)
+        let dataSource = GridPictureDataSource(contentLoader: dataLoader)
         photosVC.dataSource = dataSource
         if let text = searchBox.text {
             doSearch(text)
