@@ -56,7 +56,6 @@ class ImageUtilTest: XCTestCase {
         
         let resutlColor = ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.BOTTOM)
         resutlColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha )
-        print( red.description + " " + green.description + " " + blue.description)
         
         XCTAssertEqual(red, 0.0)
         XCTAssertEqual(green, 1.0)
@@ -70,7 +69,6 @@ class ImageUtilTest: XCTestCase {
         
         let resutlColor = ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.BOTTOM)
         resutlColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha )
-        print( red.description + " " + green.description + " " + blue.description)
         
         //Swift must hava bug between red and blue....
         XCTAssertEqual(red, 0.0)
@@ -85,7 +83,6 @@ class ImageUtilTest: XCTestCase {
         
         let resutlColor = ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.BOTTOM)
         resutlColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha )
-        print( red.description + " " + green.description + " " + blue.description)
         
         //Swift must hava bug between red and blue....
         XCTAssertEqual(red, 1.0)
