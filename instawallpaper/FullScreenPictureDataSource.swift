@@ -17,8 +17,8 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     private let REUSE_IDENTIFIER = "FullScreenPictureCell"
     
-    private var ARRAY_RANGE: Int {
-        return 3
+    var ARRAY_RANGE: Int {
+        return 5
     }
 
     private var TOTAL_PIC_NUM: Int {
@@ -57,7 +57,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     private func initialArrayRange(selectedIndex:Int, arrayCount:Int) -> (bottom:Int, top:Int) {
         let maxIndex = arrayCount - 1
         if (selectedIndex < 0 || selectedIndex >= arrayCount) {
-            return (0, maxIndex)
+            return (0, TOTAL_PIC_NUM - 1)
         }
         if (arrayCount <= TOTAL_PIC_NUM ) {
             return (0, maxIndex)
@@ -69,6 +69,10 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
             return (selectedIndex - ARRAY_RANGE, maxIndex)
         }
         return (selectedIndex - ARRAY_RANGE, selectedIndex + ARRAY_RANGE)
+    }
+    
+    func pictureCount() -> Int {
+        return pictureArray.count
     }
     
     func pictureAtIndex(index:Int) -> Picture? {
