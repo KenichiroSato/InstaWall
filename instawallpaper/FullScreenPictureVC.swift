@@ -122,7 +122,22 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     @IBAction func onSwipedRight(sender: AnyObject) {
         dismiss()
     }
-
+    
+    @IBAction func onSwipedLeft(sender: AnyObject) {
+        openInstagramApp()
+    }
+    
+    private func openInstagramApp() {
+        var success = false
+        if let id = dataSource?.mediaIdOfCellAtIndex(currentIndex) {
+            success = InstagramManager.openInstagramApp(id)
+        }
+        if (!success) {
+            UIAlertController.show(Text.ERR_FAIL_OPEN_INSTAGRAM,
+                message: nil, forVC: self, handler: nil)
+        }
+    }
+    
     private func dismiss() {
         self.navigationController?.popViewControllerAnimated(true)
     }

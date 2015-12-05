@@ -26,6 +26,7 @@
 		591F008C1B974D4600452D86 /* TryReloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F008B1B974D4600452D86 /* TryReloadView.swift */; };
 		591F008E1B974DDB00452D86 /* TryReloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591F008D1B974DDB00452D86 /* TryReloadView.xib */; };
 		5921B8421B3712D800FE739D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5921B8411B3712D800FE739D /* LoginVC.swift */; };
+		593E3C5F1C10A040009F6A34 /* InstagramManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593E3C5E1C10A040009F6A34 /* InstagramManagerTests.swift */; };
 		5940F5061B90A34800822980 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5940F5051B90A34800822980 /* UIView+extension.swift */; };
 		5940F5081B91A63800822980 /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5940F5071B91A63800822980 /* UserDefaultKey.swift */; };
 		5942CE971BE261FC00966D64 /* instawallpaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5942CE961BE261FC00966D64 /* instawallpaperUITests.swift */; };
@@ -99,6 +100,7 @@
 		591F008B1B974D4600452D86 /* TryReloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TryReloadView.swift; sourceTree = "<group>"; };
 		591F008D1B974DDB00452D86 /* TryReloadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TryReloadView.xib; sourceTree = "<group>"; };
 		5921B8411B3712D800FE739D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		593E3C5E1C10A040009F6A34 /* InstagramManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramManagerTests.swift; sourceTree = "<group>"; };
 		5940F5051B90A34800822980 /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		5940F5071B91A63800822980 /* UserDefaultKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
 		5942CE941BE261FC00966D64 /* instawallpaperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instawallpaperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,6 +292,7 @@
 				595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */,
 				0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */,
 				5952D5E01BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift */,
+				593E3C5E1C10A040009F6A34 /* InstagramManagerTests.swift */,
 				595101C01B19EB8E006F2F65 /* Supporting Files */,
 			);
 			path = instawallpaperTests;
@@ -605,6 +608,7 @@
 				5952D5E91BF6E02200FDAAFD /* TryReloadView.swift in Sources */,
 				595101C31B19EB8E006F2F65 /* instawallpaperTests.swift in Sources */,
 				0CD2A6A31B29AFB200FD111E /* ImageUtilTest.swift in Sources */,
+				593E3C5F1C10A040009F6A34 /* InstagramManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

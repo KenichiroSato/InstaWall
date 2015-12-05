@@ -411,6 +411,7 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Ad0-zH-V64" appends="YES" id="H9J-Qn-PBA"/>
+                            <outletCollection property="gestureRecognizers" destination="yFf-Y5-x7Q" appends="YES" id="3c4-jN-42D"/>
                         </connections>
                     </view>
                     <connections>
@@ -421,6 +422,11 @@
                 <swipeGestureRecognizer direction="right" id="Ad0-zH-V64">
                     <connections>
                         <action selector="onSwipedRight:" destination="0go-gA-Olp" id="7kK-Iy-hrP"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="yFf-Y5-x7Q">
+                    <connections>
+                        <action selector="onSwipedLeft:" destination="0go-gA-Olp" id="pFz-Pg-KE9"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
