@@ -32,4 +32,8 @@ class Picture: NSObject {
         super.init()
     }
     
+    var fullScreenHeight: CGFloat {
+        return Screen.WIDTH() * imageFrameSize.height / imageFrameSize.width
+    }
+    
 }

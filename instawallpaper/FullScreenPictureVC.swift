@@ -13,6 +13,8 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
 
     private static let reuseIdentifier = "FullScreenPictureCell"
 
+    private let DEFAULT_COLOR = UIColor.blackColor()
+    
     @IBOutlet var backgroundView: GradationView!
     private var collectionView: UICollectionView!
     private var overlayView: FullScreenOverlayView!
@@ -55,10 +57,10 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         guard let source = dataSource else {
             return
         }
-        let topColor = source.topColorOfCellAtIndex(currentIndex)
-        let bottomColor = source.bottomColorOfCellAtIndex(currentIndex)
+        let topColor = source.pictureAtIndex(currentIndex)?.topColor ?? DEFAULT_COLOR
+        let bottomColor = source.pictureAtIndex(currentIndex)?.bottomColor ?? DEFAULT_COLOR
         backgroundView.updateTopColor(topColor, andBottomColor: bottomColor)
-        if let height = source.heightOfCellAtIndex(currentIndex) {
+        if let height = source.pictureAtIndex(currentIndex)?.fullScreenHeight {
             overlayView.updateGradientViews(height,
                 topColor: topColor, bottomColor: bottomColor)
         }
@@ -128,7 +130,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     
     private func openInstagramApp() {
         var success = false
-        if let id = dataSource?.mediaIdOfCellAtIndex(currentIndex) {
+        if let id = dataSource?.pictureAtIndex(currentIndex)?.id {
             success = InstagramManager.openInstagramApp(id)
         }
         if (!success) {

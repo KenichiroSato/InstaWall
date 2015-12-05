@@ -17,9 +17,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
     
     private let REUSE_IDENTIFIER = "FullScreenPictureCell"
     
-    private let DEFAULT_COLOR = UIColor.blackColor()
-    
-    var pictureArray: [Picture] = []
+    private var pictureArray: [Picture] = []
     
     var imageLoadDelegate: ImageLoadDelegate?
     
@@ -27,33 +25,11 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
         pictureArray += mediaArray
     }
     
-    func heightOfCellAtIndex(index:Int) -> CGFloat? {
+    func pictureAtIndex(index:Int) -> Picture? {
         guard (0 <= index && index < pictureArray.count) else {
             return nil
         }
-        let size = pictureArray[index].imageFrameSize
-        return Screen.WIDTH() * size.height / size.width
-    }
-    
-    func mediaIdOfCellAtIndex(index:Int) -> String? {
-        guard (0 <= index && index < pictureArray.count) else {
-            return nil
-        }
-        return pictureArray[index].id
-    }
-    
-    func topColorOfCellAtIndex(index:Int) -> UIColor {
-        guard (0 <= index && index < pictureArray.count) else {
-            return DEFAULT_COLOR
-        }
-        return pictureArray[index].topColor
-    }
-
-    func bottomColorOfCellAtIndex(index:Int) -> UIColor {
-        guard (0 <= index && index < pictureArray.count) else {
-            return DEFAULT_COLOR
-        }
-        return pictureArray[index].bottomColor
+        return pictureArray[index]
     }
 
     // MARK: UICollectionViewDataSource
