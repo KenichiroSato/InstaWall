@@ -9,7 +9,7 @@
 import Foundation
 import InstagramKit
 
-typealias SuccessLoadBlock = (([InstagramMedia], InstagramPaginationInfo?) -> Void)
+typealias SuccessLoadBlock = (([Picture], String?) -> Void)
 
 public class InstagramManager {
     
@@ -21,7 +21,9 @@ public class InstagramManager {
         InstagramEngine.sharedEngine().getPopularMediaWithSuccess(
             { (media, paginationInfo) in
                 if let pictures = media as? [InstagramMedia] {
-                    success(pictures, paginationInfo)
+                    let pics:[Picture] = pictures.map{self.createPicture($0)}
+                    let pageInfo = (paginationInfo != nil) ? paginationInfo.nextMaxId : nil
+                    success(pics, pageInfo)
                 }
             }, failure: failure)
     }
@@ -31,7 +33,9 @@ public class InstagramManager {
             maxId: maxId, success:
             { (media, paginationInfo) in
                 if let pictures = media as? [InstagramMedia] {
-                    success(pictures, paginationInfo)
+                    let pics:[Picture] = pictures.map{self.createPicture($0)}
+                    let pageInfo = (paginationInfo != nil) ? paginationInfo.nextMaxId : nil
+                    success(pics, pageInfo)
                 }
             }, failure: failure)
     }
@@ -43,9 +47,15 @@ public class InstagramManager {
             maxId: maxId, withSuccess:
             { (media, paginationInfo) in
                 if let pictures = media as? [InstagramMedia] {
-                    success(pictures, paginationInfo)
+                    let pics:[Picture] = pictures.map{self.createPicture($0)}
+                    let pageInfo = (paginationInfo != nil) ? paginationInfo.nextMaxId : nil
+                    success(pics, pageInfo)
                 }
             }, failure: failure)
+    }
+    
+    private func createPicture(media:InstagramMedia) -> Picture {
+        return Picture(id: media.Id, thumbnailURL: media.thumbnailURL, size: media.standardResolutionImageFrameSize, imageURL: media.standardResolutionImageURL)
     }
     
     /// - returns: true if sucess. Otherwise return false

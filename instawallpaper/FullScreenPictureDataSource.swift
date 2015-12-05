@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import InstagramKit
 import SDWebImage
 
 protocol ImageLoadDelegate {
@@ -20,11 +19,11 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
     
     private let DEFAULT_COLOR = UIColor.blackColor()
     
-    private var pictureArray: [(media:InstagramMedia, topColor:UIColor, bottomColor:UIColor)] = []
+    private var pictureArray: [(media:Picture, topColor:UIColor, bottomColor:UIColor)] = []
     
     var imageLoadDelegate: ImageLoadDelegate?
     
-    init(mediaArray:[InstagramMedia]) {
+    init(mediaArray:[Picture]) {
         for media in mediaArray {
             pictureArray += [(media, DEFAULT_COLOR, DEFAULT_COLOR)]
         }
@@ -34,7 +33,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
         guard (0 <= index && index < pictureArray.count) else {
             return nil
         }
-        let size = pictureArray[index].media.standardResolutionImageFrameSize
+        let size = pictureArray[index].media.imageFrameSize
         return Screen.WIDTH() * size.height / size.width
     }
     
@@ -42,7 +41,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
         guard (0 <= index && index < pictureArray.count) else {
             return nil
         }
-        return pictureArray[index].media.Id
+        return pictureArray[index].media.id
     }
     
     func topColorOfCellAtIndex(index:Int) -> UIColor {
@@ -75,8 +74,8 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
             
             if let imgView = cell.imageView {
                 imgView.image = nil
-                let media: InstagramMedia = pictureArray[indexPath.row].media
-                imgView.sd_setImageWithURL(media.standardResolutionImageURL,
+                let picture = pictureArray[indexPath.row].media
+                imgView.sd_setImageWithURL(picture.imageURL,
                     placeholderImage:nil, options: SDWebImageOptions.RetryFailed,
                     completed: {(image, error, _, _) in
                         if (error == nil) {

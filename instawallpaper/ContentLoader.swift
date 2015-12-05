@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import InstagramKit
 
 class ContentLoader: NSObject {
 
-    var pictureArray: [InstagramMedia] = []
-    var paginationInfo: InstagramPaginationInfo? = nil
+    var pictureArray: [Picture] = []
+    var paginationInfo: String? = nil
     let instagramManager = InstagramManager()
     var photosLoadDelegate: PhotosLoadDelegate?
     
@@ -23,7 +22,7 @@ class ContentLoader: NSObject {
         self.photosLoadDelegate?.onLoadSuccess()
     }
     
-    lazy var failureBlock:InstagramFailureBlock  = {[unowned self] error, statusCode in
+    lazy var failureBlock: (NSError!, Int) -> Void = {[unowned self] error, statusCode in
         self.clearData()
         self.photosLoadDelegate?.onLoadFail()
     }

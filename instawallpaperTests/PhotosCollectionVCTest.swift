@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import InstagramKit
 @testable import instawallpaper
 
 class GridPitureDataSourceTest: XCTestCase {

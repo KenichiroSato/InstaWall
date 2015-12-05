@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import InstagramKit
 import SDWebImage
 
 class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoadDelegate {
