@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import InstagramKit
 import SDWebImage
 
 protocol ImageLoadDelegate {
@@ -18,45 +17,19 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
     
     private let REUSE_IDENTIFIER = "FullScreenPictureCell"
     
-    private let DEFAULT_COLOR = UIColor.blackColor()
-    
-    private var pictureArray: [(media:InstagramMedia, topColor:UIColor, bottomColor:UIColor)] = []
+    private var pictureArray: [Picture] = []
     
     var imageLoadDelegate: ImageLoadDelegate?
     
-    init(mediaArray:[InstagramMedia]) {
-        for media in mediaArray {
-            pictureArray += [(media, DEFAULT_COLOR, DEFAULT_COLOR)]
-        }
+    init(mediaArray:[Picture]) {
+        pictureArray += mediaArray
     }
     
-    func heightOfCellAtIndex(index:Int) -> CGFloat? {
+    func pictureAtIndex(index:Int) -> Picture? {
         guard (0 <= index && index < pictureArray.count) else {
             return nil
         }
-        let size = pictureArray[index].media.standardResolutionImageFrameSize
-        return Screen.WIDTH() * size.height / size.width
-    }
-    
-    func mediaIdOfCellAtIndex(index:Int) -> String? {
-        guard (0 <= index && index < pictureArray.count) else {
-            return nil
-        }
-        return pictureArray[index].media.Id
-    }
-    
-    func topColorOfCellAtIndex(index:Int) -> UIColor {
-        guard (0 <= index && index < pictureArray.count) else {
-            return DEFAULT_COLOR
-        }
-        return pictureArray[index].topColor
-    }
-
-    func bottomColorOfCellAtIndex(index:Int) -> UIColor {
-        guard (0 <= index && index < pictureArray.count) else {
-            return DEFAULT_COLOR
-        }
-        return pictureArray[index].bottomColor
+        return pictureArray[index]
     }
 
     // MARK: UICollectionViewDataSource
@@ -75,8 +48,8 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
             
             if let imgView = cell.imageView {
                 imgView.image = nil
-                let media: InstagramMedia = pictureArray[indexPath.row].media
-                imgView.sd_setImageWithURL(media.standardResolutionImageURL,
+                let picture = pictureArray[indexPath.row]
+                imgView.sd_setImageWithURL(picture.imageURL,
                     placeholderImage:nil, options: SDWebImageOptions.RetryFailed,
                     completed: {(image, error, _, _) in
                         if (error == nil) {

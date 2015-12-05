@@ -44,7 +44,7 @@ class FullScreenCollectionViewLayout: UICollectionViewLayout {
            
             let cellHeight: CGFloat
             if let dataSource = collectionView?.dataSource as? FullScreenPictureDataSource,
-                let height = dataSource.heightOfCellAtIndex(item) {
+                let height = dataSource.pictureAtIndex(item)?.fullScreenHeight {
                     cellHeight = height
             } else {
                 cellHeight = FullScreenCollectionViewLayout.DEFAULT_CELL_HEIGHT

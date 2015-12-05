@@ -11,7 +11,7 @@ import UIKit
 class FeedContentLoader: ContentLoader {
 
     override func loadContent() {
-        instagramManager.roadSelfFeed(paginationInfo?.nextMaxId, success:successBlock, failure: failureBlock)
+        instagramManager.roadSelfFeed(paginationInfo, success:successBlock, failure: failureBlock)
     }
 
 }

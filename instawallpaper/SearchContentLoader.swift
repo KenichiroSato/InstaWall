@@ -16,7 +16,7 @@ class SearchContentLoader: ContentLoader {
         guard let text = searchText else {
             return
         }
-        instagramManager.roadSearchItems(text, maxId: paginationInfo?.nextMaxId,
+        instagramManager.roadSearchItems(text, maxId: paginationInfo,
             success:successBlock, failure:failureBlock)
     }
 

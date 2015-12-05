@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import InstagramKit
 import SDWebImage
 
 protocol PhotosLoadDelegate {
@@ -19,7 +18,7 @@ class GridPictureDataSource: NSObject, UICollectionViewDataSource {
 
     private let REUSE_IDENTIFIER = "PictureCell"
     
-    var pictureArray: [InstagramMedia] {
+    var pictureArray: [Picture] {
         return contentLoader.pictureArray
     }
     var hasContents: Bool {
@@ -47,7 +46,7 @@ class GridPictureDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func isBottom() -> Bool {
-        if let _ = contentLoader.paginationInfo?.nextMaxId {
+        if let _ = contentLoader.paginationInfo {
             return false
         } else {
             return true
@@ -74,7 +73,7 @@ class GridPictureDataSource: NSObject, UICollectionViewDataSource {
             
             cell.imageView.image = nil
             if (pictureArray.count >= indexPath.row + 1) {
-                let media: InstagramMedia = pictureArray[indexPath.row]
+                let media  = pictureArray[indexPath.row]
                 cell.imageView.sd_setImageWithURL(media.thumbnailURL,
                     placeholderImage:nil, options: SDWebImageOptions.RetryFailed)
                 cell.indicator.hidden = true
