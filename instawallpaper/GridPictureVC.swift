@@ -15,7 +15,6 @@ class GridPictureVC: UIViewController, UICollectionViewDelegateFlowLayout,
     
     private var refreshControl = UIRefreshControl()
     private var isLoading = false
-    private var didHitBottom = false
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tryReloadView: TryReloadView!
@@ -38,7 +37,6 @@ class GridPictureVC: UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     func loadTopContent(showFullScreenLoading:Bool) {
-        didHitBottom = false
         isLoading = true
         dataSource.clearData()
         if (showFullScreenLoading) {
@@ -50,7 +48,6 @@ class GridPictureVC: UIViewController, UICollectionViewDelegateFlowLayout,
     
     private func loadNext() {
         if dataSource.isBottom() {
-            didHitBottom = true
             collectionView?.reloadData()
         } else {
             dataSource.loadContent()
