@@ -13,16 +13,52 @@ protocol ImageLoadDelegate {
     func onImageLoaded(index: Int)
 }
 
-class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
+class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     private let REUSE_IDENTIFIER = "FullScreenPictureCell"
     
+    private var ARRAY_RANGE: Int {
+        return 1
+    }
+
+    private var TOTAL_PIC_NUM: Int {
+        return ARRAY_RANGE * 2 + 1
+    }
+
     private var pictureArray: [Picture] = []
     
     var imageLoadDelegate: ImageLoadDelegate?
     
+    var contentLoader: ContentLoader
+    
+/*
     init(mediaArray:[Picture]) {
         pictureArray += mediaArray
+    }
+*/
+    init (centerIndex:Int, loader:ContentLoader) {
+        contentLoader = loader
+        super.init()
+        let pictures = contentLoader.pictureArray
+        let range = arrayRange(centerIndex, array: pictures)
+        pictureArray = Array(pictures[range.bottom...range.top])
+    }
+    
+    private func arrayRange(centerIndex:Int, array:[Picture]) -> (bottom:Int, top:Int) {
+        let maxIndex = array.count - 1
+        if (centerIndex < 0 || centerIndex >= array.count) {
+            return (0, maxIndex)
+        }
+        if (array.count <= TOTAL_PIC_NUM ) {
+            return (0, maxIndex)
+        }
+        if (centerIndex - ARRAY_RANGE < 0) {
+            return (0, TOTAL_PIC_NUM - 1)
+        }
+        if (centerIndex + ARRAY_RANGE > maxIndex) {
+            return (maxIndex - TOTAL_PIC_NUM, maxIndex)
+        }
+        return (centerIndex - ARRAY_RANGE, centerIndex + ARRAY_RANGE)
     }
     
     func pictureAtIndex(index:Int) -> Picture? {
