@@ -32,7 +32,7 @@ class FullScreenPictureDataSourceTest: XCTestCase {
         super.setUp()
         let source = GridPictureDataSource(contentLoader: PopularContentLoader())
         source.contentLoader.pictureArray = pics
-        dataSource = FullScreenPictureDataSource(centerIndex: 1, loader: source.contentLoader)
+        dataSource = FullScreenPictureDataSource(selectedIndex: 1, loader: source.contentLoader)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     

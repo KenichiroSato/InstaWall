@@ -18,7 +18,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     private let REUSE_IDENTIFIER = "FullScreenPictureCell"
     
     private var ARRAY_RANGE: Int {
-        return 1
+        return 3
     }
 
     private var TOTAL_PIC_NUM: Int {
@@ -31,34 +31,44 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     var contentLoader: ContentLoader
     
+    var currentIndex: Int = 0
+    
 /*
     init(mediaArray:[Picture]) {
         pictureArray += mediaArray
     }
 */
-    init (centerIndex:Int, loader:ContentLoader) {
+    init (selectedIndex:Int, loader:ContentLoader) {
         contentLoader = loader
         super.init()
         let pictures = contentLoader.pictureArray
-        let range = arrayRange(centerIndex, array: pictures)
+        let range = initialArrayRange(selectedIndex, arrayCount: pictures.count)
         pictureArray = Array(pictures[range.bottom...range.top])
+        currentIndex = initialIndex(selectedIndex)
     }
     
-    private func arrayRange(centerIndex:Int, array:[Picture]) -> (bottom:Int, top:Int) {
-        let maxIndex = array.count - 1
-        if (centerIndex < 0 || centerIndex >= array.count) {
+    private func initialIndex(selectedIndex:Int) -> Int {
+        if (selectedIndex < ARRAY_RANGE) {
+            return selectedIndex
+        }
+        return ARRAY_RANGE
+    }
+    
+    private func initialArrayRange(selectedIndex:Int, arrayCount:Int) -> (bottom:Int, top:Int) {
+        let maxIndex = arrayCount - 1
+        if (selectedIndex < 0 || selectedIndex >= arrayCount) {
             return (0, maxIndex)
         }
-        if (array.count <= TOTAL_PIC_NUM ) {
+        if (arrayCount <= TOTAL_PIC_NUM ) {
             return (0, maxIndex)
         }
-        if (centerIndex - ARRAY_RANGE < 0) {
-            return (0, TOTAL_PIC_NUM - 1)
+        if (selectedIndex - ARRAY_RANGE < 0) {
+            return (0, selectedIndex + ARRAY_RANGE)
         }
-        if (centerIndex + ARRAY_RANGE > maxIndex) {
-            return (maxIndex - TOTAL_PIC_NUM, maxIndex)
+        if (selectedIndex + ARRAY_RANGE > maxIndex) {
+            return (selectedIndex - ARRAY_RANGE, maxIndex)
         }
-        return (centerIndex - ARRAY_RANGE, centerIndex + ARRAY_RANGE)
+        return (selectedIndex - ARRAY_RANGE, selectedIndex + ARRAY_RANGE)
     }
     
     func pictureAtIndex(index:Int) -> Picture? {
@@ -66,6 +76,10 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
             return nil
         }
         return pictureArray[index]
+    }
+    
+    func pictureAtCurrentIndex() -> Picture? {
+        return pictureAtIndex(currentIndex)
     }
 
     // MARK: UICollectionViewDataSource

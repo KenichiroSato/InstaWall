@@ -85,9 +85,8 @@ class GridPictureVC: UIViewController, UICollectionViewDelegateFlowLayout,
             if let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems() {
                 let nextVC = segue.destinationViewController as! FullScreenPictureVC
                 let index = selectedIndexPath[0].item
-                let source = FullScreenPictureDataSource(centerIndex: index, loader: dataSource.contentLoader)
+                let source = FullScreenPictureDataSource(selectedIndex: index, loader: dataSource.contentLoader)
                 nextVC.dataSource = source
-                nextVC.currentIndex = index
             }
         }
     }
