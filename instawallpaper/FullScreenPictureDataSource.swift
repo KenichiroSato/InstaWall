@@ -19,21 +19,19 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
     
     private let DEFAULT_COLOR = UIColor.blackColor()
     
-    private var pictureArray: [(media:Picture, topColor:UIColor, bottomColor:UIColor)] = []
+    var pictureArray: [Picture] = []
     
     var imageLoadDelegate: ImageLoadDelegate?
     
     init(mediaArray:[Picture]) {
-        for media in mediaArray {
-            pictureArray += [(media, DEFAULT_COLOR, DEFAULT_COLOR)]
-        }
+        pictureArray += mediaArray
     }
     
     func heightOfCellAtIndex(index:Int) -> CGFloat? {
         guard (0 <= index && index < pictureArray.count) else {
             return nil
         }
-        let size = pictureArray[index].media.imageFrameSize
+        let size = pictureArray[index].imageFrameSize
         return Screen.WIDTH() * size.height / size.width
     }
     
@@ -41,7 +39,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
         guard (0 <= index && index < pictureArray.count) else {
             return nil
         }
-        return pictureArray[index].media.id
+        return pictureArray[index].id
     }
     
     func topColorOfCellAtIndex(index:Int) -> UIColor {
@@ -74,7 +72,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
             
             if let imgView = cell.imageView {
                 imgView.image = nil
-                let picture = pictureArray[indexPath.row].media
+                let picture = pictureArray[indexPath.row]
                 imgView.sd_setImageWithURL(picture.imageURL,
                     placeholderImage:nil, options: SDWebImageOptions.RetryFailed,
                     completed: {(image, error, _, _) in
