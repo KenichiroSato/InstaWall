@@ -15,7 +15,7 @@ protocol PhotosLoadDelegate {
     func onLoadFail()
 }
 
-class PhotosCollectionDataSource: NSObject, UICollectionViewDataSource {
+class GridPictureDataSource: NSObject, UICollectionViewDataSource {
 
     private let REUSE_IDENTIFIER = "PictureCell"
     

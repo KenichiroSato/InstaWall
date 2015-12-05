@@ -20,7 +20,7 @@ class GridPictureVC: UIViewController, UICollectionViewDelegateFlowLayout,
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tryReloadView: TryReloadView!
 
-    var dataSource: PhotosCollectionDataSource! {
+    var dataSource: GridPictureDataSource! {
         didSet {
             collectionView.dataSource = dataSource
             dataSource.photosLoadDelegate = self

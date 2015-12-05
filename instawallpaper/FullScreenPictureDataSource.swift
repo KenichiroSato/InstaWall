@@ -38,6 +38,13 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
         return Screen.WIDTH() * size.height / size.width
     }
     
+    func mediaIdOfCellAtIndex(index:Int) -> String? {
+        guard (0 <= index && index < pictureArray.count) else {
+            return nil
+        }
+        return pictureArray[index].media.Id
+    }
+    
     func topColorOfCellAtIndex(index:Int) -> UIColor {
         guard (0 <= index && index < pictureArray.count) else {
             return DEFAULT_COLOR

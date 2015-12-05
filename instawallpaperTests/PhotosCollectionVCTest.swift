@@ -10,14 +10,14 @@ import XCTest
 import InstagramKit
 @testable import instawallpaper
 
-class PhotosCollectionDataSourceTest: XCTestCase {
+class GridPitureDataSourceTest: XCTestCase {
 
-    var dataSource: PhotosCollectionDataSource!
+    var dataSource: GridPictureDataSource!
     
     override func setUp() {
         super.setUp()
 
-        dataSource = PhotosCollectionDataSource(contentLoader: FeedContentLoader())
+        dataSource = GridPictureDataSource(contentLoader: FeedContentLoader())
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     

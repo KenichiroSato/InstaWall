@@ -13,6 +13,8 @@ typealias SuccessLoadBlock = (([InstagramMedia], InstagramPaginationInfo?) -> Vo
 
 public class InstagramManager {
     
+    static private let URL_SCHEME = "instagram://media?id="
+    
     static private let COUNT_PER_REQUEST = 50
     
     func roadPopular(success:SuccessLoadBlock, failure:InstagramFailureBlock) {
@@ -44,6 +46,15 @@ public class InstagramManager {
                     success(pictures, paginationInfo)
                 }
             }, failure: failure)
+    }
+    
+    /// - returns: true if sucess. Otherwise return false
+    class func openInstagramApp(mediaId:String) -> Bool {
+        if let url = NSURL(string: InstagramManager.URL_SCHEME + mediaId) {
+            return UIApplication.sharedApplication().openURL(url)
+        } else {
+            return false
+        }
     }
     
 }
