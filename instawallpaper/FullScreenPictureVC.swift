@@ -20,6 +20,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     private var overlayView: FullScreenOverlayView!
     var dataSource: FullScreenPictureDataSource?
     let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
+    var indexDiff:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +121,21 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         // Return our adjusted target point
         targetContentOffset.memory = CGPointMake(0, max(CGFloat(nextIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL,
         collectionView.contentInset.top))
+        if let currentIndex = dataSource?.currentIndex {
+            indexDiff = nextIndex - currentIndex
+        }
         dataSource?.currentIndex = nextIndex
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
+        dataSource?.shiftCurrentIndex(indexDiff)
+        collectionView.reloadData()
+        
+        if let index = dataSource?.currentIndex {
+            moveToIndex(index)
+        }
+
     }
     
     @IBAction func onSwipedRight(sender: AnyObject) {

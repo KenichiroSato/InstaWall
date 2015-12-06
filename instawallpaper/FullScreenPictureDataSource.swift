@@ -18,7 +18,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     private let REUSE_IDENTIFIER = "FullScreenPictureCell"
     
     var ARRAY_RANGE: Int {
-        return 5
+        return 2
     }
 
     private var TOTAL_PIC_NUM: Int {
@@ -33,6 +33,8 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     var currentIndex: Int = 0
     
+    var contentLoaderIndex: Int = 0
+    
 /*
     init(mediaArray:[Picture]) {
         pictureArray += mediaArray
@@ -41,20 +43,25 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     init (selectedIndex:Int, loader:ContentLoader) {
         contentLoader = loader
         super.init()
-        let pictures = contentLoader.pictureArray
-        let range = initialArrayRange(selectedIndex, arrayCount: pictures.count)
-        pictureArray = Array(pictures[range.bottom...range.top])
-        currentIndex = initialIndex(selectedIndex)
+        updateIndex(selectedIndex)
     }
     
-    private func initialIndex(selectedIndex:Int) -> Int {
+    private func updateIndex(newContenteLoaderIndex: Int) {
+        contentLoaderIndex = newContenteLoaderIndex
+        let pictures = contentLoader.pictureArray
+        let range = arrayRange(contentLoaderIndex, arrayCount: pictures.count)
+        pictureArray = Array(pictures[range.bottom...range.top])
+        currentIndex = updateCurrentIndex(contentLoaderIndex)
+    }
+    
+    private func updateCurrentIndex(selectedIndex:Int) -> Int {
         if (selectedIndex < ARRAY_RANGE) {
             return selectedIndex
         }
         return ARRAY_RANGE
     }
     
-    private func initialArrayRange(selectedIndex:Int, arrayCount:Int) -> (bottom:Int, top:Int) {
+    private func arrayRange(selectedIndex:Int, arrayCount:Int) -> (bottom:Int, top:Int) {
         let maxIndex = arrayCount - 1
         if (selectedIndex < 0 || selectedIndex >= arrayCount) {
             return (0, TOTAL_PIC_NUM - 1)
@@ -85,6 +92,10 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     func pictureAtCurrentIndex() -> Picture? {
         return pictureAtIndex(currentIndex)
     }
+    
+    func shiftCurrentIndex(diff: Int) {
+        updateIndex(contentLoaderIndex + diff)
+    }
 
     // MARK: UICollectionViewDataSource
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -97,8 +108,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView,
         cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(REUSE_IDENTIFIER, forIndexPath: indexPath)
-                as! FullScreenPictureCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(REUSE_IDENTIFIER, forIndexPath: indexPath) as! FullScreenPictureCell
             
             if let imgView = cell.imageView {
                 imgView.image = nil
@@ -117,6 +127,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
                         }
                 })
             }
+            print("loadImage:" + String(indexPath.item))
             return cell
     }
 }
