@@ -33,8 +33,10 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     var contentLoader: ContentLoader
     
-    var currentIndex: Int = 0
+    // Index of this dataSource's list
+    var currentInternalIndex: Int = 0
     
+    // Index of whole content list which contentLoader has
     var contentLoaderIndex: Int = 0
     
 /*
@@ -53,7 +55,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
         let pictures = contentLoader.pictureArray
         let range = arrayRange(contentLoaderIndex, arrayCount: pictures.count)
         pictureArray = Array(pictures[range.bottom...range.top])
-        currentIndex = updateCurrentIndex(contentLoaderIndex)
+        currentInternalIndex = updateCurrentIndex(contentLoaderIndex)
     }
     
     private func updateCurrentIndex(selectedIndex:Int) -> Int {
@@ -92,7 +94,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     }
     
     func pictureAtCurrentIndex() -> Picture? {
-        return pictureAtIndex(currentIndex)
+        return pictureAtIndex(currentInternalIndex)
     }
     
     func shiftCurrentIndex(diff: Int) {
