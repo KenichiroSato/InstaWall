@@ -17,6 +17,8 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     private let REUSE_IDENTIFIER = "FullScreenPictureCell"
     
+    private let LOADER_TRIGGER_INDEX = 10
+    
     var ARRAY_RANGE: Int {
         return 2
     }
@@ -95,8 +97,20 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     func shiftCurrentIndex(diff: Int) {
         updateIndex(contentLoaderIndex + diff)
+        if (shouldTriggerLoad()) {
+            contentLoader.loadContent()
+            print("load Next!!!!!")
+        }
     }
 
+    private func shouldTriggerLoad() -> Bool {
+        if (contentLoader.pictureArray.count - contentLoaderIndex < LOADER_TRIGGER_INDEX) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     // MARK: UICollectionViewDataSource
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
