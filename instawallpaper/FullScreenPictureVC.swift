@@ -45,7 +45,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        moveToIndex(dataSource.currentIndex)
+        moveToIndex(dataSource.currentInternalIndex)
     }
 
     private func moveToIndex(index: Int) {
@@ -70,7 +70,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     
     // MARK: ImageLoadDelegate
     func onImageLoaded(index: Int) {
-        if (index == dataSource.currentIndex) {
+        if (index == dataSource.currentInternalIndex) {
             updateViews()
         }
     }
@@ -118,14 +118,14 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         // Return our adjusted target point
         targetContentOffset.memory = CGPointMake(0, max(CGFloat(nextIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL,
         collectionView.contentInset.top))
-        indexDiff = nextIndex - dataSource.currentIndex
-        dataSource.currentIndex = nextIndex
+        indexDiff = nextIndex - dataSource.currentInternalIndex
+        dataSource.currentInternalIndex = nextIndex
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         dataSource.shiftCurrentIndex(indexDiff)
         collectionView.reloadData()
-        moveToIndex(dataSource.currentIndex)
+        moveToIndex(dataSource.currentInternalIndex)
         enableUserAction()
     }
     

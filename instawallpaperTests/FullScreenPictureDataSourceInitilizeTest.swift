@@ -42,67 +42,67 @@ class FullScreenPictureDataSourceInitilizeTest: XCTestCase {
     func testSelected0_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 0, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 4)
-        XCTAssertEqual(dataSource.currentIndex, 0)
+        XCTAssertEqual(dataSource.currentInternalIndex, 0)
     }
     
     func testSelected1_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 1, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 5)
-        XCTAssertEqual(dataSource.currentIndex, 1)
+        XCTAssertEqual(dataSource.currentInternalIndex, 1)
     }
     
     func testSelected2_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 2, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 6)
-        XCTAssertEqual(dataSource.currentIndex, 2)
+        XCTAssertEqual(dataSource.currentInternalIndex, 2)
     }
     
     func testSelected3_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 3, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 7)
-        XCTAssertEqual(dataSource.currentIndex, 3)
+        XCTAssertEqual(dataSource.currentInternalIndex, 3)
     }
     
     func testSelected4_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 4, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 7)
-        XCTAssertEqual(dataSource.currentIndex, 3)
+        XCTAssertEqual(dataSource.currentInternalIndex, 3)
     }
     
     func testSelected5_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 5, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 7)
-        XCTAssertEqual(dataSource.currentIndex, 3)
+        XCTAssertEqual(dataSource.currentInternalIndex, 3)
     }
     
     func testSelected26_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 26, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 7)
-        XCTAssertEqual(dataSource.currentIndex, 3)
+        XCTAssertEqual(dataSource.currentInternalIndex, 3)
     }
     
     func testSelected27_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 27, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 6)
-        XCTAssertEqual(dataSource.currentIndex, 3)
+        XCTAssertEqual(dataSource.currentInternalIndex, 3)
     }
     
     func testSelected28_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 28, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 5)
-        XCTAssertEqual(dataSource.currentIndex, 3)
+        XCTAssertEqual(dataSource.currentInternalIndex, 3)
     }
     
     func testSelected29_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 29, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 4)
-        XCTAssertEqual(dataSource.currentIndex, 3)
+        XCTAssertEqual(dataSource.currentInternalIndex, 3)
     }
     
     func testSelected30_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 30, loader: contentLoader)
         XCTAssertEqual(dataSource.pictureCount(), 7)
-        XCTAssertEqual(dataSource.currentIndex, 3)
+        XCTAssertEqual(dataSource.currentInternalIndex, 3)
     }
     
 
