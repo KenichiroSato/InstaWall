@@ -18,7 +18,8 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     @IBOutlet var backgroundView: GradationView!
     private var collectionView: UICollectionView!
     private var overlayView: FullScreenOverlayView!
-    var dataSource: FullScreenPictureDataSource?
+    //dataSource must be set when creating this VC
+    var dataSource: FullScreenPictureDataSource!
     let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
     var indexDiff:Int = 0
 
@@ -30,7 +31,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         collectionView.backgroundColor = UIColor.clearColor()
         collectionView.translatesAutoresizingMaskIntoConstraints = false;
         collectionView.dataSource = dataSource
-        dataSource?.imageLoadDelegate = self
+        dataSource.imageLoadDelegate = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast // Faster deceleration!
@@ -44,9 +45,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if let index = dataSource?.currentIndex {
-            moveToIndex(index)
-        }
+        moveToIndex(dataSource.currentIndex)
     }
 
     private func moveToIndex(index: Int) {
@@ -56,13 +55,10 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     }
     
     private func updateViews() {
-        guard let source = dataSource else {
-            return
-        }
-        let topColor = source.pictureAtCurrentIndex()?.topColor ?? DEFAULT_COLOR
-        let bottomColor = source.pictureAtCurrentIndex()?.bottomColor ?? DEFAULT_COLOR
+        let topColor = dataSource.pictureAtCurrentIndex()?.topColor ?? DEFAULT_COLOR
+        let bottomColor = dataSource.pictureAtCurrentIndex()?.bottomColor ?? DEFAULT_COLOR
         backgroundView.updateTopColor(topColor, andBottomColor: bottomColor)
-        if let height = source.pictureAtCurrentIndex()?.fullScreenHeight {
+        if let height = dataSource.pictureAtCurrentIndex()?.fullScreenHeight {
             overlayView.updateGradientViews(height,
                 topColor: topColor, bottomColor: bottomColor)
         }
@@ -74,7 +70,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     
     // MARK: ImageLoadDelegate
     func onImageLoaded(index: Int) {
-        if (index == dataSource?.currentIndex) {
+        if (index == dataSource.currentIndex) {
             updateViews()
         }
     }
@@ -121,21 +117,14 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         // Return our adjusted target point
         targetContentOffset.memory = CGPointMake(0, max(CGFloat(nextIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL,
         collectionView.contentInset.top))
-        if let currentIndex = dataSource?.currentIndex {
-            indexDiff = nextIndex - currentIndex
-        }
-        dataSource?.currentIndex = nextIndex
+        indexDiff = nextIndex - dataSource.currentIndex
+        dataSource.currentIndex = nextIndex
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        
-        dataSource?.shiftCurrentIndex(indexDiff)
+        dataSource.shiftCurrentIndex(indexDiff)
         collectionView.reloadData()
-        
-        if let index = dataSource?.currentIndex {
-            moveToIndex(index)
-        }
-
+        moveToIndex(dataSource.currentIndex)
     }
     
     @IBAction func onSwipedRight(sender: AnyObject) {
