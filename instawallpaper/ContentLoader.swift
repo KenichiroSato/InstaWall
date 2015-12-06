@@ -14,17 +14,20 @@ class ContentLoader: NSObject {
     var paginationInfo: String? = nil
     let instagramManager = InstagramManager()
     var photosLoadDelegate: PhotosLoadDelegate?
+    var isLoading = false
     
     lazy var successBlock: SuccessLoadBlock
     = {[unowned self] (pictures, paginationInfo) in
         self.paginationInfo = paginationInfo
         self.pictureArray += pictures
         self.photosLoadDelegate?.onLoadSuccess()
+        self.isLoading = false
     }
     
     lazy var failureBlock: (NSError!, Int) -> Void = {[unowned self] error, statusCode in
         self.clearData()
         self.photosLoadDelegate?.onLoadFail()
+        self.isLoading = false
     }
 
     func clearData() {
@@ -37,7 +40,15 @@ class ContentLoader: NSObject {
     }
     
     func loadContent() {
-        fatalError("must be overridden")
+        if (isLoading) {
+            print("already loading")
+            return
+        }
+        isLoading = true
+        doLoad()
     }
     
+    func doLoad() {
+        fatalError("must be overridden")
+    }
 }

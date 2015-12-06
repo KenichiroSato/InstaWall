@@ -10,7 +10,7 @@ import UIKit
 
 class PopularContentLoader: ContentLoader {
 
-    override func loadContent() {
+    override func doLoad() {
         instagramManager.roadPopular(successBlock, failure:failureBlock)
     }
     

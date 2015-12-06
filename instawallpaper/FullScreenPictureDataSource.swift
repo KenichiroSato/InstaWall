@@ -141,7 +141,6 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
                         }
                 })
             }
-            print("loadImage:" + String(indexPath.item))
             return cell
     }
 }
