@@ -101,7 +101,7 @@ class FullScreenPictureDataSourceInitilizeTest: XCTestCase {
     
     func testSelected30_ARRAY_RANGE_3() {
         let dataSource = FullScreenPictureDataSourceTest3(selectedIndex: 30, loader: contentLoader)
-        XCTAssertEqual(dataSource.pictureCount(), 7)
+        XCTAssertEqual(dataSource.pictureCount(), 0)
         XCTAssertEqual(dataSource.currentInternalIndex, 3)
     }
     

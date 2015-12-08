@@ -19,10 +19,14 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     private let LOADER_TRIGGER_INDEX = 10
     
+    // This indicates how many contents should be loaded
+    // before and after currently displayed content
     var ARRAY_RANGE: Int {
         return 2
     }
 
+    // 1 means currently displayed content.
+    // * 2 means before and after
     private var TOTAL_PIC_NUM: Int {
         return ARRAY_RANGE * 2 + 1
     }
@@ -39,11 +43,6 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     // Index of whole content list which contentLoader has
     var contentLoaderIndex: Int = 0
     
-/*
-    init(mediaArray:[Picture]) {
-        pictureArray += mediaArray
-    }
-*/
     init (selectedIndex:Int, loader:ContentLoader) {
         contentLoader = loader
         super.init()
@@ -52,34 +51,39 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     private func updateIndex(newContenteLoaderIndex: Int) {
         contentLoaderIndex = newContenteLoaderIndex
-        let pictures = contentLoader.pictureArray
-        let range = arrayRange(contentLoaderIndex, arrayCount: pictures.count)
-        pictureArray = Array(pictures[range.bottom...range.top])
-        currentInternalIndex = updateCurrentIndex(contentLoaderIndex)
+        updatePictureArray()
+        updateCurrentInternalIndex()
     }
     
-    private func updateCurrentIndex(selectedIndex:Int) -> Int {
-        if (selectedIndex < ARRAY_RANGE) {
-            return selectedIndex
+    private func updateCurrentInternalIndex() {
+        let newInternalIndex: Int
+        if (contentLoaderIndex < ARRAY_RANGE) {
+            newInternalIndex = contentLoaderIndex
+        } else {
+            newInternalIndex = ARRAY_RANGE
         }
-        return ARRAY_RANGE
+        currentInternalIndex = newInternalIndex
     }
     
-    private func arrayRange(selectedIndex:Int, arrayCount:Int) -> (bottom:Int, top:Int) {
+    private func updatePictureArray() {
+        let arrayCount = contentLoader.pictureArray.count
+        guard 0 <= contentLoaderIndex && contentLoaderIndex < arrayCount else {
+            return
+        }
+        
+        let range:(bottom:Int, top:Int)
         let maxIndex = arrayCount - 1
-        if (selectedIndex < 0 || selectedIndex >= arrayCount) {
-            return (0, TOTAL_PIC_NUM - 1)
-        }
         if (arrayCount <= TOTAL_PIC_NUM ) {
-            return (0, maxIndex)
+            range = (0, maxIndex)
+        } else if (contentLoaderIndex - ARRAY_RANGE < 0) {
+            range =  (0, contentLoaderIndex + ARRAY_RANGE)
+        } else if (contentLoaderIndex + ARRAY_RANGE > maxIndex) {
+            range = (contentLoaderIndex - ARRAY_RANGE, maxIndex)
+        } else {
+            range = (contentLoaderIndex - ARRAY_RANGE, contentLoaderIndex + ARRAY_RANGE)
         }
-        if (selectedIndex - ARRAY_RANGE < 0) {
-            return (0, selectedIndex + ARRAY_RANGE)
-        }
-        if (selectedIndex + ARRAY_RANGE > maxIndex) {
-            return (selectedIndex - ARRAY_RANGE, maxIndex)
-        }
-        return (selectedIndex - ARRAY_RANGE, selectedIndex + ARRAY_RANGE)
+        let pictures = contentLoader.pictureArray
+        pictureArray = Array(pictures[range.bottom...range.top])
     }
     
     func pictureCount() -> Int {
