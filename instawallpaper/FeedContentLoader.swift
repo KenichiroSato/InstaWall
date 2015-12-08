@@ -10,7 +10,7 @@ import UIKit
 
 class FeedContentLoader: ContentLoader {
 
-    override func loadContent() {
+    override func doLoad() {
         instagramManager.roadSelfFeed(paginationInfo, success:successBlock, failure: failureBlock)
     }
 

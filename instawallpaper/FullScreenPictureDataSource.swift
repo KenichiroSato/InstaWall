@@ -13,16 +13,81 @@ protocol ImageLoadDelegate {
     func onImageLoaded(index: Int)
 }
 
-class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
+class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
     
     private let REUSE_IDENTIFIER = "FullScreenPictureCell"
     
+    private let LOADER_TRIGGER_INDEX = 10
+    
+    // This indicates how many contents should be loaded
+    // before and after currently displayed content
+    var ARRAY_RANGE: Int {
+        return 2
+    }
+
+    // 1 means currently displayed content.
+    // * 2 means before and after
+    private var TOTAL_PIC_NUM: Int {
+        return ARRAY_RANGE * 2 + 1
+    }
+
     private var pictureArray: [Picture] = []
     
     var imageLoadDelegate: ImageLoadDelegate?
     
-    init(mediaArray:[Picture]) {
-        pictureArray += mediaArray
+    var contentLoader: ContentLoader
+    
+    // Index of this dataSource's list
+    var currentInternalIndex: Int = 0
+    
+    // Index of whole content list which contentLoader has
+    var contentLoaderIndex: Int = 0
+    
+    init (selectedIndex:Int, loader:ContentLoader) {
+        contentLoader = loader
+        super.init()
+        updateIndex(selectedIndex)
+    }
+    
+    private func updateIndex(newContenteLoaderIndex: Int) {
+        contentLoaderIndex = newContenteLoaderIndex
+        updatePictureArray()
+        updateCurrentInternalIndex()
+    }
+    
+    private func updateCurrentInternalIndex() {
+        let newInternalIndex: Int
+        if (contentLoaderIndex < ARRAY_RANGE) {
+            newInternalIndex = contentLoaderIndex
+        } else {
+            newInternalIndex = ARRAY_RANGE
+        }
+        currentInternalIndex = newInternalIndex
+    }
+    
+    private func updatePictureArray() {
+        let arrayCount = contentLoader.pictureArray.count
+        guard 0 <= contentLoaderIndex && contentLoaderIndex < arrayCount else {
+            return
+        }
+        
+        let range:(bottom:Int, top:Int)
+        let maxIndex = arrayCount - 1
+        if (arrayCount <= TOTAL_PIC_NUM ) {
+            range = (0, maxIndex)
+        } else if (contentLoaderIndex - ARRAY_RANGE < 0) {
+            range =  (0, contentLoaderIndex + ARRAY_RANGE)
+        } else if (contentLoaderIndex + ARRAY_RANGE > maxIndex) {
+            range = (contentLoaderIndex - ARRAY_RANGE, maxIndex)
+        } else {
+            range = (contentLoaderIndex - ARRAY_RANGE, contentLoaderIndex + ARRAY_RANGE)
+        }
+        let pictures = contentLoader.pictureArray
+        pictureArray = Array(pictures[range.bottom...range.top])
+    }
+    
+    func pictureCount() -> Int {
+        return pictureArray.count
     }
     
     func pictureAtIndex(index:Int) -> Picture? {
@@ -31,7 +96,27 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
         }
         return pictureArray[index]
     }
+    
+    func pictureAtCurrentIndex() -> Picture? {
+        return pictureAtIndex(currentInternalIndex)
+    }
+    
+    func shiftCurrentIndex(diff: Int) {
+        updateIndex(contentLoaderIndex + diff)
+        if (shouldTriggerLoad()) {
+            contentLoader.loadContent()
+            print("load Next!!!!!")
+        }
+    }
 
+    private func shouldTriggerLoad() -> Bool {
+        if (contentLoader.pictureArray.count - contentLoaderIndex < LOADER_TRIGGER_INDEX) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     // MARK: UICollectionViewDataSource
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -43,8 +128,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource{
     
     func collectionView(collectionView: UICollectionView,
         cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(REUSE_IDENTIFIER, forIndexPath: indexPath)
-                as! FullScreenPictureCell
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(REUSE_IDENTIFIER, forIndexPath: indexPath) as! FullScreenPictureCell
             
             if let imgView = cell.imageView {
                 imgView.image = nil

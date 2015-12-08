@@ -18,9 +18,10 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     @IBOutlet var backgroundView: GradationView!
     private var collectionView: UICollectionView!
     private var overlayView: FullScreenOverlayView!
-    var currentIndex: Int = 0
-    var dataSource: FullScreenPictureDataSource?
+    //dataSource must be set when creating this VC
+    var dataSource: FullScreenPictureDataSource!
     let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
+    var indexDiff:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         collectionView.backgroundColor = UIColor.clearColor()
         collectionView.translatesAutoresizingMaskIntoConstraints = false;
         collectionView.dataSource = dataSource
-        dataSource?.imageLoadDelegate = self
+        dataSource.imageLoadDelegate = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast // Faster deceleration!
@@ -44,7 +45,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        moveToIndex(currentIndex)
+        moveToIndex(dataSource.currentInternalIndex)
     }
 
     private func moveToIndex(index: Int) {
@@ -54,13 +55,10 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     }
     
     private func updateViews() {
-        guard let source = dataSource else {
-            return
-        }
-        let topColor = source.pictureAtIndex(currentIndex)?.topColor ?? DEFAULT_COLOR
-        let bottomColor = source.pictureAtIndex(currentIndex)?.bottomColor ?? DEFAULT_COLOR
+        let topColor = dataSource.pictureAtCurrentIndex()?.topColor ?? DEFAULT_COLOR
+        let bottomColor = dataSource.pictureAtCurrentIndex()?.bottomColor ?? DEFAULT_COLOR
         backgroundView.updateTopColor(topColor, andBottomColor: bottomColor)
-        if let height = source.pictureAtIndex(currentIndex)?.fullScreenHeight {
+        if let height = dataSource.pictureAtCurrentIndex()?.fullScreenHeight {
             overlayView.updateGradientViews(height,
                 topColor: topColor, bottomColor: bottomColor)
         }
@@ -72,7 +70,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     
     // MARK: ImageLoadDelegate
     func onImageLoaded(index: Int) {
-        if (index == currentIndex) {
+        if (index == dataSource.currentInternalIndex) {
             updateViews()
         }
     }
@@ -83,6 +81,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     }
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        disableUserAction() // user action will be enabled in scrollViewDidEndDecelerating
         updateViews()
     }
     
@@ -93,18 +92,19 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         let currentY = scrollView.contentOffset.y
         let yDiff: CGFloat = abs(targetContentOffset.memory.y - currentY)
         
+        var nextIndex:Int
         if (velocity.y == 0)
         {
             // A 0 velocity means the user dragged and stopped (no flick)
             // In this case, tell the scroll view to animate to the closest index
-            currentIndex = Int(roundf(Float(targetContentOffset.memory.y / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
+            nextIndex = Int(roundf(Float(targetContentOffset.memory.y / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
         }
         else if (velocity.y > 0)
         {
             // User scrolled downwards
             // Evaluate to the nearest index
             // Err towards closer a index by forcing a slightly closer target offset
-            currentIndex = Int(ceilf(Float((targetContentOffset.memory.y -
+            nextIndex = Int(ceilf(Float((targetContentOffset.memory.y -
                 yDiff)/FullScreenCollectionViewLayout.DRAG_INTERVAL)))
         }
         else
@@ -112,12 +112,29 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
             // User scrolled upwards
             // Evaluate to the nearest index
             // Err towards closer a index by forcing a slightly closer target offset
-            currentIndex = Int(floorf(Float((targetContentOffset.memory.y + yDiff) / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
+            nextIndex = Int(floorf(Float((targetContentOffset.memory.y + yDiff) / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
         }
     
         // Return our adjusted target point
-        targetContentOffset.memory = CGPointMake(0, max(CGFloat(currentIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL,
+        targetContentOffset.memory = CGPointMake(0, max(CGFloat(nextIndex) * FullScreenCollectionViewLayout.DRAG_INTERVAL,
         collectionView.contentInset.top))
+        indexDiff = nextIndex - dataSource.currentInternalIndex
+        dataSource.currentInternalIndex = nextIndex
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        dataSource.shiftCurrentIndex(indexDiff)
+        collectionView.reloadData()
+        moveToIndex(dataSource.currentInternalIndex)
+        enableUserAction()
+    }
+    
+    private func disableUserAction() {
+        self.view.userInteractionEnabled = false
+    }
+    
+    private func enableUserAction() {
+        self.view.userInteractionEnabled = true
     }
     
     @IBAction func onSwipedRight(sender: AnyObject) {
@@ -130,7 +147,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     
     private func openInstagramApp() {
         var success = false
-        if let id = dataSource?.pictureAtIndex(currentIndex)?.id {
+        if let id = dataSource?.pictureAtCurrentIndex()?.id {
             success = InstagramManager.openInstagramApp(id)
         }
         if (!success) {

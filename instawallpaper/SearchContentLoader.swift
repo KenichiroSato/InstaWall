@@ -12,7 +12,7 @@ class SearchContentLoader: ContentLoader {
 
     var searchText:String?
 
-    override func loadContent() {
+    override func doLoad() {
         guard let text = searchText else {
             return
         }
