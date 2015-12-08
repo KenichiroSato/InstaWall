@@ -134,7 +134,7 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
                 imgView.image = nil
                 let picture = pictureArray[indexPath.row]
                 imgView.sd_setImageWithURL(picture.imageURL,
-                    placeholderImage:nil, options: SDWebImageOptions.RetryFailed,
+                    placeholderImage:picture.thumbnail, options: SDWebImageOptions.RetryFailed,
                     completed: {(image, error, _, _) in
                         if (error == nil) {
                             self.pictureArray[indexPath.row].topColor =
