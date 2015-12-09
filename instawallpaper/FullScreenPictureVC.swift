@@ -21,6 +21,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     //dataSource must be set when creating this VC
     var dataSource: FullScreenPictureDataSource!
     let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
+    let gestureManager = GestureInstructionManager()
     var indexDiff:Int = 0
 
     override func viewDidLoad() {
@@ -46,6 +47,17 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         moveToIndex(dataSource.currentInternalIndex)
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        showGesture()
+    }
+    
+    private func showGesture() {
+        if let gesture = gestureManager.gestureToBeShown() {
+            gesture.show(self)
+        }
     }
 
     private func moveToIndex(index: Int) {
@@ -127,6 +139,8 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         collectionView.reloadData()
         moveToIndex(dataSource.currentInternalIndex)
         enableUserAction()
+        gestureManager.doneDownToUp()
+        showGesture()
     }
     
     private func disableUserAction() {
@@ -138,10 +152,12 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     }
     
     @IBAction func onSwipedRight(sender: AnyObject) {
+        gestureManager.doneLeftToRight()
         dismiss()
     }
     
     @IBAction func onSwipedLeft(sender: AnyObject) {
+        gestureManager.doneRightToLeft()
         openInstagramApp()
     }
     

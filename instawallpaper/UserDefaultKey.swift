@@ -10,7 +10,11 @@ import Foundation
 
 class UserDefaultKey {
     
-    static let TAP_ANIMATION_HAS_SHOWN = "tap_animation_has_shown"
+    static let SHOULD_SHOW_GESTURE_LEFT_TO_RIGHT = "should_show_gesture_left_to_right"
+
+    static let SHOULD_SHOW_GESTURE_RIGHT_TO_LEFT = "should_show_gesture_right_to_left"
+    
+    static let SHOULD_SHOW_GESTURE_DOWN_TO_UP = "should_show_gesture_down_to_up"
     
     static let FIRST_SAVED_MESSAGE_HAS_SHOWN = "first_saved_message_has_shown"
     
