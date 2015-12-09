@@ -36,6 +36,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         collectionView.alwaysBounceVertical = true
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast // Faster deceleration!
         collectionView.scrollsToTop = true
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.registerClass(FullScreenPictureCell.self, forCellWithReuseIdentifier: FullScreenPictureVC.reuseIdentifier)
         self.view.addSubview(collectionView)
         
