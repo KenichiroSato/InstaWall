@@ -16,6 +16,8 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     private let DEFAULT_COLOR = UIColor.blackColor()
     
     @IBOutlet var backgroundView: GradationView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
     private var collectionView: UICollectionView!
     private var overlayView: FullScreenOverlayView!
     //dataSource must be set when creating this VC
@@ -41,6 +43,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         
         overlayView = FullScreenOverlayView(frame: fullScreenRect)
         self.view.addSubview(overlayView)
+        self.view.bringSubviewToFront(indicator)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -71,6 +74,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     // MARK: ImageLoadDelegate
     func onImageLoaded(index: Int) {
         if (index == dataSource.currentInternalIndex) {
+            indicator.hidden = true
             updateViews()
         }
     }

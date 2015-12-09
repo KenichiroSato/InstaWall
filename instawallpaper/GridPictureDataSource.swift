@@ -75,7 +75,12 @@ class GridPictureDataSource: NSObject, UICollectionViewDataSource {
             if (pictureArray.count >= indexPath.row + 1) {
                 let media  = pictureArray[indexPath.row]
                 cell.imageView.sd_setImageWithURL(media.thumbnailURL,
-                    placeholderImage:nil, options: SDWebImageOptions.RetryFailed)
+                    placeholderImage:nil, options: SDWebImageOptions.RetryFailed,
+                    completed: {(image, error, _, _) in
+                        if let img = image {
+                            self.pictureArray[indexPath.row].thumbnail = img
+                        }
+                })
                 cell.indicator.hidden = true
             } else if (indexPath.item == collectionView.numberOfItemsInSection(0) - 1){
                 //cell is the second from the end, which means indicator should be displayed.

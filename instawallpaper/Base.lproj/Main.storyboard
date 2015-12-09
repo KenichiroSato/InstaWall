@@ -406,9 +406,19 @@
                     <view key="view" contentMode="scaleToFill" id="Afi-T5-64Z" customClass="GradationView" customModule="instawallpaper" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="7qV-bx-BzK">
+                                <rect key="frame" x="266" y="289" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="7qV-bx-BzK" firstAttribute="centerY" secondItem="Afi-T5-64Z" secondAttribute="centerY" id="NeL-71-cD5"/>
+                            <constraint firstItem="7qV-bx-BzK" firstAttribute="centerX" secondItem="Afi-T5-64Z" secondAttribute="centerX" id="vvE-vV-MFp"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Ad0-zH-V64" appends="YES" id="H9J-Qn-PBA"/>
                             <outletCollection property="gestureRecognizers" destination="yFf-Y5-x7Q" appends="YES" id="3c4-jN-42D"/>
@@ -416,6 +426,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="Afi-T5-64Z" id="3G2-4P-SEG"/>
+                        <outlet property="indicator" destination="7qV-bx-BzK" id="6r9-yc-C79"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIC-2D-ChJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
