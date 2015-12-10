@@ -11,6 +11,7 @@
 		0C30FA4B1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C30FA4A1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift */; };
 		0C4E09061C184931009E7A4B /* GestureInstructionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4E09051C184931009E7A4B /* GestureInstructionManager.swift */; };
 		0C71AA2A1B4BFEDB00710E96 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0C71AA291B4BFEDB00710E96 /* Settings.bundle */; };
+		0CC4B5A51C19927A006D9BB4 /* GestureInstructionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4B5A41C19927A006D9BB4 /* GestureInstructionManagerTests.swift */; };
 		0CD2A6A31B29AFB200FD111E /* ImageUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */; };
 		0CE915091B4EAE1D009551EE /* SegmentedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE915081B4EAE1D009551EE /* SegmentedVC.swift */; };
 		3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614AB61B2413D700B3CE59 /* TimeTracker.swift */; };
@@ -86,6 +87,7 @@
 		0C30FA4A1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureDataSource.swift; sourceTree = "<group>"; };
 		0C4E09051C184931009E7A4B /* GestureInstructionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureInstructionManager.swift; sourceTree = "<group>"; };
 		0C71AA291B4BFEDB00710E96 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		0CC4B5A41C19927A006D9BB4 /* GestureInstructionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureInstructionManagerTests.swift; sourceTree = "<group>"; };
 		0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtilTest.swift; sourceTree = "<group>"; };
 		0CE915081B4EAE1D009551EE /* SegmentedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedVC.swift; sourceTree = "<group>"; };
 		15B3F7EA7D980B34D0A18414 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */,
+				0CC4B5A41C19927A006D9BB4 /* GestureInstructionManagerTests.swift */,
 				0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */,
 				593E3C621C129C3E009F6A34 /* FullScreenPictureDataSourceTest.swift */,
 				593E3C641C12D882009F6A34 /* FullScreenPictureDataSourceInitilizeTest.swift */,
@@ -624,6 +627,7 @@
 				0CD2A6A31B29AFB200FD111E /* ImageUtilTest.swift in Sources */,
 				593E3C5F1C10A040009F6A34 /* InstagramManagerTests.swift in Sources */,
 				593E3C631C129C3E009F6A34 /* FullScreenPictureDataSourceTest.swift in Sources */,
+				0CC4B5A51C19927A006D9BB4 /* GestureInstructionManagerTests.swift in Sources */,
 				593E3C651C12D882009F6A34 /* FullScreenPictureDataSourceInitilizeTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
