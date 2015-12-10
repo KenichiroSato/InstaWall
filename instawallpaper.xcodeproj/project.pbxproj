@@ -12,6 +12,7 @@
 		0C4E09061C184931009E7A4B /* GestureInstructionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4E09051C184931009E7A4B /* GestureInstructionManager.swift */; };
 		0C71AA2A1B4BFEDB00710E96 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0C71AA291B4BFEDB00710E96 /* Settings.bundle */; };
 		0CC4B5A51C19927A006D9BB4 /* GestureInstructionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4B5A41C19927A006D9BB4 /* GestureInstructionManagerTests.swift */; };
+		0CC4B5A71C19AA8D006D9BB4 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4B5A61C19AA8D006D9BB4 /* Gesture.swift */; };
 		0CD2A6A31B29AFB200FD111E /* ImageUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */; };
 		0CE915091B4EAE1D009551EE /* SegmentedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE915081B4EAE1D009551EE /* SegmentedVC.swift */; };
 		3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614AB61B2413D700B3CE59 /* TimeTracker.swift */; };
@@ -88,6 +89,7 @@
 		0C4E09051C184931009E7A4B /* GestureInstructionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureInstructionManager.swift; sourceTree = "<group>"; };
 		0C71AA291B4BFEDB00710E96 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		0CC4B5A41C19927A006D9BB4 /* GestureInstructionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureInstructionManagerTests.swift; sourceTree = "<group>"; };
+		0CC4B5A61C19AA8D006D9BB4 /* Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
 		0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtilTest.swift; sourceTree = "<group>"; };
 		0CE915081B4EAE1D009551EE /* SegmentedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedVC.swift; sourceTree = "<group>"; };
 		15B3F7EA7D980B34D0A18414 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +186,7 @@
 				0C30FA4A1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift */,
 				5952D5F41BF82C3200FDAAFD /* FullScreenPictureCell.swift */,
 				0C4E09051C184931009E7A4B /* GestureInstructionManager.swift */,
+				0CC4B5A61C19AA8D006D9BB4 /* Gesture.swift */,
 			);
 			name = fullScreen;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				59677AC01C0A8A7300BF90DE /* FeedContentLoader.swift in Sources */,
 				0C2A28AA1C0F0B3D00690911 /* GridPictureVC.swift in Sources */,
 				5964135B1B510896009B857A /* HomeContentVC.swift in Sources */,
+				0CC4B5A71C19AA8D006D9BB4 /* Gesture.swift in Sources */,
 				5952D5F31BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift in Sources */,
 				0C30FA4B1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift in Sources */,
 				59677AC21C0A8DB100BF90DE /* SearchContentLoader.swift in Sources */,
