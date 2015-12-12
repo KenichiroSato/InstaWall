@@ -110,25 +110,15 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         let yDiff: CGFloat = abs(targetContentOffset.memory.y - currentY)
         
         var nextIndex:Int
-        if (velocity.y == 0)
-        {
+        if (velocity.y == 0) {
             // A 0 velocity means the user dragged and stopped (no flick)
-            // In this case, tell the scroll view to animate to the closest index
             nextIndex = Int(roundf(Float(targetContentOffset.memory.y / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
-        }
-        else if (velocity.y > 0)
-        {
+        } else if (velocity.y > 0) {
             // User scrolled downwards
-            // Evaluate to the nearest index
-            // Err towards closer a index by forcing a slightly closer target offset
             nextIndex = Int(ceilf(Float((targetContentOffset.memory.y -
                 yDiff)/FullScreenCollectionViewLayout.DRAG_INTERVAL)))
-        }
-        else
-        {
+        } else {
             // User scrolled upwards
-            // Evaluate to the nearest index
-            // Err towards closer a index by forcing a slightly closer target offset
             nextIndex = Int(floorf(Float((targetContentOffset.memory.y + yDiff) / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
         }
     

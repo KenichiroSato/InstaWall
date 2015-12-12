@@ -126,27 +126,24 @@ class FullScreenPictureDataSource :NSObject, UICollectionViewDataSource {
         return pictureArray.count
     }
     
-    func collectionView(collectionView: UICollectionView,
-        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(REUSE_IDENTIFIER, forIndexPath: indexPath) as! FullScreenPictureCell
-            
-            if let imgView = cell.imageView {
-                imgView.image = nil
-                let picture = pictureArray[indexPath.row]
-                imgView.sd_setImageWithURL(picture.imageURL,
-                    placeholderImage:picture.thumbnail, options: SDWebImageOptions.RetryFailed,
-                    completed: {(image, error, _, _) in
-                        if (error == nil) {
-                            self.pictureArray[indexPath.row].topColor =
-                                ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.TOP)
-                            self.pictureArray[indexPath.row].bottomColor =
-                                ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.BOTTOM)
-                            if let delegate = self.imageLoadDelegate {
-                                delegate.onImageLoaded(indexPath.row)
-                            }
-                        }
-                })
-            }
-            return cell
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(REUSE_IDENTIFIER, forIndexPath: indexPath) as! FullScreenPictureCell
+        
+        cell.imageView.image = nil
+        let picture = pictureArray[indexPath.row]
+        cell.imageView.sd_setImageWithURL(picture.imageURL,
+            placeholderImage:picture.thumbnail, options: SDWebImageOptions.RetryFailed,
+            completed: {(image, error, _, _) in
+                if (error == nil) {
+                    self.pictureArray[indexPath.row].topColor =
+                        ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.TOP)
+                    self.pictureArray[indexPath.row].bottomColor =
+                        ImageUtil.mostFrequentColor(image, position: ImageUtil.Position.BOTTOM)
+                    if let delegate = self.imageLoadDelegate {
+                        delegate.onImageLoaded(indexPath.row)
+                    }
+                }
+        })
+        return cell
     }
 }

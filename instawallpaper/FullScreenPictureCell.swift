@@ -10,17 +10,16 @@ import UIKit
 
 class FullScreenPictureCell: UICollectionViewCell {
     
-    var imageView: UIImageView?
+    var imageView: UIImageView
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
         imageView = UIImageView()
-        imageView?.translatesAutoresizingMaskIntoConstraints = false;
-        imageView?.contentMode = UIViewContentMode.ScaleAspectFill//UIViewContentModeScaleAspectFill;
-        imageView?.clipsToBounds = true;
-        if let view = imageView {
-            self.contentView.addSubview(view)
-        }
+        imageView.translatesAutoresizingMaskIntoConstraints = false;
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill//UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = true;
+        super.init(frame: frame)
+
+        self.contentView.addSubview(imageView)
         
         // Auto Layout
         var viewBindingsDict: [String: AnyObject] = [String: AnyObject]()
