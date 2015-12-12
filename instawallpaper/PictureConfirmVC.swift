@@ -251,8 +251,5 @@ class PictureConfirmVC: UIViewController {
         }
     }
     
-    private func dismiss() {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
 }
 

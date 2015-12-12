@@ -177,8 +177,4 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         }
     }
     
-    private func dismiss() {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
 }
