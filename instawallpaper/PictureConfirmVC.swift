@@ -89,12 +89,14 @@ class PictureConfirmVC: UIViewController {
     }
     
     private func showTapAnimation() {
+        /*
         let ud = NSUserDefaults.standardUserDefaults()
         let hasShown = ud.boolForKey(UserDefaultKey.TAP_ANIMATION_HAS_SHOWN)
         if (!hasShown) {
             self.tapImageView.fadeInAndOut()
             ud.setBool(true, forKey: UserDefaultKey.TAP_ANIMATION_HAS_SHOWN)
         }
+*/
     }
 
     private func imageDataFromURL(url:NSURL) -> NSData? {

@@ -17,7 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         AccountManager.sharedInstance.loadToken()
+        registerInitialUserDefaultsValue()
         return true
+    }
+    
+    private func registerInitialUserDefaultsValue() {
+        let ud = NSUserDefaults.standardUserDefaults()
+        ud.registerDefaults([
+            UserDefaultKey.SHOULD_SHOW_GESTURE_LEFT_TO_RIGHT:true,
+            UserDefaultKey.SHOULD_SHOW_GESTURE_RIGHT_TO_LEFT:true,
+            UserDefaultKey.SHOULD_SHOW_GESTURE_DOWN_TO_UP:true])
     }
 
     func applicationWillResignActive(application: UIApplication) {
