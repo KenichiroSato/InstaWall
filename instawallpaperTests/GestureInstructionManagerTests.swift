@@ -137,9 +137,7 @@ class GestureInstructionManagerTests: XCTestCase {
 class GestureInstructionManagerTest: GestureInstructionManager {
     
     func resetAllFlags() {
-        for gesture in gestures {
-            gesture.resetFlag()
-        }
+        gestures.forEach({$0.resetFlag()})
     }
     
 }
