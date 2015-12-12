@@ -98,7 +98,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     }
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
-        disableUserAction() // user action will be enabled in scrollViewDidEndDecelerating
+        self.view.disableUserAction() // user action will be enabled in scrollViewDidEndDecelerating
         updateViews()
     }
     
@@ -143,17 +143,9 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         dataSource.shiftCurrentIndex(indexDiff)
         collectionView.reloadData()
         moveToIndex(dataSource.currentInternalIndex)
-        enableUserAction()
+        self.view.enableUserAction()
         gestureManager.doneDownToUp()
         showGesture()
-    }
-    
-    private func disableUserAction() {
-        self.view.userInteractionEnabled = false
-    }
-    
-    private func enableUserAction() {
-        self.view.userInteractionEnabled = true
     }
     
     @IBAction func onSwipedRight(sender: AnyObject) {
