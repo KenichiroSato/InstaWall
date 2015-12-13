@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoadDelegate {
+class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoadDelegate, PhotosLoadDelegate {
 
     private static let reuseIdentifier = "FullScreenPictureCell"
 
@@ -18,22 +18,25 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     @IBOutlet var backgroundView: GradationView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    private var collectionView: UICollectionView!
+    private var collectionView: UICollectionView =
+    UICollectionView(frame: Screen.APPLICATION_FRAME(),
+        collectionViewLayout: FullScreenCollectionViewLayout())
+    
     private var overlayView: FullScreenOverlayView!
     //dataSource must be set when creating this VC
-    var dataSource: FullScreenPictureDataSource!
-    let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
+    var dataSource: FullScreenPictureDataSource! {
+        didSet {
+            collectionView.dataSource = dataSource
+        }
+    }
     let gestureManager = GestureInstructionManager()
     var indexDiff:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fullScreenRect: CGRect = Screen.APPLICATION_FRAME()
-        collectionView = UICollectionView(frame: fullScreenRect, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clearColor()
         collectionView.translatesAutoresizingMaskIntoConstraints = false;
-        collectionView.dataSource = dataSource
         dataSource.imageLoadDelegate = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
@@ -43,6 +46,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         collectionView.registerClass(FullScreenPictureCell.self, forCellWithReuseIdentifier: FullScreenPictureVC.reuseIdentifier)
         self.view.addSubview(collectionView)
         
+        let fullScreenRect: CGRect = Screen.APPLICATION_FRAME()
         overlayView = FullScreenOverlayView(frame: fullScreenRect)
         self.view.addSubview(overlayView)
         self.view.bringSubviewToFront(indicator)
@@ -50,7 +54,13 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        dataSource.photosLoadDelegate = self
         moveToIndex(dataSource.currentInternalIndex)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        dataSource.photosLoadDelegate = nil
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -159,4 +169,12 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         }
     }
     
+    // MARK: PhotosLoadDelegate
+    func onLoadFail() {
+        UIAlertController.show( Text.ERR_FAIL_LOAD,
+            message: nil, forVC: self, handler:{(_) in self.dismiss()}
+        )
+    }
+    
+
 }

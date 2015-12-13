@@ -9,9 +9,9 @@
 import UIKit
 import SDWebImage
 
-protocol PhotosLoadDelegate {
-    func onLoadSuccess()
-    func onLoadFail()
+@objc protocol PhotosLoadDelegate {
+    optional func onLoadSuccess()
+    optional func onLoadFail()
 }
 
 class GridPictureDataSource: NSObject, UICollectionViewDataSource {
