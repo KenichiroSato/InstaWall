@@ -13,7 +13,7 @@ class GestureInstructionManager: NSObject {
     let leftToRight = LeftToRight()
     let rightToLeft = RightToLeft()
     let downToTop = DownToUp()
-    let gestures: [Gesture]
+    let gestures: [GestureConteiner]
     
     override init() {
         gestures = [downToTop, leftToRight, rightToLeft]

@@ -12,7 +12,7 @@
 		0C4E09061C184931009E7A4B /* GestureInstructionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4E09051C184931009E7A4B /* GestureInstructionManager.swift */; };
 		0C71AA2A1B4BFEDB00710E96 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0C71AA291B4BFEDB00710E96 /* Settings.bundle */; };
 		0CC4B5A51C19927A006D9BB4 /* GestureInstructionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4B5A41C19927A006D9BB4 /* GestureInstructionManagerTests.swift */; };
-		0CC4B5A71C19AA8D006D9BB4 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4B5A61C19AA8D006D9BB4 /* Gesture.swift */; };
+		0CC4B5A71C19AA8D006D9BB4 /* GestureContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4B5A61C19AA8D006D9BB4 /* GestureContainer.swift */; };
 		0CD2A6A31B29AFB200FD111E /* ImageUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */; };
 		0CE915091B4EAE1D009551EE /* SegmentedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE915081B4EAE1D009551EE /* SegmentedVC.swift */; };
 		3D614AB81B2413D700B3CE59 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D614AB61B2413D700B3CE59 /* TimeTracker.swift */; };
@@ -60,7 +60,7 @@
 		597D0B2D1C1BC21200935E4C /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597D0B2C1C1BC21200935E4C /* UIViewController+extension.swift */; };
 		599C44281BE3AC2C00160BA5 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C44271BE3AC2C00160BA5 /* Text.swift */; };
 		599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E46AA1B227DDB005CE654 /* PictureManager.swift */; };
-		59B5A6441C1D63CB0014FF99 /* GestureAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5A6431C1D63CB0014FF99 /* GestureAnimationView.swift */; };
+		59B5A6441C1D63CB0014FF99 /* GestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5A6431C1D63CB0014FF99 /* GestureView.swift */; };
 		59FD8B9B1BAEA702005C86B0 /* InstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD8B9A1BAEA702005C86B0 /* InstructionVC.swift */; };
 		59FDC00A1B555F1700E28AB5 /* ContentBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */; };
 		59FDC00F1B5C999700E28AB5 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FDC00E1B5C999700E28AB5 /* UIImage+extension.swift */; };
@@ -91,7 +91,7 @@
 		0C4E09051C184931009E7A4B /* GestureInstructionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureInstructionManager.swift; sourceTree = "<group>"; };
 		0C71AA291B4BFEDB00710E96 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		0CC4B5A41C19927A006D9BB4 /* GestureInstructionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureInstructionManagerTests.swift; sourceTree = "<group>"; };
-		0CC4B5A61C19AA8D006D9BB4 /* Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
+		0CC4B5A61C19AA8D006D9BB4 /* GestureContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureContainer.swift; sourceTree = "<group>"; };
 		0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtilTest.swift; sourceTree = "<group>"; };
 		0CE915081B4EAE1D009551EE /* SegmentedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedVC.swift; sourceTree = "<group>"; };
 		15B3F7EA7D980B34D0A18414 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +147,7 @@
 		597D0B2C1C1BC21200935E4C /* UIViewController+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		599C44271BE3AC2C00160BA5 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		599E46AA1B227DDB005CE654 /* PictureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureManager.swift; sourceTree = "<group>"; };
-		59B5A6431C1D63CB0014FF99 /* GestureAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureAnimationView.swift; sourceTree = "<group>"; };
+		59B5A6431C1D63CB0014FF99 /* GestureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureView.swift; sourceTree = "<group>"; };
 		59FD8B9A1BAEA702005C86B0 /* InstructionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionVC.swift; sourceTree = "<group>"; };
 		59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseVC.swift; sourceTree = "<group>"; };
 		59FDC00E1B5C999700E28AB5 /* UIImage+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
@@ -190,8 +190,8 @@
 				0C30FA4A1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift */,
 				5952D5F41BF82C3200FDAAFD /* FullScreenPictureCell.swift */,
 				0C4E09051C184931009E7A4B /* GestureInstructionManager.swift */,
-				0CC4B5A61C19AA8D006D9BB4 /* Gesture.swift */,
-				59B5A6431C1D63CB0014FF99 /* GestureAnimationView.swift */,
+				0CC4B5A61C19AA8D006D9BB4 /* GestureContainer.swift */,
+				59B5A6431C1D63CB0014FF99 /* GestureView.swift */,
 			);
 			name = fullScreen;
 			sourceTree = "<group>";
@@ -605,7 +605,7 @@
 				59677AC01C0A8A7300BF90DE /* FeedContentLoader.swift in Sources */,
 				0C2A28AA1C0F0B3D00690911 /* GridPictureVC.swift in Sources */,
 				5964135B1B510896009B857A /* HomeContentVC.swift in Sources */,
-				0CC4B5A71C19AA8D006D9BB4 /* Gesture.swift in Sources */,
+				0CC4B5A71C19AA8D006D9BB4 /* GestureContainer.swift in Sources */,
 				597D0B2D1C1BC21200935E4C /* UIViewController+extension.swift in Sources */,
 				5952D5F31BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift in Sources */,
 				0C30FA4B1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift in Sources */,
@@ -619,7 +619,7 @@
 				593E3C611C127FEE009F6A34 /* Picture.swift in Sources */,
 				3DB8F9E91B5B4DF4000B8747 /* SegueIdentifier.swift in Sources */,
 				5964135D1B511151009B857A /* Color.swift in Sources */,
-				59B5A6441C1D63CB0014FF99 /* GestureAnimationView.swift in Sources */,
+				59B5A6441C1D63CB0014FF99 /* GestureView.swift in Sources */,
 				599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */,
 				59FD8B9B1BAEA702005C86B0 /* InstructionVC.swift in Sources */,
 				59677ABA1C09B97600BF90DE /* GridPictureDataSource.swift in Sources */,
