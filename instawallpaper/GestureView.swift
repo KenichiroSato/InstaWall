@@ -19,6 +19,9 @@ class GestureView: UIImageView {
     
     let delay:NSTimeInterval
     let duration:NSTimeInterval
+    var totalDuration: NSTimeInterval {
+        return delay + duration
+    }
     
     init(name:String, delay:NSTimeInterval, duration:NSTimeInterval) {
         self.delay = delay
