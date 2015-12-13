@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         AccountManager.sharedInstance.loadToken()
         registerInitialUserDefaultsValue()
+        
+        //Initialize Crashlytics
+        Fabric.with([Crashlytics.self])
+
         return true
     }
     

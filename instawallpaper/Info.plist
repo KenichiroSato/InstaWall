@@ -75,6 +75,20 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>5</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>74c6959f11db7982048c578bd1b27ba01ee06673</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>InstagramAppClientId</key>
 	<string>77648f48cb6047a380f1c507487f49b3</string>
 	<key>InstagramAppRedirectURL</key>
