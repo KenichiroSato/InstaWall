@@ -56,10 +56,6 @@ class LoginVC: UIViewController, UIWebViewDelegate {
         dismiss()
     }
     
-    private func dismiss() {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-
     func webViewDidFinishLoad(webView: UIWebView) {
         activityIndicator.hidden = true
     }

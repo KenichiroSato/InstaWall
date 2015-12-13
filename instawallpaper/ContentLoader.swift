@@ -26,7 +26,7 @@ class ContentLoader: NSObject {
     = {[unowned self] (pictures, paginationInfo) in
         self.paginationInfo = paginationInfo
         self.pictureArray += pictures
-        self.photosLoadDelegate?.onLoadSuccess()
+        self.photosLoadDelegate?.onLoadSuccess?()
         self.isLoading = false
         self.retryCount = 0
     }
@@ -38,7 +38,7 @@ class ContentLoader: NSObject {
             return
         }
         self.clearData()
-        self.photosLoadDelegate?.onLoadFail()
+        self.photosLoadDelegate?.onLoadFail?()
         self.isLoading = false
         self.retryCount = 0
     }

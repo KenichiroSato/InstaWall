@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoadDelegate {
+class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoadDelegate, PhotosLoadDelegate {
 
     private static let reuseIdentifier = "FullScreenPictureCell"
 
@@ -18,22 +18,25 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     @IBOutlet var backgroundView: GradationView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    private var collectionView: UICollectionView!
+    private var collectionView: UICollectionView =
+    UICollectionView(frame: Screen.APPLICATION_FRAME(),
+        collectionViewLayout: FullScreenCollectionViewLayout())
+    
     private var overlayView: FullScreenOverlayView!
     //dataSource must be set when creating this VC
-    var dataSource: FullScreenPictureDataSource!
-    let layout: FullScreenCollectionViewLayout = FullScreenCollectionViewLayout()
+    var dataSource: FullScreenPictureDataSource! {
+        didSet {
+            collectionView.dataSource = dataSource
+        }
+    }
     let gestureManager = GestureInstructionManager()
     var indexDiff:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fullScreenRect: CGRect = Screen.APPLICATION_FRAME()
-        collectionView = UICollectionView(frame: fullScreenRect, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clearColor()
         collectionView.translatesAutoresizingMaskIntoConstraints = false;
-        collectionView.dataSource = dataSource
         dataSource.imageLoadDelegate = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
@@ -43,6 +46,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         collectionView.registerClass(FullScreenPictureCell.self, forCellWithReuseIdentifier: FullScreenPictureVC.reuseIdentifier)
         self.view.addSubview(collectionView)
         
+        let fullScreenRect: CGRect = Screen.APPLICATION_FRAME()
         overlayView = FullScreenOverlayView(frame: fullScreenRect)
         self.view.addSubview(overlayView)
         self.view.bringSubviewToFront(indicator)
@@ -50,7 +54,13 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        dataSource.photosLoadDelegate = self
         moveToIndex(dataSource.currentInternalIndex)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        dataSource.photosLoadDelegate = nil
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -98,7 +108,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     }
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
-        disableUserAction() // user action will be enabled in scrollViewDidEndDecelerating
+        self.view.disableUserAction() // user action will be enabled in scrollViewDidEndDecelerating
         updateViews()
     }
     
@@ -110,25 +120,15 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         let yDiff: CGFloat = abs(targetContentOffset.memory.y - currentY)
         
         var nextIndex:Int
-        if (velocity.y == 0)
-        {
+        if (velocity.y == 0) {
             // A 0 velocity means the user dragged and stopped (no flick)
-            // In this case, tell the scroll view to animate to the closest index
             nextIndex = Int(roundf(Float(targetContentOffset.memory.y / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
-        }
-        else if (velocity.y > 0)
-        {
+        } else if (velocity.y > 0) {
             // User scrolled downwards
-            // Evaluate to the nearest index
-            // Err towards closer a index by forcing a slightly closer target offset
             nextIndex = Int(ceilf(Float((targetContentOffset.memory.y -
                 yDiff)/FullScreenCollectionViewLayout.DRAG_INTERVAL)))
-        }
-        else
-        {
+        } else {
             // User scrolled upwards
-            // Evaluate to the nearest index
-            // Err towards closer a index by forcing a slightly closer target offset
             nextIndex = Int(floorf(Float((targetContentOffset.memory.y + yDiff) / FullScreenCollectionViewLayout.DRAG_INTERVAL)))
         }
     
@@ -143,17 +143,9 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         dataSource.shiftCurrentIndex(indexDiff)
         collectionView.reloadData()
         moveToIndex(dataSource.currentInternalIndex)
-        enableUserAction()
+        self.view.enableUserAction()
         gestureManager.doneDownToUp()
         showGesture()
-    }
-    
-    private func disableUserAction() {
-        self.view.userInteractionEnabled = false
-    }
-    
-    private func enableUserAction() {
-        self.view.userInteractionEnabled = true
     }
     
     @IBAction func onSwipedRight(sender: AnyObject) {
@@ -177,8 +169,12 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         }
     }
     
-    private func dismiss() {
-        self.navigationController?.popViewControllerAnimated(true)
+    // MARK: PhotosLoadDelegate
+    func onLoadFail() {
+        UIAlertController.show( Text.ERR_FAIL_LOAD,
+            message: nil, forVC: self, handler:{(_) in self.dismiss()}
+        )
     }
     
+
 }

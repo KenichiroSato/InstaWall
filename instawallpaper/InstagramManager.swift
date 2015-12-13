@@ -60,6 +60,10 @@ public class InstagramManager {
     
     /// - returns: true if sucess. Otherwise return false
     class func openInstagramApp(mediaId:String) -> Bool {
+        guard !mediaId.isEmpty else {
+            return false
+        }
+        
         if let url = NSURL(string: InstagramManager.URL_SCHEME + mediaId) {
             return UIApplication.sharedApplication().openURL(url)
         } else {

@@ -23,4 +23,14 @@ extension UIView {
                     animations: {self.alpha = 0}, completion: {(_) in self.removeFromSuperview()})
         })
     }
+    
+    func disableUserAction() {
+        self.userInteractionEnabled = false
+    }
+    
+    func enableUserAction() {
+        self.userInteractionEnabled = true
+    }
+    
+
 }

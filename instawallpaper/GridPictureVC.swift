@@ -22,7 +22,6 @@ class GridPictureVC: UIViewController, UICollectionViewDelegateFlowLayout,
     var dataSource: GridPictureDataSource! {
         didSet {
             collectionView.dataSource = dataSource
-            dataSource.photosLoadDelegate = self
         }
     }
     
@@ -34,6 +33,16 @@ class GridPictureVC: UIViewController, UICollectionViewDelegateFlowLayout,
         refreshControl.tintColor = UIColor.whiteColor()
         collectionView.addSubview(refreshControl)
         tryReloadView.reloadDelegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        dataSource.photosLoadDelegate = self
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        dataSource.photosLoadDelegate = nil
     }
     
     func loadTopContent(showFullScreenLoading:Bool) {

@@ -36,10 +36,6 @@ class InstructionVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func dismiss() {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-
     @IBAction func onSwiped(sender: AnyObject) {
         dismiss()
     }
