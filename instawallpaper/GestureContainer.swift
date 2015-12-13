@@ -28,8 +28,9 @@ class GestureConteiner {
         guard animations.count > 0 else {
             return 0.0
         }
-        return animations.reduce(animations[0], combine: {
+        let maxDuration = animations.reduce(animations[0], combine: {
             $0.totalDuration > $1.totalDuration ? $0 : $1}).totalDuration
+        return maxDuration - minDelay
     }
 
     

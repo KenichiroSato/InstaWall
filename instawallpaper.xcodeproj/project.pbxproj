@@ -60,6 +60,7 @@
 		597D0B2D1C1BC21200935E4C /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597D0B2C1C1BC21200935E4C /* UIViewController+extension.swift */; };
 		599C44281BE3AC2C00160BA5 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C44271BE3AC2C00160BA5 /* Text.swift */; };
 		599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E46AA1B227DDB005CE654 /* PictureManager.swift */; };
+		59A224C51C1DB1C40050D91A /* GestureConteinerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A224C41C1DB1C40050D91A /* GestureConteinerTests.swift */; };
 		59B5A6441C1D63CB0014FF99 /* GestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5A6431C1D63CB0014FF99 /* GestureView.swift */; };
 		59FD8B9B1BAEA702005C86B0 /* InstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD8B9A1BAEA702005C86B0 /* InstructionVC.swift */; };
 		59FDC00A1B555F1700E28AB5 /* ContentBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */; };
@@ -147,6 +148,7 @@
 		597D0B2C1C1BC21200935E4C /* UIViewController+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		599C44271BE3AC2C00160BA5 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		599E46AA1B227DDB005CE654 /* PictureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureManager.swift; sourceTree = "<group>"; };
+		59A224C41C1DB1C40050D91A /* GestureConteinerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureConteinerTests.swift; sourceTree = "<group>"; };
 		59B5A6431C1D63CB0014FF99 /* GestureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureView.swift; sourceTree = "<group>"; };
 		59FD8B9A1BAEA702005C86B0 /* InstructionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionVC.swift; sourceTree = "<group>"; };
 		59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseVC.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */,
 				593E3C621C129C3E009F6A34 /* FullScreenPictureDataSourceTest.swift */,
 				593E3C641C12D882009F6A34 /* FullScreenPictureDataSourceInitilizeTest.swift */,
+				59A224C41C1DB1C40050D91A /* GestureConteinerTests.swift */,
 				5952D5E01BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift */,
 				593E3C5E1C10A040009F6A34 /* InstagramManagerTests.swift */,
 				595101C01B19EB8E006F2F65 /* Supporting Files */,
@@ -654,6 +657,7 @@
 				593E3C5F1C10A040009F6A34 /* InstagramManagerTests.swift in Sources */,
 				593E3C631C129C3E009F6A34 /* FullScreenPictureDataSourceTest.swift in Sources */,
 				0CC4B5A51C19927A006D9BB4 /* GestureInstructionManagerTests.swift in Sources */,
+				59A224C51C1DB1C40050D91A /* GestureConteinerTests.swift in Sources */,
 				593E3C651C12D882009F6A34 /* FullScreenPictureDataSourceInitilizeTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

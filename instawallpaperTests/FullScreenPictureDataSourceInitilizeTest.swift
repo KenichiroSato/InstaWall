@@ -2,7 +2,7 @@
 //  FullScreenPictureDataSourceInitilizeTest.swift
 //  instawallpaper
 //
-//  Created by 佐藤健一朗 on 2015/12/05.
+//  Created by Kenichiro Sato on 2015/12/05.
 //  Copyright © 2015年 Kenichiro Sato. All rights reserved.
 //
 
