@@ -11,15 +11,14 @@ import UIKit
 
 extension UIView {
     
-    func fadeInAndOut() {
+    func fadeInAndOut(duration: NSTimeInterval) {
         let fadeInInterval: NSTimeInterval = 0.3
-        let showInterval: NSTimeInterval = 0.3
         let fadeOutInterval: NSTimeInterval = 0.3
         self.alpha = 0
         self.hidden = false
         UIView.animateWithDuration( fadeInInterval, animations: {self.alpha = 1}
             , completion: { (finished: Bool) in
-                UIView.animateWithDuration(fadeOutInterval, delay: showInterval, options: [],
+                UIView.animateWithDuration(fadeOutInterval, delay: duration, options: [],
                     animations: {self.alpha = 0}, completion: {(_) in self.removeFromSuperview()})
         })
     }

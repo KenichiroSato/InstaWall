@@ -60,6 +60,7 @@
 		597D0B2D1C1BC21200935E4C /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597D0B2C1C1BC21200935E4C /* UIViewController+extension.swift */; };
 		599C44281BE3AC2C00160BA5 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C44271BE3AC2C00160BA5 /* Text.swift */; };
 		599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599E46AA1B227DDB005CE654 /* PictureManager.swift */; };
+		59B5A6441C1D63CB0014FF99 /* GestureAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B5A6431C1D63CB0014FF99 /* GestureAnimationView.swift */; };
 		59FD8B9B1BAEA702005C86B0 /* InstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FD8B9A1BAEA702005C86B0 /* InstructionVC.swift */; };
 		59FDC00A1B555F1700E28AB5 /* ContentBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */; };
 		59FDC00F1B5C999700E28AB5 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FDC00E1B5C999700E28AB5 /* UIImage+extension.swift */; };
@@ -146,6 +147,7 @@
 		597D0B2C1C1BC21200935E4C /* UIViewController+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		599C44271BE3AC2C00160BA5 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		599E46AA1B227DDB005CE654 /* PictureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureManager.swift; sourceTree = "<group>"; };
+		59B5A6431C1D63CB0014FF99 /* GestureAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureAnimationView.swift; sourceTree = "<group>"; };
 		59FD8B9A1BAEA702005C86B0 /* InstructionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionVC.swift; sourceTree = "<group>"; };
 		59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseVC.swift; sourceTree = "<group>"; };
 		59FDC00E1B5C999700E28AB5 /* UIImage+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				5952D5F41BF82C3200FDAAFD /* FullScreenPictureCell.swift */,
 				0C4E09051C184931009E7A4B /* GestureInstructionManager.swift */,
 				0CC4B5A61C19AA8D006D9BB4 /* Gesture.swift */,
+				59B5A6431C1D63CB0014FF99 /* GestureAnimationView.swift */,
 			);
 			name = fullScreen;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				593E3C611C127FEE009F6A34 /* Picture.swift in Sources */,
 				3DB8F9E91B5B4DF4000B8747 /* SegueIdentifier.swift in Sources */,
 				5964135D1B511151009B857A /* Color.swift in Sources */,
+				59B5A6441C1D63CB0014FF99 /* GestureAnimationView.swift in Sources */,
 				599E46AB1B227DDB005CE654 /* PictureManager.swift in Sources */,
 				59FD8B9B1BAEA702005C86B0 /* InstructionVC.swift in Sources */,
 				59677ABA1C09B97600BF90DE /* GridPictureDataSource.swift in Sources */,

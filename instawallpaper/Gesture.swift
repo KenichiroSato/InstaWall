@@ -20,12 +20,22 @@ class Gesture {
     }
     
     //must be overridden by subclass
+    func textImageName() -> String {
+        fatalError("must be overridden by subclass")
+    }
+    
+    //must be overridden by subclass
     func firstImageName() -> String {
         fatalError("must be overridden by subclass")
     }
     
     //must be overridden by subclass
     func secondImageName() -> String {
+        fatalError("must be overridden by subclass")
+    }
+    
+    //must be overridden by subclass
+    func secondImageName2() -> String? {
         fatalError("must be overridden by subclass")
     }
     
@@ -42,15 +52,21 @@ class Gesture {
     }
     
     func show(vc: UIViewController) {
-        let width: CGFloat = 200
-        let height: CGFloat = 200
+        let width: CGFloat = 250
+        let height: CGFloat = 250
         let rect = CGRectMake(Screen.WIDTH()/2 - width/2, Screen.HEIGHT()/2 - height/2, width, height)
+        
+        let textImage = UIImageView()
+        textImage.frame = rect
+        textImage.image = UIImage(named: textImageName())
+        vc.view.addSubview(textImage)
+        textImage.fadeInAndOut(0.9)
         
         let imageView = UIImageView()
         imageView.frame = rect
         imageView.image = UIImage(named: firstImageName())
         vc.view.addSubview(imageView)
-        imageView.fadeInAndOut()
+        imageView.fadeInAndOut(0.3)
         
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.6 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
@@ -58,11 +74,17 @@ class Gesture {
             imageView2.frame = rect
             imageView2.image = UIImage(named: self.secondImageName())
             vc.view.addSubview(imageView2)
-            imageView2.fadeInAndOut()
+            imageView2.fadeInAndOut(0.3)
+            
+            if let name2 = self.secondImageName2() {
+                let imageView3 = UIImageView()
+                imageView3.frame = rect
+                imageView3.image = UIImage(named: name2)
+                vc.view.addSubview(imageView3)
+                imageView3.fadeInAndOut(0.3)
+            }
         }
-        
     }
-    
 }
 
 class LeftToRight: Gesture {
@@ -71,12 +93,20 @@ class LeftToRight: Gesture {
         return UserDefaultKey.SHOULD_SHOW_GESTURE_LEFT_TO_RIGHT
     }
     
+    override func textImageName() -> String {
+        return "instructionBack"
+    }
+    
     override func firstImageName() -> String {
-        return "fingerLeft"
+        return "instructionFingerLeft"
     }
     
     override func secondImageName() -> String {
-        return "fingerRight"
+        return "instructionFingerRight"
+    }
+
+    override func secondImageName2() -> String? {
+        return "instructionHorizontalLine"
     }
 }
 
@@ -86,12 +116,20 @@ class RightToLeft: Gesture {
         return UserDefaultKey.SHOULD_SHOW_GESTURE_RIGHT_TO_LEFT
     }
     
+    override func textImageName() -> String {
+        return "instructionOpen"
+    }
+    
     override func firstImageName() -> String {
-        return "fingerRight"
+        return "instructionFingerRight"
     }
     
     override func secondImageName() -> String {
-        return "fingerLeft"
+        return "instructionFingerLeft"
+    }
+    
+    override func secondImageName2() -> String? {
+        return "instructionHorizontalLine"
     }
 }
 
@@ -101,11 +139,20 @@ class DownToUp: Gesture {
         return UserDefaultKey.SHOULD_SHOW_GESTURE_DOWN_TO_UP
     }
     
+    override func textImageName() -> String {
+        return "instructionScroll"
+    }
+    
     override func firstImageName() -> String {
-        return "fingerDown"
+        return "instructionFingerDown"
     }
     
     override func secondImageName() -> String {
-        return "fingerUp"
+        return "instructionFingerUp"
     }
+    
+    override func secondImageName2() -> String? {
+        return nil
+    }
+
 }
