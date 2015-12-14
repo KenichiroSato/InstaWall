@@ -20,7 +20,7 @@ class GestureInstructionManager: NSObject {
         super.init()
     }
     
-    func gestureToBeShown() -> Gesture? {
+    func gestureToBeShown() -> GestureConteiner? {
         return gestures.filter({$0.shouldShow()}).first
     }
     
