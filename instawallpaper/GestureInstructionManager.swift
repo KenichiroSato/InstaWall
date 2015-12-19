@@ -13,14 +13,14 @@ class GestureInstructionManager: NSObject {
     let leftToRight = LeftToRight()
     let rightToLeft = RightToLeft()
     let downToTop = DownToUp()
-    let gestures: [Gesture]
+    let gestures: [GestureConteiner]
     
     override init() {
         gestures = [downToTop, leftToRight, rightToLeft]
         super.init()
     }
     
-    func gestureToBeShown() -> Gesture? {
+    func gestureToBeShown() -> GestureConteiner? {
         return gestures.filter({$0.shouldShow()}).first
     }
     

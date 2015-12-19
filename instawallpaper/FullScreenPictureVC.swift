@@ -70,7 +70,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
     
     private func showGesture() {
         if let gesture = gestureManager.gestureToBeShown() {
-            gesture.show(self)
+            gesture.show(self.view)
         }
     }
 
