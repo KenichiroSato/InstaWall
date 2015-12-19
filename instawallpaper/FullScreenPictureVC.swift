@@ -65,7 +65,6 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        showGesture()
     }
     
     private func showGesture() {
@@ -99,6 +98,7 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         if (index == dataSource.currentInternalIndex) {
             indicator.hidden = true
             updateViews()
+            showGesture()
         }
     }
     
@@ -145,7 +145,6 @@ class FullScreenPictureVC: UIViewController, UICollectionViewDelegate, ImageLoad
         moveToIndex(dataSource.currentInternalIndex)
         self.view.enableUserAction()
         gestureManager.doneDownToUp()
-        showGesture()
     }
     
     @IBAction func onSwipedRight(sender: AnyObject) {

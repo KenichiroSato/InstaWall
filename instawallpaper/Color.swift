@@ -15,5 +15,5 @@ class Color {
     
     static let BASE_BLUE_SELECTED = UIColor(red: 0.5, green: 0.8, blue: 1, alpha: 1)
 
-    static let BLACK_TRANSPARENT = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+    static let BLACK_TRANSPARENT = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
 }
