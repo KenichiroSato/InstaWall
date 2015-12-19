@@ -41,7 +41,7 @@ class GestureConteiner {
     }
     
     init() {
-        shadow.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        shadow.backgroundColor = Color.BLACK_TRANSPARENT
     }
     
     //must be overridden by subclass
