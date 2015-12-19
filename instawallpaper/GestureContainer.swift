@@ -53,7 +53,7 @@ class GestureConteiner {
         return ud.boolForKey(userDefaultKey())
     }
     
-    func gestureHasDone() {
+    func prohibitToShow() {
         ud.setBool(false, forKey: userDefaultKey())
     }
     
@@ -66,6 +66,7 @@ class GestureConteiner {
         animations.forEach({
             $0.show(parentView)
         })
+        prohibitToShow() //each gesture is shown only once
     }
     
     private func showShadow(parent:UIView) {

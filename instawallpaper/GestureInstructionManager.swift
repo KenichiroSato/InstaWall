@@ -25,15 +25,15 @@ class GestureInstructionManager: NSObject {
     }
     
     func doneRightToLeft() {
-        rightToLeft.gestureHasDone()
+        rightToLeft.prohibitToShow()
     }
     
     func doneLeftToRight() {
-        leftToRight.gestureHasDone()
+        leftToRight.prohibitToShow()
     }
     
     func doneDownToUp() {
-        downToTop.gestureHasDone()
+        downToTop.prohibitToShow()
     }
 }
 
