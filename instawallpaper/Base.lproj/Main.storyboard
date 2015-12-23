@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,14 +19,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPV-uY-Qc4">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="dCp-8c-JbV">
+                                <rect key="frame" x="0.0" y="20" width="327" height="580"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dCp-8c-JbV" secondAttribute="height" multiplier="40:71" id="H8L-sf-nwB"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPV-uY-Qc4">
                                 <rect key="frame" x="287" y="297" width="38" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <segue destination="GQ8-yT-oa2" kind="presentation" identifier="segue.login" id="9UN-3P-crG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dne-eO-FGu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dne-eO-FGu">
                                 <rect key="frame" x="271" y="202" width="71" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -33,6 +41,14 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dCp-8c-JbV" firstAttribute="top" secondItem="CAD-EO-4fG" secondAttribute="bottom" id="0KD-q3-3qr"/>
+                            <constraint firstItem="dCp-8c-JbV" firstAttribute="leading" secondItem="fYa-aW-h3e" secondAttribute="leading" id="8Tc-xS-wnH"/>
+                            <constraint firstItem="Dne-eO-FGu" firstAttribute="centerX" secondItem="fYa-aW-h3e" secondAttribute="centerX" id="EGn-RM-9Ey"/>
+                            <constraint firstItem="FCo-E0-rrA" firstAttribute="top" secondItem="dCp-8c-JbV" secondAttribute="bottom" id="RLf-0v-sGX"/>
+                            <constraint firstItem="oPV-uY-Qc4" firstAttribute="centerX" secondItem="fYa-aW-h3e" secondAttribute="centerX" id="ckt-oy-KAH"/>
+                            <constraint firstAttribute="trailing" secondItem="dCp-8c-JbV" secondAttribute="trailing" id="y9r-eH-0HZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4OK-V0-HRe"/>
                     <connections>
@@ -407,5 +423,6 @@
     </scenes>
     <resources>
         <image name="back" width="136" height="121"/>
+        <image name="launchImage" width="1350" height="2400"/>
     </resources>
 </document>

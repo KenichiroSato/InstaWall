@@ -22,19 +22,15 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
     }
     
     override func viewDidLoad() {
+        guard AccountManager.sharedInstance.isLoggedIn() else {
+            dismiss()
+            return
+        }
+        
         super.viewDidLoad()
         topView.backgroundColor = Color.BASE_BLUE
-        
-        let dataSource: GridPictureDataSource
-        if (AccountManager.sharedInstance.isLoggedIn()) {
-            loginButton.setTitle(Text.LOG_OUT,
-                forState: UIControlState.Normal)
-            dataSource = GridPictureDataSource(contentLoader: FeedContentLoader())
-        } else {
-            loginButton.setTitle(Text.LOG_IN,
-                forState: UIControlState.Normal)
-            dataSource = GridPictureDataSource(contentLoader: PopularContentLoader())
-        }
+        loginButton.setTitle(Text.LOG_OUT, forState: UIControlState.Normal)
+        let dataSource = GridPictureDataSource(contentLoader: FeedContentLoader())
         photosVC.dataSource = dataSource
         photosVC.loadTopContent(true)
     }
@@ -43,7 +39,6 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     // MARK: - Navigation
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
