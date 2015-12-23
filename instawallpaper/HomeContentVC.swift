@@ -58,13 +58,14 @@ class HomeContentVC: ContentBaseVC, LogInDelegate {
         return super.shouldPerformSegueWithIdentifier(identifier, sender: sender)
     }
     
+    
+    @IBAction func onLogoutPressed(sender: AnyObject) {
+        logOut()
+    }
+    
     private func logOut() {
         AccountManager.sharedInstance.logOut()
-        loginButton.setTitle(Text.LOG_IN,
-            forState: UIControlState.Normal)
-        let dataSource = GridPictureDataSource(contentLoader: PopularContentLoader())
-        photosVC.dataSource = dataSource
-        photosVC.loadTopContent(true)
+        dismiss()
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

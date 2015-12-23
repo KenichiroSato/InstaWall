@@ -39,11 +39,11 @@ class LoginVC: UIViewController, UIWebViewDelegate {
                 let delimiter = "access_token="
                 let components:Array = urlString.componentsSeparatedByString(delimiter)
                 if let token = components.last {
-                    self.navigationController?.popViewControllerAnimated(true)
                     if let delegate = logInDelegate {
                         delegate.onLoggedIn(token)
                         logInDelegate = nil
                     }
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 return false
             }
@@ -53,7 +53,7 @@ class LoginVC: UIViewController, UIWebViewDelegate {
     
     
     @IBAction func onBackPressed(sender: AnyObject) {
-        dismiss()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {

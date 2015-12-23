@@ -6,6 +6,43 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--WelcomeVC-->
+        <scene sceneID="vSa-WJ-tvl">
+            <objects>
+                <viewController id="nT3-Cc-woI" customClass="WelcomeVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CAD-EO-4fG"/>
+                        <viewControllerLayoutGuide type="bottom" id="FCo-E0-rrA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fYa-aW-h3e">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPV-uY-Qc4">
+                                <rect key="frame" x="287" y="297" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="GQ8-yT-oa2" kind="presentation" identifier="segue.login" id="9UN-3P-crG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dne-eO-FGu">
+                                <rect key="frame" x="271" y="202" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4OK-V0-HRe"/>
+                    <connections>
+                        <segue destination="jRu-61-krm" kind="show" identifier="segue.showcontent" animates="NO" id="tNd-YP-61r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2IX-n8-p8I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="626" y="-2028"/>
+        </scene>
         <!--SegmentedVC-->
         <scene sceneID="d0R-ym-QQz">
             <objects>
@@ -18,15 +55,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJU-7f-15x">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
-                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpb-Du-zd5">
                                 <rect key="frame" x="0.0" y="550" width="580" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ibf-8d-6o2"/>
                                 </constraints>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJU-7f-15x">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -48,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b8-dg-Qnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322" y="-1229"/>
+            <point key="canvasLocation" x="626" y="-1243"/>
         </scene>
         <!--Grid PictureVC-->
         <scene sceneID="qXb-TW-vat">
@@ -129,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afk-Va-z8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976" y="-433"/>
+            <point key="canvasLocation" x="2164" y="-465"/>
         </scene>
         <!--Home ContentVC-->
         <scene sceneID="dzw-np-ojH">
@@ -156,7 +193,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="GQ8-yT-oa2" kind="show" identifier="segue.login" id="Mnl-Z3-bJi"/>
+                                            <action selector="onLogoutPressed:" destination="E4S-6u-Cbr" eventType="touchUpInside" id="zh3-ec-cFV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -190,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxh-NF-wEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1120" y="-1219"/>
+            <point key="canvasLocation" x="1424" y="-1243"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="24Y-FV-Jzk">
@@ -201,12 +238,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="jRu-61-krm" kind="relationship" relationship="rootViewController" id="gXU-zX-P8n"/>
+                        <segue destination="nT3-Cc-woI" kind="relationship" relationship="rootViewController" id="KcU-Mc-ajc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Gc-ggg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-420" y="-1144"/>
+            <point key="canvasLocation" x="-144" y="-2028"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="pA4-qB-q2a">
@@ -220,9 +257,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Niv-mG-SbO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xht-ZQ-6e7">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-0v-3qe">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
@@ -241,25 +278,26 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" white="0.96021792760000002" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="Niv-mG-SbO" secondAttribute="bottom" id="0LI-KB-ZmV"/>
+                            <constraint firstItem="Xht-ZQ-6e7" firstAttribute="leading" secondItem="o6Z-N7-Gja" secondAttribute="leading" id="7Mm-gQ-LZ0"/>
+                            <constraint firstItem="Xht-ZQ-6e7" firstAttribute="top" secondItem="csW-Ku-mc2" secondAttribute="bottom" id="9mD-bh-sT1"/>
                             <constraint firstItem="rKC-dR-Tg8" firstAttribute="top" secondItem="Tc4-aV-wLX" secondAttribute="bottom" constant="15" id="At3-yS-gVP"/>
-                            <constraint firstAttribute="trailing" secondItem="Niv-mG-SbO" secondAttribute="trailing" id="KbJ-dM-hN9"/>
-                            <constraint firstItem="Niv-mG-SbO" firstAttribute="top" secondItem="o6Z-N7-Gja" secondAttribute="topMargin" id="Lgt-jJ-BbF"/>
-                            <constraint firstItem="Niv-mG-SbO" firstAttribute="leading" secondItem="o6Z-N7-Gja" secondAttribute="leading" id="Vjx-S5-gii"/>
+                            <constraint firstAttribute="trailing" secondItem="Xht-ZQ-6e7" secondAttribute="trailing" id="DNU-Hg-nQm"/>
                             <constraint firstAttribute="centerY" secondItem="6ep-0v-3qe" secondAttribute="centerY" id="YDw-TO-JE8"/>
+                            <constraint firstItem="rKC-dR-Tg8" firstAttribute="top" secondItem="Xht-ZQ-6e7" secondAttribute="bottom" id="fWY-Vp-AdN"/>
                             <constraint firstAttribute="centerX" secondItem="6ep-0v-3qe" secondAttribute="centerX" id="txw-iE-7RC"/>
                             <constraint firstItem="Tc4-aV-wLX" firstAttribute="leading" secondItem="o6Z-N7-Gja" secondAttribute="leadingMargin" constant="-5" id="wTV-H9-V1k"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="6ep-0v-3qe" id="2vu-4B-sxA"/>
-                        <outlet property="webView" destination="Niv-mG-SbO" id="EC3-vO-XEU"/>
+                        <outlet property="webView" destination="Xht-ZQ-6e7" id="Uk8-Mt-QaR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZZ-hz-ZQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976" y="-1175"/>
+            <point key="canvasLocation" x="1424" y="-2028"/>
         </scene>
         <!--Full Screen PictureVC-->
         <scene sceneID="IAW-6T-UeE">
@@ -305,7 +343,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2713" y="-433"/>
+            <point key="canvasLocation" x="2901" y="-465"/>
         </scene>
         <!--Search ContentVC-->
         <scene sceneID="Kav-gf-aE2">
@@ -364,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mn1-mR-8j0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1120" y="-487"/>
+            <point key="canvasLocation" x="1424" y="-479"/>
         </scene>
     </scenes>
     <resources>
