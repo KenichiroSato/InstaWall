@@ -17,6 +17,8 @@ class LoginVC: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     var logInDelegate: LogInDelegate?
 
     override func viewDidLoad() {
