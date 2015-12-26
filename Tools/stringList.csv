@@ -7,7 +7,7 @@ MSG_SHOW_INSTRUCTION,壁紙の設定方法,How to set wallpaper
 MSG_OPEN_WITH_INSTAGRAM,Instagramアプリで開く,Open with Instagram
 MSG_OPEN_PHOTOS,写真アプリを開く,Open Photos
 MSG_BACK_TO_LIST,一覧に戻る,Back to list
-MSG_FIRST_SAVED,画像を保存しました。設定アプリまたは写真アプリから壁紙を設定してください。,Image is saved. Please set wallpaper with Settings app or Photos app.
+MSG_PP_EULA,ログインすることで、、インスタグラムの%@を読み、%@に同意したものとみなされます。,"By tapping ""Log in"", you are indicating that you have read the %@ and agree to the %@ of Instagram."
 ,,
 SEARCH_BOX_PLACEHOLDER,検索キーワード,search keyword
 SEARCH_DEFAULT_KEYWORD,ねこ,dogs
@@ -16,3 +16,6 @@ ERR_FAIL_LOAD,画像の読み込みに失敗しました。,Failed to load image
 ERR_FAIL_SAVE,画像を保存できませんでした。,Failed to save image.
 ERR_DENIED_SAVE,画像を保存できませんでした。設定＞プライバシー＞写真からこのアプリを有効にしてください。,Failed to save image.\n Please enable this app in \n Settings > Privacy > Photos.
 ERR_FAIL_OPEN_INSTAGRAM,Instagramを開けませんでした。\n Instagramアプリをインストールしてください。,Failed to open Instagram.\n Please install Instagram app.
+,,
+PRIVACY_POLICY,プライバシーポリシー,Privacy Policy
+EULA,利用規約,Terms of Use

@@ -15,21 +15,25 @@ class Text {
 
     static let ERR_FAIL_SAVE = NSLocalizedString("ERR_FAIL_SAVE", comment:"")
 
+    static let EULA = NSLocalizedString("EULA", comment:"")
+
     static let LOG_IN = NSLocalizedString("LOG_IN", comment:"")
 
     static let LOG_OUT = NSLocalizedString("LOG_OUT", comment:"")
 
     static let MSG_BACK_TO_LIST = NSLocalizedString("MSG_BACK_TO_LIST", comment:"")
 
-    static let MSG_FIRST_SAVED = NSLocalizedString("MSG_FIRST_SAVED", comment:"")
-
     static let MSG_OPEN_PHOTOS = NSLocalizedString("MSG_OPEN_PHOTOS", comment:"")
 
     static let MSG_OPEN_WITH_INSTAGRAM = NSLocalizedString("MSG_OPEN_WITH_INSTAGRAM", comment:"")
 
+    static let MSG_PP_EULA = NSLocalizedString("MSG_PP_EULA", comment:"")
+
     static let MSG_SHOW_INSTRUCTION = NSLocalizedString("MSG_SHOW_INSTRUCTION", comment:"")
 
     static let OK = NSLocalizedString("OK", comment:"")
+
+    static let PRIVACY_POLICY = NSLocalizedString("PRIVACY_POLICY", comment:"")
 
     static let SEARCH_BOX_PLACEHOLDER = NSLocalizedString("SEARCH_BOX_PLACEHOLDER", comment:"")
 
