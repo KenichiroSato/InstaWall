@@ -20,33 +20,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="dCp-8c-JbV">
-                                <rect key="frame" x="0.0" y="20" width="327" height="580"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="1065"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dCp-8c-JbV" secondAttribute="height" multiplier="40:71" id="H8L-sf-nwB"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPV-uY-Qc4">
-                                <rect key="frame" x="287" y="297" width="38" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dne-eO-FGu">
+                                <rect key="frame" x="265" y="290" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPV-uY-Qc4">
+                                <rect key="frame" x="275" y="414" width="50" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <segue destination="GQ8-yT-oa2" kind="presentation" identifier="segue.login" id="9UN-3P-crG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dne-eO-FGu">
-                                <rect key="frame" x="271" y="202" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dCp-8c-JbV" firstAttribute="top" secondItem="CAD-EO-4fG" secondAttribute="bottom" id="0KD-q3-3qr"/>
-                            <constraint firstItem="dCp-8c-JbV" firstAttribute="leading" secondItem="fYa-aW-h3e" secondAttribute="leading" id="8Tc-xS-wnH"/>
+                            <constraint firstAttribute="leading" secondItem="dCp-8c-JbV" secondAttribute="leading" id="8Tc-xS-wnH"/>
                             <constraint firstItem="Dne-eO-FGu" firstAttribute="centerX" secondItem="fYa-aW-h3e" secondAttribute="centerX" id="EGn-RM-9Ey"/>
-                            <constraint firstItem="FCo-E0-rrA" firstAttribute="top" secondItem="dCp-8c-JbV" secondAttribute="bottom" id="RLf-0v-sGX"/>
                             <constraint firstItem="oPV-uY-Qc4" firstAttribute="centerX" secondItem="fYa-aW-h3e" secondAttribute="centerX" id="ckt-oy-KAH"/>
+                            <constraint firstItem="Dne-eO-FGu" firstAttribute="centerY" secondItem="fYa-aW-h3e" secondAttribute="centerY" id="dYq-Ih-Q84"/>
+                            <constraint firstItem="FCo-E0-rrA" firstAttribute="top" secondItem="oPV-uY-Qc4" secondAttribute="bottom" constant="150" id="s77-O7-j6L"/>
                             <constraint firstAttribute="trailing" secondItem="dCp-8c-JbV" secondAttribute="trailing" id="y9r-eH-0HZ"/>
                         </constraints>
                     </view>
@@ -57,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IX-n8-p8I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="626" y="-2028"/>
+            <point key="canvasLocation" x="607" y="-1963"/>
         </scene>
         <!--SegmentedVC-->
         <scene sceneID="d0R-ym-QQz">
@@ -101,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b8-dg-Qnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="626" y="-1243"/>
+            <point key="canvasLocation" x="607" y="-1215"/>
         </scene>
         <!--Grid PictureVC-->
         <scene sceneID="qXb-TW-vat">
