@@ -53,7 +53,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4OK-V0-HRe"/>
                     <connections>
-                        <segue destination="jRu-61-krm" kind="show" identifier="segue.showcontent" animates="NO" id="tNd-YP-61r"/>
+                        <segue destination="jRu-61-krm" kind="show" identifier="segue.showcontent" id="tNd-YP-61r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IX-n8-p8I" userLabel="First Responder" sceneMemberID="firstResponder"/>

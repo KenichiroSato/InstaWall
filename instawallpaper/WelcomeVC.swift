@@ -38,7 +38,9 @@ class WelcomeVC: UIViewController, LogInDelegate {
     // MARK: LogInDelegate
     func onLoggedIn(token: String) {
         AccountManager.sharedInstance.saveToken(token)
+        UIView.setAnimationsEnabled(false)
         self.performSegueWithIdentifier(SegueIdentifier.SHOW_CONTENT, sender: self)
+        UIView.setAnimationsEnabled(true)
     }
 
 
