@@ -17,7 +17,7 @@ class LoginVC: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var eulaMessage: LinkTextView!
     
     var logInDelegate: LogInDelegate?
 
@@ -31,6 +31,8 @@ class LoginVC: UIViewController, UIWebViewDelegate {
         
         let authURL:NSURL = InstagramEngine.sharedEngine().authorizarionURLForScope(IKLoginScope.Basic)
         webView.loadRequest(NSURLRequest(URL: authURL))
+        
+        eulaMessage.text = String(format: Text.MSG_PP_EULA, arguments: [Text.PRIVACY_POLICY, Text.EULA])
     }
     
     
