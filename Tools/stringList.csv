@@ -1,13 +1,14 @@
+APP_NAME,Photofully,Photofully
 OK,OK,OK
 CANCEL,キャンセル,Cancel
-LOG_IN,ログイン,Login
+LOG_IN,Instagramにログイン,Login to Instagram
 LOG_OUT,ログアウト,Logout
 ,,
 MSG_SHOW_INSTRUCTION,壁紙の設定方法,How to set wallpaper
 MSG_OPEN_WITH_INSTAGRAM,Instagramアプリで開く,Open with Instagram
 MSG_OPEN_PHOTOS,写真アプリを開く,Open Photos
 MSG_BACK_TO_LIST,一覧に戻る,Back to list
-MSG_PP_EULA,ログインすることで、、インスタグラムの%@を読み、%@に同意したものとみなされます。,"By tapping ""Log in"", you are indicating that you have read the %@ and agree to the %@ of Instagram."
+MSG_PP_EULA,ログインすることで、インスタグラムの%@を読み、%@に同意したものとみなされます。,"By tapping ""Log in"", you are indicating that you have read the %@ and agree to the %@ of Instagram."
 ,,
 SEARCH_BOX_PLACEHOLDER,検索キーワード,search keyword
 SEARCH_DEFAULT_KEYWORD,ねこ,dogs

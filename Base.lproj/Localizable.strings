@@ -1,10 +1,11 @@
+"APP_NAME" = "Photofully";
 "CANCEL" = "Cancel";
 "ERR_DENIED_SAVE" = "Failed to save image.\n Please enable this app in \n Settings \> Privacy \> Photos.";
 "ERR_FAIL_LOAD" = "Failed to load images.";
 "ERR_FAIL_OPEN_INSTAGRAM" = "Failed to open Instagram.\n Please install Instagram app.";
 "ERR_FAIL_SAVE" = "Failed to save image.";
 "EULA" = "Terms of Use";
-"LOG_IN" = "Login";
+"LOG_IN" = "Login to Instagram";
 "LOG_OUT" = "Logout";
 "MSG_BACK_TO_LIST" = "Back to list";
 "MSG_OPEN_PHOTOS" = "Open Photos";

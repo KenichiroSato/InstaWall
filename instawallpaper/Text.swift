@@ -5,6 +5,8 @@ import Foundation
 
 class Text {
 
+    static let APP_NAME = NSLocalizedString("APP_NAME", comment:"")
+
     static let CANCEL = NSLocalizedString("CANCEL", comment:"")
 
     static let ERR_DENIED_SAVE = NSLocalizedString("ERR_DENIED_SAVE", comment:"")

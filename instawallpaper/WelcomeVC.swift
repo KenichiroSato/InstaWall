@@ -9,14 +9,23 @@
 import UIKit
 
 class WelcomeVC: UIViewController, LogInDelegate {
+    
+    @IBOutlet weak var welcomeText: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextLabels()
 
         if (AccountManager.sharedInstance.isLoggedIn()) {
             self.performSegueWithIdentifier(SegueIdentifier.SHOW_CONTENT, sender: self)
         }
-        // Do any additional setup after loading the view.
+    }
+    
+    private func setupTextLabels() {
+        welcomeText.text = Text.APP_NAME
+        welcomeText.textColor = Color.BASE_BLUE
+        loginButton.setTitle(Text.LOG_IN, forState: UIControlState.Normal)
     }
 
     override func didReceiveMemoryWarning() {
