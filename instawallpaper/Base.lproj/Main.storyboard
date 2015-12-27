@@ -10,7 +10,7 @@
         <!--WelcomeVC-->
         <scene sceneID="vSa-WJ-tvl">
             <objects>
-                <viewController id="nT3-Cc-woI" customClass="WelcomeVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeVC" id="nT3-Cc-woI" customClass="WelcomeVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CAD-EO-4fG"/>
                         <viewControllerLayoutGuide type="bottom" id="FCo-E0-rrA"/>
@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="dCp-8c-JbV">
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="dCp-8c-JbV">
                                 <rect key="frame" x="0.0" y="20" width="600" height="1065"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dCp-8c-JbV" secondAttribute="height" multiplier="40:71" id="H8L-sf-nwB"/>
@@ -74,7 +74,7 @@
         <!--SegmentedVC-->
         <scene sceneID="d0R-ym-QQz">
             <objects>
-                <viewController id="jRu-61-krm" customClass="SegmentedVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SegmentedVC" id="jRu-61-krm" customClass="SegmentedVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M0d-1q-IfR"/>
                         <viewControllerLayoutGuide type="bottom" id="Id7-pC-snC"/>
@@ -257,17 +257,14 @@
             </objects>
             <point key="canvasLocation" x="1424" y="-1243"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Root Navigation Controller-->
         <scene sceneID="24Y-FV-Jzk">
             <objects>
-                <navigationController navigationBarHidden="YES" id="ln7-NZ-e4U" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="ln7-NZ-e4U" customClass="RootNavigationController" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="v3d-5D-G38">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="nT3-Cc-woI" kind="relationship" relationship="rootViewController" id="KcU-Mc-ajc"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Gc-ggg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

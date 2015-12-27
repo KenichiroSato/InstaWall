@@ -59,6 +59,7 @@
 		597203701C2E8DC900ED4A05 /* LinkTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5972036F1C2E8DC900ED4A05 /* LinkTextView.swift */; };
 		597203721C2E8E3000ED4A05 /* TouchUpDownGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597203711C2E8E3000ED4A05 /* TouchUpDownGestureRecognizer.swift */; };
 		597203751C2E95BA00ED4A05 /* EulaPpMessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597203741C2E95BA00ED4A05 /* EulaPpMessageTextView.swift */; };
+		597203771C2FCE9900ED4A05 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597203761C2FCE9900ED4A05 /* RootNavigationController.swift */; };
 		597AD77F1B36432300E087B4 /* UIAlertController+show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597AD77E1B36432300E087B4 /* UIAlertController+show.swift */; };
 		597D0B2D1C1BC21200935E4C /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597D0B2C1C1BC21200935E4C /* UIViewController+extension.swift */; };
 		599C44281BE3AC2C00160BA5 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599C44271BE3AC2C00160BA5 /* Text.swift */; };
@@ -148,6 +149,7 @@
 		5972036F1C2E8DC900ED4A05 /* LinkTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTextView.swift; sourceTree = "<group>"; };
 		597203711C2E8E3000ED4A05 /* TouchUpDownGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchUpDownGestureRecognizer.swift; sourceTree = "<group>"; };
 		597203741C2E95BA00ED4A05 /* EulaPpMessageTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EulaPpMessageTextView.swift; sourceTree = "<group>"; };
+		597203761C2FCE9900ED4A05 /* RootNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		597AD77E1B36432300E087B4 /* UIAlertController+show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+show.swift"; sourceTree = "<group>"; };
 		597D0B2C1C1BC21200935E4C /* UIViewController+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		599C44271BE3AC2C00160BA5 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				59FDC00D1B5C8EC400E28AB5 /* viewController */,
 				5907B2641B3E29D3009A1F01 /* extension */,
 				595101AC1B19EB8E006F2F65 /* AppDelegate.swift */,
+				597203761C2FCE9900ED4A05 /* RootNavigationController.swift */,
 				593E3C601C127FEE009F6A34 /* Picture.swift */,
 				595101CC1B1A87D7006F2F65 /* ImageUtil.swift */,
 				3D614AB61B2413D700B3CE59 /* TimeTracker.swift */,
@@ -637,6 +640,7 @@
 				59B5A6441C1D63CB0014FF99 /* GestureView.swift in Sources */,
 				59677ABA1C09B97600BF90DE /* GridPictureDataSource.swift in Sources */,
 				5940F5061B90A34800822980 /* UIView+extension.swift in Sources */,
+				597203771C2FCE9900ED4A05 /* RootNavigationController.swift in Sources */,
 				5921B8421B3712D800FE739D /* LoginVC.swift in Sources */,
 				5964135F1B511A50009B857A /* SearchContentVC.swift in Sources */,
 				597203721C2E8E3000ED4A05 /* TouchUpDownGestureRecognizer.swift in Sources */,
