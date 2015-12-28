@@ -1,0 +1,110 @@
+//
+//  SearchContentVC.swift
+//  Photofully
+//
+//  Created by Kenichiro Sato on 2015/07/11.
+//  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.
+//
+
+import UIKit
+
+class SearchContentVC: ContentBaseVC, UITextFieldDelegate {
+
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var searchBox: UITextField!
+    private let transparentView = UIView()
+    private let dataLoader:SearchContentLoader = SearchContentLoader()
+    
+    override func shortcutItemType() -> String {
+        return "type.search"
+    }
+    
+    override func iconImage() -> UIImage {
+        return UIImage.named("search", size: ContentBaseVC.SEGMENT_ICON_SIZE)!
+    }
+    
+    override func onMovedByShortcut() {
+        searchBox.becomeFirstResponder()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        topView.backgroundColor = Color.BASE_BLUE
+        searchBox.text = loadSearchKeyword()
+        searchBox.clearButtonMode = UITextFieldViewMode.WhileEditing
+        searchBox.placeholder = Text.SEARCH_BOX_PLACEHOLDER
+        addTransparentView()
+        let dataSource = GridPictureDataSource(contentLoader: dataLoader)
+        photosVC.dataSource = dataSource
+        if let text = searchBox.text {
+            doSearch(text)
+        }
+    }
+    
+    private func doSearch(text:String) {
+        dataLoader.searchText = text
+        photosVC.loadTopContent(true)
+    }
+    
+    private func loadSearchKeyword() -> String {
+        let ud = NSUserDefaults.standardUserDefaults()
+        return  ud.stringForKey(UserDefaultKey.SEARCH_KEYWORD) ?? Text.SEARCH_DEFAULT_KEYWORD
+    }
+    
+    private func saveSearchKeyword(keyword:String) {
+        let ud = NSUserDefaults.standardUserDefaults()
+        ud.setObject(keyword, forKey: UserDefaultKey.SEARCH_KEYWORD)
+        ud.synchronize()
+    }
+    
+    private func addTransparentView() {
+        transparentView.frame = self.view.frame
+        transparentView.backgroundColor = Color.BLACK_TRANSPARENT
+        transparentView.hidden = true
+        self.contentView.addSubview(transparentView)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK - UITextFieldDelegate methods
+    func textFieldDidBeginEditing(textField: UITextField) {
+        transparentView.hidden = false
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        transparentView.hidden = true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if let text = textField.text {
+            doSearch(text)
+            saveSearchKeyword(text)
+        }
+        closeKeyboard()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        closeKeyboard()
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
+    private func closeKeyboard() {
+        searchBox.resignFirstResponder()
+    }
+    
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
