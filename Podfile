@@ -1,6 +1,6 @@
 platform :ios, '8.0'
 use_frameworks!
-xcodeproj './instawallpaper.xcodeproj'
+xcodeproj './Photofully.xcodeproj'
 
 pod 'InstagramKit', '3.6.3'
 pod 'HMSegmentedControl'
