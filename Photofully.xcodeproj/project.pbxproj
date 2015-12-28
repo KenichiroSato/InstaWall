@@ -199,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				590413511BA5288D00100068 /* Localizable.strings */,
-				595101A91B19EB8E006F2F65 /* instawallpaper */,
+				595101A91B19EB8E006F2F65 /* Photofully */,
 				595101A81B19EB8E006F2F65 /* Products */,
 				E3290B68C226A43311D121B2 /* Pods */,
 				CB18B5850265EC3D4DAE6E18 /* Frameworks */,
@@ -214,7 +214,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		595101A91B19EB8E006F2F65 /* instawallpaper */ = {
+		595101A91B19EB8E006F2F65 /* Photofully */ = {
 			isa = PBXGroup;
 			children = (
 				597203731C2E953100ED4A05 /* welcome */,
@@ -238,7 +238,7 @@
 				0C71AA291B4BFEDB00710E96 /* Settings.bundle */,
 				595101AA1B19EB8E006F2F65 /* Supporting Files */,
 			);
-			path = instawallpaper;
+			path = Photofully;
 			sourceTree = "<group>";
 		};
 		595101AA1B19EB8E006F2F65 /* Supporting Files */ = {
@@ -320,7 +320,7 @@
 			dependencies = (
 			);
 			name = Photofully;
-			productName = instawallpaper;
+			productName = Photofully;
 			productReference = 595101A71B19EB8E006F2F65 /* Photofully.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -624,7 +624,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = instawallpaper/Info.plist;
+				INFOPLIST_FILE = Photofully/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.capken.picturewallpaper;
 				PRODUCT_NAME = Photofully;
@@ -639,7 +639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = instawallpaper/Info.plist;
+				INFOPLIST_FILE = Photofully/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.capken.picturewallpaper;
 				PRODUCT_NAME = Photofully;
