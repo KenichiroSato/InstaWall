@@ -24,6 +24,13 @@
 		5907B2681B3E4EC6009A1F01 /* InstagramManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907B2671B3E4EC6009A1F01 /* InstagramManager.swift */; };
 		5910BA2D1B2C06AF00ABFCF8 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */; };
 		59135F7D1B46E49400D43F8E /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59135F7C1B46E49400D43F8E /* AccountManager.swift */; };
+		591D08821C30FEC0001DEAC0 /* FullScreenPictureDataSourceInitilizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D087D1C30FEC0001DEAC0 /* FullScreenPictureDataSourceInitilizeTest.swift */; };
+		591D08831C30FEC0001DEAC0 /* FullScreenPictureDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D087E1C30FEC0001DEAC0 /* FullScreenPictureDataSourceTest.swift */; };
+		591D08841C30FEC0001DEAC0 /* GestureConteinerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D087F1C30FEC0001DEAC0 /* GestureConteinerTests.swift */; };
+		591D08851C30FEC0001DEAC0 /* GestureInstructionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D08801C30FEC0001DEAC0 /* GestureInstructionManagerTests.swift */; };
+		591D08861C30FEC0001DEAC0 /* ImageUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D08811C30FEC0001DEAC0 /* ImageUtilTest.swift */; };
+		591D088A1C30FECA001DEAC0 /* InstagramManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D08871C30FECA001DEAC0 /* InstagramManagerTests.swift */; };
+		591D088C1C30FECA001DEAC0 /* PhotosCollectionVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D08891C30FECA001DEAC0 /* PhotosCollectionVCTest.swift */; };
 		591F008C1B974D4600452D86 /* TryReloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F008B1B974D4600452D86 /* TryReloadView.swift */; };
 		591F008E1B974DDB00452D86 /* TryReloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591F008D1B974DDB00452D86 /* TryReloadView.xib */; };
 		5921B8421B3712D800FE739D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5921B8411B3712D800FE739D /* LoginVC.swift */; };
@@ -61,6 +68,16 @@
 		AB6189176D856800D1BECAB6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B3F7EA7D980B34D0A18414 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		591D08781C30FE45001DEAC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5951019F1B19EB8D006F2F65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 595101A61B19EB8E006F2F65;
+			remoteInfo = Photofully;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0C2A28A91C0F0B3D00690911 /* GridPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPictureVC.swift; sourceTree = "<group>"; };
 		0C30FA4A1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureDataSource.swift; sourceTree = "<group>"; };
@@ -82,6 +99,15 @@
 		5907B2671B3E4EC6009A1F01 /* InstagramManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramManager.swift; sourceTree = "<group>"; };
 		5910BA2C1B2C06AF00ABFCF8 /* PictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		59135F7C1B46E49400D43F8E /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		591D08731C30FE45001DEAC0 /* PhotofullyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotofullyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		591D08771C30FE45001DEAC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		591D087D1C30FEC0001DEAC0 /* FullScreenPictureDataSourceInitilizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureDataSourceInitilizeTest.swift; sourceTree = "<group>"; };
+		591D087E1C30FEC0001DEAC0 /* FullScreenPictureDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureDataSourceTest.swift; sourceTree = "<group>"; };
+		591D087F1C30FEC0001DEAC0 /* GestureConteinerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureConteinerTests.swift; sourceTree = "<group>"; };
+		591D08801C30FEC0001DEAC0 /* GestureInstructionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureInstructionManagerTests.swift; sourceTree = "<group>"; };
+		591D08811C30FEC0001DEAC0 /* ImageUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtilTest.swift; sourceTree = "<group>"; };
+		591D08871C30FECA001DEAC0 /* InstagramManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramManagerTests.swift; sourceTree = "<group>"; };
+		591D08891C30FECA001DEAC0 /* PhotosCollectionVCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionVCTest.swift; sourceTree = "<group>"; };
 		591F008B1B974D4600452D86 /* TryReloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TryReloadView.swift; sourceTree = "<group>"; };
 		591F008D1B974DDB00452D86 /* TryReloadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TryReloadView.xib; sourceTree = "<group>"; };
 		5921B8411B3712D800FE739D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -122,6 +148,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		591D08701C30FE45001DEAC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		595101A41B19EB8E006F2F65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,6 +207,21 @@
 			name = extension;
 			sourceTree = "<group>";
 		};
+		591D08741C30FE45001DEAC0 /* PhotofullyTests */ = {
+			isa = PBXGroup;
+			children = (
+				591D087D1C30FEC0001DEAC0 /* FullScreenPictureDataSourceInitilizeTest.swift */,
+				591D087E1C30FEC0001DEAC0 /* FullScreenPictureDataSourceTest.swift */,
+				591D087F1C30FEC0001DEAC0 /* GestureConteinerTests.swift */,
+				591D08801C30FEC0001DEAC0 /* GestureInstructionManagerTests.swift */,
+				591D08811C30FEC0001DEAC0 /* ImageUtilTest.swift */,
+				591D08871C30FECA001DEAC0 /* InstagramManagerTests.swift */,
+				591D08891C30FECA001DEAC0 /* PhotosCollectionVCTest.swift */,
+				591D08771C30FE45001DEAC0 /* Info.plist */,
+			);
+			path = PhotofullyTests;
+			sourceTree = "<group>";
+		};
 		593E3C5C1C0F4A11009F6A34 /* grid */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +248,7 @@
 			children = (
 				590413511BA5288D00100068 /* Localizable.strings */,
 				595101A91B19EB8E006F2F65 /* Photofully */,
+				591D08741C30FE45001DEAC0 /* PhotofullyTests */,
 				595101A81B19EB8E006F2F65 /* Products */,
 				E3290B68C226A43311D121B2 /* Pods */,
 				CB18B5850265EC3D4DAE6E18 /* Frameworks */,
@@ -210,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				595101A71B19EB8E006F2F65 /* Photofully.app */,
+				591D08731C30FE45001DEAC0 /* PhotofullyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -302,6 +352,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		591D08721C30FE45001DEAC0 /* PhotofullyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 591D087C1C30FE45001DEAC0 /* Build configuration list for PBXNativeTarget "PhotofullyTests" */;
+			buildPhases = (
+				591D086F1C30FE45001DEAC0 /* Sources */,
+				591D08701C30FE45001DEAC0 /* Frameworks */,
+				591D08711C30FE45001DEAC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				591D08791C30FE45001DEAC0 /* PBXTargetDependency */,
+			);
+			name = PhotofullyTests;
+			productName = PhotofullyTests;
+			productReference = 591D08731C30FE45001DEAC0 /* PhotofullyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		595101A61B19EB8E006F2F65 /* Photofully */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 595101C61B19EB8E006F2F65 /* Build configuration list for PBXNativeTarget "Photofully" */;
@@ -331,10 +399,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Kenichiro Sato";
 				TargetAttributes = {
+					591D08721C30FE45001DEAC0 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 595101A61B19EB8E006F2F65;
+					};
 					595101A61B19EB8E006F2F65 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = H2W9ZJ8C83;
@@ -356,11 +428,19 @@
 			projectRoot = "";
 			targets = (
 				595101A61B19EB8E006F2F65 /* Photofully */,
+				591D08721C30FE45001DEAC0 /* PhotofullyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		591D08711C30FE45001DEAC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		595101A51B19EB8E006F2F65 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,6 +532,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		591D086F1C30FE45001DEAC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				591D08821C30FEC0001DEAC0 /* FullScreenPictureDataSourceInitilizeTest.swift in Sources */,
+				591D08851C30FEC0001DEAC0 /* GestureInstructionManagerTests.swift in Sources */,
+				591D08861C30FEC0001DEAC0 /* ImageUtilTest.swift in Sources */,
+				591D08831C30FEC0001DEAC0 /* FullScreenPictureDataSourceTest.swift in Sources */,
+				591D088A1C30FECA001DEAC0 /* InstagramManagerTests.swift in Sources */,
+				591D08841C30FEC0001DEAC0 /* GestureConteinerTests.swift in Sources */,
+				591D088C1C30FECA001DEAC0 /* PhotosCollectionVCTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		595101A31B19EB8E006F2F65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -505,6 +599,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		591D08791C30FE45001DEAC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 595101A61B19EB8E006F2F65 /* Photofully */;
+			targetProxy = 591D08781C30FE45001DEAC0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		590413511BA5288D00100068 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -534,6 +636,33 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		591D087A1C30FE45001DEAC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = PhotofullyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capken.PhotofullyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photofully.app/Photofully";
+			};
+			name = Debug;
+		};
+		591D087B1C30FE45001DEAC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PhotofullyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.capken.PhotofullyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photofully.app/Photofully";
+			};
+			name = Release;
+		};
 		595101C41B19EB8E006F2F65 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -651,6 +780,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		591D087C1C30FE45001DEAC0 /* Build configuration list for PBXNativeTarget "PhotofullyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				591D087A1C30FE45001DEAC0 /* Debug */,
+				591D087B1C30FE45001DEAC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		595101A21B19EB8D006F2F65 /* Build configuration list for PBXProject "Photofully" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
