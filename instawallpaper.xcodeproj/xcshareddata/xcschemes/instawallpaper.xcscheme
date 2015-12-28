@@ -20,20 +20,6 @@
                ReferencedContainer = "container:instawallpaper.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "595101BB1B19EB8E006F2F65"
-               BuildableName = "instawallpaperTests.xctest"
-               BlueprintName = "instawallpaperTests"
-               ReferencedContainer = "container:instawallpaper.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -42,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "595101BB1B19EB8E006F2F65"
-               BuildableName = "instawallpaperTests.xctest"
-               BlueprintName = "instawallpaperTests"
-               ReferencedContainer = "container:instawallpaper.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5942CE931BE261FC00966D64"
-               BuildableName = "instawallpaperUITests.xctest"
-               BlueprintName = "instawallpaperUITests"
-               ReferencedContainer = "container:instawallpaper.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
