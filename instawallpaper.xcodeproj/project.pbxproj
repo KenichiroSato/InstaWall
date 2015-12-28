@@ -66,9 +66,7 @@
 		0C30FA4A1BFDE5B300F0CC73 /* FullScreenPictureDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureDataSource.swift; sourceTree = "<group>"; };
 		0C4E09051C184931009E7A4B /* GestureInstructionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureInstructionManager.swift; sourceTree = "<group>"; };
 		0C71AA291B4BFEDB00710E96 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		0CC4B5A41C19927A006D9BB4 /* GestureInstructionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureInstructionManagerTests.swift; sourceTree = "<group>"; };
 		0CC4B5A61C19AA8D006D9BB4 /* GestureContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureContainer.swift; sourceTree = "<group>"; };
-		0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtilTest.swift; sourceTree = "<group>"; };
 		0CE915081B4EAE1D009551EE /* SegmentedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedVC.swift; sourceTree = "<group>"; };
 		15B3F7EA7D980B34D0A18414 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D614AB61B2413D700B3CE59 /* TimeTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
@@ -87,24 +85,16 @@
 		591F008B1B974D4600452D86 /* TryReloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TryReloadView.swift; sourceTree = "<group>"; };
 		591F008D1B974DDB00452D86 /* TryReloadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TryReloadView.xib; sourceTree = "<group>"; };
 		5921B8411B3712D800FE739D /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		593E3C5E1C10A040009F6A34 /* InstagramManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramManagerTests.swift; sourceTree = "<group>"; };
 		593E3C601C127FEE009F6A34 /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
-		593E3C621C129C3E009F6A34 /* FullScreenPictureDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureDataSourceTest.swift; sourceTree = "<group>"; };
-		593E3C641C12D882009F6A34 /* FullScreenPictureDataSourceInitilizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureDataSourceInitilizeTest.swift; sourceTree = "<group>"; };
 		5940F5051B90A34800822980 /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		5940F5071B91A63800822980 /* UserDefaultKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
-		5942CE961BE261FC00966D64 /* instawallpaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instawallpaperUITests.swift; sourceTree = "<group>"; };
-		5942CE981BE261FC00966D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101A71B19EB8E006F2F65 /* instawallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instawallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		595101AB1B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		595101AC1B19EB8E006F2F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		595101B11B19EB8E006F2F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		595101B31B19EB8E006F2F65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		595101B61B19EB8E006F2F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		595101C11B19EB8E006F2F65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instawallpaperTests.swift; sourceTree = "<group>"; };
 		595101CC1B1A87D7006F2F65 /* ImageUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
-		5952D5E01BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionVCTest.swift; sourceTree = "<group>"; };
 		5952D5F01BF721B900FDAAFD /* FullScreenPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureVC.swift; sourceTree = "<group>"; };
 		5952D5F21BF7316700FDAAFD /* FullScreenCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenCollectionViewLayout.swift; sourceTree = "<group>"; };
 		5952D5F41BF82C3200FDAAFD /* FullScreenPictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPictureCell.swift; sourceTree = "<group>"; };
@@ -124,7 +114,6 @@
 		597AD77E1B36432300E087B4 /* UIAlertController+show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+show.swift"; sourceTree = "<group>"; };
 		597D0B2C1C1BC21200935E4C /* UIViewController+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		599C44271BE3AC2C00160BA5 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
-		59A224C41C1DB1C40050D91A /* GestureConteinerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureConteinerTests.swift; sourceTree = "<group>"; };
 		59B5A6431C1D63CB0014FF99 /* GestureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureView.swift; sourceTree = "<group>"; };
 		59FDC0091B555F1700E28AB5 /* ContentBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBaseVC.swift; sourceTree = "<group>"; };
 		59FDC00E1B5C999700E28AB5 /* UIImage+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
@@ -206,22 +195,11 @@
 			name = contentLoader;
 			sourceTree = "<group>";
 		};
-		5942CE951BE261FC00966D64 /* instawallpaperUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5942CE961BE261FC00966D64 /* instawallpaperUITests.swift */,
-				5942CE981BE261FC00966D64 /* Info.plist */,
-			);
-			path = instawallpaperUITests;
-			sourceTree = "<group>";
-		};
 		5951019E1B19EB8D006F2F65 = {
 			isa = PBXGroup;
 			children = (
 				590413511BA5288D00100068 /* Localizable.strings */,
 				595101A91B19EB8E006F2F65 /* instawallpaper */,
-				595101BF1B19EB8E006F2F65 /* instawallpaperTests */,
-				5942CE951BE261FC00966D64 /* instawallpaperUITests */,
 				595101A81B19EB8E006F2F65 /* Products */,
 				E3290B68C226A43311D121B2 /* Pods */,
 				CB18B5850265EC3D4DAE6E18 /* Frameworks */,
@@ -267,30 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				595101AB1B19EB8E006F2F65 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		595101BF1B19EB8E006F2F65 /* instawallpaperTests */ = {
-			isa = PBXGroup;
-			children = (
-				595101C21B19EB8E006F2F65 /* instawallpaperTests.swift */,
-				0CC4B5A41C19927A006D9BB4 /* GestureInstructionManagerTests.swift */,
-				0CD2A6A21B29AFB200FD111E /* ImageUtilTest.swift */,
-				593E3C621C129C3E009F6A34 /* FullScreenPictureDataSourceTest.swift */,
-				593E3C641C12D882009F6A34 /* FullScreenPictureDataSourceInitilizeTest.swift */,
-				59A224C41C1DB1C40050D91A /* GestureConteinerTests.swift */,
-				5952D5E01BF6DB4200FDAAFD /* PhotosCollectionVCTest.swift */,
-				593E3C5E1C10A040009F6A34 /* InstagramManagerTests.swift */,
-				595101C01B19EB8E006F2F65 /* Supporting Files */,
-			);
-			path = instawallpaperTests;
-			sourceTree = "<group>";
-		};
-		595101C01B19EB8E006F2F65 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				595101C11B19EB8E006F2F65 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
