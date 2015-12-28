@@ -1,6 +1,6 @@
 //
 //  LoginVC.swift
-//  instawallpaper
+//  Photofully
 //
 //  Created by Kenichiro Sato on 2015/06/22.
 //  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.

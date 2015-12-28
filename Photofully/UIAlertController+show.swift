@@ -1,6 +1,6 @@
 //
 //  UIAlertController+show.swift
-//  instawallpaper
+//  Photofully
 //
 //  Created by Kenichiro on 2015/06/21.
 //  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.

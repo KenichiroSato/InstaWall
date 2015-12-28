@@ -1,6 +1,6 @@
 //
 //  UIScrollView+hit.swift
-//  instawallpaper
+//  Photofully
 //
 //  Created by Kenichiro Sato on 2015/06/27.
 //  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.

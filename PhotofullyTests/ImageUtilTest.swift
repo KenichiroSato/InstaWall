@@ -1,6 +1,6 @@
 //
 //  ImageUtilTest.swift
-//  instawallpaper
+//  Photofully
 //
 //  Created by 2ndDisplay on 2015/06/11.
 //  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  GestureInstructionManager.swift
-//  instawallpaper
+//  Photofully
 //
 //  Created by 2ndDisplay on 2015/12/10.
 //  Copyright © 2015年 Kenichiro Sato. All rights reserved.

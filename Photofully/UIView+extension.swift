@@ -1,6 +1,6 @@
 //
 //  UIView+extension.swift
-//  instawallpaper
+//  Photofully
 //
 //  Created by Kenichiro Sato on 2015/08/28.
 //  Copyright (c) 2015年 Kenichiro Sato. All rights reserved.

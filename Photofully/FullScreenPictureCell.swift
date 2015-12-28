@@ -1,6 +1,6 @@
 //
 //  FullScreenPictureCell.swift
-//  instawallpaper
+//  Photofully
 //
 //  Created by Kenichiro Sato on 2015/11/15.
 //  Copyright © 2015年 Kenichiro Sato. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  RootNavigationController.swift
-//  instawallpaper
+//  Photofully
 //
 //  Created by Kenichiro Sato on 2015/12/27.
 //  Copyright © 2015年 Kenichiro Sato. All rights reserved.
