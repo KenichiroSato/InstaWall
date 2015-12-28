@@ -38,7 +38,7 @@ DIR_SUFFIX = ".lproj"
 OUT_NAME = "Localizable.strings"
 IGNORED_ID = set()
 TEXT_SWIFT_NAME = "Text.swift"
-TEXT_SWIFT_DIR = "../instawallpaper/"
+TEXT_SWIFT_DIR = "../Photofully/"
 
 def load_csv(file_path):
     """

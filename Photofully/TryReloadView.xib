@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TryReloadView" customModule="instawallpaper" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TryReloadView" customModule="Photofully" customModuleProvider="target">
             <connections>
                 <outlet property="indicator" destination="HgW-J9-7Cz" id="9CS-pI-ul4"/>
                 <outlet property="reloadImage" destination="k6H-VQ-qno" id="tlR-WX-Lyq"/>

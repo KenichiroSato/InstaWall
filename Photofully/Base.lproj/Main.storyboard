@@ -10,7 +10,7 @@
         <!--WelcomeVC-->
         <scene sceneID="vSa-WJ-tvl">
             <objects>
-                <viewController storyboardIdentifier="WelcomeVC" id="nT3-Cc-woI" customClass="WelcomeVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeVC" id="nT3-Cc-woI" customClass="WelcomeVC" customModule="Photofully" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CAD-EO-4fG"/>
                         <viewControllerLayoutGuide type="bottom" id="FCo-E0-rrA"/>
@@ -74,7 +74,7 @@
         <!--SegmentedVC-->
         <scene sceneID="d0R-ym-QQz">
             <objects>
-                <viewController storyboardIdentifier="SegmentedVC" id="jRu-61-krm" customClass="SegmentedVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SegmentedVC" id="jRu-61-krm" customClass="SegmentedVC" customModule="Photofully" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M0d-1q-IfR"/>
                         <viewControllerLayoutGuide type="bottom" id="Id7-pC-snC"/>
@@ -118,7 +118,7 @@
         <!--Grid PictureVC-->
         <scene sceneID="qXb-TW-vat">
             <objects>
-                <viewController storyboardIdentifier="GridPictureVC" id="I6D-lS-mwe" customClass="GridPictureVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GridPictureVC" id="I6D-lS-mwe" customClass="GridPictureVC" customModule="Photofully" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8dM-lw-Yak"/>
                         <viewControllerLayoutGuide type="bottom" id="SuC-rE-Gmt"/>
@@ -137,7 +137,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PictureCell" id="yUj-em-Jyo" customClass="PictureCell" customModule="instawallpaper" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PictureCell" id="yUj-em-Jyo" customClass="PictureCell" customModule="Photofully" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -170,7 +170,7 @@
                                     <outlet property="delegate" destination="I6D-lS-mwe" id="Frs-wa-RTP"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" restorationIdentifier="TryReloadView" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-ic-uVI" customClass="TryReloadView" customModule="instawallpaper" customModuleProvider="target">
+                            <view contentMode="scaleToFill" restorationIdentifier="TryReloadView" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-ic-uVI" customClass="TryReloadView" customModule="Photofully" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -199,7 +199,7 @@
         <!--Home ContentVC-->
         <scene sceneID="dzw-np-ojH">
             <objects>
-                <viewController storyboardIdentifier="HomeContentVC" id="E4S-6u-Cbr" customClass="HomeContentVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeContentVC" id="E4S-6u-Cbr" customClass="HomeContentVC" customModule="Photofully" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yp4-SA-e9t"/>
                         <viewControllerLayoutGuide type="bottom" id="W60-W5-A4K"/>
@@ -260,7 +260,7 @@
         <!--Root Navigation Controller-->
         <scene sceneID="24Y-FV-Jzk">
             <objects>
-                <navigationController navigationBarHidden="YES" id="ln7-NZ-e4U" customClass="RootNavigationController" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="ln7-NZ-e4U" customClass="RootNavigationController" customModule="Photofully" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="v3d-5D-G38">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -273,7 +273,7 @@
         <!--LoginVC-->
         <scene sceneID="pA4-qB-q2a">
             <objects>
-                <viewController id="GQ8-yT-oa2" customClass="LoginVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GQ8-yT-oa2" customClass="LoginVC" customModule="Photofully" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="csW-Ku-mc2"/>
                         <viewControllerLayoutGuide type="bottom" id="rKC-dR-Tg8"/>
@@ -282,7 +282,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="By tapping &quot;Log in&quot;, you are indicating that you have read the Privacy Policy and agree to the Terms of Servce of Instagram." translatesAutoresizingMaskIntoConstraints="NO" id="VMa-Kp-fb3" customClass="EulaPpMessageTextView" customModule="instawallpaper" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="By tapping &quot;Log in&quot;, you are indicating that you have read the Privacy Policy and agree to the Terms of Servce of Instagram." translatesAutoresizingMaskIntoConstraints="NO" id="VMa-Kp-fb3" customClass="EulaPpMessageTextView" customModule="Photofully" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="560" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -341,12 +341,12 @@
         <!--Full Screen PictureVC-->
         <scene sceneID="IAW-6T-UeE">
             <objects>
-                <viewController id="0go-gA-Olp" customClass="FullScreenPictureVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0go-gA-Olp" customClass="FullScreenPictureVC" customModule="Photofully" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="51F-cV-dOn"/>
                         <viewControllerLayoutGuide type="bottom" id="dji-de-9iR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Afi-T5-64Z" customClass="GradationView" customModule="instawallpaper" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="Afi-T5-64Z" customClass="GradationView" customModule="Photofully" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -387,7 +387,7 @@
         <!--Search ContentVC-->
         <scene sceneID="Kav-gf-aE2">
             <objects>
-                <viewController storyboardIdentifier="SearchContentVC" id="0c2-gJ-dWc" customClass="SearchContentVC" customModule="instawallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchContentVC" id="0c2-gJ-dWc" customClass="SearchContentVC" customModule="Photofully" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HrI-dq-iuB"/>
                         <viewControllerLayoutGuide type="bottom" id="mLb-vV-Njk"/>
